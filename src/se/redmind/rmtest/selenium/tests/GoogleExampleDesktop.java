@@ -32,7 +32,7 @@ public class GoogleExampleDesktop {
 	    }
 	    
 	    private static Object[] getDrivers() {
-	        return DriverProvider.getDrivers(Platform.ANDROID);
+	        return DriverProvider.getDrivers("browserName", "chrome");
 
 	    }
 
@@ -49,7 +49,7 @@ public class GoogleExampleDesktop {
 
 
     @Test
-    public void testGoogle(DriverNamingWrapper driverWrapper) throws Exception {
+    public void testGoogle() throws Exception {
         WebDriver driver = driverWrapper.getDriver();
                 
         // And now use this to visit Google
@@ -64,18 +64,6 @@ public class GoogleExampleDesktop {
         
         
     }
-    @Ignore
-    @Test
-    public void testAOS(DriverNamingWrapper driverWrapper) throws Exception {
-        WebDriver driver = driverWrapper.getDriver();
-        // And now use this to visit Google
-        driver.get("http://www.aos.se");
 
-        // Find the text input element by its name
-//        WebElement element = driver.findElement(By.name("q"));
-        System.out.println("Page title is: " + driver.getTitle());
-        assertTrue(driver.getTitle().startsWith("Allt om Stockholm"));
-    }
-    
 
 }

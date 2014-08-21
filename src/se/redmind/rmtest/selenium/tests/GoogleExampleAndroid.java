@@ -76,7 +76,7 @@ public class GoogleExampleAndroid{
     public void testAOS() throws Exception {
         tDriver = driverWrapper.getDriver();
         // And now use this to visit Google
-        tDriver.get("http://www.dn.se");
+        tDriver.get("http://www.aos.se");
 
         // Find the text input element by its name
 //        WebElement element = driver.findElement(By.name("q"));
