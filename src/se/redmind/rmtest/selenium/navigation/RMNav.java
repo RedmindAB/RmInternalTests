@@ -1,23 +1,14 @@
 package se.redmind.rmtest.selenium.navigation;
 
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-
 import com.google.common.base.Objects;
+
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import se.redmind.rmtest.selenium.framework.HTMLPage;
 
-import java.util.List;
-
 public class RMNav extends HTMLPage {
-	private WebDriver driver = getDriver();
 	private Actions builder;
 
 	/**
@@ -42,56 +33,62 @@ public class RMNav extends HTMLPage {
 		}
 	}
 	
-	public WebDriver getMobileDriver() {
-		return driver;
-	}
-
-	public String getCssSelector(String pText) {
-		String textString;
-		StringBuffer text = new StringBuffer(40);
-		
-		textString = text.append("a[href*='").append(pText).append("']").toString();
-		
-		return textString;
-	}
 	
 	public void clickOnMenu(String pMenuText) throws Exception {
 		System.out.println("Clicking: " + pMenuText);
+		driver.findElement(By.cssSelector(pMenuText)).click();
+		
+	}	
+	
+	
+	public void openTpi(String Menu, String SubMenu) throws Exception {
+		builder = new Actions(driver);
 
-		driver.findElement(By.cssSelector(getCssSelector(pMenuText))).click();
-		
+		builder.moveToElement(driver.findElement(By.id(Menu))).perform();
+
+		// System.out.println("Hovering over " + Menu);
+		Thread.sleep(2000L);
+		// System.out.println("Pressing " + SubMenu);
+		driver.findElement(By.id(SubMenu)).click();
+	}
+
+	public void openManag(String pMenu, String pSubMenu) throws Exception {
+		builder = new Actions(driver);
+		builder.moveToElement(driver.findElement(By.linkText(pMenu))).perform();
+
+		// System.out.println("Hovering over " + pMenu);
+		Thread.sleep(500L);
+		System.out.println("Pressing " + pSubMenu);
+		driver.findElement(By.linkText(pSubMenu)).click();
+	}
+
+	public void openRyk(String pText, String pSubText) throws Exception {
+		builder = new Actions(driver);
+		builder.moveToElement(driver.findElement(By.linkText(pText))).perform();
+
+		// System.out.println("Hovering over " + pMenu);
+		Thread.sleep(500L);
+		System.out.println("Pressing " + pSubText);
+		driver.findElement(By.linkText(pSubText)).click();
 	}
 	
-	public void openMobileMenu() throws Exception {
-		System.out.println("Opening menu");
-    	driver.findElement(By.className("mobile-menu-control")).click();
+	public void openClAc(String Text, String SubText) throws Exception {
+		builder = new Actions(driver);
+		builder.moveToElement(driver.findElement(By.linkText(Text))).perform();
+
+		// System.out.println("Hovering over " + pMenu);
+		Thread.sleep(500L);
+		System.out.println("Pressing " + SubText);
+		driver.findElement(By.linkText(SubText)).click();
 	}
 	
-	public void clickOnSubmenu(String pMenuText, String pSubMenuText) throws Exception {
-		Actions builder = new Actions(driver);
+	public void openKTj(String menu, String subMenu1, String subMenu2) throws Exception {
+		builder = new Actions(driver);
+		builder.moveToElement(driver.findElement(By.linkText(menu))).perform();
+		Thread.sleep(500L);
+		builder.moveToElement(driver.findElement(By.linkText(subMenu1))).perform();
+		Thread.sleep(500L);;
+		driver.findElement(By.linkText(subMenu2)).click();
 		
-		builder.moveToElement(driver.findElement(By.cssSelector(getCssSelector(pMenuText)))).perform();
-		
-		System.out.println("Hovering over " + pMenuText);
-		Thread.sleep(2000L);
-		System.out.println("Pressing " + pSubMenuText);
-		driver.findElement(By.cssSelector(getCssSelector(pSubMenuText))).click();
-	}
-	
-	public void clickOnSubmenu(String pMenuText, String pSubMenuText, String pSubSubMenuText) throws Exception {
-		Actions builder = new Actions(driver);
-		
-		builder.moveToElement(driver.findElement(By.cssSelector(getCssSelector(pMenuText)))).perform();
-		
-		System.out.println("Hovering over " + pMenuText);
-		Thread.sleep(2000L);
-		
-		builder.moveToElement(driver.findElement(By.cssSelector(getCssSelector(pSubMenuText)))).perform();
-		
-		System.out.println("Hovering over " + pSubMenuText);
-		Thread.sleep(2000L);
-		
-		System.out.println("Pressing " + pSubSubMenuText);
-		driver.findElement(By.cssSelector(getCssSelector(pSubSubMenuText))).click();
 	}
 }

@@ -12,7 +12,7 @@ import se.redmind.rmtest.selenium.grid.DriverProvider;
 public class MobileTestsExample {
     @BeforeClass
     public static void beforeAllTests(){
-        DriverProvider.startDrivers();
+//        DriverProvider.startDrivers();
     }
 
     

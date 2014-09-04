@@ -7,7 +7,7 @@ import org.junit.BeforeClass;
 
 
 import se.redmind.rmtest.selenium.grid.DriverProvider;
-import se.redmind.rmtest.selenium.tests.mobile.RMDemo;
+//import se.redmind.rmtest.selenium.tests.mobile.RMDemo;
 
 
 
@@ -16,7 +16,7 @@ import se.redmind.rmtest.selenium.tests.mobile.RMDemo;
 public class RMdemoSuite {
     @BeforeClass
     public static void beforeAllTests(){
-        DriverProvider.startDrivers();
+//        DriverProvider.startDrivers();
     }
 
     

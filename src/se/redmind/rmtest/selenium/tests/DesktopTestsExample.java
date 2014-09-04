@@ -14,7 +14,7 @@ import se.redmind.rmtest.selenium.grid.DriverProvider;
 public class DesktopTestsExample {
     @BeforeClass
     public static void beforeAllTests(){
-        DriverProvider.startDrivers();
+//        DriverProvider.startDrivers();
     }
 
     
