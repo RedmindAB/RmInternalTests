@@ -1,0 +1,3 @@
+[submodule "RMTest"]
+	path = RMTest
+	url = git@github.com:RedmindAB/RMTest.git
