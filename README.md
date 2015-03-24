@@ -1,4 +1,3 @@
-RmCustomerExample
-=================
 
-Examples for a customer adaption of the framework
+# RmInternalTests
+Here we have testcases for our internal products
