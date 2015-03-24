@@ -5,6 +5,9 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.BeforeClass;
 
+import se.redmind.rmtest.report.tests.GraphPage;
+import se.redmind.rmtest.report.tests.Screenshot;
+import se.redmind.rmtest.report.tests.StartPage;
 import se.redmind.rmtest.selenium.example.GoogleExample;
 import se.redmind.rmtest.selenium.grid.DriverProvider;
 
@@ -12,8 +15,8 @@ import se.redmind.rmtest.selenium.grid.DriverProvider;
 
 
 @RunWith(Suite.class)
-@Suite.SuiteClasses( {GoogleExample.class})
-public class GoogleTests {
+@Suite.SuiteClasses( {GraphPage.class, Screenshot.class, StartPage.class})
+public class RMReportSuite {
     @BeforeClass
     public static void beforeAllTests(){
         

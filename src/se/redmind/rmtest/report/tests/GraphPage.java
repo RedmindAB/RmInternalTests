@@ -1,4 +1,4 @@
-package se.redmind.rmtest.selenium.example;
+package se.redmind.rmtest.report.tests;
 
 import static org.junit.Assert.assertTrue;
 
@@ -22,7 +22,7 @@ import se.redmind.rmtest.selenium.grid.Parallelized;
 
 
 @RunWith(Parallelized.class)
-public class GoogleExample {
+public class GraphPage {
 
 
 	   private WebDriver tDriver;
@@ -31,7 +31,7 @@ public class GoogleExample {
 	    private final RMReportScreenshot rmrScreenshot;
 //		private HTMLPage navPage;
 
-	    public GoogleExample(final DriverNamingWrapper driverWrapper, final String driverDescription) {
+	    public GraphPage(final DriverNamingWrapper driverWrapper, final String driverDescription) {
 	        this.urlContainer = driverWrapper;
 	        this.driverDescription = driverDescription;
 	        this.rmrScreenshot = new RMReportScreenshot(urlContainer);
@@ -57,7 +57,7 @@ public class GoogleExample {
 
 	    @AfterClass
 	    public static void afterTest(){
-	    	DriverProvider.stopDrivers();
+//	    	DriverProvider.stopDrivers();
 	    }
 	    
 
