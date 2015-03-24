@@ -27,4 +27,5 @@ public class RMReportSuite {
     public static void afterAllTests(){
         DriverProvider.stopDrivers();
     }
+    
 }

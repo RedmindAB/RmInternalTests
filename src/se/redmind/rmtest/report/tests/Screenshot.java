@@ -12,6 +12,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.openqa.selenium.WebDriver;
 
+import se.redmind.rmtest.report.nav.ScreenshotNav;
 import se.redmind.rmtest.selenium.framework.HTMLPage;
 import se.redmind.rmtest.selenium.framework.RMReportScreenshot;
 import se.redmind.rmtest.selenium.framework.StackTraceInfo;
@@ -29,7 +30,7 @@ public class Screenshot {
 	    private final DriverNamingWrapper urlContainer;
 	    private final String driverDescription;
 	    private final RMReportScreenshot rmrScreenshot;
-//		private HTMLPage navPage;
+	    private ScreenshotNav nav;
 
 	    public Screenshot(final DriverNamingWrapper driverWrapper, final String driverDescription) {
 	        this.urlContainer = driverWrapper;
@@ -64,43 +65,12 @@ public class Screenshot {
 	    @Before
 	    public void beforeTest(){
 	    	this.tDriver = this.urlContainer.startDriver();
+	    	this.nav = new ScreenshotNav(tDriver);
 	    }
 	    
-    @Test
-    public void testGoogle() throws Exception {
-    	HTMLPage navPage = new HTMLPage(this.tDriver);
-        
-        navPage.getDriver().get("http://www.babspaylink.se/");
-        // Find the text input element by its name
-
-        System.out.println("Page title is: " + navPage.getTitle());
-        
-        assertTrue(navPage.getTitle().startsWith("B"));
-        
-        
-        navPage.takeScreenshot(StackTraceInfo.getCurrentMethodName() + "_" + urlContainer.getDescription().replace(" ", "-"));
-        new RMReportScreenshot(urlContainer).takeScreenshot(null);
-        new RMReportScreenshot(urlContainer).takeScreenshot("first");
-        new RMReportScreenshot(urlContainer).takeScreenshot("after");
-        System.out.println("Done!");   
-        
-    }
-    @Test
-    public void testGoogle2() throws Exception {
-    	HTMLPage navPage = new HTMLPage(this.tDriver);
-        
-    	navPage.getDriver().get("http://www.google.se");
-        // Find the text input element by its name
-
-        System.out.println("Page title is: " + navPage.getTitle());
-        
-        assertTrue(navPage.getTitle().startsWith("Goo"));
-        
-        
-        navPage.takeScreenshot(StackTraceInfo.getCurrentMethodName() + "_" + urlContainer.getDescription().replace(" ", "-"));
-        new RMReportScreenshot(urlContainer).takeScreenshot("");
-        System.out.println("Done!");        
-        
-    }
+	    @Test
+	    public void test(){
+	    	assertTrue(true);
+	    }
 
 }

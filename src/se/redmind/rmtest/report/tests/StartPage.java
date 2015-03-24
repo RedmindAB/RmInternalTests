@@ -1,6 +1,6 @@
 package se.redmind.rmtest.report.tests;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -11,10 +11,10 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
-import se.redmind.rmtest.selenium.framework.HTMLPage;
+import se.redmind.rmtest.report.nav.StartNav;
 import se.redmind.rmtest.selenium.framework.RMReportScreenshot;
-import se.redmind.rmtest.selenium.framework.StackTraceInfo;
 import se.redmind.rmtest.selenium.grid.DriverNamingWrapper;
 import se.redmind.rmtest.selenium.grid.DriverProvider;
 import se.redmind.rmtest.selenium.grid.Parallelized;
@@ -29,7 +29,7 @@ public class StartPage {
 	    private final DriverNamingWrapper urlContainer;
 	    private final String driverDescription;
 	    private final RMReportScreenshot rmrScreenshot;
-//		private HTMLPage navPage;
+	    private StartNav nav;
 
 	    public StartPage(final DriverNamingWrapper driverWrapper, final String driverDescription) {
 	        this.urlContainer = driverWrapper;
@@ -64,43 +64,29 @@ public class StartPage {
 	    @Before
 	    public void beforeTest(){
 	    	this.tDriver = this.urlContainer.startDriver();
+	    	this.nav = new StartNav(this.tDriver);
 	    }
 	    
-    @Test
-    public void testGoogle() throws Exception {
-    	HTMLPage navPage = new HTMLPage(this.tDriver);
-        
-        navPage.getDriver().get("http://www.babspaylink.se/");
-        // Find the text input element by its name
-
-        System.out.println("Page title is: " + navPage.getTitle());
-        
-        assertTrue(navPage.getTitle().startsWith("B"));
-        
-        
-        navPage.takeScreenshot(StackTraceInfo.getCurrentMethodName() + "_" + urlContainer.getDescription().replace(" ", "-"));
-        new RMReportScreenshot(urlContainer).takeScreenshot(null);
-        new RMReportScreenshot(urlContainer).takeScreenshot("first");
-        new RMReportScreenshot(urlContainer).takeScreenshot("after");
-        System.out.println("Done!");   
-        
-    }
-    @Test
-    public void testGoogle2() throws Exception {
-    	HTMLPage navPage = new HTMLPage(this.tDriver);
-        
-    	navPage.getDriver().get("http://www.google.se");
-        // Find the text input element by its name
-
-        System.out.println("Page title is: " + navPage.getTitle());
-        
-        assertTrue(navPage.getTitle().startsWith("Goo"));
-        
-        
-        navPage.takeScreenshot(StackTraceInfo.getCurrentMethodName() + "_" + urlContainer.getDescription().replace(" ", "-"));
-        new RMReportScreenshot(urlContainer).takeScreenshot("");
-        System.out.println("Done!");        
-        
-    }
+	    @Test
+	    public void isRedmindLogoPresent(){
+	    	WebElement redmindlogo = this.nav.getRedmindLogo();
+	    	new RMReportScreenshot(urlContainer).takeScreenshot("logo");
+	    	assertTrue(redmindlogo.isDisplayed());
+	    }
+	    
+	    @Test
+	    public void isScreenshotPresent(){
+	    	WebElement screenshot = this.nav.getScreenshot();
+	    	new RMReportScreenshot(urlContainer).takeScreenshot("logo");
+	    	assertTrue(screenshot.isDisplayed());
+	    }
+	    
+	    @Test
+	    public void isGraphViewPresent(){
+	    	WebElement graphView = this.nav.getGraphView();
+	    	new RMReportScreenshot(urlContainer).takeScreenshot("logo");
+	    	assertTrue(graphView.isDisplayed());
+	    }
+	    
 
 }

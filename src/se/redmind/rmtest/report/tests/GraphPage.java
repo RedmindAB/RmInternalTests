@@ -1,6 +1,6 @@
 package se.redmind.rmtest.report.tests;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -12,9 +12,9 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.openqa.selenium.WebDriver;
 
-import se.redmind.rmtest.selenium.framework.HTMLPage;
+import se.redmind.rmtest.report.nav.Chart;
+import se.redmind.rmtest.report.nav.GraphNav;
 import se.redmind.rmtest.selenium.framework.RMReportScreenshot;
-import se.redmind.rmtest.selenium.framework.StackTraceInfo;
 import se.redmind.rmtest.selenium.grid.DriverNamingWrapper;
 import se.redmind.rmtest.selenium.grid.DriverProvider;
 import se.redmind.rmtest.selenium.grid.Parallelized;
@@ -29,7 +29,7 @@ public class GraphPage {
 	    private final DriverNamingWrapper urlContainer;
 	    private final String driverDescription;
 	    private final RMReportScreenshot rmrScreenshot;
-//		private HTMLPage navPage;
+	    private GraphNav nav;
 
 	    public GraphPage(final DriverNamingWrapper driverWrapper, final String driverDescription) {
 	        this.urlContainer = driverWrapper;
@@ -51,7 +51,6 @@ public class GraphPage {
 	        for (int i = 0; i < wrapperList.length; i++) {
 	            returnList.add(new Object[]{wrapperList[i], wrapperList[i].toString()});
 	        }
-
 	        return returnList;
 	    }
 
@@ -64,43 +63,52 @@ public class GraphPage {
 	    @Before
 	    public void beforeTest(){
 	    	this.tDriver = this.urlContainer.startDriver();
+	    	this.nav = new GraphNav(tDriver);
 	    }
 	    
-    @Test
-    public void testGoogle() throws Exception {
-    	HTMLPage navPage = new HTMLPage(this.tDriver);
-        
-        navPage.getDriver().get("http://www.babspaylink.se/");
-        // Find the text input element by its name
+	    @Test
+	    public void nrSuiteRunsPresent(){
+	    	boolean displayed = nav.getNumberOfSuiteRunsButton().isDisplayed();
+	    	assertTrue(displayed);
+	    }
+	    
+	    @Test
+	    public void nrAddGraphLinePresent(){
+	    	boolean displayed = nav.getAddGraphLine().isDisplayed();
+	    	assertTrue(displayed);
+	    }
+	    
+	    @Test
+	    public void reloadButtonPresent(){
+	    	boolean displayed = nav.getReload().isDisplayed();
+	    	assertTrue(displayed);
+	    }
 
-        System.out.println("Page title is: " + navPage.getTitle());
-        
-        assertTrue(navPage.getTitle().startsWith("B"));
-        
-        
-        navPage.takeScreenshot(StackTraceInfo.getCurrentMethodName() + "_" + urlContainer.getDescription().replace(" ", "-"));
-        new RMReportScreenshot(urlContainer).takeScreenshot(null);
-        new RMReportScreenshot(urlContainer).takeScreenshot("first");
-        new RMReportScreenshot(urlContainer).takeScreenshot("after");
-        System.out.println("Done!");   
-        
-    }
-    @Test
-    public void testGoogle2() throws Exception {
-    	HTMLPage navPage = new HTMLPage(this.tDriver);
-        
-    	navPage.getDriver().get("http://www.google.se");
-        // Find the text input element by its name
-
-        System.out.println("Page title is: " + navPage.getTitle());
-        
-        assertTrue(navPage.getTitle().startsWith("Goo"));
-        
-        
-        navPage.takeScreenshot(StackTraceInfo.getCurrentMethodName() + "_" + urlContainer.getDescription().replace(" ", "-"));
-        new RMReportScreenshot(urlContainer).takeScreenshot("");
-        System.out.println("Done!");        
-        
-    }
-
+	    @Test
+	    public void chooseGraphViewPresent(){
+	    	boolean displayed = nav.getChooseGraphView().isDisplayed();
+	    	assertTrue(displayed);
+	    }
+	    
+	    @Test
+	    public void chooseBreakPointPresent(){
+	    	boolean displayed = nav.getChooseBreakPoint().isDisplayed();
+	    	assertTrue(displayed);
+	    }
+	    
+	    @Test
+	    public void assertChartSizeTo50(){
+	    	Chart chart = nav.getChart();
+	    	chart.getGraphResultSize();
+	    	assertEquals(50, chart.getGraphResultSize());
+	    }
+	    
+	    @Test
+	    public void assertChartSizeTo100(){
+	    	nav.changeChartSuiteRunLimit(100);
+	    	nav.reloadGraph();
+	    	Chart chart = nav.getChart();
+	    	chart.getGraphResultSize();
+	    	assertEquals(100, chart.getGraphResultSize());
+	    }
 }
