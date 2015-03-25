@@ -10,6 +10,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 
 import se.redmind.rmtest.report.nav.Chart;
@@ -40,7 +41,7 @@ public class GraphPage {
 	    private static Object[] getDrivers() {
 //	        return DriverProvider.getDrivers("rmDeviceType", "mobile");
 //	    	return DriverProvider.getDrivers(Platform.ANDROID);
-	    	return DriverProvider.getDrivers();
+	    	return DriverProvider.getDrivers(Platform.MAC);
 
 	    }
 
@@ -99,7 +100,6 @@ public class GraphPage {
 	    @Test
 	    public void assertChartSizeTo50(){
 	    	Chart chart = nav.getChart();
-	    	chart.getGraphResultSize();
 	    	assertEquals(50, chart.getGraphResultSize());
 	    }
 	    
@@ -110,5 +110,33 @@ public class GraphPage {
 	    	Chart chart = nav.getChart();
 	    	chart.getGraphResultSize();
 	    	assertEquals(100, chart.getGraphResultSize());
+	    }
+	    
+	    @Test
+	    public void assertChartSizeTo10(){
+	    	nav.changeChartSuiteRunLimit(10);
+	    	nav.reloadGraph();
+	    	Chart chart = nav.getChart();
+	    	chart.getGraphResultSize();
+	    	assertEquals(10, chart.getGraphResultSize());
+	    }
+	    
+	    @Test
+	    public void assertChartSizeTo20(){
+	    	nav.changeChartSuiteRunLimit(20);
+	    	nav.reloadGraph();
+	    	Chart chart = nav.getChart();
+	    	chart.getGraphResultSize();
+	    	assertEquals(20, chart.getGraphResultSize());
+	    }
+	    
+	    @Test
+	    public void assertChartSizeTo200(){
+	    	nav.changeChartSuiteRunLimit(500);
+	    	nav.reloadGraph();
+	    	Chart chart = nav.getChart();
+	    	chart.getGraphResultSize();
+	    	//There are only 200 results in this suite, so the result should be 200
+	    	assertEquals(200, chart.getGraphResultSize());
 	    }
 }

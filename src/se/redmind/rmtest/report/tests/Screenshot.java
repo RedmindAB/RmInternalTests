@@ -10,6 +10,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 
 import se.redmind.rmtest.report.nav.ScreenshotNav;
@@ -41,7 +42,7 @@ public class Screenshot {
 	    private static Object[] getDrivers() {
 //	        return DriverProvider.getDrivers("rmDeviceType", "mobile");
 //	    	return DriverProvider.getDrivers(Platform.ANDROID);
-	    	return DriverProvider.getDrivers();
+	    	return DriverProvider.getDrivers(Platform.MAC);
 
 	    }
 
