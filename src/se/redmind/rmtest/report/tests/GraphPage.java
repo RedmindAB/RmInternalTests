@@ -134,9 +134,7 @@ public class GraphPage {
 	    public void assertChartSizeTo200(){
 	    	nav.changeChartSuiteRunLimit(500);
 	    	nav.reloadGraph();
-	    	Chart chart = nav.getChart();
-	    	chart.getGraphResultSize();
 	    	//There are only 200 results in this suite, so the result should be 200
-	    	assertEquals(200, chart.getGraphResultSize());
+	    	assertEquals(200, nav.getChart().getGraphResultSize());
 	    }
 }
