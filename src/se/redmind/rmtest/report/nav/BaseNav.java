@@ -11,7 +11,7 @@ abstract class BaseNav extends HTMLPage{
 
 	public BaseNav(WebDriver pDriver) {
 		super(pDriver);
-		this.driver.get("http://localhost:4567");
+		this.driver.get("http://localhost:6789");
 		initialWait();
 		navigate();
 	}
