@@ -40,8 +40,7 @@ public class VisualNav extends BaseNav{
 		boolean isDisabled = false;
 		WebElement list = driver.findElement(By.id(NavID));
 		String disabled = list.getAttribute("class");
-		System.out.println("Disabled is: " + disabled);
-		if(disabled.equals("visual disabled")){
+		if(disabled.equals(NavID + " disabled")){
 			isDisabled = true;
 		}
 		else{
@@ -53,9 +52,8 @@ public class VisualNav extends BaseNav{
 	public boolean isEnabled(String NavID){
 		boolean isEnabled = false;
 		WebElement list = driver.findElement(By.id(NavID));
-		String disabled = list.getAttribute("class");
-		System.out.println("Disabled is: " + disabled);
-		if(disabled.equals("visual")){
+		String enabled = list.getAttribute("class");
+		if(enabled.equals(NavID + " active")){
 			isEnabled = true;
 		}
 		else{
