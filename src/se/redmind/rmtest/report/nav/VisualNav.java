@@ -98,6 +98,18 @@ public class VisualNav extends BaseNav{
 		}
 	}
 	
+	public boolean checkAmountOfClasses(int amount){
+		goToScreenshots();
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("class_container")));
+		WebElement dropDown = getElementByID("class_container");
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("class_name")));
+		List<WebElement> findElements = dropDown.findElements(By.id("class_name"));
+		if(findElements.size() >= 10)
+			return true;
+		else
+			return false;
+	}
+	
 	public void sleep(){
 		try {
 			Thread.sleep(2000);
@@ -107,6 +119,7 @@ public class VisualNav extends BaseNav{
 	}
 	
 	public void returnToPrevious(){
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.className("screenshot-nav-left")));
 		getElementByClass("screenshot-nav-left").click();
 	}
 }
