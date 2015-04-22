@@ -2,6 +2,7 @@ package se.redmind.rmtest.report.tests;
 
 import static org.junit.Assert.*;
 
+import java.awt.List;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -10,8 +11,11 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import se.redmind.rmtest.report.nav.Chart;
 import se.redmind.rmtest.report.nav.GraphNav;
@@ -67,74 +71,125 @@ public class GraphPage {
 	    	this.nav = new GraphNav(tDriver);
 	    }
 	    
-	    @Test
-	    public void nrSuiteRunsPresent(){
-	    	boolean displayed = nav.getNumberOfSuiteRunsButton().isDisplayed();
-	    	assertTrue(displayed);
-	    }
+//	    @Test
+//	    public void nrSuiteRunsPresent(){
+//	    	boolean displayed = nav.getNumberOfSuiteRunsButton().isDisplayed();
+//	    	assertTrue(displayed);
+//	    }
+//	    
+//	    @Test
+//	    public void nrAddGraphLinePresent(){
+//	    	boolean displayed = nav.getAddGraphLine().isDisplayed();
+//	    	assertTrue(displayed);
+//	    }
+//	    
+//	    @Test
+//	    public void reloadButtonPresent(){
+//	    	boolean displayed = nav.getReload().isDisplayed();
+//	    	assertTrue(displayed);
+//	    }
+//
+//	    @Test
+//	    public void chooseGraphViewPresent(){
+//	    	boolean displayed = nav.getChooseGraphView().isDisplayed();
+//	    	assertTrue(displayed);
+//	    }
+//	    
+//	    @Test
+//	    public void chooseBreakPointPresent(){
+//	    	boolean displayed = nav.getChooseBreakPoint().isDisplayed();
+//	    	assertTrue(displayed);
+//	    }
+//	    
+//	    @Test
+//	    public void assertChartSizeTo50(){
+//	    	Chart chart = nav.getChart();
+//	    	assertEquals(50, chart.getGraphResultSize());
+//	    }
+//	    
+//	    @Test
+//	    public void assertChartSizeTo100(){
+//	    	nav.changeChartSuiteRunLimit(100);
+//	    	nav.reloadGraph();
+//	    	Chart chart = nav.getChart();
+//	    	chart.getGraphResultSize();
+//	    	assertEquals(100, chart.getGraphResultSize());
+//	    }
+//	    
+//	    @Test
+//	    public void assertChartSizeTo10(){
+//	    	nav.changeChartSuiteRunLimit(10);
+//	    	nav.reloadGraph();
+//	    	Chart chart = nav.getChart();
+//	    	chart.getGraphResultSize();
+//	    	assertEquals(10, chart.getGraphResultSize());
+//	    }
+//	    
+//	    @Test
+//	    public void assertChartSizeTo20(){
+//	    	nav.changeChartSuiteRunLimit(20);
+//	    	nav.reloadGraph();
+//	    	Chart chart = nav.getChart();
+//	    	chart.getGraphResultSize();
+//	    	assertEquals(20, chart.getGraphResultSize());
+//	    }
+//	    
+//	    @Test
+//	    public void assertChartSizeTo200(){
+//	    	nav.changeChartSuiteRunLimit(500);
+//	    	nav.reloadGraph();
+//	    	//There are only 200 results in this suite, so the result should be 200
+//	    	assertEquals(200, nav.getChart().getGraphResultSize());
+//	    }
+//	    
+//	    @Test
+//	    public void getCharVariant() throws InterruptedException{
+//	    	nav.changeDisplayType("Total Fail");
+//	    	WebElement title = nav.getChartTitle();
+//	    	Thread.sleep(10000);
+//	    	
+//	    }
+	    
 	    
 	    @Test
-	    public void nrAddGraphLinePresent(){
-	    	boolean displayed = nav.getAddGraphLine().isDisplayed();
-	    	assertTrue(displayed);
+	    public void test() throws InterruptedException{
+	    	nav.suite.clickOnBar("class", "0");
+	    	nav.suite.clickOnBar("method", "0");
+	    	nav.suite.clickThisTestOnly("0");
+	    	Thread.sleep(10000);
 	    }
 	    
-	    @Test
-	    public void reloadButtonPresent(){
-	    	boolean displayed = nav.getReload().isDisplayed();
-	    	assertTrue(displayed);
-	    }
-
-	    @Test
-	    public void chooseGraphViewPresent(){
-	    	boolean displayed = nav.getChooseGraphView().isDisplayed();
-	    	assertTrue(displayed);
-	    }
-	    
-	    @Test
-	    public void chooseBreakPointPresent(){
-	    	boolean displayed = nav.getChooseBreakPoint().isDisplayed();
-	    	assertTrue(displayed);
-	    }
-	    
-	    @Test
-	    public void assertChartSizeTo50(){
-	    	Chart chart = nav.getChart();
-	    	assertEquals(50, chart.getGraphResultSize());
-	    }
-	    
-	    @Test
-	    public void assertChartSizeTo100(){
-	    	nav.changeChartSuiteRunLimit(100);
-	    	nav.reloadGraph();
-	    	Chart chart = nav.getChart();
-	    	chart.getGraphResultSize();
-	    	assertEquals(100, chart.getGraphResultSize());
-	    }
-	    
-	    @Test
-	    public void assertChartSizeTo10(){
-	    	nav.changeChartSuiteRunLimit(10);
-	    	nav.reloadGraph();
-	    	Chart chart = nav.getChart();
-	    	chart.getGraphResultSize();
-	    	assertEquals(10, chart.getGraphResultSize());
-	    }
-	    
-	    @Test
-	    public void assertChartSizeTo20(){
-	    	nav.changeChartSuiteRunLimit(20);
-	    	nav.reloadGraph();
-	    	Chart chart = nav.getChart();
-	    	chart.getGraphResultSize();
-	    	assertEquals(20, chart.getGraphResultSize());
-	    }
-	    
-	    @Test
-	    public void assertChartSizeTo200(){
-	    	nav.changeChartSuiteRunLimit(500);
-	    	nav.reloadGraph();
-	    	//There are only 200 results in this suite, so the result should be 200
-	    	assertEquals(200, nav.getChart().getGraphResultSize());
-	    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
