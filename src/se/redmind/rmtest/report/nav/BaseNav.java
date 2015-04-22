@@ -48,19 +48,4 @@ abstract class BaseNav extends HTMLPage{
 		System.out.println("text: "+findElement.getText());
 		return findElement;
 	}
-	
-	protected WebElement getElementByID(String id){
-		return this.driver.findElement(By.id(id));
-	}
-	
-	protected WebElement getElementByClass(String className){
-		return this.driver.findElement(By.className(className));
-	}
-	
-	protected WebElement getElementByCss(String css){
-		return this.driver.findElement(By.xpath(css));
-	}
-	
-
-
 }

@@ -153,9 +153,9 @@ public class GraphPage {
 	    
 	    @Test
 	    public void test() throws InterruptedException{
-	    	nav.changeBreakPoint("Browser");
-	    	nav.reloadGraph();
-	    	nav.removeGraphLine("firefox v.31");
+	    	nav.suite.clickOnBar("class", "0");
+	    	nav.suite.clickOnBar("method", "0");
+	    	nav.suite.clickThisTestOnly("0");
 	    	Thread.sleep(10000);
 	    }
 	    
