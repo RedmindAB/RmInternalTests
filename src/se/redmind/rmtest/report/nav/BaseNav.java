@@ -38,6 +38,18 @@ abstract class BaseNav extends HTMLPage{
 		element.click();
 	}
 	
+	public WebElement getElementByXPath(String xPath){
+		return driver.findElement(By.cssSelector(xPath));
+	}
+	
+	public WebElement getElementByID(String NavClass){
+		return driver.findElement(By.id(NavClass));
+	}
+	
+	public WebElement getElementByClass(String NavClass){
+		return driver.findElement(By.className(NavClass));
+	}
+	
 	public WebElement getFirstSuiteSection(){
 		return driver.findElement(By.id("section"));
 	}
