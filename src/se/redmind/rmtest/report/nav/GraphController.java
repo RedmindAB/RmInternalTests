@@ -48,8 +48,8 @@ public class GraphController extends BaseController{
 //	}
 	
 	public void reloadGraph(){
-		WebElement reload = getReload();
-		reload.click();
+		driverFluentWait(15).until(ExpectedConditions.elementToBeClickable(getElementByID("button_reload")));
+		getReload().click();
 		driverFluentWait(20).until(new ChartReloadFinished());
 	}
 	
@@ -60,32 +60,33 @@ public class GraphController extends BaseController{
 	}
 	
 	public void clickAddToGraph(){
-		WebElement addLine = getAddGraphLine();
-		addLine.click();
+		driverFluentWait(15).until(ExpectedConditions.elementToBeClickable(getElementByID("add_graph_line")));
+		getAddGraphLine().click();
 		driverFluentWait(20).until(new ChartReloadFinished());
 	}
 	
 	public void removeGraphLine(String removeName){
 		getRemoveLineButton().click();
-		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("remove-"+removeName)));
+		driverFluentWait(15).until(ExpectedConditions.visibilityOf(getElementByID("remove-"+removeName)));
 		getElementByID("remove-"+removeName).click();;
 	}
 	
 	public void changeChartSuiteRunLimit(String limit){
 		getNumberOfSuiteRunsButton().click();
-		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("run-amount-"+limit)));
+		driverFluentWait(15).until(ExpectedConditions.visibilityOf(getElementByID("suite_runs_drop")));
 		getElementByID("run-amount-"+limit).click();
 	}
 	
 	public void changeDisplayType(String variantName){
+		driverFluentWait(15).until(ExpectedConditions.elementToBeClickable(getElementByID("button_reload")));
 		getChooseGraphView().click();
-		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("display-"+variantName)));
+		driverFluentWait(15).until(ExpectedConditions.visibilityOf(getElementByID("display-dropdown")));
 		getElementByID("display-"+variantName).click();
 	}
 	
 	public void changeBreakPoint(String breakPoint){
 		getChooseBreakPoint().click();
-		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("breakpoint-"+breakPoint)));
+		driverFluentWait(15).until(ExpectedConditions.visibilityOf(getElementByID("breakpoint-"+breakPoint)));
 		getElementByID("breakpoint-"+breakPoint).click();
 	}
 	
@@ -98,22 +99,22 @@ public class GraphController extends BaseController{
 	}
 	
 	public void clickPlatform(String platformName){
-		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("spec-"+platformName)));
+		driverFluentWait(15).until(ExpectedConditions.visibilityOf(getElementByID("spec-"+platformName)));
 		getElementByID("spec-"+platformName).click();
 	}
 	
 	public void checkBrowser(String browserName){
-		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("browser-"+browserName)));
+		driverFluentWait(15).until(ExpectedConditions.visibilityOf(getElementByID("browser-"+browserName)));
 		getElementByID("browser-"+browserName).click();
 	}
 	
 	public void checkDevice(String deviceName){
-		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("device-"+deviceName)));
+		driverFluentWait(15).until(ExpectedConditions.visibilityOf(getElementByID("device-"+deviceName)));
 		getElementByID("device-"+deviceName).click();
 	}
 	
 	public void checkVersion(String version){
-		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("version-"+version)));
+		driverFluentWait(15).until(ExpectedConditions.visibilityOf(getElementByID("version-"+version)));
 		getElementByID("version-"+version).click();
 	}
 	

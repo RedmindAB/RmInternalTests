@@ -11,7 +11,7 @@ abstract class BaseNav extends HTMLPage{
 
 	public BaseNav(WebDriver pDriver) {
 		super(pDriver);
-		this.driver.get("localhost:4567");
+		this.driver.get("http://192.168.75.120:4567");
 		initialWait();
 		navigate();
 	}
@@ -43,9 +43,13 @@ abstract class BaseNav extends HTMLPage{
 	}
 	
 	public WebElement getChartTitle(){
-		WebElement firstSuiteSection = getFirstSuiteSection();
-		WebElement findElement = firstSuiteSection.findElement(By.className("highcharts-title"));
-		System.out.println("text: "+findElement.getText());
+		driverFluentWait(15).until(ExpectedConditions.elementToBeClickable(By.id("button_reload")));
+		WebElement findElement = driver.findElement(By.className("highcharts-title"));
 		return findElement;
+	}
+	
+	public WebElement getChartSubtitle(){
+		driverFluentWait(15).until(ExpectedConditions.elementToBeClickable(By.id("button_reload")));
+		return driver.findElement(By.className("highcharts-subtitle"));
 	}
 }
