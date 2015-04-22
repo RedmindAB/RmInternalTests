@@ -11,7 +11,7 @@ abstract class BaseNav extends HTMLPage{
 
 	public BaseNav(WebDriver pDriver) {
 		super(pDriver);
-		this.driver.get("http://localhost:6789");
+		this.driver.get("localhost:4567");
 		initialWait();
 		navigate();
 	}
@@ -51,6 +51,14 @@ abstract class BaseNav extends HTMLPage{
 	
 	protected WebElement getElementByID(String id){
 		return this.driver.findElement(By.id(id));
+	}
+	
+	protected WebElement getElementByClass(String className){
+		return this.driver.findElement(By.className(className));
+	}
+	
+	protected WebElement getElementByCss(String css){
+		return this.driver.findElement(By.xpath(css));
 	}
 	
 
