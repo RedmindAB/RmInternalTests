@@ -29,6 +29,7 @@ public class VisualNav extends BaseNav{
 	}
 	
 	public void chooseClass(){
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("classes_0")));
 		getElementByID("classes_0").click();
 	}
 	
@@ -85,13 +86,13 @@ public class VisualNav extends BaseNav{
     	return isActive;
 	}
 	
-	public void changeTimestamp(String name){
+	public void changeTimestamp(String timestamp){
 		getTimestamp().click();
 		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("choose_timestamp_drop")));
 		WebElement dropDown = getElementByID("choose_timestamp_drop");
 		List<WebElement> findElements = dropDown.findElements(By.tagName("a"));
 		for (WebElement listItem : findElements) {
-			if (listItem.getText().equals(name)) {
+			if (listItem.getText().equals(timestamp)) {
 				listItem.click();
 				return;
 			}
@@ -107,6 +108,20 @@ public class VisualNav extends BaseNav{
 		if(findElements.size() >= 10)
 			return true;
 		else
+			return false;
+	}
+	
+	public void openSysos(){
+		goToScreenshots();
+		chooseClass();
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("syso")));
+		getElementByClass("syso").click();
+	}
+	
+	public boolean isSysoOpen(){
+		if(getElementByClass("modal_dialog").isDisplayed())
+			return true;
+		else 
 			return false;
 	}
 	
