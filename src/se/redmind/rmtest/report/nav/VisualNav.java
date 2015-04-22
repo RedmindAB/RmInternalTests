@@ -29,7 +29,7 @@ public class VisualNav extends BaseNav{
 	}
 	
 	public void chooseClass(){
-		navigateByID("classes_0").click();
+		getElementByID("classes_0").click();
 	}
 	
 	public WebElement getNav(String NavID){
@@ -63,7 +63,13 @@ public class VisualNav extends BaseNav{
 	}
 	
 	public void goToGraph(){
-		navigateByID("go_graph").click();
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("go_graph_0")));
+		getElementByID("go_graph_0").click();
+	}
+	
+	public void goToScreenshots(){
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("go_ss_0")));
+		getElementByID("go_ss_0").click();
 	}
 	
 	public WebElement openTimestamp(){
@@ -95,6 +101,6 @@ public class VisualNav extends BaseNav{
 	}
 	
 	public void returnToPrevious(){
-		navigateByClass("screenshot-nav-left").click();
+		getElementByClass("screenshot-nav-left").click();
 	}
 }
