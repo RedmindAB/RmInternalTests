@@ -72,16 +72,22 @@ public class VisualNav extends BaseNav{
 		getElementByID("go_ss_0").click();
 	}
 	
-	public WebElement openTimestamp(){
+	public WebElement getTimestamp(){
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("timestamp_0")));
 		return getElementByID("choose_timestamp");
 	}
 	
-	public WebElement getTimestamp(){
-		return getElementByID("choose_timestamp");
+	public boolean isTimestampSet(String timestamp){
+		boolean isActive = false;
+		System.out.println("Is: " + getTimestamp().getText() + " = " + timestamp);
+    	if(getTimestamp().getText().equals(timestamp))
+    		isActive = true;
+    	return isActive;
 	}
 	
 	public void changeTimestamp(String name){
-		openTimestamp().click();
+		getTimestamp().click();
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("choose_timestamp_drop")));
 		WebElement dropDown = getElementByID("choose_timestamp_drop");
 		List<WebElement> findElements = dropDown.findElements(By.tagName("a"));
 		for (WebElement listItem : findElements) {
