@@ -96,7 +96,9 @@ public class VisualPage {
 		}
 		@Test
 		public void isScreenShotPresent(){
-			assertTrue(true);
+			nav.changeTimestamp("20150101080000");
+			nav.isScreenshotPresent("table_0");
+			
 		}
 		
 }
