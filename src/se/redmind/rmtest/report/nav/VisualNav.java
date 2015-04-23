@@ -128,8 +128,8 @@ public class VisualNav extends BaseNav{
 	}
 	
 	public boolean isAtClassView(){
-		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.className("go-to-suites")));
-		if(getElementByClass("go-to-suites").isDisplayed())
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("go-to-suites")));
+		if(getElementByID("go-to-suites").isDisplayed())
 			return true;
 		else 
 			return false;
