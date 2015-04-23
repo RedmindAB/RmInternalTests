@@ -2,12 +2,13 @@ package se.redmind.rmtest.report.tests;
 
 import static org.junit.Assert.*;
 
-import java.awt.List;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import org.junit.AfterClass;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -70,106 +71,14 @@ public class GraphPage {
 	    	this.tDriver = this.urlContainer.startDriver();
 	    	this.nav = new GraphNav(tDriver);
 	    }
-	    
-//	    @Test
-//	    public void nrSuiteRunsPresent(){
-//	    	boolean displayed = nav.getNumberOfSuiteRunsButton().isDisplayed();
-//	    	assertTrue(displayed);
-//	    }
-//	    
-//	    @Test
-//	    public void nrAddGraphLinePresent(){
-//	    	boolean displayed = nav.getAddGraphLine().isDisplayed();
-//	    	assertTrue(displayed);
-//	    }
-//	    
-//	    @Test
-//	    public void reloadButtonPresent(){
-//	    	boolean displayed = nav.getReload().isDisplayed();
-//	    	assertTrue(displayed);
-//	    }
-//
-//	    @Test
-//	    public void chooseGraphViewPresent(){
-//	    	boolean displayed = nav.getChooseGraphView().isDisplayed();
-//	    	assertTrue(displayed);
-//	    }
-//	    
-//	    @Test
-//	    public void chooseBreakPointPresent(){
-//	    	boolean displayed = nav.getChooseBreakPoint().isDisplayed();
-//	    	assertTrue(displayed);
-//	    }
-//	    
-//	    @Test
-//	    public void assertChartSizeTo50(){
-//	    	Chart chart = nav.getChart();
-//	    	assertEquals(50, chart.getGraphResultSize());
-//	    }
-//	    
-//	    @Test
-//	    public void assertChartSizeTo100(){
-//	    	nav.changeChartSuiteRunLimit(100);
-//	    	nav.reloadGraph();
-//	    	Chart chart = nav.getChart();
-//	    	chart.getGraphResultSize();
-//	    	assertEquals(100, chart.getGraphResultSize());
-//	    }
-//	    
-//	    @Test
-//	    public void assertChartSizeTo10(){
-//	    	nav.changeChartSuiteRunLimit(10);
-//	    	nav.reloadGraph();
-//	    	Chart chart = nav.getChart();
-//	    	chart.getGraphResultSize();
-//	    	assertEquals(10, chart.getGraphResultSize());
-//	    }
-//	    
-//	    @Test
-//	    public void assertChartSizeTo20(){
-//	    	nav.changeChartSuiteRunLimit(20);
-//	    	nav.reloadGraph();
-//	    	Chart chart = nav.getChart();
-//	    	chart.getGraphResultSize();
-//	    	assertEquals(20, chart.getGraphResultSize());
-//	    }
-//	    
-//	    @Test
-//	    public void assertChartSizeTo200(){
-//	    	nav.changeChartSuiteRunLimit(500);
-//	    	nav.reloadGraph();
-//	    	//There are only 200 results in this suite, so the result should be 200
-//	    	assertEquals(200, nav.getChart().getGraphResultSize());
-//	    }
-//	    
-//	    @Test
-//	    public void getCharVariant() throws InterruptedException{
-//	    	nav.changeDisplayType("Total Fail");
-//	    	WebElement title = nav.getChartTitle();
-//	    	Thread.sleep(10000);
-//	    	
-//	    }
-	    
-	    
-//	    @Test
-//	    public void test() throws InterruptedException{
-//	    	nav.suite.clickOnBar("class", "0");
-//	    	nav.suite.clickOnBar("method", "0");
-//	    	nav.suite.clickThisTestOnly("0");
-//	    	Thread.sleep(10000);
-//	    }
-//	    
-	//    Mina!
-	    
 
-//	    
 	    @Test
 	    public void test_LoadTwentyRuns() {
 	    	nav.graph.changeChartSuiteRunLimit("20");
 	    	nav.graph.reloadGraph();
 		    WebElement chartSub = nav.getChartSubtitle();
 		    assertEquals("Showing 20 results", chartSub.getText());
-		    }
+	    }
 	    
 	    @Test 
 	    public void test_LoadTenRuns() {
@@ -217,154 +126,259 @@ public class GraphPage {
 	    	assertEquals(expected, chartTitle1.getText());
 	    }
 	    
-//	    @Test
-//	    public void test_CreateALine(){
-//	    	nav.graph.addToGraph();
-//	    }
-//	    
-//	    @Test
-//	    public void test_CreateALine_Browser(){
-//	    	nav.graph.changeBreakPoint("Browser");
-//	    	nav.graph.reloadGraph();
-//    	}
-//    	
-//        @Test
-//	    public void test_CreateALine_Version(){
-//	    	nav.graph.changeBreakPoint("Version");
-//	    	nav.graph.reloadGraph();
-//	    }
-//        
-//        @Test
-//	    public void test_CreateALine_Device(){
-//	    	nav.graph.changeBreakPoint("Device");
-//	    	nav.graph.reloadGraph();
-//	    }
-//        
-//        @Test
-//	    public void test_CreateALine_Platform(){
-//        	nav.graph.changeBreakPoint("Platform");
-//        	nav.graph.reloadGraph();
-//	    }
-//	    
-//        @Test
-//	    public void test_RemoveALine(){
-//        	nav.graph.changeBreakPoint("Platform");
-//        	nav.graph.reloadGraph();
-//        	nav.graph.removeGraphLine("Android");	
-//	    }
-//        
-//      @Test
-//	    public void test_DeviceNone(){
-//        	nav.graph.changeBreakPoint("Device");
-//        	nav.graph.reloadGraph();
-//	    }
-//    
-//        @Test
-//	    public void test_Specifications_Device(){
-//        	nav.graph.changeBreakPoint("Device");
-//        	nav.graph.clickSpecifications();
-//        	nav.graph.clickPlatform("Android");
-//        	nav.graph.checkDevice("HTC ONE");
-//        	nav.graph.reloadGraph();
-//	    }
-//	    
-//        @Test
-//	    public void test_Specifications_CheckVersionGetDevice(){
-//        	nav.graph.changeBreakPoint("Device");
-//        	nav.graph.clickSpecifications();
-//        	nav.graph.clickPlatform("Android");
-//        	nav.graph.checkVersion("4.4.4");
-//        	nav.graph.reloadGraph();
-//	    }
-//        
-//        @Test
-//        public void test_Specifications_CheckPlatformGetDevice(){
-//        	nav.graph.changeBreakPoint("Device");
-//        	nav.graph.clickSpecifications();
-//        	nav.graph.clickPlatform("Android");
-//        	nav.graph.reloadGraph();
-//        }
-//        
-//        @Test
-//  	    public void test_VersionNone(){
-//          	nav.graph.changeBreakPoint("Version");
-//          	nav.graph.reloadGraph();
-//  	    }
-//	    
-//        @Test
-//	    public void test_Specifications_CheckDeviceGetVersion(){
-//        	nav.graph.changeBreakPoint("Version");
-//        	nav.graph.clickSpecifications();
-//        	nav.graph.clickPlatform("Android");
-//        	nav.graph.checkDevice("HTC ONE");
-//        	nav.graph.reloadGraph();
-//	    }
-//        
-//        @Test
-//	    public void test_Specifications_Version(){
-//        	nav.graph.changeBreakPoint("Version");
-//        	nav.graph.clickSpecifications();
-//        	nav.graph.clickPlatform("Android");
-//        	nav.graph.checkVersion("4.4.4");
-//        	nav.graph.reloadGraph();
-//	    }
-//        
-//        @Test
-//  	    public void test_Specifications_VersionPlatform(){
-//          	nav.graph.changeBreakPoint("Version");
-//          	nav.graph.clickSpecifications();
-//          	nav.graph.clickPlatform("Android");
-//          	nav.graph.reloadGraph();
-//  	    }
-//        
-//        @Test
-//	    public void test_PlatformNone(){
-//        	nav.graph.changeBreakPoint("Platform");
-//        	nav.graph.reloadGraph();
-//        }
-//        
-//        @Test
-//	    public void test_Specifications_CheckDeviceGetPlatform(){
-//        	nav.graph.changeBreakPoint("Platform");
-//        	nav.graph.clickSpecifications();
-//        	nav.graph.clickPlatform("Android");
-//        	nav.graph.checkDevice("HTC ONE");
-//        	nav.graph.reloadGraph();
-//	    }
-//        
-//        @Test
-//	    public void test_Specifications_Platform(){
-//        	nav.graph.changeBreakPoint("Platform");
-//        	nav.graph.clickSpecifications();
-//        	nav.graph.clickPlatform("Android");
-//        	nav.graph.reloadGraph();
-//	    }
-//        
-//        
-//        @Test
-// 	    public void test_Specifications_PlatformVersion(){
-//         	nav.graph.changeBreakPoint("Platform");
-//         	nav.graph.clickSpecifications();
-//         	nav.graph.clickPlatform("Android");
-//         	nav.graph.checkVersion("4.4.4");
-//         	nav.graph.reloadGraph();
-// 	    }
-//        
-//	    
-//        @Test
-//        public void test_Specifications_Browser(){
-//        	nav.graph.changeBreakPoint("Browser");
-//        	nav.graph.clickSpecifications();
-//        	nav.graph.checkBrowser("chrome");
-//        	nav.graph.reloadGraph();
-//        }
-//        
-//        @Test
-//	    public void test_BrowserNone(){
-//        	nav.graph.changeBreakPoint("Browser");
-//        	nav.graph.reloadGraph();
-//        }
-//        
+	    @Test
+	    public void test_CreateALine(){
+	    	nav.graph.addToGraph();
+	    	int expected = 2;
+	    	int actual = nav.graph.getLegendList().size();
+	    	assertEquals(expected, actual);
+	    }
+	    
+	    @Test
+	    public void test_BreakOnBrowser(){
+	    	nav.graph.changeBreakPoint("Browser");
+	    	nav.graph.reloadGraph();
+	    	String expected = "firefox v.31";
+	    	String actual = nav.graph.getLegendListItem(0).getText();
+	    	assertEquals(expected, actual);
+	    	int expected2 = 2;
+	    	int actual2 = nav.graph.getLegendList().size();
+	    	assertEquals(expected2, actual2);
+    	}
+    	
+        @Test
+	    public void test_BreakOnVersion(){
+	    	nav.graph.changeBreakPoint("Version");
+	    	nav.graph.reloadGraph();
+	    	String expected = "Android 4.4.4";
+	    	String actual = nav.graph.getLegendListItem(0).getText();
+	    	assertEquals(expected, actual);
+	    	int expected2 = 4;
+	    	int actual2 = nav.graph.getLegendList().size();
+	    	assertEquals(expected2, actual2);
+	    }
+        
+        @Test
+	    public void test_BreakOnDevice(){
+	    	nav.graph.changeBreakPoint("Device");
+	    	nav.graph.reloadGraph();
+	    	String expected = "HTC ONE";
+	    	String actual = nav.graph.getLegendListItem(0).getText();
+	    	assertEquals(expected, actual);
+	    	int expected2 = 4;
+	    	int actual2 = nav.graph.getLegendList().size();
+	    	assertEquals(expected2, actual2);
+	    }
+        
+        @Test
+	    public void test_BreakOnPlatform(){
+        	nav.graph.changeBreakPoint("Platform");
+        	nav.graph.reloadGraph();
+        	String expected = "Android";
+	    	String actual = nav.graph.getLegendListItem(0).getText();
+	    	assertEquals(expected, actual);
+	    	int expected2 = 3;
+	    	int actual2 = nav.graph.getLegendList().size();
+	    	assertEquals(expected2, actual2);
+	    }
+	    
+        @Test
+	    public void test_RemoveALine(){
+        	nav.graph.changeBreakPoint("Platform");
+        	nav.graph.reloadGraph();
+        	nav.graph.removeGraphLine("Android");
+        	
+        	String expFirst = "IOS";
+        	String firstObj = nav.graph.getLegendListItem(0).getText();
+
+        	String expSecond = "Ubuntu";
+        	String secendObj = nav.graph.getLegendListItem(1).getText();
+        	
+        	int listSize = nav.graph.getLegendList().size();
+        	int expSize = 2;
+        	assertEquals(expSize, listSize);
+        	assertEquals(expFirst, firstObj);
+        	assertEquals(expSecond, secendObj);
+        	
+	    }    
+    
+        @Test
+	    public void test_SpecificationsDevice_CheckDevice(){
+        	nav.graph.changeBreakPoint("Device");
+        	nav.graph.clickSpecifications();
+        	nav.graph.clickPlatform("Android");
+        	nav.graph.checkDevice("HTC ONE");
+        	nav.graph.reloadGraph();
+        	String expectedName = "HTC ONE";
+        	int expectedSize = 1;
+        	String actualName = nav.graph.getLegendListItem(0).getText();
+        	int actualSize = nav.graph.getLegendList().size();
+        	assertEquals(expectedName, actualName);
+        	assertEquals(expectedSize, actualSize);
+	    }
+	    
+        @Test
+	    public void test_SpecificationsDevice_CheckVersion(){
+        	nav.graph.changeBreakPoint("Device");
+        	nav.graph.clickSpecifications();
+        	nav.graph.clickPlatform("Android");
+        	nav.graph.checkVersion("4.4.4");
+        	nav.graph.reloadGraph();
+        	String expectedName = "HTC ONE";
+        	int expectedSize = 1;
+        	String actualName = nav.graph.getLegendListItem(0).getText();
+        	int actualSize = nav.graph.getLegendList().size();
+        	assertEquals(expectedName, actualName);
+        	assertEquals(expectedSize, actualSize);
+	    }
+        	
+	    
+        
+        @Test
+        public void test_SpecificationsDevice_CheckPlatform(){
+        	nav.graph.changeBreakPoint("Device");
+        	nav.graph.clickSpecifications();
+        	nav.graph.clickPlatform("Android");
+        	nav.graph.reloadGraph();
+        	String expectedName1 = "HTC ONE";
+        	String expectedName2 = "Nexus 6";
+        	int expectedSize = 2;
+        	String actualName1 = nav.graph.getLegendListItem(0).getText();
+        	String actualName2 = nav.graph.getLegendListItem(1).getText();
+        	int actualSize = nav.graph.getLegendList().size();
+        	assertEquals(expectedName1, actualName1);
+        	assertEquals(expectedName2, actualName2);
+        	assertEquals(expectedSize, actualSize);
+        	
+        }
+
+	    
+        @Test
+	    public void test_Specifications_CheckDeviceGetVersion(){
+        	nav.graph.changeBreakPoint("Version");
+        	nav.graph.clickSpecifications();
+        	nav.graph.clickPlatform("Android");
+        	nav.graph.checkDevice("HTC ONE");
+        	nav.graph.reloadGraph();
+        	String expectedName = "Android 4.4.4";
+        	int expectedSize = 1;
+        	String actualName = nav.graph.getLegendListItem(0).getText();
+        	int actualSize = nav.graph.getLegendList().size();
+        	assertEquals(expectedName, actualName);
+        	assertEquals(expectedSize, actualSize);
+	    }
+        
+        @Test
+	    public void test_Specifications_Version(){
+        	nav.graph.changeBreakPoint("Version");
+        	nav.graph.clickSpecifications();
+        	nav.graph.clickPlatform("Android");
+        	nav.graph.checkVersion("4.4.4");
+        	nav.graph.reloadGraph();
+        	String expectedName = "Android 4.4.4";
+        	int expectedSize = 1;
+        	String actualName = nav.graph.getLegendListItem(0).getText();
+        	int actualSize = nav.graph.getLegendList().size();
+        	assertEquals(expectedName, actualName);
+        	assertEquals(expectedSize, actualSize);
+	    }
+        
+        @Test
+  	    public void test_Specifications_VersionPlatform(){
+          	nav.graph.changeBreakPoint("Version");
+          	nav.graph.clickSpecifications();
+          	nav.graph.clickPlatform("Android");
+          	nav.graph.reloadGraph();
+          	String expectedName1 = "Android 4.4.4";
+        	String expectedName2 = "Android 5.1";
+        	int expectedSize = 2;
+        	String actualName1 = nav.graph.getLegendListItem(0).getText();
+        	String actualName2 = nav.graph.getLegendListItem(1).getText();
+        	int actualSize = nav.graph.getLegendList().size();
+        	assertEquals(expectedName1, actualName1);
+        	assertEquals(expectedName2, actualName2);
+        	assertEquals(expectedSize, actualSize);          	
+  	    }
+
+        
+        @Test
+	    public void test_Specifications_CheckDeviceGetPlatform(){
+        	nav.graph.changeBreakPoint("Platform");
+        	nav.graph.clickSpecifications();
+        	nav.graph.clickPlatform("Android");
+        	nav.graph.checkDevice("HTC ONE");
+        	nav.graph.reloadGraph();
+         	String expectedName = "Android";
+        	int expectedSize = 1;
+        	String actualName = nav.graph.getLegendListItem(0).getText();
+        	int actualSize = nav.graph.getLegendList().size();
+        	assertEquals(expectedName, actualName);
+        	assertEquals(expectedSize, actualSize);
+	    }
+        
+        @Test
+	    public void test_Specifications_Platform(){
+        	nav.graph.changeBreakPoint("Platform");
+        	nav.graph.clickSpecifications();
+        	nav.graph.clickPlatform("Android");
+        	nav.graph.reloadGraph();
+         	String expectedName = "Android";
+        	int expectedSize = 1;
+        	String actualName = nav.graph.getLegendListItem(0).getText();
+        	int actualSize = nav.graph.getLegendList().size();
+        	assertEquals(expectedName, actualName);
+        	assertEquals(expectedSize, actualSize);
+	    }
+        
+        
+        @Test
+ 	    public void test_Specifications_PlatformVersion(){
+         	nav.graph.changeBreakPoint("Platform");
+         	nav.graph.clickSpecifications();
+         	nav.graph.clickPlatform("Android");
+         	nav.graph.checkVersion("4.4.4");
+         	nav.graph.reloadGraph();
+         	String expectedName = "Android";
+        	int expectedSize = 1;
+        	String actualName = nav.graph.getLegendListItem(0).getText();
+        	int actualSize = nav.graph.getLegendList().size();
+        	assertEquals(expectedName, actualName);
+        	assertEquals(expectedSize, actualSize);
+        }
+        @Test
+ 	    public void test_SpecificationsPlatform_CheckAndroidIOS(){
+         	nav.graph.changeBreakPoint("Platform");
+         	nav.graph.clickSpecifications();
+         	nav.graph.clickPlatform("Android");
+         	nav.graph.clickPlatform("IOS");
+         	nav.graph.reloadGraph();
+         	String expectedName1 = "Android";
+         	String expectedName2 = "IOS";
+        	int expectedSize = 2;
+        	String actualName1 = nav.graph.getLegendListItem(0).getText();
+        	String actualName2 = nav.graph.getLegendListItem(1).getText();
+        	int actualSize = nav.graph.getLegendList().size();
+        	assertEquals(expectedName1, actualName1);
+        	assertEquals(expectedName2, actualName2);
+        	assertEquals(expectedSize, actualSize);	
+        }
+        
+	    
+        @Test
+        public void test_SpecificationsBrowser_CheckChrome(){
+        	nav.graph.changeBreakPoint("Browser");
+        	nav.graph.clickSpecifications();
+        	nav.graph.checkBrowser("chrome");
+        	nav.graph.reloadGraph();
+        	String expectedName = "chrome v.42";
+        	int expectedSize = 1;
+        	String actualName = nav.graph.getLegendListItem(0).getText();
+        	int actualSize = nav.graph.getLegendList().size();
+        	assertEquals(expectedName, actualName);
+        	assertEquals(expectedSize, actualSize);
+        }
+
+        
         @Test
         public void test_OrderByFailPass () {
         	String before = nav.suite.getNameFrom("class", "0");
@@ -394,58 +408,93 @@ public class GraphPage {
         	nav.suite.clickOnBar("method", "0");
         	assertEquals(methodName, nav.suite.getCurrentPossition().getText());
         }
-//        
-//        @Test
-//        public void test_ClickOnThisTestOnly(){
-//        	nav.suite.clickOnBar("class", "0");
-//        	nav.suite.clickOnBar("method", "0");
-//        	nav.suite.clickThisTestOnly("0");
-//        }
-//        
-//        @Test
-//        public void test_ClickOnCase(){
-//        	nav.suite.clickOnBar("class", "0");
-//        	nav.suite.clickOnBar("method", "0");
-//        	nav.suite.clickOnBar("case", "0");
-//        }
-//        
-//        @Test
-//        public void test_ClickOnLastCase(){
-//        	nav.suite.clickOnBar("class", "0");
-//        	nav.suite.clickOnBar("method", "0");
-//        	nav.suite.clickOnBar("case", "7");
-//        }
-//        
-//        @Test 
-//        public void test_CheckClass(){
-//        	nav.suite.checkBoxOn("class", "0");
-//        	nav.graph.reloadGraph();
-//        }
-//        
-//        @Test 
-//        public void test_CheckMethod(){
-//        	nav.suite.clickOnBar("class", "0");
-//        	nav.suite.checkBoxOn("method", "0");
-//        	nav.graph.reloadGraph();
-//        }
-//        
-//        @Test 
-//        public void test_ClickOnClassReload(){
-//        	nav.suite.clickOnBar("class", "0");
-//        	nav.graph.reloadGraph();
-//        }
-//        
-//        @Test
-//        public void test_FilterCleanUp(){
-//        	nav.suite.filterOn("random");
-//        	nav.suite.clickOnBar("class", "0");
-//        }
-//        
-//        @Test
-//        public void test_FilterOnChrome(){
-//        	nav.suite.clickOnBar("class", "0");
-//        	nav.suite.clickOnBar("method", "0");
-//        	nav.suite.filterOn("chrome");
-//        }
+        
+        @Test
+        public void test_ClickOnThisTestOnly(){
+        	nav.suite.clickOnBar("class", "0");
+        	nav.suite.clickOnBar("method", "0");
+        	nav.suite.clickThisTestOnly("0");
+        	String expectedName = "Ubuntu-14.04-UNKNOWN-chrome-42";
+        	int expectedSize = 1;
+        	String actualName = nav.graph.getLegendListItem(0).getText();
+        	int actualSize = nav.graph.getLegendList().size();
+        	assertEquals(expectedName, actualName);
+        	assertEquals(expectedSize, actualSize);
+        }
+        
+        @Test
+        public void test_getErrorCase(){
+        	nav.suite.clickOnBar("class", "0");
+        	nav.suite.clickOnBar("method", "0");
+        	nav.suite.clickOnBar("case", "0");
+        	String stackTrace = nav.suite.getStackTrace();
+        	int	colon = stackTrace.indexOf(":");
+        	stackTrace = stackTrace.substring(0, colon);
+        	String expected = "java.lang.AssertionError";
+        	assertEquals(expected, stackTrace);
+        	
+        }
+        
+        @Test
+        public void test_ClickOnLastCase(){
+        	nav.suite.clickOnBar("class", "0");
+        	nav.suite.clickOnBar("method", "0");
+        	nav.suite.clickOnBar("case", "7");
+        	String stackTrace = nav.suite.getStackTrace();
+        	String expected = "No Message To Display";
+        	assertEquals(expected, stackTrace);
+        }
+        
+        @Ignore
+        @Test 
+        public void test_CheckClass(){
+        	nav.suite.checkBoxOn("class", "0");
+        	nav.graph.reloadGraph();
+        	String expectedName = "Android";
+        	int expectedSize = 1;
+        	String actualName = nav.graph.getLegendListItem(0).getText();
+        	int actualSize = nav.graph.getLegendList().size();
+        	assertEquals(expectedName, actualName);
+        	assertEquals(expectedSize, actualSize);
+        }
+        
+        @Ignore
+        @Test 
+        public void test_CheckMethod(){
+        	nav.suite.clickOnBar("class", "0");
+        	nav.suite.checkBoxOn("method", "0");
+        	nav.graph.reloadGraph();
+        }
+        
+        @Test 
+        public void test_ClickOnClassReload(){
+        	nav.suite.clickOnBar("class", "0");
+        	nav.graph.reloadGraph();
+        	String expectedName = "RandomClass0";
+        	int expectedSize = 1;
+        	String actualName = nav.graph.getLegendListItem(0).getText();
+        	int actualSize = nav.graph.getLegendList().size();
+        	assertEquals(expectedName, actualName);
+        	assertEquals(expectedSize, actualSize);
+        }
+        
+        @Test
+        public void test_FilterCleanUp(){
+        	nav.suite.filterOn("random");
+        	nav.suite.clickOnBar("class", "0");
+        	String expected = "";
+        	String actual = nav.suite.getFilterFieldText();
+        	assertEquals(expected, actual);
+        }
+        
+        @Test
+        public void test_FilterOnChrome(){
+        	nav.suite.clickOnBar("class", "0");
+        	nav.suite.clickOnBar("method", "0");
+        	nav.suite.filterOn("chrome");
+        	int expected = 4;
+        	int actual = nav.suite.getSizeOfCaseList();
+        	assertEquals(expected, actual);
+        }
         
 }

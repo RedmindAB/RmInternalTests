@@ -15,7 +15,6 @@ public class ChartReloadFinished implements ExpectedCondition<Boolean> {
 		String style = loadingScreen.getAttribute("style");
 		String[] split = style.split(";");
 		for (String styleVal : split) {
-			System.out.println(styleVal);
 			boolean equals = styleVal.contains("display: none");
 			if (equals) {
 				return true;
