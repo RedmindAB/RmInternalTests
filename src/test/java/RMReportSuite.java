@@ -6,7 +6,6 @@ import org.junit.runners.Suite;
 import org.junit.BeforeClass;
 
 import se.redmind.rmtest.report.tests.GraphPage;
-import se.redmind.rmtest.report.tests.Screenshot;
 import se.redmind.rmtest.report.tests.StartPage;
 import se.redmind.rmtest.report.tests.VisualPage;
 import se.redmind.rmtest.selenium.example.GoogleExample;
