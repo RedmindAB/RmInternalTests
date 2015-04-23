@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import se.redmind.rmtest.report.expectedconditions.ChartReloadFinished;
+import se.redmind.rmtest.report.expectedconditions.UrlChanged;
 
 public class VisualNav extends BaseNav{
 	
@@ -123,9 +124,10 @@ public class VisualNav extends BaseNav{
 		}
 	}
 	
-	public void returnToPrevious(){
-		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("go-to-suites")));
-		getElementByID("go-to-suites").click();
+	public void goTo(String byID){
+		String currentURL = driver.getCurrentUrl();
+		getElementByID("go_to_" + byID).click();
+		driverFluentWait(15).until(new UrlChanged(currentURL));
 	}
 	
 	public WebElement getGoBackButton(){

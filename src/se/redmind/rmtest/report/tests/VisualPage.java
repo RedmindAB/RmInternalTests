@@ -90,7 +90,7 @@ public class VisualPage {
 		@Test
 		public void chooseAnotherClass(){
 			nav.chooseClass("classes_0");
-			nav.returnToPrevious();	
+			nav.goTo("classes");	
 			assertEquals("Go back to suites", nav.getGoBackButton().getText());
 
 		}
