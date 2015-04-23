@@ -20,8 +20,8 @@ public class VisualNav extends BaseNav{
 
 	@Override
 	void navigate() {
-		/*navigateByID("section").click();
-		navigateByID("visual_view").click();*/
+		getElementByID("section").click();
+		getElementByID("visual_view").click();
 	}
 
 	public WebElement getMethodID(){
@@ -37,19 +37,6 @@ public class VisualNav extends BaseNav{
 		return driver.findElement(By.className(NavID));
 	}
 	
-	public boolean isDisabled(String NavID){
-		boolean isDisabled = false;
-		WebElement list = driver.findElement(By.id(NavID));
-		String disabled = list.getAttribute("class");
-		if(disabled.equals(NavID + " disabled")){
-			isDisabled = true;
-		}
-		else{
-			isDisabled = false;
-		}
-		return isDisabled;
-	}
-	
 	public boolean isEnabled(String NavID){
 		boolean isEnabled = false;
 		WebElement list = driver.findElement(By.id(NavID));
@@ -61,16 +48,6 @@ public class VisualNav extends BaseNav{
 			isEnabled = false;
 		}
 		return isEnabled;
-	}
-	
-	public void goToGraph(){
-		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("go_graph_0")));
-		getElementByID("go_graph_0").click();
-	}
-	
-	public void goToScreenshots(){
-		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("go_ss_0")));
-		getElementByID("go_ss_0").click();
 	}
 	
 	public WebElement getTimestamp(){
@@ -100,7 +77,6 @@ public class VisualNav extends BaseNav{
 	}
 	
 	public boolean checkAmountOfClasses(int amount){
-		goToScreenshots();
 		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("class_container")));
 		WebElement dropDown = getElementByID("class_container");
 		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("class_name")));
@@ -112,7 +88,6 @@ public class VisualNav extends BaseNav{
 	}
 	
 	public void openSysos(){
-		goToScreenshots();
 		chooseClass();
 		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("syso")));
 		getElementByClass("syso").click();
