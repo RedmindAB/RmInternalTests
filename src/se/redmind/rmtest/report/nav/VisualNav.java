@@ -126,4 +126,12 @@ public class VisualNav extends BaseNav{
 		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.className("screenshot-nav-left")));
 		getElementByClass("screenshot-nav-left").click();
 	}
+	
+	public boolean isAtClassView(){
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.className("go-to-suites")));
+		if(getElementByClass("go-to-suites").isDisplayed())
+			return true;
+		else 
+			return false;
+	}
 }
