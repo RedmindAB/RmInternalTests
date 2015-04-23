@@ -20,34 +20,21 @@ public class VisualNav extends BaseNav{
 
 	@Override
 	void navigate() {
-		/*navigateByID("section").click();
-		navigateByID("visual_view").click();*/
+		getElementByID("section").click();
+		getElementByID("visual_view").click();
 	}
 
 	public WebElement getMethodID(){
 		return getElementByID("methods_0");
 	}
 	
-	public void chooseClass(){
-		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("classes_0")));
-		getElementByID("classes_0").click();
+	public void chooseClass(String id){
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id(id)));
+		getElementByID(id).click();
 	}
 	
 	public WebElement getNav(String NavID){
 		return driver.findElement(By.className(NavID));
-	}
-	
-	public boolean isDisabled(String NavID){
-		boolean isDisabled = false;
-		WebElement list = driver.findElement(By.id(NavID));
-		String disabled = list.getAttribute("class");
-		if(disabled.equals(NavID + " disabled")){
-			isDisabled = true;
-		}
-		else{
-			isDisabled = false;
-		}
-		return isDisabled;
 	}
 	
 	public boolean isEnabled(String NavID){
@@ -61,16 +48,6 @@ public class VisualNav extends BaseNav{
 			isEnabled = false;
 		}
 		return isEnabled;
-	}
-	
-	public void goToGraph(){
-		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("go_graph_0")));
-		getElementByID("go_graph_0").click();
-	}
-	
-	public void goToScreenshots(){
-		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("go_ss_0")));
-		getElementByID("go_ss_0").click();
 	}
 	
 	public WebElement getTimestamp(){
@@ -100,26 +77,38 @@ public class VisualNav extends BaseNav{
 	}
 	
 	public boolean checkAmountOfClasses(int amount){
-		goToScreenshots();
 		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("class_container")));
 		WebElement dropDown = getElementByID("class_container");
 		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("class_name")));
 		List<WebElement> findElements = dropDown.findElements(By.id("class_name"));
-		if(findElements.size() >= 10)
+		if(findElements.size() > amount)
 			return true;
 		else
 			return false;
 	}
 	
-	public void openSysos(){
-		goToScreenshots();
-		chooseClass();
-		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("syso")));
-		getElementByClass("syso").click();
+	public void openSysos(String id){
+		chooseClass(id);
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("syso-header")));
+		getElementByID("syso-header").click();
 	}
 	
-	public boolean isSysoOpen(){
-		if(getElementByClass("modal_dialog").isDisplayed())
+	public boolean isSysosOpen(){
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("syso-header")));
+		if(getElementByID("syso-header").isDisplayed())
+			return true;
+		else 
+			return false;
+	}
+	
+	public void closeSysos(){
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("close")));
+		getElementByID("close").click();
+	}
+	
+	public boolean isSysosClosed(){
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("close")));
+		if(!getElementByID("close").isDisplayed())
 			return true;
 		else 
 			return false;
@@ -136,5 +125,25 @@ public class VisualNav extends BaseNav{
 	public void returnToPrevious(){
 		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.className("screenshot-nav-left")));
 		getElementByClass("screenshot-nav-left").click();
+	}
+	
+	public boolean isAtClassView(){
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.className("go-to-suites")));
+		if(getElementByClass("go-to-suites").isDisplayed())
+			return true;
+		else 
+			return false;
+	}
+	
+	public void openMethod(String method){
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id(method)));
+		getElementByID(method).click();
+	}
+	
+	public boolean isScreenshotPresent(String method){
+		if(getElementByID("table_" + method).isDisplayed())
+			return true;
+		else 
+			return false;
 	}
 }

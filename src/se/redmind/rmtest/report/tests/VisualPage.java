@@ -22,11 +22,8 @@ import se.redmind.rmtest.selenium.grid.DriverNamingWrapper;
 import se.redmind.rmtest.selenium.grid.DriverProvider;
 import se.redmind.rmtest.selenium.grid.Parallelized;
 
-
-
 @RunWith(Parallelized.class)
 public class VisualPage {
-
 
 	   private WebDriver tDriver;
 	    private final DriverNamingWrapper urlContainer;
@@ -69,5 +66,44 @@ public class VisualPage {
 	    	this.tDriver = this.urlContainer.startDriver();
 	    	this.nav = new VisualNav(this.tDriver);
 	    }
+	    
+	    @Test
+	    public void openSysos(){
+	    	nav.openSysos("classes_0");
+	    	
+	    	assertTrue(nav.isSysosOpen());
+	    }	    
 
+		@Test
+		public void opencloseSyso(){
+			nav.openSysos("classes_0");
+			nav.closeSysos();
+			nav.isSysosClosed();
+			assertTrue(nav.isSysosClosed());
+		}
+		@Test
+		public void chooseTimestamp(){
+			nav.changeTimestamp("20150101080000");
+			assertTrue(nav.isTimestampSet("20150101080000"));	
+			
+		}
+		@Test
+		public void chooseAnotherClass(){
+			nav.chooseClass("classes_0");
+			nav.returnToPrevious();	
+			assertTrue(nav.isAtClassView());
+
+		}
+		@Test
+		public void isScreenShotPresent(){
+			nav.changeTimestamp("20150101080000");
+			nav.isScreenshotPresent("table_0");
+			
+		}
+		
 }
+
+	    
+	    
+	    
+
