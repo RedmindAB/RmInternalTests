@@ -90,11 +90,25 @@ public class VisualNav extends BaseNav{
 	public void openSysos(){
 		chooseClass();
 		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("syso")));
-		getElementByClass("syso").click();
+		getElementByID("syso").click();
 	}
 	
-	public boolean isSysoOpen(){
-		if(getElementByClass("modal_dialog").isDisplayed())
+	public boolean isSysosOpen(){
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("syso-header")));
+		if(getElementByID("syso-header").isDisplayed())
+			return true;
+		else 
+			return false;
+	}
+	
+	public void closeSysos(){
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("close")));
+		getElementByID("syso-header").click();
+	}
+	
+	public boolean isSysosClosed(){
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("close")));
+		if(!getElementByID("close").isDisplayed())
 			return true;
 		else 
 			return false;

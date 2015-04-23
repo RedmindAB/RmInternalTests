@@ -22,11 +22,8 @@ import se.redmind.rmtest.selenium.grid.DriverNamingWrapper;
 import se.redmind.rmtest.selenium.grid.DriverProvider;
 import se.redmind.rmtest.selenium.grid.Parallelized;
 
-
-
 @RunWith(Parallelized.class)
 public class VisualPage {
-
 
 	   private WebDriver tDriver;
 	    private final DriverNamingWrapper urlContainer;
@@ -68,6 +65,6 @@ public class VisualPage {
 	    public void beforeTest(){
 	    	this.tDriver = this.urlContainer.startDriver();
 	    	this.nav = new VisualNav(this.tDriver);
-	    }
+	    }	    
 
 }
