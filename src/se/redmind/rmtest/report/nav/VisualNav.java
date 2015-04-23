@@ -20,7 +20,7 @@ public class VisualNav extends BaseNav{
 
 	@Override
 	void navigate() {
-		getElementByID("section").click();
+		getElementByID("section_2").click();
 		getElementByID("visual_view").click();
 	}
 
@@ -81,7 +81,7 @@ public class VisualNav extends BaseNav{
 		WebElement dropDown = getElementByID("class_container");
 		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("class_name")));
 		List<WebElement> findElements = dropDown.findElements(By.id("class_name"));
-		if(findElements.size() >= 10)
+		if(findElements.size() > amount)
 			return true;
 		else
 			return false;
@@ -125,5 +125,25 @@ public class VisualNav extends BaseNav{
 	public void returnToPrevious(){
 		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.className("screenshot-nav-left")));
 		getElementByClass("screenshot-nav-left").click();
+	}
+	
+	public boolean isAtClassView(){
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.className("go-to-suites")));
+		if(getElementByClass("go-to-suites").isDisplayed())
+			return true;
+		else 
+			return false;
+	}
+	
+	public void openMethod(String method){
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id(method)));
+		getElementByID(method).click();
+	}
+	
+	public boolean isScreenshotPresent(String method){
+		if(getElementByID("table_" + method).isDisplayed())
+			return true;
+		else 
+			return false;
 	}
 }
