@@ -20,7 +20,7 @@ public class VisualNav extends BaseNav{
 
 	@Override
 	void navigate() {
-		getElementByID("section").click();
+		getElementByID("section_2").click();
 		getElementByID("visual_view").click();
 	}
 
@@ -130,6 +130,18 @@ public class VisualNav extends BaseNav{
 	public boolean isAtClassView(){
 		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.className("go-to-suites")));
 		if(getElementByClass("go-to-suites").isDisplayed())
+			return true;
+		else 
+			return false;
+	}
+	
+	public void openMethod(String method){
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id(method)));
+		getElementByID(method).click();
+	}
+	
+	public boolean isScreenshotPresent(String method){
+		if(getElementByID("table_" + method).isDisplayed())
 			return true;
 		else 
 			return false;
