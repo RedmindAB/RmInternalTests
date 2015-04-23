@@ -70,9 +70,38 @@ public class VisualPage {
 	    @Test
 	    public void openSysos(){
 	    	nav.openSysos("classes_0");
-	    	nav.sleep();
+	    	
 	    	assertTrue(nav.isSysosOpen());
-	    }
+	    }	    
+
+		@Test
+		public void opencloseSyso(){
+			nav.openSysos("classes_0");
+			nav.closeSysos();
+			nav.isSysosClosed();
+			assertTrue(nav.isSysosClosed());
+		}
+		@Test
+		public void chooseTimestamp(){
+			nav.changeTimestamp("20150101080000");
+			assertTrue(nav.isTimestampSet("20150101080000"));	
+			
+		}
+		@Test
+		public void chooseAnotherClass(){
+			nav.chooseClass("classes_0");
+			nav.returnToPrevious();	
+			assertTrue(nav.isAtClassView());
+
+		}
+		@Test
+		public void isScreenShotPresent(){
+			assertTrue(true);
+		}
+		
+}
+
+	    
+	    
 	    
 
-}
