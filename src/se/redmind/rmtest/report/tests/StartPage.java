@@ -7,6 +7,7 @@ import java.util.Collection;
 
 import org.junit.AfterClass;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -75,6 +76,7 @@ public class StartPage {
 	    	assertTrue(redmindlogo.isDisplayed());
 	    }
 	    
+	    @Ignore
 	    @Test
 	    public void isScreenshotPresent(){
 	    	WebElement screenshot = this.nav.getScreenshot();
@@ -82,6 +84,7 @@ public class StartPage {
 	    	assertTrue(screenshot.isDisplayed());
 	    }
 	    
+	    @Ignore
 	    @Test
 	    public void isGraphViewPresent(){
 	    	WebElement graphView = this.nav.getGraphView();
