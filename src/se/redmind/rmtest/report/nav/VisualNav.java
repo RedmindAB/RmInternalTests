@@ -28,9 +28,9 @@ public class VisualNav extends BaseNav{
 		return getElementByID("methods_0");
 	}
 	
-	public void chooseClass(){
-		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("classes_0")));
-		getElementByID("classes_0").click();
+	public void chooseClass(String id){
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id(id)));
+		getElementByID(id).click();
 	}
 	
 	public WebElement getNav(String NavID){
@@ -87,10 +87,10 @@ public class VisualNav extends BaseNav{
 			return false;
 	}
 	
-	public void openSysos(){
-		chooseClass();
-		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("syso")));
-		getElementByID("syso").click();
+	public void openSysos(String id){
+		chooseClass(id);
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("syso-header")));
+		getElementByID("syso-header").click();
 	}
 	
 	public boolean isSysosOpen(){
@@ -103,7 +103,7 @@ public class VisualNav extends BaseNav{
 	
 	public void closeSysos(){
 		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("close")));
-		getElementByID("syso-header").click();
+		getElementByID("close").click();
 	}
 	
 	public boolean isSysosClosed(){

@@ -65,6 +65,14 @@ public class VisualPage {
 	    public void beforeTest(){
 	    	this.tDriver = this.urlContainer.startDriver();
 	    	this.nav = new VisualNav(this.tDriver);
-	    }	    
+	    }
+	    
+	    @Test
+	    public void openSysos(){
+	    	nav.openSysos("classes_0");
+	    	nav.sleep();
+	    	assertTrue(nav.isSysosOpen());
+	    }
+	    
 
 }
