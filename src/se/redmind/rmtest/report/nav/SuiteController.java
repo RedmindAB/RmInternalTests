@@ -2,6 +2,7 @@ package se.redmind.rmtest.report.nav;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class SuiteController extends BaseController {
@@ -54,6 +55,11 @@ public class SuiteController extends BaseController {
 	public void clickThisTestOnly(String index){
 		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("case-thistest-"+index)));
 		getElementByID("case-thistest-"+index).click();
+	}
+	
+	public WebElement getCurrentPossition(){
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("suite-position")));
+		return getElementByID("suite-position");
 	}
 	
 }
