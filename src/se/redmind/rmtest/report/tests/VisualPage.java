@@ -91,14 +91,15 @@ public class VisualPage {
 		public void chooseAnotherClass(){
 			nav.chooseClass("classes_0");
 			nav.returnToPrevious();	
-			assertTrue(nav.isAtClassView());
+			assertEquals("Go back to suites", nav.getGoBackButton().getText());
 
 		}
 		@Test
 		public void isScreenShotPresent(){
 			nav.changeTimestamp("20150101080000");
 			nav.chooseClass("classes_0");
-			nav.isScreenshotPresent("0");
+			nav.openMethod("0");
+			assertTrue(nav.isScreenshotPresent("0"));
 		}
 		
 }

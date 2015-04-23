@@ -31,6 +31,7 @@ public class VisualNav extends BaseNav{
 	public void chooseClass(String id){
 		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id(id)));
 		getElementByID(id).click();
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("method_0")));
 	}
 	
 	public WebElement getNav(String NavID){
@@ -123,8 +124,12 @@ public class VisualNav extends BaseNav{
 	}
 	
 	public void returnToPrevious(){
-		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.className("screenshot-nav-left")));
-		getElementByClass("screenshot-nav-left").click();
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("go-to-suites")));
+		getElementByID("go-to-suites").click();
+	}
+	
+	public WebElement getGoBackButton(){
+		return getElementByClass("screenshot-nav-left");
 	}
 	
 	public boolean isAtClassView(){
@@ -136,14 +141,17 @@ public class VisualNav extends BaseNav{
 	}
 	
 	public void openMethod(String method){
-		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id(method)));
-		getElementByID(method).click();
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("method_" + method)));
+		getElementByID("method_" + method).click();
 	}
 	
 	public boolean isScreenshotPresent(String method){
-		if(getElementByID("table_" + method).isDisplayed())
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("table_" + method)));
+		if(getElementByID("table_" + method).isDisplayed()){
 			return true;
-		else 
+		}
+		else {
 			return false;
+		}
 	}
 }
