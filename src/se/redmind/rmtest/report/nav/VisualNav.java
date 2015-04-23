@@ -81,7 +81,7 @@ public class VisualNav extends BaseNav{
 		WebElement dropDown = getElementByID("class_container");
 		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("class_name")));
 		List<WebElement> findElements = dropDown.findElements(By.id("class_name"));
-		if(findElements.size() >= 10)
+		if(findElements.size() > amount)
 			return true;
 		else
 			return false;
