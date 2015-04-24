@@ -101,11 +101,6 @@ public class VisualPage {
 			nav.openMethod("0");
 			assertTrue(nav.isScreenshotPresent());
 		}*/
-		
-	    @Test
-	    public void switchScreenshot(){
-	    	
-	    }
 }
 
 	    
