@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import se.redmind.rmtest.report.expectedconditions.ChartReloadFinished;
+import se.redmind.rmtest.report.expectedconditions.UrlChanged;
 
 public class VisualNav extends BaseNav{
 	
@@ -22,6 +23,7 @@ public class VisualNav extends BaseNav{
 	void navigate() {
 		getElementByID("section").click();
 		getElementByID("visual_view").click();
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("classes_0")));
 	}
 
 	public WebElement getMethodID(){
@@ -31,6 +33,7 @@ public class VisualNav extends BaseNav{
 	public void chooseClass(String id){
 		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id(id)));
 		getElementByID(id).click();
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("method_0")));
 	}
 	
 	public WebElement getNav(String NavID){
@@ -122,28 +125,50 @@ public class VisualNav extends BaseNav{
 		}
 	}
 	
-	public void returnToPrevious(){
-		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.className("screenshot-nav-left")));
-		getElementByClass("screenshot-nav-left").click();
+	public void goTo(String byID){
+		String currentURL = driver.getCurrentUrl();
+		getElementByID("go_to_" + byID).click();
+		driverFluentWait(15).until(new UrlChanged(currentURL));
+	}
+	
+	public WebElement getGoBackButton(){
+		return getElementByClass("screenshot-nav-left");
 	}
 	
 	public boolean isAtClassView(){
-		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.className("go-to-suites")));
-		if(getElementByClass("go-to-suites").isDisplayed())
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("go-to-suites")));
+		if(getElementByID("go-to-suites").isDisplayed())
 			return true;
 		else 
 			return false;
 	}
 	
 	public void openMethod(String method){
-		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id(method)));
-		getElementByID(method).click();
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("method_" + method)));
+		getElementByID("method_" + method).click();
 	}
 	
-	public boolean isScreenshotPresent(String method){
-		if(getElementByID("table_" + method).isDisplayed())
+	public boolean isThumbnailPresent(String method){
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("table_" + method)));
+		if(getElementByID("table_" + method).isDisplayed()){
 			return true;
-		else 
+		}
+		else {
+			return false;
+		}
+	}
+	
+	public void openScreenshot(String num){
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("screenshot" + num)));
+		getElementByID("screenshot" + num).click();
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.className("slide-animation")));
+	}
+	
+	public boolean isScreenshotPresent(){
+		if(getElementByClass("slide-animation").isDisplayed())
+			return true;
+		else
 			return false;
 	}
+	
 }

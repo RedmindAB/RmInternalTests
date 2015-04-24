@@ -1,39 +1,39 @@
 package se.redmind.rmtest.report.tests;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.concurrent.TimeUnit;
 
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
-import se.redmind.rmtest.report.nav.ScreenshotNav;
-import se.redmind.rmtest.selenium.framework.HTMLPage;
+import se.redmind.rmtest.report.nav.StartNav;
+import se.redmind.rmtest.report.nav.VisualNav;
 import se.redmind.rmtest.selenium.framework.RMReportScreenshot;
-import se.redmind.rmtest.selenium.framework.StackTraceInfo;
 import se.redmind.rmtest.selenium.grid.DriverNamingWrapper;
 import se.redmind.rmtest.selenium.grid.DriverProvider;
 import se.redmind.rmtest.selenium.grid.Parallelized;
 
-
-
 @RunWith(Parallelized.class)
-public class Screenshot {
-
+public class NavbarPage {
 
 	   private WebDriver tDriver;
 	    private final DriverNamingWrapper urlContainer;
 	    private final String driverDescription;
 	    private final RMReportScreenshot rmrScreenshot;
-	    private ScreenshotNav nav;
+	    private VisualNav nav;
 
-	    public Screenshot(final DriverNamingWrapper driverWrapper, final String driverDescription) {
+	    public NavbarPage(final DriverNamingWrapper driverWrapper, final String driverDescription) {
 	        this.urlContainer = driverWrapper;
 	        this.driverDescription = driverDescription;
 	        this.rmrScreenshot = new RMReportScreenshot(urlContainer);
@@ -66,12 +66,16 @@ public class Screenshot {
 	    @Before
 	    public void beforeTest(){
 	    	this.tDriver = this.urlContainer.startDriver();
-	    	this.nav = new ScreenshotNav(tDriver);
+	    	this.nav = new VisualNav(this.tDriver);
 	    }
 	    
 	    @Test
-	    public void test(){
-	    	assertTrue(true);
+	    public void isEnabled(){
+	    	assertTrue(nav.isEnabled("visual"));
 	    }
-
 }
+
+	    
+	    
+	    
+
