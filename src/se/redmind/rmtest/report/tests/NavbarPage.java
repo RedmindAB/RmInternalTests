@@ -11,9 +11,11 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import se.redmind.rmtest.report.nav.StartNav;
 import se.redmind.rmtest.report.nav.VisualNav;
@@ -23,7 +25,7 @@ import se.redmind.rmtest.selenium.grid.DriverProvider;
 import se.redmind.rmtest.selenium.grid.Parallelized;
 
 @RunWith(Parallelized.class)
-public class VisualPage {
+public class NavbarPage {
 
 	   private WebDriver tDriver;
 	    private final DriverNamingWrapper urlContainer;
@@ -31,7 +33,7 @@ public class VisualPage {
 	    private final RMReportScreenshot rmrScreenshot;
 	    private VisualNav nav;
 
-	    public VisualPage(final DriverNamingWrapper driverWrapper, final String driverDescription) {
+	    public NavbarPage(final DriverNamingWrapper driverWrapper, final String driverDescription) {
 	        this.urlContainer = driverWrapper;
 	        this.driverDescription = driverDescription;
 	        this.rmrScreenshot = new RMReportScreenshot(urlContainer);
@@ -66,45 +68,10 @@ public class VisualPage {
 	    	this.tDriver = this.urlContainer.startDriver();
 	    	this.nav = new VisualNav(this.tDriver);
 	    }
-	    /*
+	    
 	    @Test
-	    public void openSysos(){
-	    	nav.openSysos("classes_0");
-	    	
-	    	assertTrue(nav.isSysosOpen());
-	    }	    
-
-		@Test
-		public void opencloseSyso(){
-			nav.openSysos("classes_0");
-			nav.closeSysos();
-			nav.isSysosClosed();
-			assertTrue(nav.isSysosClosed());
-		}
-		@Test
-		public void chooseTimestamp(){
-			nav.changeTimestamp("20150101080000");
-			assertTrue(nav.isTimestampSet("20150101080000"));	
-			
-		}
-		@Test
-		public void chooseAnotherClass(){
-			nav.chooseClass("classes_0");
-			nav.goTo("classes");	
-			assertEquals("Go back to suites", nav.getGoBackButton().getText());
-
-		}
-		@Test
-		public void isScreenShotPresent(){
-			nav.changeTimestamp("20150101080000");
-			nav.chooseClass("classes_0");
-			nav.openMethod("0");
-			assertTrue(nav.isScreenshotPresent());
-		}*/
-		
-	    @Test
-	    public void switchScreenshot(){
-	    	
+	    public void isEnabled(){
+	    	assertTrue(nav.isEnabled("visual"));
 	    }
 }
 
