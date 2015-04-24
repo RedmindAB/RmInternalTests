@@ -89,4 +89,11 @@ public class SuiteController extends BaseController {
 		return caseList.size();
 	}
 	
+	public void ClickOnSuiteLinkText(){
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("suite-position")));
+		String current = getUrl();
+		getElementByID("suite-position").click();
+		driverFluentWait(15).until(new UrlChanged(current));
+	}
+	
 }

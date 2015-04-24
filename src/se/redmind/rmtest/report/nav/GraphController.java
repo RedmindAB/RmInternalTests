@@ -142,4 +142,9 @@ public class GraphController extends BaseController{
 		List <WebElement> list = driver.findElements(By.className("highcharts-legend-item"));
 		return list;
 	}
+	
+	public void clickOnLegend(int index){
+		driverFluentWait(15).until(ExpectedConditions.elementToBeClickable(driver.findElement(By.className("highcharts-legend-item"))));
+		getLegendListItem(index).click();
+	}
 }
