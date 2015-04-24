@@ -66,7 +66,7 @@ public class VisualPage {
 	    	this.tDriver = this.urlContainer.startDriver();
 	    	this.nav = new VisualNav(this.tDriver);
 	    }
-	    /*
+	    
 	    @Test
 	    public void openSysos(){
 	    	nav.openSysos("classes_0");
@@ -91,19 +91,27 @@ public class VisualPage {
 		public void chooseAnotherClass(){
 			nav.chooseClass("classes_0");
 			nav.goTo("classes");	
-			assertEquals("Go back to suites", nav.getGoBackButton().getText());
+			assertTrue(nav.isAtClassView());
 
+		}
+		@Test
+		public void isThumbnailPresent(){
+			nav.changeTimestamp("20150101080000");
+			nav.chooseClass("classes_0");
+			nav.isThumbnailPresent("0");
 		}
 		@Test
 		public void isScreenShotPresent(){
 			nav.changeTimestamp("20150101080000");
 			nav.chooseClass("classes_0");
 			nav.openMethod("0");
+			nav.openScreenshot("0");
 			assertTrue(nav.isScreenshotPresent());
-		}*/
+			
+		}
 }
 
-	    
+	    	
 	    
 	    
 
