@@ -24,7 +24,7 @@ public abstract class BaseController extends HTMLPage{
 		return this.driver.findElement(By.xpath(css));
 	}
 	
-	protected String getUrl(){
+	public String getUrl(){
 		return driver.getCurrentUrl();
 	}
 	
