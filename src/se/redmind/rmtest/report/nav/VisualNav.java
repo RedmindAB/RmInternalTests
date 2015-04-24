@@ -23,6 +23,7 @@ public class VisualNav extends BaseNav{
 	void navigate() {
 		getElementByID("section").click();
 		getElementByID("visual_view").click();
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("classes_0")));
 	}
 
 	public WebElement getMethodID(){
@@ -147,7 +148,7 @@ public class VisualNav extends BaseNav{
 		getElementByID("method_" + method).click();
 	}
 	
-	public boolean isScreenshotPresent(String method){
+	public boolean isThumbnailPresent(String method){
 		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("table_" + method)));
 		if(getElementByID("table_" + method).isDisplayed()){
 			return true;
@@ -155,5 +156,18 @@ public class VisualNav extends BaseNav{
 		else {
 			return false;
 		}
+	}
+	
+	public void openScreenshot(String num){
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("screenshot" + num)));
+		getElementByID("screenshot" + num).click();
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.className("slide-animation")));
+	}
+	
+	public boolean isScreenshotPresent(){
+		if(getElementByClass("slide-animation").isDisplayed())
+			return true;
+		else
+			return false;
 	}
 }
