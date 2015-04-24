@@ -21,7 +21,7 @@ public class VisualNav extends BaseNav{
 
 	@Override
 	void navigate() {
-		getElementByID("section").click();
+		getElementByID("section_2").click();
 		getElementByID("visual_view").click();
 		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("classes_0")));
 	}
@@ -169,6 +169,23 @@ public class VisualNav extends BaseNav{
 			return true;
 		else
 			return false;
+	}
+	
+	public boolean isScreenShotSwitched(){
+		String textBefore;
+		String textAfter;
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.className("white")));
+		textBefore = getElementByClass("white").getText();
+		System.out.println("textBefore: " + textBefore);
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("arrow_prev")));
+		getElementByID("arrow_prev").click();
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.className("white")));
+		textAfter = getElementByClass("white").getText();
+		System.out.println("textAfter: " + textAfter);
+		if(textBefore.equals(textAfter))
+			return false;
+		else
+			return true;
 	}
 	
 }
