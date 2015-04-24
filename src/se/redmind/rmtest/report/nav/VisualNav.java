@@ -21,7 +21,7 @@ public class VisualNav extends BaseNav{
 
 	@Override
 	void navigate() {
-		getElementByID("section_2").click();
+		getElementByID("section").click();
 		getElementByID("visual_view").click();
 		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("classes_0")));
 	}
