@@ -107,6 +107,7 @@ public class VisualPage {
 			nav.chooseClass("classes_0");
 			nav.openMethod("0");
 			nav.openScreenshot("0");
+			nav.waitForSlideAnimation();
 			assertTrue(nav.isScreenshotPresent());
 			
 		} 
@@ -118,11 +119,11 @@ public class VisualPage {
 			nav.chooseClass("classes_0");
 			nav.openMethod("0");
 			nav.openScreenshot("0");
-			nav.waitForSlideAnimation();
 			assertTrue(nav.isScreenShotSwitched());
 			
 		}	
 }
+
 
 	    	
 	    
