@@ -48,8 +48,8 @@ public class OptionsController extends BaseController{
 	public void reloadGraph(){
 		driverFluentWait(15).until(ExpectedConditions.elementToBeClickable(getElementByID("button_reload")));
 		getReload().click();
-//		driverFluentWait(20).until(new ChartReloadFinished());
-		driverFluentWait(15).until(ExpectedConditions.invisibilityOfElementLocated(By.className("highcharts-loading")));
+		driverFluentWait(20).until(new ChartReloadFinished());
+//		driverFluentWait(15).until(ExpectedConditions.invisibilityOfElementLocated(By.className("highcharts-loading")));
 	}
 	
 	
