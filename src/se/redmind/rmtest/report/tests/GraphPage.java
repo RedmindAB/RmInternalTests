@@ -74,16 +74,16 @@ public class GraphPage {
 
 	    @Test
 	    public void test_LoadTwentyRuns() {
-	    	nav.graph.changeChartSuiteRunLimit("20");
-	    	nav.graph.reloadGraph();
+	    	nav.option.changeChartSuiteRunLimit("20");
+	    	nav.option.reloadGraph();
 		    WebElement chartSub = nav.getChartSubtitle();
 		    assertEquals("Showing 20 results", chartSub.getText());
 	    }
 	    
 	    @Test 
 	    public void test_LoadTenRuns() {
-	    	nav.graph.changeChartSuiteRunLimit("10");
-	    	nav.graph.reloadGraph();
+	    	nav.option.changeChartSuiteRunLimit("10");
+	    	nav.option.reloadGraph();
 	    	WebElement chartSub = nav.getChartSubtitle();
 	    	assertEquals("Showing 10 results", chartSub.getText());
 	    }
@@ -94,17 +94,17 @@ public class GraphPage {
 	    	String expected = "Percentage of passed tests";
 	    	WebElement chartTitle1 = nav.getChartTitle();
 	    	assertEquals(expected, chartTitle1.getText());
-	    	nav.graph.changeDisplayType("Total Fail");
+	    	nav.option.changeDisplayType("Total Fail");
 	    	WebElement chartTitle2 = nav.getChartTitle();
 	    	assertNotEquals(expected, chartTitle2.getText());
-	    	nav.graph.changeDisplayType("Pass/Fail");
+	    	nav.option.changeDisplayType("Pass/Fail");
 	    	WebElement chartTitle3 = nav.getChartTitle();
 	    	assertEquals(expected, chartTitle3.getText());
 	    }
 	    
 	    @Test
 	    public void test_TotalPass(){
-	    	nav.graph.changeDisplayType("Total Pass");
+	    	nav.option.changeDisplayType("Total Pass");
 	    	String expected = "Passed tests";
 	    	WebElement chartTitle1 = nav.getChartTitle();
 	    	assertEquals(expected, chartTitle1.getText());
@@ -112,7 +112,7 @@ public class GraphPage {
 	    
 	    @Test
 	    public void test_TotalFailed(){
-	    	nav.graph.changeDisplayType("Total Fail");
+	    	nav.option.changeDisplayType("Total Fail");
 	    	String expected = "Failed tests";
 	    	WebElement chartTitle1 = nav.getChartTitle();
 	    	assertEquals(expected, chartTitle1.getText());
@@ -120,7 +120,7 @@ public class GraphPage {
 	    
 	    @Test
 	    public void test_RunTime(){
-	    	nav.graph.changeDisplayType("Run Time");
+	    	nav.option.changeDisplayType("Run Time");
 	    	String expected = "Time to run in seconds";
 	    	WebElement chartTitle1 = nav.getChartTitle();
 	    	assertEquals(expected, chartTitle1.getText());
@@ -128,7 +128,7 @@ public class GraphPage {
 	    
 	    @Test
 	    public void test_CreateALine(){
-	    	nav.graph.addToGraph();
+	    	nav.option.addToGraph();
 	    	int expected = 2;
 	    	int actual = nav.graph.getLegendList().size();
 	    	assertEquals(expected, actual);
@@ -136,8 +136,8 @@ public class GraphPage {
 	    
 	    @Test
 	    public void test_BreakOnBrowser(){
-	    	nav.graph.changeBreakPoint("Browser");
-	    	nav.graph.reloadGraph();
+	    	nav.option.changeBreakPoint("Browser");
+	    	nav.option.reloadGraph();
 	    	String expected = "firefox v.31";
 	    	String actual = nav.graph.getLegendListItem(0).getText();
 	    	assertEquals(expected, actual);
@@ -148,8 +148,8 @@ public class GraphPage {
     	
         @Test
 	    public void test_BreakOnVersion(){
-	    	nav.graph.changeBreakPoint("Version");
-	    	nav.graph.reloadGraph();
+	    	nav.option.changeBreakPoint("Version");
+	    	nav.option.reloadGraph();
 	    	String expected = "Android 4.4.4";
 	    	String actual = nav.graph.getLegendListItem(0).getText();
 	    	assertEquals(expected, actual);
@@ -160,8 +160,8 @@ public class GraphPage {
         
         @Test
 	    public void test_BreakOnDevice(){
-	    	nav.graph.changeBreakPoint("Device");
-	    	nav.graph.reloadGraph();
+	    	nav.option.changeBreakPoint("Device");
+	    	nav.option.reloadGraph();
 	    	String expected = "HTC ONE";
 	    	String actual = nav.graph.getLegendListItem(0).getText();
 	    	assertEquals(expected, actual);
@@ -172,8 +172,8 @@ public class GraphPage {
         
         @Test
 	    public void test_BreakOnPlatform(){
-        	nav.graph.changeBreakPoint("Platform");
-        	nav.graph.reloadGraph();
+        	nav.option.changeBreakPoint("Platform");
+        	nav.option.reloadGraph();
         	String expected = "Android";
 	    	String actual = nav.graph.getLegendListItem(0).getText();
 	    	assertEquals(expected, actual);
@@ -184,9 +184,9 @@ public class GraphPage {
 	    
         @Test
 	    public void test_RemoveALine(){
-        	nav.graph.changeBreakPoint("Platform");
-        	nav.graph.reloadGraph();
-        	nav.graph.removeGraphLine("Android");
+        	nav.option.changeBreakPoint("Platform");
+        	nav.option.reloadGraph();
+        	nav.option.removeGraphLine("Android");
         	
         	String expFirst = "IOS";
         	String firstObj = nav.graph.getLegendListItem(0).getText();
@@ -204,11 +204,11 @@ public class GraphPage {
     
         @Test
 	    public void test_SpecificationsDevice_CheckDevice(){
-        	nav.graph.changeBreakPoint("Device");
-        	nav.graph.clickSpecifications();
-        	nav.graph.clickPlatform("Android");
-        	nav.graph.checkDevice("HTC ONE");
-        	nav.graph.reloadGraph();
+        	nav.option.changeBreakPoint("Device");
+        	nav.option.clickSpecifications();
+        	nav.option.clickPlatform("Android");
+        	nav.option.checkDevice("HTC ONE");
+        	nav.option.reloadGraph();
         	String expectedName = "HTC ONE";
         	int expectedSize = 1;
         	String actualName = nav.graph.getLegendListItem(0).getText();
@@ -219,11 +219,11 @@ public class GraphPage {
 	    
         @Test
 	    public void test_SpecificationsDevice_CheckVersion(){
-        	nav.graph.changeBreakPoint("Device");
-        	nav.graph.clickSpecifications();
-        	nav.graph.clickPlatform("Android");
-        	nav.graph.checkVersion("4.4.4");
-        	nav.graph.reloadGraph();
+        	nav.option.changeBreakPoint("Device");
+        	nav.option.clickSpecifications();
+        	nav.option.clickPlatform("Android");
+        	nav.option.checkVersion("4.4.4");
+        	nav.option.reloadGraph();
         	String expectedName = "HTC ONE";
         	int expectedSize = 1;
         	String actualName = nav.graph.getLegendListItem(0).getText();
@@ -236,10 +236,10 @@ public class GraphPage {
         
         @Test
         public void test_SpecificationsDevice_CheckPlatform(){
-        	nav.graph.changeBreakPoint("Device");
-        	nav.graph.clickSpecifications();
-        	nav.graph.clickPlatform("Android");
-        	nav.graph.reloadGraph();
+        	nav.option.changeBreakPoint("Device");
+        	nav.option.clickSpecifications();
+        	nav.option.clickPlatform("Android");
+        	nav.option.reloadGraph();
         	String expectedName1 = "HTC ONE";
         	String expectedName2 = "Nexus 6";
         	int expectedSize = 2;
@@ -255,11 +255,11 @@ public class GraphPage {
 	    
         @Test
 	    public void test_Specifications_CheckDeviceGetVersion(){
-        	nav.graph.changeBreakPoint("Version");
-        	nav.graph.clickSpecifications();
-        	nav.graph.clickPlatform("Android");
-        	nav.graph.checkDevice("HTC ONE");
-        	nav.graph.reloadGraph();
+        	nav.option.changeBreakPoint("Version");
+        	nav.option.clickSpecifications();
+        	nav.option.clickPlatform("Android");
+        	nav.option.checkDevice("HTC ONE");
+        	nav.option.reloadGraph();
         	String expectedName = "Android 4.4.4";
         	int expectedSize = 1;
         	String actualName = nav.graph.getLegendListItem(0).getText();
@@ -270,11 +270,11 @@ public class GraphPage {
         
         @Test
 	    public void test_Specifications_Version(){
-        	nav.graph.changeBreakPoint("Version");
-        	nav.graph.clickSpecifications();
-        	nav.graph.clickPlatform("Android");
-        	nav.graph.checkVersion("4.4.4");
-        	nav.graph.reloadGraph();
+        	nav.option.changeBreakPoint("Version");
+        	nav.option.clickSpecifications();
+        	nav.option.clickPlatform("Android");
+        	nav.option.checkVersion("4.4.4");
+        	nav.option.reloadGraph();
         	String expectedName = "Android 4.4.4";
         	int expectedSize = 1;
         	String actualName = nav.graph.getLegendListItem(0).getText();
@@ -285,10 +285,10 @@ public class GraphPage {
         
         @Test
   	    public void test_Specifications_VersionPlatform(){
-          	nav.graph.changeBreakPoint("Version");
-          	nav.graph.clickSpecifications();
-          	nav.graph.clickPlatform("Android");
-          	nav.graph.reloadGraph();
+          	nav.option.changeBreakPoint("Version");
+          	nav.option.clickSpecifications();
+          	nav.option.clickPlatform("Android");
+          	nav.option.reloadGraph();
           	String expectedName1 = "Android 4.4.4";
         	String expectedName2 = "Android 5.1";
         	int expectedSize = 2;
@@ -303,11 +303,11 @@ public class GraphPage {
         
         @Test
 	    public void test_Specifications_CheckDeviceGetPlatform(){
-        	nav.graph.changeBreakPoint("Platform");
-        	nav.graph.clickSpecifications();
-        	nav.graph.clickPlatform("Android");
-        	nav.graph.checkDevice("HTC ONE");
-        	nav.graph.reloadGraph();
+        	nav.option.changeBreakPoint("Platform");
+        	nav.option.clickSpecifications();
+        	nav.option.clickPlatform("Android");
+        	nav.option.checkDevice("HTC ONE");
+        	nav.option.reloadGraph();
          	String expectedName = "Android";
         	int expectedSize = 1;
         	String actualName = nav.graph.getLegendListItem(0).getText();
@@ -318,10 +318,10 @@ public class GraphPage {
         
         @Test
 	    public void test_Specifications_Platform(){
-        	nav.graph.changeBreakPoint("Platform");
-        	nav.graph.clickSpecifications();
-        	nav.graph.clickPlatform("Android");
-        	nav.graph.reloadGraph();
+        	nav.option.changeBreakPoint("Platform");
+        	nav.option.clickSpecifications();
+        	nav.option.clickPlatform("Android");
+        	nav.option.reloadGraph();
          	String expectedName = "Android";
         	int expectedSize = 1;
         	String actualName = nav.graph.getLegendListItem(0).getText();
@@ -333,11 +333,11 @@ public class GraphPage {
         
         @Test
  	    public void test_Specifications_PlatformVersion(){
-         	nav.graph.changeBreakPoint("Platform");
-         	nav.graph.clickSpecifications();
-         	nav.graph.clickPlatform("Android");
-         	nav.graph.checkVersion("4.4.4");
-         	nav.graph.reloadGraph();
+         	nav.option.changeBreakPoint("Platform");
+         	nav.option.clickSpecifications();
+         	nav.option.clickPlatform("Android");
+         	nav.option.checkVersion("4.4.4");
+         	nav.option.reloadGraph();
          	String expectedName = "Android";
         	int expectedSize = 1;
         	String actualName = nav.graph.getLegendListItem(0).getText();
@@ -347,11 +347,11 @@ public class GraphPage {
         }
         @Test
  	    public void test_SpecificationsPlatform_CheckAndroidIOS(){
-         	nav.graph.changeBreakPoint("Platform");
-         	nav.graph.clickSpecifications();
-         	nav.graph.clickPlatform("Android");
-         	nav.graph.clickPlatform("IOS");
-         	nav.graph.reloadGraph();
+         	nav.option.changeBreakPoint("Platform");
+         	nav.option.clickSpecifications();
+         	nav.option.clickPlatform("Android");
+         	nav.option.clickPlatform("IOS");
+         	nav.option.reloadGraph();
          	String expectedName1 = "Android";
          	String expectedName2 = "IOS";
         	int expectedSize = 2;
@@ -366,10 +366,10 @@ public class GraphPage {
 	    
         @Test
         public void test_SpecificationsBrowser_CheckChrome(){
-        	nav.graph.changeBreakPoint("Browser");
-        	nav.graph.clickSpecifications();
-        	nav.graph.checkBrowser("chrome");
-        	nav.graph.reloadGraph();
+        	nav.option.changeBreakPoint("Browser");
+        	nav.option.clickSpecifications();
+        	nav.option.checkBrowser("chrome");
+        	nav.option.reloadGraph();
         	String expectedName = "chrome v.42";
         	int expectedSize = 1;
         	String actualName = nav.graph.getLegendListItem(0).getText();
@@ -449,7 +449,7 @@ public class GraphPage {
         @Test 
         public void test_CheckClass(){
         	nav.suite.checkBoxOn("class", "0");
-        	nav.graph.reloadGraph();
+        	nav.option.reloadGraph();
         	String expectedName = "Android";
         	int expectedSize = 1;
         	String actualName = nav.graph.getLegendListItem(0).getText();
@@ -463,13 +463,13 @@ public class GraphPage {
         public void test_CheckMethod(){
         	nav.suite.clickOnBar("class", "0");
         	nav.suite.checkBoxOn("method", "0");
-        	nav.graph.reloadGraph();
+        	nav.option.reloadGraph();
         }
         
         @Test 
         public void test_ClickOnClassReload(){
         	nav.suite.clickOnBar("class", "0");
-        	nav.graph.reloadGraph();
+        	nav.option.reloadGraph();
         	String expectedName = "RandomClass0";
         	int expectedSize = 1;
         	String actualName = nav.graph.getLegendListItem(0).getText();
@@ -527,123 +527,123 @@ public class GraphPage {
 	    @Ignore
 	    @Test
 	    public void test_BreakOnBrowserDispTime(){
-	    	nav.graph.changeDisplayType("Run Time");
-	    	nav.graph.changeBreakPoint("Browser");
-	    	nav.graph.reloadGraph();
+	    	nav.option.changeDisplayType("Run Time");
+	    	nav.option.changeBreakPoint("Browser");
+	    	nav.option.reloadGraph();
 	    }
 //	    
 //	    @Test
 //	    public void test_hej5(){
-//	    	nav.graph.changeDisplayType("Total Fail");
-//	    	nav.graph.changeBreakPoint("Browser");
-//	    	nav.graph.reloadGraph();
+//	    	nav.option.changeDisplayType("Total Fail");
+//	    	nav.option.changeBreakPoint("Browser");
+//	    	nav.option.reloadGraph();
 //	    }
 //	    
 //	    @Test
 //	    public void test_hej6(){
-//	    	nav.graph.changeDisplayType("Total Pass");
-//	    	nav.graph.changeBreakPoint("Browser");
-//	    	nav.graph.reloadGraph();
+//	    	nav.option.changeDisplayType("Total Pass");
+//	    	nav.option.changeBreakPoint("Browser");
+//	    	nav.option.reloadGraph();
 //	    }
 //	    
 //	    @Test
 //	    public void test_hej7(){
-//	    	nav.graph.changeDisplayType("Pass/Fail");
-//	    	nav.graph.changeBreakPoint("Browser");
-//	    	nav.graph.reloadGraph();
+//	    	nav.option.changeDisplayType("Pass/Fail");
+//	    	nav.option.changeBreakPoint("Browser");
+//	    	nav.option.reloadGraph();
 //	    }
 //	    
 //	    @Test
 //	    public void test_hej8(){
-//	    	nav.graph.changeDisplayType("Run Time");
-//	    	nav.graph.changeBreakPoint("Version");
-//	    	nav.graph.reloadGraph();
+//	    	nav.option.changeDisplayType("Run Time");
+//	    	nav.option.changeBreakPoint("Version");
+//	    	nav.option.reloadGraph();
 //	    }
 //	    
 //	    @Test
 //	    public void test_hej9(){
-//	    	nav.graph.changeDisplayType("Total Fail");
-//	    	nav.graph.changeBreakPoint("Version");
-//	    	nav.graph.reloadGraph();
+//	    	nav.option.changeDisplayType("Total Fail");
+//	    	nav.option.changeBreakPoint("Version");
+//	    	nav.option.reloadGraph();
 //	    }
 //	    
 //	    @Test
 //	    public void test_hej10(){
-//	    	nav.graph.changeDisplayType("Total Pass");
-//	    	nav.graph.changeBreakPoint("Version");
-//	    	nav.graph.reloadGraph();
+//	    	nav.option.changeDisplayType("Total Pass");
+//	    	nav.option.changeBreakPoint("Version");
+//	    	nav.option.reloadGraph();
 //	    }
 //	    
 //	    @Test
 //	    public void test_hej11(){
-//	    	nav.graph.changeDisplayType("Pass/Fail");
-//	    	nav.graph.changeBreakPoint("Version");
-//	    	nav.graph.reloadGraph();
+//	    	nav.option.changeDisplayType("Pass/Fail");
+//	    	nav.option.changeBreakPoint("Version");
+//	    	nav.option.reloadGraph();
 //	    }
 //        
 //	    @Test
 //	    public void test_hej12(){
-//	    	nav.graph.changeDisplayType("Run Time");
-//	    	nav.graph.changeBreakPoint("Device");
-//	    	nav.graph.reloadGraph();
+//	    	nav.option.changeDisplayType("Run Time");
+//	    	nav.option.changeBreakPoint("Device");
+//	    	nav.option.reloadGraph();
 //	    }
 //	    
 //	    @Test
 //	    public void test_hej13(){
-//	    	nav.graph.changeDisplayType("Total Fail");
-//	    	nav.graph.changeBreakPoint("Device");
-//	    	nav.graph.reloadGraph();
+//	    	nav.option.changeDisplayType("Total Fail");
+//	    	nav.option.changeBreakPoint("Device");
+//	    	nav.option.reloadGraph();
 //	    }
 //	    
 //	    @Test
 //	    public void test_hej14(){
-//	    	nav.graph.changeDisplayType("Total Pass");
-//	    	nav.graph.changeBreakPoint("Device");
-//	    	nav.graph.reloadGraph();
+//	    	nav.option.changeDisplayType("Total Pass");
+//	    	nav.option.changeBreakPoint("Device");
+//	    	nav.option.reloadGraph();
 //	    }
 //	    
 //	    @Test
 //	    public void test_hej15(){
-//	    	nav.graph.changeDisplayType("Pass/Fail");
-//	    	nav.graph.changeBreakPoint("Device");
-//	    	nav.graph.reloadGraph();
+//	    	nav.option.changeDisplayType("Pass/Fail");
+//	    	nav.option.changeBreakPoint("Device");
+//	    	nav.option.reloadGraph();
 //	    }
 //	    
 //	    @Test
 //	    public void test_hej16(){
-//	    	nav.graph.changeDisplayType("Run Time");
-//	    	nav.graph.changeBreakPoint("Platform");
-//	    	nav.graph.reloadGraph();
+//	    	nav.option.changeDisplayType("Run Time");
+//	    	nav.option.changeBreakPoint("Platform");
+//	    	nav.option.reloadGraph();
 //	    }
 //	    
 //	    @Test
 //	    public void test_hej17(){
-//	    	nav.graph.changeDisplayType("Total Fail");
-//	    	nav.graph.changeBreakPoint("Platform");
-//	    	nav.graph.reloadGraph();
+//	    	nav.option.changeDisplayType("Total Fail");
+//	    	nav.option.changeBreakPoint("Platform");
+//	    	nav.option.reloadGraph();
 //	    }
 //	    
 //	    @Test
 //	    public void test_hej18(){
-//	    	nav.graph.changeDisplayType("Total Pass");
-//	    	nav.graph.changeBreakPoint("Platform");
-//	    	nav.graph.reloadGraph();
+//	    	nav.option.changeDisplayType("Total Pass");
+//	    	nav.option.changeBreakPoint("Platform");
+//	    	nav.option.reloadGraph();
 //	    }
 //	    
 //	    @Test
 //	    public void test_hej19(){
-//	    	nav.graph.changeDisplayType("Pass/Fail");
-//	    	nav.graph.changeBreakPoint("Platform");
-//	    	nav.graph.reloadGraph();
+//	    	nav.option.changeDisplayType("Pass/Fail");
+//	    	nav.option.changeBreakPoint("Platform");
+//	    	nav.option.reloadGraph();
 //	    }
 //	    
 	    @Test
 	    public void test_ClearCheckBoxesBrowser(){
-	    	nav.graph.changeBreakPoint("Browser");
-	    	nav.graph.clickSpecifications();
-	    	nav.graph.checkBrowser("chrome");
-	    	nav.graph.clickClearCheckBoxes();
-	    	nav.graph.reloadGraph();
+	    	nav.option.changeBreakPoint("Browser");
+	    	nav.option.clickSpecifications();
+	    	nav.option.checkBrowser("chrome");
+	    	nav.option.clickClearCheckBoxes();
+	    	nav.option.reloadGraph();
 	    	int expected = 2;
 	    	int actual = nav.graph.getLegendList().size();
 	    	assertEquals(expected, actual);
@@ -651,11 +651,11 @@ public class GraphPage {
 	    
 	    @Test
 	    public void test_ClearCheckBoxesPlatform(){
-	    	nav.graph.changeBreakPoint("Platform");
-	    	nav.graph.clickSpecifications();
-	    	nav.graph.clickPlatform("Android");
-	    	nav.graph.clickClearCheckBoxes();
-	    	nav.graph.reloadGraph();
+	    	nav.option.changeBreakPoint("Platform");
+	    	nav.option.clickSpecifications();
+	    	nav.option.clickPlatform("Android");
+	    	nav.option.clickClearCheckBoxes();
+	    	nav.option.reloadGraph();
 	    	int expected = 3;
 	    	int actual = nav.graph.getLegendList().size();
 	    	assertEquals(expected, actual);
@@ -663,12 +663,12 @@ public class GraphPage {
 	    
 	    @Test
 	    public void test_ClearCheckBoxesVersion(){
-	    	nav.graph.changeBreakPoint("Version");
-	    	nav.graph.clickSpecifications();
-	    	nav.graph.clickPlatform("Android");
-	    	nav.graph.checkVersion("4.4.4");
-	    	nav.graph.clickClearCheckBoxes();
-	    	nav.graph.reloadGraph();
+	    	nav.option.changeBreakPoint("Version");
+	    	nav.option.clickSpecifications();
+	    	nav.option.clickPlatform("Android");
+	    	nav.option.checkVersion("4.4.4");
+	    	nav.option.clickClearCheckBoxes();
+	    	nav.option.reloadGraph();
 	    	int expected = 4;
 	    	int actual = nav.graph.getLegendList().size();
 	    	assertEquals(expected, actual);
@@ -676,12 +676,12 @@ public class GraphPage {
 	    
 	    @Test
 	    public void test_ClearCheckBoxesDevice(){
-	    	nav.graph.changeBreakPoint("Device");
-	    	nav.graph.clickSpecifications();
-	    	nav.graph.clickPlatform("Android");
-	    	nav.graph.checkDevice("HTC ONE");
-	    	nav.graph.clickClearCheckBoxes();
-	    	nav.graph.reloadGraph();
+	    	nav.option.changeBreakPoint("Device");
+	    	nav.option.clickSpecifications();
+	    	nav.option.clickPlatform("Android");
+	    	nav.option.checkDevice("HTC ONE");
+	    	nav.option.clickClearCheckBoxes();
+	    	nav.option.reloadGraph();
 	    	int expected = 4;
 	    	int actual = nav.graph.getLegendList().size();
 	    	assertEquals(expected, actual);
