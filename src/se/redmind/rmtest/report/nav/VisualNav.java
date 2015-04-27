@@ -21,7 +21,7 @@ public class VisualNav extends BaseNav{
 
 	@Override
 	void navigate() {
-		getElementByID("section_2").click();
+		getElementByID("section").click();
 		getElementByID("visual_view").click();
 		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("classes_0")));
 	}
@@ -158,10 +158,13 @@ public class VisualNav extends BaseNav{
 		}
 	}
 	
+	public void waitForSlideAnimation(){
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.className("slide-animation")));
+	}
+	
 	public void openScreenshot(String num){
 		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("screenshot" + num)));
 		getElementByID("screenshot" + num).click();
-		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.className("slide-animation")));
 	}
 	
 	public boolean isScreenshotPresent(){

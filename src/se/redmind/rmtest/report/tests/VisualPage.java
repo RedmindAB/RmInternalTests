@@ -100,16 +100,30 @@ public class VisualPage {
 			nav.chooseClass("classes_0");
 			nav.isThumbnailPresent("0");
 		}
+		/*
 		@Test
 		public void isScreenShotPresent(){
 			nav.changeTimestamp("20150101080000");
 			nav.chooseClass("classes_0");
 			nav.openMethod("0");
 			nav.openScreenshot("0");
+			nav.waitForSlideAnimation();
 			assertTrue(nav.isScreenshotPresent());
 			
-		}
+		} 
+		*/
+		
+		@Test
+		public void isScreenShotSwitched(){
+			nav.changeTimestamp("20150101080000");
+			nav.chooseClass("classes_0");
+			nav.openMethod("0");
+			nav.openScreenshot("0");
+			assertTrue(nav.isScreenShotSwitched());
+			
+		}	
 }
+
 
 	    	
 	    
