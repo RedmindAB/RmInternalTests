@@ -10,7 +10,7 @@ public class ScreenshotNav extends BaseNav{
 
 	@Override
 	void navigate() {
-		getFirstSuiteSection().click();;
+		getFirstSuiteSection();
 		getScreenshot().click();
 	}
 }

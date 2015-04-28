@@ -1,5 +1,7 @@
 package se.redmind.rmtest.report.nav;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -11,7 +13,7 @@ abstract class BaseNav extends HTMLPage{
 
 	public BaseNav(WebDriver pDriver) {
 		super(pDriver);
-		this.driver.get("http://192.168.75.120:4567");
+		this.driver.get("http://localhost:4567");
 		initialWait();
 		navigate();
 	}
@@ -50,8 +52,12 @@ abstract class BaseNav extends HTMLPage{
 		return driver.findElement(By.className(NavClass));
 	}
 	
-	public WebElement getFirstSuiteSection(){
-		return driver.findElement(By.id("section"));
+	public void getFirstSuiteSection(){
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.className("highcharts-series")));
+		WebElement rect = getElementByClass("highcharts-series");
+		List<WebElement> findElements = rect.findElements(By.tagName("rect"));
+		WebElement listItem = findElements.get(0);
+		listItem.click();
 	}
 	
 	public WebElement getChartTitle(){

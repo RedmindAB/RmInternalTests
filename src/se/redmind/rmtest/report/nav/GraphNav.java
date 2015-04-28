@@ -15,8 +15,6 @@ public class GraphNav extends BaseNav {
 
 	@Override
 	void navigate() {
-		getFirstSuiteSection().click();
+		getFirstSuiteSection();
 	}
-	
-	
 }

@@ -21,11 +21,11 @@ public class VisualNav extends BaseNav{
 
 	@Override
 	void navigate() {
-		getElementByID("section").click();
+		getFirstSuiteSection();
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("visual_view")));
 		getElementByID("visual_view").click();
-		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("classes_0")));
 	}
-
+	
 	public WebElement getMethodID(){
 		return getElementByID("methods_0");
 	}

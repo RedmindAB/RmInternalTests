@@ -57,7 +57,7 @@ public class VisualPage {
 
 	    @AfterClass
 	    public static void afterTest(){
-//	    	DriverProvider.stopDrivers();
+	    	DriverProvider.stopDrivers();
 	    }
 	    
 
