@@ -27,13 +27,13 @@ public class VisualNav extends BaseNav{
 	}
 	
 	public WebElement getMethodID(){
-		return getElementByID("methods_0");
+		return getElementByID("method-0");
 	}
 	
 	public void chooseClass(String id){
 		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id(id)));
 		getElementByID(id).click();
-		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("method_0")));
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("method-0")));
 	}
 	
 	public WebElement getNav(String NavID){
@@ -54,7 +54,7 @@ public class VisualNav extends BaseNav{
 	}
 	
 	public WebElement getTimestamp(){
-		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("timestamp_0")));
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("choose_timestamp")));
 		return getElementByID("choose_timestamp");
 	}
 	
@@ -68,8 +68,8 @@ public class VisualNav extends BaseNav{
 	
 	public void changeTimestamp(String timestamp){
 		getTimestamp().click();
-		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("choose_timestamp_drop")));
-		WebElement dropDown = getElementByID("choose_timestamp_drop");
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("choose_timestamp")));
+		WebElement dropDown = getElementByID("choose_timestamp");
 		List<WebElement> findElements = dropDown.findElements(By.tagName("a"));
 		for (WebElement listItem : findElements) {
 			if (listItem.getText().equals(timestamp)) {
@@ -144,8 +144,8 @@ public class VisualNav extends BaseNav{
 	}
 	
 	public void openMethod(String method){
-		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("method_" + method)));
-		getElementByID("method_" + method).click();
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("method-" + method)));
+		getElementByID("method-" + method).click();
 	}
 	
 	public boolean isThumbnailPresent(String method){

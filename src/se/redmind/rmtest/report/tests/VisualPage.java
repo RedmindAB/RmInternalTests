@@ -57,7 +57,7 @@ public class VisualPage {
 
 	    @AfterClass
 	    public static void afterTest(){
-	    	DriverProvider.stopDrivers();
+//	    	DriverProvider.stopDrivers();
 	    }
 	    
 
@@ -69,27 +69,27 @@ public class VisualPage {
 	    
 	    @Test
 	    public void openSysos(){
-	    	nav.openSysos("classes_0");
+	    	nav.openSysos("class-0");
 	    	
 	    	assertTrue(nav.isSysosOpen());
 	    }	    
 
 		@Test
 		public void opencloseSyso(){
-			nav.openSysos("classes_0");
+			nav.openSysos("class-0");
 			nav.closeSysos();
 			nav.isSysosClosed();
 			assertTrue(nav.isSysosClosed());
 		}
 		@Test
 		public void chooseTimestamp(){
-			nav.changeTimestamp("20150101080000");
-			assertTrue(nav.isTimestampSet("20150101080000"));	
+			nav.changeTimestamp("20150427080550");
+			assertTrue(nav.isTimestampSet("20150427080550"));	
 			
 		}
 		@Test
 		public void chooseAnotherClass(){
-			nav.chooseClass("classes_0");
+			nav.chooseClass("class-0");
 			nav.goTo("classes");	
 			assertTrue(nav.isAtClassView());
 
@@ -97,14 +97,14 @@ public class VisualPage {
 		@Test
 		public void isThumbnailPresent(){
 			nav.changeTimestamp("20150101080000");
-			nav.chooseClass("classes_0");
+			nav.chooseClass("class-0");
 			nav.isThumbnailPresent("0");
 		}
 		/*
 		@Test
 		public void isScreenShotPresent(){
 			nav.changeTimestamp("20150101080000");
-			nav.chooseClass("classes_0");
+			nav.chooseClass("class-0");
 			nav.openMethod("0");
 			nav.openScreenshot("0");
 			nav.waitForSlideAnimation();
@@ -112,11 +112,10 @@ public class VisualPage {
 			
 		} 
 		*/
-		
 		@Test
 		public void isScreenShotSwitched(){
 			nav.changeTimestamp("20150101080000");
-			nav.chooseClass("classes_0");
+			nav.chooseClass("class-0");
 			nav.openMethod("0");
 			nav.openScreenshot("0");
 			assertTrue(nav.isScreenShotSwitched());
