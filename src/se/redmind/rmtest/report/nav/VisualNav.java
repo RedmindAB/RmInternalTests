@@ -21,7 +21,9 @@ public class VisualNav extends BaseNav{
 
 	@Override
 	void navigate() {
+		String currentURL = driver.getCurrentUrl();
 		getFirstSuiteSection();
+		driverFluentWait(15).until(new UrlChanged(currentURL));
 		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("visual_view")));
 		getElementByID("visual_view").click();
 	}
@@ -33,7 +35,6 @@ public class VisualNav extends BaseNav{
 	public void chooseClass(String id){
 		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id(id)));
 		getElementByID(id).click();
-		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("method-0")));
 	}
 	
 	public WebElement getNav(String NavID){
@@ -58,9 +59,13 @@ public class VisualNav extends BaseNav{
 		return getElementByID("choose_timestamp");
 	}
 	
+	public WebElement getProject(){
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("choose_project")));
+		return getElementByID("choose_project");
+	}
+	
 	public boolean isTimestampSet(String timestamp){
 		boolean isActive = false;
-		System.out.println("Is: " + getTimestamp().getText() + " = " + timestamp);
     	if(getTimestamp().getText().equals(timestamp))
     		isActive = true;
     	return isActive;
@@ -68,8 +73,8 @@ public class VisualNav extends BaseNav{
 	
 	public void changeTimestamp(String timestamp){
 		getTimestamp().click();
-		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("choose_timestamp")));
-		WebElement dropDown = getElementByID("choose_timestamp");
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("dropdown-timestamp")));
+		WebElement dropDown = getElementByID("dropdown-timestamp");
 		List<WebElement> findElements = dropDown.findElements(By.tagName("a"));
 		for (WebElement listItem : findElements) {
 			if (listItem.getText().equals(timestamp)) {
@@ -91,6 +96,7 @@ public class VisualNav extends BaseNav{
 	}
 	
 	public void openSysos(String id){
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id(id)));
 		chooseClass(id);
 		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("syso-header")));
 		getElementByID("syso-header").click();
@@ -123,6 +129,27 @@ public class VisualNav extends BaseNav{
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public void changeProject(String project){
+		getProject().click();
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("dropdown-project")));
+		WebElement dropDown = getElementByID("dropdown-project");
+		List<WebElement> findElements = dropDown.findElements(By.tagName("a"));
+		for (WebElement listItem : findElements) {
+			if (listItem.getText().equals(project)) {
+				listItem.click();
+				return;
+			}
+		}
+	}
+	
+	public boolean isProjectSet(String project){
+		boolean isActive = false;
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("choose_project")));
+    	if(getProject().getText().equals(project))
+    		isActive = true;
+    	return isActive;
 	}
 	
 	public void goTo(String byID){
@@ -179,12 +206,10 @@ public class VisualNav extends BaseNav{
 		String textAfter;
 		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.className("white")));
 		textBefore = getElementByClass("white").getText();
-		System.out.println("textBefore: " + textBefore);
 		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("arrow_prev")));
 		getElementByID("arrow_prev").click();
 		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.className("white")));
 		textAfter = getElementByClass("white").getText();
-		System.out.println("textAfter: " + textAfter);
 		if(textBefore.equals(textAfter))
 			return false;
 		else
