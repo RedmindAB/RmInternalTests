@@ -46,13 +46,6 @@ public class SuiteController extends BaseController {
 		}
 	}
 	
-	public void chooseTimestampFromDropdown(String timestamp){
-		getElementByID("choose_timestamp").click();
-		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id(timestamp)));
-		WebElement chooseTimestamp = getElementByID(timestamp);
-		chooseTimestamp.click();
-	}
-	
 	public void filterOn(String text){
 		getElementByID("filter-field").sendKeys(text);
 	}

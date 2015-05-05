@@ -52,6 +52,13 @@ abstract class BaseNav extends HTMLPage{
 		return driver.findElement(By.className(NavClass));
 	}
 	
+	public void chooseTimestampFromDropdown(String timestamp){
+		getElementByID("choose_timestamp").click();
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id(timestamp)));
+		WebElement chooseTimestamp = getElementByID(timestamp);
+		chooseTimestamp.click();
+	}
+	
 	public void getFirstSuiteSection(){
 		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.className("highcharts-series")));
 		WebElement rect = getElementByClass("highcharts-series");

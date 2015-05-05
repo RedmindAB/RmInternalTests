@@ -82,12 +82,6 @@ public class VisualPage {
 			assertTrue(nav.isSysosClosed());
 		}
 		@Test
-		public void chooseTimestamp(){
-			nav.changeTimestamp("20150427080550");
-			assertTrue(nav.isTimestampSet("20150427080550"));	
-			
-		}
-		@Test
 		public void chooseAnotherClass(){
 			nav.chooseClass("class-0");
 			nav.goTo("classes");	
