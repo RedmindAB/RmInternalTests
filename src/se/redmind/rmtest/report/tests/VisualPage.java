@@ -94,12 +94,14 @@ public class VisualPage {
 			assertTrue(nav.isAtClassView());
 
 		}
+		/*
 		@Test
 		public void isThumbnailPresent(){
 			nav.changeTimestamp("20150101080000");
 			nav.chooseClass("class-0");
 			nav.isThumbnailPresent("0");
 		}
+		*/
 		/*
 		@Test
 		public void isScreenShotPresent(){
@@ -112,6 +114,7 @@ public class VisualPage {
 			
 		} 
 		*/
+		/*
 		@Test
 		public void isScreenShotSwitched(){
 			nav.changeTimestamp("20150101080000");
@@ -120,7 +123,8 @@ public class VisualPage {
 			nav.openScreenshot("0");
 			assertTrue(nav.isScreenShotSwitched());
 			
-		}	
+		}
+		*/	
 }
 
 
