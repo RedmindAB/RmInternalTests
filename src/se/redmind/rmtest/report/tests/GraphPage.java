@@ -439,7 +439,7 @@ public class GraphPage {
         public void test_ClickOnLastCase(){
         	nav.suite.clickOnBar("class", "0");
         	nav.suite.clickOnBar("method", "0");
-        	nav.suite.clickOnBar("case", "7");
+        	nav.suite.clickOnBar("case", "15");
         	String stackTrace = nav.suite.getStackTrace();
         	String expected = "No Message To Display";
         	assertEquals(expected, stackTrace);
