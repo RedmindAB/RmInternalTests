@@ -70,7 +70,6 @@ public class VisualPage {
 	    @Test
 	    public void openSysos(){
 	    	nav.openSysos("class-0");
-	    	
 	    	assertTrue(nav.isSysosOpen());
 	    }	    
 
@@ -88,17 +87,34 @@ public class VisualPage {
 			assertTrue(nav.isAtClassView());
 
 		}
-		/*
+		
+		@Test
+		public void chooseTimestamp(){
+			nav.changeProject("MockedTestSuite");
+			nav.changeTimestamp("20150101080000");
+			assertTrue(nav.isTimestampSet("20150101080000"));	
+			
+		}
+		
+	    @Test
+	    public void changeProject(){
+			nav.changeProject("MockedTestSuite");
+			assertTrue(nav.isProjectSet("MockedTestSuite"));	
+	    }
+		
+		
 		@Test
 		public void isThumbnailPresent(){
+			nav.changeProject("MockedTestSuite");
 			nav.changeTimestamp("20150101080000");
 			nav.chooseClass("class-0");
+			nav.openMethod("0");
 			nav.isThumbnailPresent("0");
 		}
-		*/
 		/*
 		@Test
 		public void isScreenShotPresent(){
+			nav.changeProject("MockedTestSuite");
 			nav.changeTimestamp("20150101080000");
 			nav.chooseClass("class-0");
 			nav.openMethod("0");
@@ -111,14 +127,15 @@ public class VisualPage {
 		/*
 		@Test
 		public void isScreenShotSwitched(){
+			nav.changeProject("MockedTestSuite");
 			nav.changeTimestamp("20150101080000");
 			nav.chooseClass("class-0");
 			nav.openMethod("0");
 			nav.openScreenshot("0");
 			assertTrue(nav.isScreenShotSwitched());
-			
 		}
-		*/	
+		*/
+		
 }
 
 

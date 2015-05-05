@@ -355,6 +355,7 @@ public class GraphPage {
          	String expectedName1 = "Android";
          	String expectedName2 = "IOS";
         	int expectedSize = 2;
+        	nav.graph.waitForLegendListSize(expectedSize);
         	String actualName1 = nav.graph.getLegendListItem(0).getText();
         	String actualName2 = nav.graph.getLegendListItem(1).getText();
         	int actualSize = nav.graph.getLegendList().size();
@@ -390,7 +391,7 @@ public class GraphPage {
         @Test
         public void test_ChooseTimeStampFromDropDrown() {
         	nav.chooseTimestampFromDropdown("20150210080040");
-        	WebElement currentTimeStamp = tDriver.findElement(By.id("choose_timestamp"));
+        	WebElement currentTimeStamp = nav.getElementByID("choose_timestamp");
         	assertEquals("20150210080040", currentTimeStamp.getText());
         }
         
