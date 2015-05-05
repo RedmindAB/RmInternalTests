@@ -390,7 +390,7 @@ public class GraphPage {
         @Test
         public void test_ChooseTimeStampFromDropDrown() {
         	nav.chooseTimestampFromDropdown("20150210080040");
-        	WebElement currentTimeStamp = tDriver.findElement(By.id("choose_timestamp"));
+        	WebElement currentTimeStamp = nav.getElementByID("choose_timestamp");
         	assertEquals("20150210080040", currentTimeStamp.getText());
         }
         
