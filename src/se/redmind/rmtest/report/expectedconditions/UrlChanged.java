@@ -9,12 +9,10 @@ public class UrlChanged implements ExpectedCondition<Boolean>{
 	
 	public UrlChanged(String currentUrl) {
 		this.currentUrl  = currentUrl; 
-		System.out.println(currentUrl);
 	}
 	
 	@Override
 	public Boolean apply(WebDriver driver) {
-		System.out.println(driver.getCurrentUrl());
 		if (this.currentUrl.equals(driver.getCurrentUrl())) {
 			return false;
 		} else{

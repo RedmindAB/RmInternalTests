@@ -492,8 +492,9 @@ public class GraphPage {
         	nav.suite.clickOnBar("class", "0");
         	nav.suite.clickOnBar("method", "0");
         	nav.suite.filterOn("chrome");
-        	int expected = 4;
+        	int expected = 8;
         	int actual = nav.suite.getSizeOfCaseList();
+        	nav.suite.waitForCaseListSize(expected);
         	assertEquals(expected, actual);
         }  
         
@@ -501,8 +502,7 @@ public class GraphPage {
         public void test_ClickOnSuiteLink(){
         	nav.suite.ClickOnSuiteLinkText();
         	String actual = nav.graph.getUrl();
-        	String expected = "http://192.168.75.120:4567/#/home";
-        	assertEquals(expected, actual);
+        	assertTrue(actual.endsWith("/#/home"));
         }
         
 	    @Test
@@ -510,8 +510,7 @@ public class GraphPage {
 	    	nav.suite.clickOnBar("class", "0");
 	    	nav.suite.ClickOnSuiteLinkText();
 	    	String actual = nav.graph.getUrl();
-	    	String expected = "http://192.168.75.120:4567/#/reports/classes";
-	    	assertEquals(expected, actual);
+	    	assertTrue(actual.endsWith("/#/reports/classes"));
 	    }
 	    
 	    @Test
@@ -520,8 +519,7 @@ public class GraphPage {
 	    	nav.suite.clickOnBar("method", "0");
 	    	nav.suite.ClickOnSuiteLinkText();
 	    	String actual = nav.graph.getUrl();
-	    	String expected = "http://192.168.75.120:4567/#/reports/methods";
-	    	assertEquals(expected, actual);
+	    	assertTrue(actual.endsWith("/#/reports/methods"));
 	    }
 	    
 	    @Ignore

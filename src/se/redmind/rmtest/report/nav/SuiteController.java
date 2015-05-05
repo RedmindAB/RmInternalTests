@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import se.redmind.rmtest.report.expectedconditions.ChartReloadFinished;
+import se.redmind.rmtest.report.expectedconditions.SizeOfWebelement;
 import se.redmind.rmtest.report.expectedconditions.UrlChanged;
 
 public class SuiteController extends BaseController {
@@ -47,8 +48,9 @@ public class SuiteController extends BaseController {
 	
 	public void chooseTimestampFromDropdown(String timestamp){
 		getElementByID("choose_timestamp").click();
-		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("timestamp-dropdown")));
-		getElementByID("timestamp-suite-"+timestamp).click();
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id(timestamp)));
+		WebElement chooseTimestamp = getElementByID(timestamp);
+		chooseTimestamp.click();
 	}
 	
 	public void filterOn(String text){
@@ -94,6 +96,16 @@ public class SuiteController extends BaseController {
 		String current = getUrl();
 		getElementByID("suite-position").click();
 		driverFluentWait(15).until(new UrlChanged(current));
+	}
+
+	
+	/**
+	 * This waits for x buttons to the right of the testcases, should be changed to something more steady.
+	 * @param expectedSize
+	 */
+	public void waitForCaseListSize(int expectedSize) {
+		By by = By.cssSelector(".accordion-toggle > .btn");
+		driverFluentWait(15).until(new SizeOfWebelement(by, expectedSize));
 	}
 	
 }
