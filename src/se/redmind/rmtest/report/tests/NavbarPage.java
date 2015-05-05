@@ -17,6 +17,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import se.redmind.rmtest.report.nav.NavbarNav;
 import se.redmind.rmtest.report.nav.StartNav;
 import se.redmind.rmtest.report.nav.VisualNav;
 import se.redmind.rmtest.selenium.framework.RMReportScreenshot;
@@ -31,7 +32,8 @@ public class NavbarPage {
 	    private final DriverNamingWrapper urlContainer;
 	    private final String driverDescription;
 	    private final RMReportScreenshot rmrScreenshot;
-	    private VisualNav nav;
+	    private NavbarNav nav;
+	    
 
 	    public NavbarPage(final DriverNamingWrapper driverWrapper, final String driverDescription) {
 	        this.urlContainer = driverWrapper;
@@ -66,13 +68,75 @@ public class NavbarPage {
 	    @Before
 	    public void beforeTest(){
 	    	this.tDriver = this.urlContainer.startDriver();
-	    	this.nav = new VisualNav(this.tDriver);
+	    	this.nav = new NavbarNav(this.tDriver);
 	    }
 	    
 	    @Test
-	    public void isEnabled(){
-	    	assertTrue(nav.isEnabled("visual"));
+	    public void test_goToGrid(){
+	    	nav.goToGrid();
+	    	String expected = "#/grid";
+	    	assertTrue(nav.getCurrentUrl().endsWith(expected));
 	    }
+	    
+	    @Test
+	    public void test_goToAdmin(){
+	    	nav.goToAdmin();
+	    	String expected = "#/admin";
+	    	assertTrue(nav.getCurrentUrl().endsWith(expected));
+	    }
+	    
+	    @Test
+	    public void test_goToDashboard(){
+	    	nav.goToAdmin();
+	    	nav.goToDashboard();
+	    	String expected = "#/home";
+	    	assertTrue(nav.getCurrentUrl().endsWith(expected));
+	    }
+	    
+	    @Test
+	    public void test_changeProject(){
+	    	nav.chooseProject(0);
+	    	String expected = nav.getProjectNameFromList(0);
+	    	String actual = nav.getCurrentProjectName();
+	    	assertEquals(expected, actual);	    	
+	    }
+	    
+	    @Test
+	    public void test_clickLogo(){
+	    	nav.goToAdmin();
+	    	nav.clickLogo();
+	    	String expected = "#/home";
+	    	assertTrue(nav.getCurrentUrl().endsWith(expected));
+	    }
+	    
+	    @Test
+	    public void test_goToReports(){
+	    	nav.chooseProject(0);
+	    	nav.goToReports();
+	    	String expected = "#/reports/classes";
+	    	assertTrue(nav.getCurrentUrl().endsWith(expected));
+	    }
+	    
+	    @Test
+	    public void test_goToVisualizer(){
+	    	nav.chooseProject(0);
+	    	nav.goToVisualizer();
+	    	String expected = "#/screenshots/classes";
+	    	assertTrue(nav.getCurrentUrl().endsWith(expected));
+	    }
+	    
+	    @Test
+	    public void test_changeTimestamp(){
+	    	nav.chooseProject(0);
+	    	String expected = "20150216080046";
+	    	nav.chooseTimeStamp(expected);
+	    	String actual = nav.getCurrentTimestamp();
+	    	assertEquals(expected, actual);
+	    }
+	    	
+	    	
+	    
+
 }
 
 	    
