@@ -124,6 +124,7 @@ public class VisualPage {
 			
 		} 
 		*/
+		/*
 		@Test
 		public void isScreenShotSwitched(){
 			nav.changeProject("MockedTestSuite");
@@ -132,8 +133,8 @@ public class VisualPage {
 			nav.openMethod("0");
 			nav.openScreenshot("0");
 			assertTrue(nav.isScreenShotSwitched());
-			
 		}
+		*/
 		
 }
 
