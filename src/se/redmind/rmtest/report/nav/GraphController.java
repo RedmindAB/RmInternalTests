@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import se.redmind.rmtest.report.expectedconditions.ChartReloadFinished;
+import se.redmind.rmtest.report.expectedconditions.WebElementListSize;
 
 public class GraphController extends BaseController{
 
@@ -29,6 +30,11 @@ public class GraphController extends BaseController{
 	public Chart getChart(){
 		WebElement chartElement = getElementByID("chart1");
 		return new Chart(chartElement);
+	}
+	
+	public void waitForLegendListSize(int expectedSize){
+		By by = By.className("highcharts-legend-item");
+		driverFluentWait(15).until(new WebElementListSize(by, expectedSize));
 	}
 	
 	public WebElement getLegendListItem(int index) {
