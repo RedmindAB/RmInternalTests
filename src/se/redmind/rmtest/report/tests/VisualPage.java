@@ -111,7 +111,7 @@ public class VisualPage {
 			nav.openMethod("0");
 			nav.isThumbnailPresent("0");
 		}
-
+		/*
 		@Test
 		public void isScreenShotPresent(){
 			nav.changeProject("MockedTestSuite");
@@ -123,7 +123,7 @@ public class VisualPage {
 			assertTrue(nav.isScreenshotPresent());
 			
 		} 
-
+		*/
 		@Test
 		public void isScreenShotSwitched(){
 			nav.changeProject("MockedTestSuite");
