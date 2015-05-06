@@ -44,7 +44,7 @@ public class NavbarPage {
 	    private static Object[] getDrivers() {
 //	        return DriverProvider.getDrivers("rmDeviceType", "mobile");
 //	    	return DriverProvider.getDrivers(Platform.ANDROID);
-	    	return DriverProvider.getDrivers(Platform.MAC);
+	    	return DriverProvider.getDrivers();
 
 	    }
 
