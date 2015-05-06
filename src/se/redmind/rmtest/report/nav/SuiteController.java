@@ -84,6 +84,13 @@ public class SuiteController extends BaseController {
 		return caseList.size();
 	}
 	
+	
+	public String getPassFail(String type, String index){
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id(type+"-passfail-"+index)));
+		WebElement getClassText = getElementByID(type+"-passfail-"+index);
+		return getClassText.getText();
+	}
+	
 	public void ClickOnSuiteLinkText(){
 		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("suite-position")));
 		String current = getUrl();

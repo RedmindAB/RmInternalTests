@@ -138,14 +138,9 @@ abstract class BaseNav extends HTMLPage{
 		for (WebElement webElement : timestamps) {
 			if (webElement.getText().equals(timestamp)) {
 				webElement.click();
-				return;
-				
-			}
-			
+				return;	
+			}	
 		}
-		
-
-
 	}
 	
 	public String getCurrentTimestamp(){
@@ -187,4 +182,5 @@ abstract class BaseNav extends HTMLPage{
 		visualizerButton.click();
 		driverFluentWait(15).until(new UrlChanged(before));
 	}
+	
 }
