@@ -21,7 +21,7 @@ public class NavbarNav extends BaseNav{
 
 	@Override
 	void navigate() {
-		getElementByID("section").click();
+		
 	}
 
 	public WebElement getMethodID(){
