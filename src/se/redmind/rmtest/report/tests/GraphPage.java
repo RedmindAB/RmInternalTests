@@ -550,110 +550,110 @@ public class GraphPage {
 	    
 	    
 	    
-	    @Test
-	    public void test_hej5(){
-	    	nav.option.changeDisplayType("Total Fail");
-	    	nav.option.changeBreakPoint("Browser");
-	    	nav.option.reloadGraph();
-	    }
-	    
-	    @Test
-	    public void test_hej6(){
-	    	nav.option.changeDisplayType("Total Pass");
-	    	nav.option.changeBreakPoint("Browser");
-	    	nav.option.reloadGraph();
-	    }
-	    
-	    @Test
-	    public void test_hej7(){
-	    	nav.option.changeDisplayType("Pass/Fail");
-	    	nav.option.changeBreakPoint("Browser");
-	    	nav.option.reloadGraph();
-	    }
-	    
-	    @Test
-	    public void test_hej8(){
-	    	nav.option.changeDisplayType("Run Time");
-	    	nav.option.changeBreakPoint("Version");
-	    	nav.option.reloadGraph();
-	    }
-	    
-	    @Test
-	    public void test_hej9(){
-	    	nav.option.changeDisplayType("Total Fail");
-	    	nav.option.changeBreakPoint("Version");
-	    	nav.option.reloadGraph();
-	    }
-	    
-	    @Test
-	    public void test_hej10(){
-	    	nav.option.changeDisplayType("Total Pass");
-	    	nav.option.changeBreakPoint("Version");
-	    	nav.option.reloadGraph();
-	    }
-	    
-	    @Test
-	    public void test_hej11(){
-	    	nav.option.changeDisplayType("Pass/Fail");
-	    	nav.option.changeBreakPoint("Version");
-	    	nav.option.reloadGraph();
-	    }
-        
-	    @Test
-	    public void test_hej12(){
-	    	nav.option.changeDisplayType("Run Time");
-	    	nav.option.changeBreakPoint("Device");
-	    	nav.option.reloadGraph();
-	    }
-	    
-	    @Test
-	    public void test_hej13(){
-	    	nav.option.changeDisplayType("Total Fail");
-	    	nav.option.changeBreakPoint("Device");
-	    	nav.option.reloadGraph();
-	    }
-	    
-	    @Test
-	    public void test_hej14(){
-	    	nav.option.changeDisplayType("Total Pass");
-	    	nav.option.changeBreakPoint("Device");
-	    	nav.option.reloadGraph();
-	    }
-	    
-	    @Test
-	    public void test_hej15(){
-	    	nav.option.changeDisplayType("Pass/Fail");
-	    	nav.option.changeBreakPoint("Device");
-	    	nav.option.reloadGraph();
-	    }
-	    
-	    @Test
-	    public void test_hej16(){
-	    	nav.option.changeDisplayType("Run Time");
-	    	nav.option.changeBreakPoint("Platform");
-	    	nav.option.reloadGraph();
-	    }
-	    
-	    @Test
-	    public void test_hej17(){
-	    	nav.option.changeDisplayType("Total Fail");
-	    	nav.option.changeBreakPoint("Platform");
-	    	nav.option.reloadGraph();
-	    }
-	    
-	    @Test
-	    public void test_hej18(){
-	    	nav.option.changeDisplayType("Total Pass");
-	    	nav.option.changeBreakPoint("Platform");
-	    	nav.option.reloadGraph();
-	    }
-	    
-	    @Test
-	    public void test_hej19(){
-	    	nav.option.changeDisplayType("Pass/Fail");
-	    	nav.option.changeBreakPoint("Platform");
-	    	nav.option.reloadGraph();
-	    }
+//	    @Test
+//	    public void test_hej5(){
+//	    	nav.option.changeDisplayType("Total Fail");
+//	    	nav.option.changeBreakPoint("Browser");
+//	    	nav.option.reloadGraph();
+//	    }
+//	    
+//	    @Test
+//	    public void test_hej6(){
+//	    	nav.option.changeDisplayType("Total Pass");
+//	    	nav.option.changeBreakPoint("Browser");
+//	    	nav.option.reloadGraph();
+//	    }
+//	    
+//	    @Test
+//	    public void test_hej7(){
+//	    	nav.option.changeDisplayType("Pass/Fail");
+//	    	nav.option.changeBreakPoint("Browser");
+//	    	nav.option.reloadGraph();
+//	    }
+//	    
+//	    @Test
+//	    public void test_hej8(){
+//	    	nav.option.changeDisplayType("Run Time");
+//	    	nav.option.changeBreakPoint("Version");
+//	    	nav.option.reloadGraph();
+//	    }
+//	    
+//	    @Test
+//	    public void test_hej9(){
+//	    	nav.option.changeDisplayType("Total Fail");
+//	    	nav.option.changeBreakPoint("Version");
+//	    	nav.option.reloadGraph();
+//	    }
+//	    
+//	    @Test
+//	    public void test_hej10(){
+//	    	nav.option.changeDisplayType("Total Pass");
+//	    	nav.option.changeBreakPoint("Version");
+//	    	nav.option.reloadGraph();
+//	    }
+//	    
+//	    @Test
+//	    public void test_hej11(){
+//	    	nav.option.changeDisplayType("Pass/Fail");
+//	    	nav.option.changeBreakPoint("Version");
+//	    	nav.option.reloadGraph();
+//	    }
+//        
+//	    @Test
+//	    public void test_hej12(){
+//	    	nav.option.changeDisplayType("Run Time");
+//	    	nav.option.changeBreakPoint("Device");
+//	    	nav.option.reloadGraph();
+//	    }
+//	    
+//	    @Test
+//	    public void test_hej13(){
+//	    	nav.option.changeDisplayType("Total Fail");
+//	    	nav.option.changeBreakPoint("Device");
+//	    	nav.option.reloadGraph();
+//	    }
+//	    
+//	    @Test
+//	    public void test_hej14(){
+//	    	nav.option.changeDisplayType("Total Pass");
+//	    	nav.option.changeBreakPoint("Device");
+//	    	nav.option.reloadGraph();
+//	    }
+//	    
+//	    @Test
+//	    public void test_hej15(){
+//	    	nav.option.changeDisplayType("Pass/Fail");
+//	    	nav.option.changeBreakPoint("Device");
+//	    	nav.option.reloadGraph();
+//	    }
+//	    
+//	    @Test
+//	    public void test_hej16(){
+//	    	nav.option.changeDisplayType("Run Time");
+//	    	nav.option.changeBreakPoint("Platform");
+//	    	nav.option.reloadGraph();
+//	    }
+//	    
+//	    @Test
+//	    public void test_hej17(){
+//	    	nav.option.changeDisplayType("Total Fail");
+//	    	nav.option.changeBreakPoint("Platform");
+//	    	nav.option.reloadGraph();
+//	    }
+//	    
+//	    @Test
+//	    public void test_hej18(){
+//	    	nav.option.changeDisplayType("Total Pass");
+//	    	nav.option.changeBreakPoint("Platform");
+//	    	nav.option.reloadGraph();
+//	    }
+//	    
+//	    @Test
+//	    public void test_hej19(){
+//	    	nav.option.changeDisplayType("Pass/Fail");
+//	    	nav.option.changeBreakPoint("Platform");
+//	    	nav.option.reloadGraph();
+//	    }
 	    
 	    @Test
 	    public void test_ClearCheckBoxesBrowser(){
@@ -704,4 +704,70 @@ public class GraphPage {
 	    	int actual = nav.graph.getLegendList().size();
 	    	assertEquals(expected, actual);
 	    }
+	    
+	    @Test
+	    public void test_checkShowingNumberResultsTen(){
+	    	nav.goToAdmin();
+	    	nav.chooseProject(0);
+	    	nav.goToReports();
+	    	nav.option.changeChartSuiteRunLimit("10");
+	    	nav.option.reloadGraph();
+	    	nav.option.checkShowingNumberResults();
+	    	String expected = "Showing 10 results";
+	    	String actual = nav.option.checkShowingNumberResults();
+	    	assertEquals(expected, actual);
+	    }
+	    
+	    @Test
+	    public void test_checkShowingNumberResultsTwenty(){
+	    	nav.goToAdmin();
+	    	nav.chooseProject(0);
+	    	nav.goToReports();
+	    	nav.option.changeChartSuiteRunLimit("20");
+	    	nav.option.reloadGraph();
+	    	nav.option.checkShowingNumberResults();
+	    	String expected = "Showing 20 results";
+	    	String actual = nav.option.checkShowingNumberResults();
+	    	assertEquals(expected, actual);
+	    }
+	    
+	    @Test
+	    public void test_checkShowingNumberResultsFifty(){
+	    	nav.goToAdmin();
+	    	nav.chooseProject(0);
+	    	nav.goToReports();
+	    	nav.option.changeChartSuiteRunLimit("50");
+	    	nav.option.reloadGraph();
+	    	nav.option.checkShowingNumberResults();
+	    	String expected = "Showing 50 results";
+	    	String actual = nav.option.checkShowingNumberResults();
+	    	assertEquals(expected, actual);
+	    }
+	    
+	    @Test
+	    public void test_checkShowingNumberResultsOneHundred(){
+	    	nav.goToAdmin();
+	    	nav.chooseProject(0);
+	    	nav.goToReports();
+	    	nav.option.changeChartSuiteRunLimit("100");
+	    	nav.option.reloadGraph();
+	    	nav.option.checkShowingNumberResults();
+	    	String expected = "Showing 100 results";
+	    	String actual = nav.option.checkShowingNumberResults();
+	    	assertEquals(expected, actual);
+	    }
+	    
+	    @Test
+	    public void test_checkShowingNumberResultsFiveHundred(){
+	    	nav.goToAdmin();
+	    	nav.chooseProject(0);
+	    	nav.goToReports();
+	    	nav.option.changeChartSuiteRunLimit("500");
+	    	nav.option.reloadGraph();
+	    	nav.option.checkShowingNumberResults();
+	    	String expected = "Showing 500 results";
+	    	String actual = nav.option.checkShowingNumberResults();
+	    	assertEquals(expected, actual);
+	    }
+
 }

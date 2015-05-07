@@ -3,6 +3,7 @@ package se.redmind.rmtest.report.nav;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.server.handler.GetElementText;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import se.redmind.rmtest.report.expectedconditions.ChartReloadFinished;
@@ -75,6 +76,12 @@ public class OptionsController extends BaseController{
 		getNumberOfSuiteRunsButton().click();
 		driverFluentWait(15).until(ExpectedConditions.visibilityOf(getElementByID("suite_runs_drop")));
 		getElementByID("run-amount-"+limit).click();
+	}
+	
+	public String checkShowingNumberResults(){
+		driverFluentWait(15).until(ExpectedConditions.visibilityOf(getElementByClass("highcharts-subtitle")));
+		String reportSubTitle = getElementByClass("highcharts-subtitle").getText();
+		return reportSubTitle;
 	}
 	
 	public void changeDisplayType(String variantName){
