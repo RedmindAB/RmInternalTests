@@ -44,6 +44,27 @@ public class GraphController extends BaseController{
 		return list.get(index);
 	}
 	
+	public void clickDownArrow(){
+		String downArrowCSS = "g[class^='highcharts-legend']> g:nth-of-type(2) >  path:nth-of-type(2)";
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(downArrowCSS)));
+		WebElement downArrow = driver.findElement(By.cssSelector(downArrowCSS));
+		downArrow.click();
+	}
+	
+	public void clickUpArrow(){
+		String upArrowCSS = "g[class^='highcharts-legend']> g:nth-of-type(2) >  path:nth-of-type(1)";
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(upArrowCSS)));
+		WebElement downArrow = driver.findElement(By.cssSelector(upArrowCSS));
+		downArrow.click();
+	}
+	
+	public String getListNumber(){
+		String listNumberCSS = "g[class^='highcharts-legend']> g:nth-of-type(2) >  text:nth-of-type(1)";
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(listNumberCSS)));
+		WebElement listNumber = driver.findElement(By.cssSelector(listNumberCSS));
+		return listNumber.getText();
+	}
+	
 	public List <WebElement> getLegendList() {
 		By legenditems = By.className("highcharts-legend-item");
 		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(legenditems));
