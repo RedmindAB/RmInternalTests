@@ -44,8 +44,22 @@ public class GraphController extends BaseController{
 		return list.get(index);
 	}
 	
-	public void clickLegend(int index){
-		String legendCSS = "g[class^='highcharts-legend']> g:nth-of-type(1) > g:nth-of-type(1) > g:nth-of-type(" + index + ")";
+	public void clickLegend(String type){
+		int indexSelector = 0;
+		switch (type) {
+		case "passed":
+			indexSelector = 1;
+			break;
+		case "skipped":
+			indexSelector = 2;
+			break;
+		case "failed":
+			indexSelector = 3;
+			break;
+		default:
+			break;
+		}
+		String legendCSS = "g[class^='highcharts-legend']> g:nth-of-type(1) > g:nth-of-type(1) > g:nth-of-type(" + indexSelector + ")";
 		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(legendCSS)));
 		WebElement legend = driver.findElement(By.cssSelector(legendCSS));
 		legend.click();
