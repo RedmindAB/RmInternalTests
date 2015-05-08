@@ -58,7 +58,7 @@ public class GraphController extends BaseController{
 			break;
 		default:
 			break;
-		}
+		} 
 		String legendCSS = "g[class^='highcharts-legend']> g:nth-of-type(1) > g:nth-of-type(1) > g:nth-of-type(" + indexSelector + ")";
 		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(legendCSS)));
 		WebElement legend = driver.findElement(By.cssSelector(legendCSS));
