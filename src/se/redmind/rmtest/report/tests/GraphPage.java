@@ -707,9 +707,6 @@ public class GraphPage {
 	    
 	    @Test
 	    public void test_checkShowingNumberResultsTen(){
-	    	nav.goToAdmin();
-	    	nav.chooseProject(0);
-	    	nav.goToReports();
 	    	nav.option.changeChartSuiteRunLimit("10");
 	    	nav.option.reloadGraph();
 	    	nav.option.checkShowingNumberResults();
@@ -720,9 +717,6 @@ public class GraphPage {
 	    
 	    @Test
 	    public void test_checkShowingNumberResultsTwenty(){
-	    	nav.goToAdmin();
-	    	nav.chooseProject(0);
-	    	nav.goToReports();
 	    	nav.option.changeChartSuiteRunLimit("20");
 	    	nav.option.reloadGraph();
 	    	nav.option.checkShowingNumberResults();
@@ -733,9 +727,6 @@ public class GraphPage {
 	    
 	    @Test
 	    public void test_checkShowingNumberResultsFifty(){
-	    	nav.goToAdmin();
-	    	nav.chooseProject(0);
-	    	nav.goToReports();
 	    	nav.option.changeChartSuiteRunLimit("50");
 	    	nav.option.reloadGraph();
 	    	nav.option.checkShowingNumberResults();
@@ -746,28 +737,45 @@ public class GraphPage {
 	    
 	    @Test
 	    public void test_checkShowingNumberResultsOneHundred(){
-	    	nav.goToAdmin();
-	    	nav.chooseProject(0);
-	    	nav.goToReports();
 	    	nav.option.changeChartSuiteRunLimit("100");
 	    	nav.option.reloadGraph();
 	    	nav.option.checkShowingNumberResults();
-	    	String expected = "Showing 100 results";
+	    	String expected = "Showing 50 results";
 	    	String actual = nav.option.checkShowingNumberResults();
 	    	assertEquals(expected, actual);
 	    }
 	    
 	    @Test
 	    public void test_checkShowingNumberResultsFiveHundred(){
-	    	nav.goToAdmin();
-	    	nav.chooseProject(0);
-	    	nav.goToReports();
 	    	nav.option.changeChartSuiteRunLimit("500");
 	    	nav.option.reloadGraph();
 	    	nav.option.checkShowingNumberResults();
-	    	String expected = "Showing 500 results";
+	    	String expected = "Showing 50 results";
 	    	String actual = nav.option.checkShowingNumberResults();
 	    	assertEquals(expected, actual);
+	    }
+	    
+	    @Test
+	    public void test_checkLegendListDownButton(){
+	    	for (int i = 0; i < 19; i++) {
+	    		nav.option.addToGraph();
+			}
+	    	String before = nav.graph.getListNumber();
+	    	nav.graph.clickDownArrow();
+	    	String after = nav.graph.getListNumber();
+	    	assertNotEquals(before, after);
+	    }
+	    
+	    @Test
+	    public void test_checkLegendListUpButton(){
+	    	for (int i = 0; i < 19; i++) {
+	    		nav.option.addToGraph();
+			}
+	    	nav.graph.clickDownArrow();
+	    	String before = nav.graph.getListNumber();
+	    	nav.graph.clickUpArrow();
+	    	String after = nav.graph.getListNumber();
+	    	assertNotEquals(before, after);
 	    }
 
 }
