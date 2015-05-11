@@ -3,3 +3,4 @@
 .project
 .settings
 *.png
+.DS_Store
