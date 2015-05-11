@@ -55,7 +55,7 @@ public class NavbarPage {
 	        for (int i = 0; i < wrapperList.length; i++) {
 	            returnList.add(new Object[]{wrapperList[i], wrapperList[i].toString()});
 	        }
-
+ 
 	        return returnList;
 	    }
 
@@ -134,15 +134,4 @@ public class NavbarPage {
 	    	nav.chooseTimeStamp(expected);
 	    	assertEquals(expected, actual);
 	    }
-	    
-	    
-	    	
-	    	
-	    
-
 }
-
-	    
-	    
-	    
-
