@@ -127,7 +127,7 @@ public class SuitePage {
         	nav.suite.clickOnBar("method", "0");
         	nav.suite.clickOnBar("case", "15");
         	String stackTrace = nav.suite.getStackTrace();
-        	String expected = "No Message To Display";
+        	String expected = "This test passed";
         	assertEquals(expected, stackTrace);
         }
         
