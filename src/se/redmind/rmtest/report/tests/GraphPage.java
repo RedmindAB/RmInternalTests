@@ -498,4 +498,21 @@ public class GraphPage {
 	    	assertNotEquals(before, after);
 	    }
 	    
+	    @Test
+	    public void test_filterOnGraph(){
+	    	nav.goToDashboard();
+	    	
+	    	assertTrue(nav.graph.isEnabled("passed"));
+	    	nav.graph.clickLegend("passed");
+	    	assertTrue(!nav.graph.isEnabled("passed"));
+	    	
+	    	assertTrue(nav.graph.isEnabled("skipped"));
+	    	nav.graph.clickLegend("skipped");
+	    	assertTrue(!nav.graph.isEnabled("skipped"));
+	    	
+	    	assertTrue(nav.graph.isEnabled("failed"));
+	    	nav.graph.clickLegend("failed");
+	    	assertTrue(!nav.graph.isEnabled("failed"));
+
+	    }
 }
