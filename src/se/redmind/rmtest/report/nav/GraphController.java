@@ -122,4 +122,6 @@ public class GraphController extends BaseController{
 		driverFluentWait(15).until(ExpectedConditions.elementToBeClickable(driver.findElement(By.className("highcharts-legend-item"))));
 		getLegendListItem(index).click();
 	}
+	
+
 }
