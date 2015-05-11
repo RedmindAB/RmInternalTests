@@ -15,7 +15,7 @@ abstract class BaseNav extends HTMLPage{
 
 	public BaseNav(WebDriver pDriver) {
 		super(pDriver);
-		this.driver.get("http://192.168.75.120:4567");
+		this.driver.get("http://localhost:4567");
 		initialWait();
 		navigate();
 	}
@@ -83,33 +83,67 @@ abstract class BaseNav extends HTMLPage{
 		return driver.findElement(By.className("highcharts-subtitle"));
 	}
 	
+	public void clickNavButton(){
+		WebElement button = driver.findElement(By.className("navbar-toggle"));
+		if(button.isDisplayed())
+			button.click();
+	}
+	
+	public boolean isNavButtonVisible(){
+		WebElement button = driver.findElement(By.className("navbar-toggle"));
+		if(button.isDisplayed())
+			return true;
+		else
+			return false;
+	}
+	
 	public void goToGrid(){
-		driverFluentWait(15).until(ExpectedConditions.elementToBeClickable(By.id("grid_view")));
+		String id = "grid_view";
+		if(isNavButtonVisible()){
+			clickNavButton();
+			id = "grid_view_dd";
+		}
+		driverFluentWait(15).until(ExpectedConditions.elementToBeClickable(By.id(id)));
 		String before = getCurrentUrl();
-		WebElement gridButton = driver.findElement(By.id("grid_view"));
+		WebElement gridButton = driver.findElement(By.id(id));
 		gridButton.click();
 		driverFluentWait(15).until(new UrlChanged(before));
 	}
 	
 	public void goToAdmin(){
-		driverFluentWait(15).until(ExpectedConditions.elementToBeClickable(By.id("admin_view")));
+		String id = "admin_view";
+		if(isNavButtonVisible()){
+			clickNavButton();
+			id = "admin_view_dd";
+		}
+		driverFluentWait(15).until(ExpectedConditions.elementToBeClickable(By.id(id)));
 		String before = getCurrentUrl();
-		WebElement adminButton = driver.findElement(By.id("admin_view"));
+		WebElement adminButton = driver.findElement(By.id(id));
 		adminButton.click();
 		driverFluentWait(15).until(new UrlChanged(before));
 	}
 	
 	public void goToDashboard(){
-		driverFluentWait(15).until(ExpectedConditions.elementToBeClickable(By.id("dash_view")));
+		String id = "dash_view";
+		if(isNavButtonVisible()){
+			clickNavButton();
+			id = "dash_view_dd";
+		}
+		driverFluentWait(15).until(ExpectedConditions.elementToBeClickable(By.id(id)));
 		String before = getCurrentUrl();
-		WebElement dashButton = driver.findElement(By.id("dash_view"));
+		WebElement dashButton = driver.findElement(By.id(id));
 		dashButton.click();
 		driverFluentWait(15).until(new UrlChanged(before));
 	}
 	
 	public void chooseProject(int index){
-		driverFluentWait(15).until(ExpectedConditions.elementToBeClickable(By.id("choose_project")));
-		WebElement projectButton = driver.findElement(By.id("choose_project"));
+		String id = "choose_project";
+		if(isNavButtonVisible()){
+			clickNavButton();
+			id = "choose_project_dd";
+		}
+		driverFluentWait(15).until(ExpectedConditions.elementToBeClickable(By.id(id)));
+		WebElement projectButton = driver.findElement(By.id(id));
 		projectButton.click();
 		driverFluentWait(15).until(ExpectedConditions.elementToBeClickable(By.className("dropdown-menu")));
 		WebElement dropdown = driver.findElement(By.className("dropdown-menu"));
@@ -119,8 +153,13 @@ abstract class BaseNav extends HTMLPage{
 	}
 	
 	public String getProjectNameFromList(int index){
-		driverFluentWait(15).until(ExpectedConditions.elementToBeClickable(By.id("choose_project")));
-		WebElement projectButton = driver.findElement(By.id("choose_project"));
+		String id = "choose_project";
+		if(isNavButtonVisible()){
+			clickNavButton();
+			id = "choose_project_dd";
+		}
+		driverFluentWait(15).until(ExpectedConditions.elementToBeClickable(By.id(id)));
+		WebElement projectButton = driver.findElement(By.id(id));
 		projectButton.click();
 		driverFluentWait(15).until(ExpectedConditions.elementToBeClickable(By.className("dropdown-menu")));
 		WebElement dropdown = driver.findElement(By.className("dropdown-menu"));
@@ -129,8 +168,13 @@ abstract class BaseNav extends HTMLPage{
 	}
 	
 	public void chooseTimeStamp(String timestamp){
-		driverFluentWait(15).until(ExpectedConditions.elementToBeClickable(By.id("choose_timestamp")));
-		WebElement timestampButton = driver.findElement(By.id("choose_timestamp"));
+		String id = "choose_timestamp";
+		if(isNavButtonVisible()){
+			
+			id = "choose_timestamp_dd";
+		}
+		driverFluentWait(15).until(ExpectedConditions.elementToBeClickable(By.id(id)));
+		WebElement timestampButton = driver.findElement(By.id(id));
 		timestampButton.click();
 		driverFluentWait(15).until(ExpectedConditions.elementToBeClickable(By.id("dropdown-timestamp")));
 		WebElement dropdown = driver.findElement(By.id("dropdown-timestamp"));
@@ -144,14 +188,23 @@ abstract class BaseNav extends HTMLPage{
 	}
 	
 	public String getCurrentTimestamp(){
-		driverFluentWait(15).until(ExpectedConditions.elementToBeClickable(By.id("choose_timestamp")));
-		WebElement timestampButton = driver.findElement(By.id("choose_timestamp"));
+		String id = "choose_timestamp";
+		if(isNavButtonVisible()){
+			clickNavButton();
+			id = "choose_timestamp_dd";
+		}
+		driverFluentWait(15).until(ExpectedConditions.elementToBeClickable(By.id(id)));
+		WebElement timestampButton = driver.findElement(By.id(id));
 		return timestampButton.getText();
 	}
 	
 	public String getCurrentProjectName(){
-		driverFluentWait(15).until(ExpectedConditions.elementToBeClickable(By.id("choose_project")));
-		WebElement projectButton = driver.findElement(By.id("choose_project"));
+		String id = "choose_project";
+		if(isNavButtonVisible()){
+			id = "choose_project_dd";
+		}
+		driverFluentWait(15).until(ExpectedConditions.elementToBeClickable(By.id(id)));
+		WebElement projectButton = driver.findElement(By.id(id));
 		return projectButton.getText();
 	}
 	
@@ -168,17 +221,27 @@ abstract class BaseNav extends HTMLPage{
 	}
 	
 	public void goToReports(){
-		driverFluentWait(15).until(ExpectedConditions.elementToBeClickable(By.id("reports_view")));
+		String id = "reports_view";
+		if(isNavButtonVisible()){
+			clickNavButton();
+			id = "reports_view_dd";
+		}
+		driverFluentWait(15).until(ExpectedConditions.elementToBeClickable(By.id(id)));
 		String before = getCurrentUrl();
-		WebElement reportsButton = driver.findElement(By.id("reports_view"));
+		WebElement reportsButton = driver.findElement(By.id(id));
 		reportsButton.click();
 		driverFluentWait(15).until(new UrlChanged(before));
 	}
 	
 	public void goToVisualizer(){
-		driverFluentWait(15).until(ExpectedConditions.elementToBeClickable(By.id("visual_view")));
+		String id = "visual_view";
+		if(isNavButtonVisible()){
+			clickNavButton();
+			id = "visual_view_dd";
+		}
+		driverFluentWait(15).until(ExpectedConditions.elementToBeClickable(By.id(id)));
 		String before = getCurrentUrl();
-		WebElement visualizerButton = driver.findElement(By.id("visual_view"));
+		WebElement visualizerButton = driver.findElement(By.id(id));
 		visualizerButton.click();
 		driverFluentWait(15).until(new UrlChanged(before));
 	}
