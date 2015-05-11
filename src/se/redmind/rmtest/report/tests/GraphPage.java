@@ -72,23 +72,6 @@ public class GraphPage {
 	    	this.tDriver = this.urlContainer.startDriver();
 	    	this.nav = new GraphNav(tDriver);
 	    }
-
-	    @Test
-	    public void test_LoadTwentyRuns() {
-	    	nav.option.changeChartSuiteRunLimit("20");
-	    	nav.option.reloadGraph();
-		    WebElement chartSub = nav.getChartSubtitle();
-		    assertEquals("Showing 20 results", chartSub.getText());
-	    }
-	    
-	    @Test 
-	    public void test_LoadTenRuns() {
-	    	nav.option.changeChartSuiteRunLimit("10");
-	    	nav.option.reloadGraph();
-	    	WebElement chartSub = nav.getChartSubtitle();
-	    	assertEquals("Showing 10 results", chartSub.getText());
-	    }
-    
 	    
 	    @Test
 	    public void test_ShowPassFaill() {
@@ -379,15 +362,6 @@ public class GraphPage {
         	assertEquals(expectedName, actualName);
         	assertEquals(expectedSize, actualSize);
         }
-
-        
-        @Test
-        public void test_OrderByFailPass () {
-        	String before = nav.suite.getNameFrom("class", "0");
-        	nav.suite.clickFailPass();
-        	String after = nav.suite.getNameFrom("class", "0");
-        	assertNotEquals(before, after);
-        }
         
         @Test
         public void test_ChooseTimeStampFromDropDrown() {
@@ -397,156 +371,13 @@ public class GraphPage {
         }
         
         @Test
-        public void test_GoToMethods(){
-        	String className  = nav.suite.getNameFrom("class", "0");
-        	nav.suite.clickOnBar("class", "0");
-        	assertEquals(className, nav.suite.getCurrentPossition().getText());
-        }
-
-        @Test
-        public void test_GoToCases(){
-        	nav.suite.clickOnBar("class", "0");
-        	String methodName = nav.suite.getNameFrom("method", "0");
-        	nav.suite.clickOnBar("method", "0");
-        	assertEquals(methodName, nav.suite.getCurrentPossition().getText());
-        }
-        
-        @Test
-        public void test_ClickOnThisTestOnly(){
-        	nav.suite.clickOnBar("class", "0");
-        	nav.suite.clickOnBar("method", "0");
-        	nav.suite.clickThisTestOnly("0");
-        	String expectedName = "Ubuntu-14.04-UNKNOWN-chrome-42";
-        	int expectedSize = 1;
-        	String actualName = nav.graph.getLegendListItem(0).getText();
-        	int actualSize = nav.graph.getLegendList().size();
-        	assertEquals(expectedName, actualName);
-        	assertEquals(expectedSize, actualSize);
-        }
-        
-        @Test
-        public void test_getErrorCase(){
-        	nav.suite.clickOnBar("class", "0");
-        	nav.suite.clickOnBar("method", "0");
-        	nav.suite.clickOnBar("case", "0");
-        	String stackTrace = nav.suite.getStackTrace();
-        	int	colon = stackTrace.indexOf(":");
-        	stackTrace = stackTrace.substring(0, colon);
-        	String expected = "java.lang.AssertionError";
-        	assertEquals(expected, stackTrace);
-        	
-        }
-        
-        @Test
-        public void test_ClickOnLastCase(){
-        	nav.suite.clickOnBar("class", "0");
-        	nav.suite.clickOnBar("method", "0");
-        	nav.suite.clickOnBar("case", "15");
-        	String stackTrace = nav.suite.getStackTrace();
-        	String expected = "No Message To Display";
-        	assertEquals(expected, stackTrace);
-        }
-        
-        @Ignore
-        @Test 
-        public void test_CheckClass(){
-        	nav.suite.checkBoxOn("class", "0");
-        	nav.option.reloadGraph();
-        	String expectedName = "Android";
-        	int expectedSize = 1;
-        	String actualName = nav.graph.getLegendListItem(0).getText();
-        	int actualSize = nav.graph.getLegendList().size();
-        	assertEquals(expectedName, actualName);
-        	assertEquals(expectedSize, actualSize);
-        }
-        
-        @Ignore
-        @Test 
-        public void test_CheckMethod(){
-        	nav.suite.clickOnBar("class", "0");
-        	nav.suite.checkBoxOn("method", "0");
-        	nav.option.reloadGraph();
-        }
-        
-        @Test 
-        public void test_ClickOnClassReload(){
-        	nav.suite.clickOnBar("class", "0");
-        	nav.option.reloadGraph();
-        	String expectedName = "RandomClass0";
-        	int expectedSize = 1;
-        	String actualName = nav.graph.getLegendListItem(0).getText();
-        	int actualSize = nav.graph.getLegendList().size();
-        	assertEquals(expectedName, actualName);
-        	assertEquals(expectedSize, actualSize);
-        }
-        
-        @Test
-        public void test_FilterCleanUp(){
-        	nav.suite.filterOn("random");
-        	nav.suite.clickOnBar("class", "0");
-        	String expected = "";
-        	String actual = nav.suite.getFilterFieldText();
-        	assertEquals(expected, actual);
-        }
-        
-        @Test
-        public void test_FilterOnChrome(){
-        	nav.suite.clickOnBar("class", "0");
-        	nav.suite.clickOnBar("method", "0");
-        	nav.suite.filterOn("chrome");
-        	int expected = 8;
-        	int actual = nav.suite.getSizeOfCaseList();
-        	nav.suite.waitForCaseListSize(expected);
-        	assertEquals(expected, actual);
-        }  
-        
-        @Test
         public void test_ClickOnSuiteLink(){
         	nav.suite.ClickOnSuiteLinkText();
         	String actual = nav.graph.getUrl();
         	assertTrue(actual.endsWith("/#/home"));
         }
         
-	    @Test
-	    public void test_ClickOnClassLink(){
-	    	nav.suite.clickOnBar("class", "0");
-	    	nav.suite.ClickOnSuiteLinkText();
-	    	String actual = nav.graph.getUrl();
-	    	assertTrue(actual.endsWith("/#/reports/classes"));
-	    }
-	    
-	    @Test
-	    public void test_clickOnMethodLink(){
-	    	nav.suite.clickOnBar("class", "0");
-	    	nav.suite.clickOnBar("method", "0");
-	    	nav.suite.ClickOnSuiteLinkText();
-	    	String actual = nav.graph.getUrl();
-	    	assertTrue(actual.endsWith("/#/reports/methods"));
-	    }
-	    
-	    @Test
-	    public void test_getPassFailTextClass(){
-	    	String actual = nav.suite.getPassFail("class", "0");
-	    	String expected = "Skipped: 0 Failed: 28";
-	    	assertEquals(expected, actual);
-	    }
-	    
-	    @Test
-	    public void test_getPassFailTextMethod(){
-	    	nav.suite.clickOnBar("class", "0");
-	    	String actual = nav.suite.getPassFail("method", "0");
-	    	String expected = "Skipped: 0 Failed: 12";
-	    	assertEquals(expected, actual);
-	    }
 
-	    
-	    @Ignore
-	    @Test
-	    public void test_BreakOnBrowserDispTime(){
-	    	nav.option.changeDisplayType("Run Time");
-	    	nav.option.changeBreakPoint("Browser");
-	    	nav.option.reloadGraph();
-	    }
 	    
 	    @Test
 	    public void test_ClearCheckBoxesBrowser(){
@@ -599,57 +430,53 @@ public class GraphPage {
 	    }
 	    
 	    @Test
-	    public void test_checkShowingNumberResultsTen(){
+	    public void test_changeRunLimit_10(){
 	    	nav.option.changeChartSuiteRunLimit("10");
 	    	nav.option.reloadGraph();
-	    	nav.option.checkShowingNumberResults();
 	    	String expected = "Showing 10 results";
 	    	String actual = nav.option.checkShowingNumberResults();
 	    	assertEquals(expected, actual);
 	    }
 	    
 	    @Test
-	    public void test_checkShowingNumberResultsTwenty(){
+	    public void test_changeRunLimit_20(){
 	    	nav.option.changeChartSuiteRunLimit("20");
 	    	nav.option.reloadGraph();
-	    	nav.option.checkShowingNumberResults();
 	    	String expected = "Showing 20 results";
 	    	String actual = nav.option.checkShowingNumberResults();
 	    	assertEquals(expected, actual);
 	    }
 	    
 	    @Test
-	    public void test_checkShowingNumberResultsFifty(){
+	    public void test_changeRunLimit_50(){
 	    	nav.option.changeChartSuiteRunLimit("50");
 	    	nav.option.reloadGraph();
-	    	nav.option.checkShowingNumberResults();
 	    	String expected = "Showing 50 results";
 	    	String actual = nav.option.checkShowingNumberResults();
 	    	assertEquals(expected, actual);
 	    }
 	    
 	    @Test
-	    public void test_checkShowingNumberResultsOneHundred(){
+	    public void test_changeRunLimit_100(){
 	    	nav.option.changeChartSuiteRunLimit("100");
 	    	nav.option.reloadGraph();
-	    	nav.option.checkShowingNumberResults();
 	    	String expected = "Showing 50 results";
 	    	String actual = nav.option.checkShowingNumberResults();
 	    	assertEquals(expected, actual);
 	    }
 	    
 	    @Test
-	    public void test_checkShowingNumberResultsFiveHundred(){
+	    public void test_changeRunLimit_500(){
 	    	nav.option.changeChartSuiteRunLimit("500");
 	    	nav.option.reloadGraph();
-	    	nav.option.checkShowingNumberResults();
+//	    	nav.option.checkShowingNumberResults();
 	    	String expected = "Showing 50 results";
 	    	String actual = nav.option.checkShowingNumberResults();
 	    	assertEquals(expected, actual);
 	    }
 	    
 	    @Test
-	    public void test_checkLegendListDownButton(){
+	    public void test_clickkLegendListDownButton(){
 	    	for (int i = 0; i < 19; i++) {
 	    		nav.option.addToGraph();
 			}
@@ -660,7 +487,7 @@ public class GraphPage {
 	    }
 	    
 	    @Test
-	    public void test_checkLegendListUpButton(){
+	    public void test_clickLegendListUpButton(){
 	    	for (int i = 0; i < 19; i++) {
 	    		nav.option.addToGraph();
 			}
@@ -670,5 +497,5 @@ public class GraphPage {
 	    	String after = nav.graph.getListNumber();
 	    	assertNotEquals(before, after);
 	    }
-
+	    
 }

@@ -47,6 +47,7 @@ public class SuiteController extends BaseController {
 	}
 	
 	public void filterOn(String text){
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("filter-field")));
 		getElementByID("filter-field").sendKeys(text);
 	}
 	
