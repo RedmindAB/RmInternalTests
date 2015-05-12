@@ -79,12 +79,12 @@ abstract class BaseNav extends HTMLPage{
 	}
 	
 	public WebElement getChartSubtitle(){
-		driverFluentWait(15).until(ExpectedConditions.elementToBeClickable(By.id("button_reload")));
+		driverFluentWait(30).until(ExpectedConditions.elementToBeClickable(By.id("button_reload")));
 		return driver.findElement(By.className("highcharts-subtitle"));
 	}
 	
 	public void clickNavButton(){
-		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.className("navbar-toggle")));
+		driverFluentWait(30).until(ExpectedConditions.presenceOfElementLocated(By.className("navbar-toggle")));
 		WebElement button = driver.findElement(By.className("navbar-toggle"));
 		if(button.isDisplayed())
 			button.click();
