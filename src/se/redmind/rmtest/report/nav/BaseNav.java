@@ -84,14 +84,14 @@ abstract class BaseNav extends HTMLPage{
 	}
 	
 	public void clickNavButton(){
-		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.className("navbar-toggle")));
+		driverFluentWait(30).until(ExpectedConditions.presenceOfElementLocated(By.className("navbar-toggle")));
 		WebElement button = driver.findElement(By.className("navbar-toggle"));
 		if(button.isDisplayed())
 			button.click();
 	}
 	
 	public boolean isNavButtonVisible(){
-		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.className("navbar-toggle")));
+		driverFluentWait(5).until(ExpectedConditions.presenceOfElementLocated(By.className("navbar-toggle")));
 		WebElement button = driver.findElement(By.className("navbar-toggle"));
 		if(button.isDisplayed())
 			return true;
