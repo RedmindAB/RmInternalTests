@@ -467,11 +467,13 @@ public class GraphPage {
 	    
 	    @Test
 	    public void test_changeRunLimit_500(){
+	    	new RMReportScreenshot(urlContainer).takeScreenshot("BeforeSearch");
 	    	nav.option.changeChartSuiteRunLimit("500");
 	    	nav.option.reloadGraph();
 //	    	nav.option.checkShowingNumberResults();
 	    	String expected = "Showing 50 results";
 	    	String actual = nav.option.checkShowingNumberResults();
+	    	new RMReportScreenshot(urlContainer).takeScreenshot("AfterSearch");
 	    	assertEquals(expected, actual);
 	    }
 	    
