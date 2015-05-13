@@ -76,7 +76,7 @@ public class GridPage {
 	    public void test_gridGetJson(){
 	    	nav.clickOnLogo();
 	    	String actual = nav.getJsonHeader();
-	    	String expected = "json blaff!";
+	    	String expected = "Grid Registration info";
 	    	assertEquals(expected, actual);
 	    }
 	    
