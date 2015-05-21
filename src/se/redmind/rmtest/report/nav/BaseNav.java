@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -15,15 +16,10 @@ abstract class BaseNav extends HTMLPage{
 
 	public BaseNav(WebDriver pDriver) {
 		super(pDriver);
-		this.driver.get("http://192.168.75.120:4567");
-		initialWait();
-		navigate();
+		this.driver.get("http://localhost:4567");
+		this.driver.manage().window().setSize(new Dimension(1920, 1080));
 	}
 
-	public void initialWait(){
-		driverFluentWait(15).until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.className("highcharts-series-group")));
-	}
-	
 	abstract void navigate();
 	
 	public WebElement getRedmindLogo(){
@@ -91,7 +87,7 @@ abstract class BaseNav extends HTMLPage{
 	}
 	
 	public boolean isNavButtonVisible(){
-		driverFluentWait(5).until(ExpectedConditions.presenceOfElementLocated(By.className("navbar-toggle")));
+		driverFluentWait(10).until(ExpectedConditions.presenceOfElementLocated(By.className("navbar-toggle")));
 		WebElement button = driver.findElement(By.className("navbar-toggle"));
 		if(button.isDisplayed())
 			return true;

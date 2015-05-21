@@ -129,7 +129,7 @@ public class NavbarPage {
 	    public void test_changeTimestamp(){
 	    	nav.chooseProject(0);
 	    	System.out.println();
-	    	String expected = "20150219080049";
+	    	String expected = "20150401134513";
 	    	String actual = nav.getCurrentTimestamp();
 	    	nav.chooseTimeStamp(expected);
 	    	assertEquals(expected, actual);
