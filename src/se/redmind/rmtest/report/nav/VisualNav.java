@@ -176,8 +176,8 @@ public class VisualNav extends BaseNav{
 	}
 	
 	public boolean isThumbnailPresent(String method){
-		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("table_" + method)));
-		if(getElementByID("table_" + method).isDisplayed()){
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("screenshot-header-" + method)));
+		if(getElementByID("screenshot-header-" + method).isDisplayed()){
 			return true;
 		}
 		else {
