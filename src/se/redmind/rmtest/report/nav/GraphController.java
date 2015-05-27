@@ -100,8 +100,8 @@ public class GraphController extends BaseController{
 	public void clickUpArrow(){
 		String upArrowCSS = "g[class^='highcharts-legend']> g:nth-of-type(2) >  path:nth-of-type(1)";
 		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(upArrowCSS)));
-		WebElement downArrow = driver.findElement(By.cssSelector(upArrowCSS));
-		downArrow.click();
+		WebElement upArrow = driver.findElement(By.cssSelector(upArrowCSS));
+		upArrow.click();
 	}
 	
 	public String getListNumber(){

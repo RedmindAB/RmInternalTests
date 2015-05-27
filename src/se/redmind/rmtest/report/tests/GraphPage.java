@@ -478,7 +478,7 @@ public class GraphPage {
 	    }
 	    
 	    @Test
-	    public void test_clickkLegendListDownButton(){
+	    public void test_clickLegendListDownButton(){
 	    	for (int i = 0; i < 19; i++) {
 	    		nav.option.addToGraph();
 			}
