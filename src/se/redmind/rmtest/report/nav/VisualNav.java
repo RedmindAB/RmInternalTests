@@ -111,8 +111,9 @@ public class VisualNav extends BaseNav{
 	}
 	
 	public void closeSysos(){
-		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("close")));
-		getElementByID("close").click();
+        driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("modal-console-dialog")));
+        WebElement modal = getElementByID("modal-console-dialog");
+        modal.findElement((By.id("close"))).click();
 	}
 	
 	public boolean isSysosClosed(){
