@@ -217,9 +217,9 @@ abstract class BaseNav extends HTMLPage{
 	}
 	
 	public void clickLogo(){
-		driverFluentWait(15).until(ExpectedConditions.elementToBeClickable(By.className("navbar-brand")));
+		driverFluentWait(15).until(ExpectedConditions.elementToBeClickable(By.className("rm-logo-a")));
 		String before = getCurrentUrl();
-		WebElement logoButton = driver.findElement(By.className("navbar-brand"));
+		WebElement logoButton = driver.findElement(By.className("rm-logo-a"));
 		logoButton.click();
 		driverFluentWait(15).until(new UrlChanged(before));
 	}
