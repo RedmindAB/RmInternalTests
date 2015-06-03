@@ -128,10 +128,10 @@ abstract class BaseNav extends HTMLPage{
 	}
 	
 	public void goToDashboard(){
-		String id = "dash_view";
+		String id = "home_view";
 		if(isNavButtonVisible()){
 			clickNavButton();
-			id = "dash_view_dd";
+			id = "home_view_dd";
 		}
 		driverFluentWait(15).until(ExpectedConditions.elementToBeClickable(By.id(id)));
 		String before = getCurrentUrl();
