@@ -71,6 +71,8 @@ public class NavbarPage {
 	    	this.nav = new NavbarNav(this.tDriver);
 	    }
 	    
+	    /* ID: GRID-A.01.01
+		 * Edited: 2015-06-09 */
 	    @Test
 	    public void test_goToGrid(){
 	    	nav.goToGrid();
@@ -78,6 +80,8 @@ public class NavbarPage {
 	    	assertTrue(nav.getCurrentUrl().endsWith(expected));
 	    }
 	    
+	    /* ID: GRID-A.01.02
+		 * Edited: 2015-06-09 */
 	    @Test
 	    public void test_goToAdmin(){
 	    	nav.goToAdmin();
@@ -85,6 +89,8 @@ public class NavbarPage {
 	    	assertTrue(nav.getCurrentUrl().endsWith(expected));
 	    }
 	    
+	    /* ID: GRID-A.01.03
+		 * Edited: 2015-06-09 */
 	    @Test
 	    public void test_goToDashboard(){
 	    	nav.goToAdmin();
@@ -93,6 +99,8 @@ public class NavbarPage {
 	    	assertTrue(nav.getCurrentUrl().endsWith(expected));
 	    }
 	    
+	    /* ID: GRID-A.01.07
+		 * Edited: 2015-06-09 */
 	    @Test
 	    public void test_changeProject(){
 	    	nav.chooseProject(0);
@@ -101,6 +109,8 @@ public class NavbarPage {
 	    	assertEquals(expected, actual);	    	
 	    }
 	    
+	    /* ID: GRID-A.01.04
+		 * Edited: 2015-06-09 */
 	    @Test
 	    public void test_clickLogo(){
 	    	nav.goToAdmin();
@@ -109,6 +119,8 @@ public class NavbarPage {
 	    	assertTrue(nav.getCurrentUrl().endsWith(expected));
 	    }
 	    
+	    /* ID: GRID-A.01.05
+		 * Edited: 2015-06-09 */
 	    @Test
 	    public void test_goToReports(){
 	    	nav.chooseProject(0);
@@ -117,6 +129,8 @@ public class NavbarPage {
 	    	assertTrue(nav.getCurrentUrl().endsWith(expected));
 	    }
 	    
+	    /* ID: GRID-A.01.06
+		 * Edited: 2015-06-09 */
 	    @Test
 	    public void test_goToVisualizer(){
 	    	nav.chooseProject(0);
@@ -125,6 +139,8 @@ public class NavbarPage {
 	    	assertTrue(nav.getCurrentUrl().endsWith(expected));
 	    }
 	    
+	    /* ID: GRID-A.01.08
+		 * Edited: 2015-06-09 */
 	    @Test
 	    public void test_changeTimestamp(){
 	    	nav.chooseProject(0);
