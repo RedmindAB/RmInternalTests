@@ -112,9 +112,8 @@ public class GraphPage {
 	    
 	    @Test
 	    public void test_CreateALine(){
-	    	nav.option.addToGraph();
-	    	int expected = 2;
-	    	int actual = nav.graph.getLegendList().size();
+	    	String expected = "Aggregation";
+	    	String actual = nav.graph.getLegendListItem(0).getText();
 	    	assertEquals(expected, actual);
 	    	nav.option.changeBreakPoint("None");
 	    	nav.option.reloadGraph();
