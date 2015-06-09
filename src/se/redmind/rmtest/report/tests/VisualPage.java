@@ -67,6 +67,8 @@ public class VisualPage {
 	    	this.nav = new VisualNav(this.tDriver);
 	    }
 	    
+	    /* ID: VIS-A.01.03
+	     * Edited: 2015-06-09 */
 	    @Test
 	    public void openSysos(){
 	    	nav.openSysos("class-0");
@@ -81,9 +83,8 @@ public class VisualPage {
 			assertTrue(nav.isSysosClosed());
 		}
 		
-		/*
-		 * Edited: 2015-06-09
-		 */
+		/* ID: VIS-A.01.01
+		 * Edited: 2015-06-09 */
 		@Test
 		public void chooseAnotherClass(){
 			nav.chooseClass("class-0");
@@ -93,6 +94,8 @@ public class VisualPage {
 			assertNotEquals(methods, classes);
 		}
 		
+		/* ID: VIS-A.01.02
+		 * Edited: 2015-06-09 */
 		@Test
 		public void chooseTimestamp(){
 			nav.changeProject("MockedTestSuite");
@@ -106,6 +109,8 @@ public class VisualPage {
 			assertTrue(nav.isProjectSet("MockedTestSuite"));	
 	    }
 		
+	    /* ID: VIS-A.01.04
+		 * Edited: 2015-06-09 */
 		@Test
 		public void isThumbnailPresent(){
 			nav.changeProject("MockedTestSuite");
@@ -114,7 +119,7 @@ public class VisualPage {
 			nav.openMethod("0");
 			nav.isThumbnailPresent("0");
 		}
-		/*
+		
 		@Test
 		public void isScreenShotPresent(){
 			nav.changeProject("MockedTestSuite");
@@ -124,10 +129,8 @@ public class VisualPage {
 			nav.openScreenshot("0");
 			nav.waitForSlideAnimation();
 			assertTrue(nav.isScreenshotPresent());
-			
 		} 
-		*/
-		/*
+		
 		@Test
 		public void isScreenShotSwitched(){
 			nav.changeProject("MockedTestSuite");
@@ -137,7 +140,6 @@ public class VisualPage {
 			nav.openScreenshot("0");
 			assertTrue(nav.isScreenShotSwitched());
 		}
-		*/
 		
 }
 
