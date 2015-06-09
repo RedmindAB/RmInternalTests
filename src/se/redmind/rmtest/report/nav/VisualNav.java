@@ -155,7 +155,7 @@ public class VisualNav extends BaseNav{
 	
 	public void goTo(String byID){
 		String currentURL = driver.getCurrentUrl();
-		getElementByID("go_to_" + byID).click();
+		getElementByID(byID).click();
 		driverFluentWait(15).until(new UrlChanged(currentURL));
 	}
 	
@@ -171,6 +171,11 @@ public class VisualNav extends BaseNav{
 			return false;
 	}
 	
+	public String getTitle(){
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.className("screenshot-nav")));
+		return driver.findElement(By.className("screenshot-nav")).getText();
+	}
+		
 	public void openMethod(String method){
 		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("method-" + method)));
 		getElementByID("method-" + method).click();

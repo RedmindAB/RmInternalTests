@@ -80,12 +80,17 @@ public class VisualPage {
 			nav.isSysosClosed();
 			assertTrue(nav.isSysosClosed());
 		}
+		
+		/*
+		 * Edited: 2015-06-09
+		 */
 		@Test
 		public void chooseAnotherClass(){
 			nav.chooseClass("class-0");
-			nav.goTo("classes");	
-			assertTrue(nav.isAtClassView());
-
+			String methods = nav.getTitle();
+			nav.goTo("0");
+			String classes = nav.getTitle();
+			assertNotEquals(methods, classes);
 		}
 		
 		@Test
@@ -93,7 +98,6 @@ public class VisualPage {
 			nav.changeProject("MockedTestSuite");
 			nav.changeTimestamp("20150101080000");
 			assertTrue(nav.isTimestampSet("20150101080000"));	
-			
 		}
 		
 	    @Test
@@ -101,7 +105,6 @@ public class VisualPage {
 			nav.changeProject("MockedTestSuite");
 			assertTrue(nav.isProjectSet("MockedTestSuite"));	
 	    }
-		
 		
 		@Test
 		public void isThumbnailPresent(){
