@@ -88,7 +88,7 @@ public class VisualPage {
 		public void chooseAnotherClass(){
 			nav.chooseClass("class-0");
 			String methods = nav.getTitle();
-			nav.goTo("0");
+			nav.goToScopeByID("1");
 			String classes = nav.getTitle();
 			assertNotEquals(methods, classes);
 		}

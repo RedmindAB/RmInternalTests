@@ -159,6 +159,11 @@ public class VisualNav extends BaseNav{
 		driverFluentWait(15).until(new UrlChanged(currentURL));
 	}
 	
+	public void goToScopeByID(String byID){
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id(byID)));
+		getElementByID(byID).click();
+	}
+	
 	public WebElement getGoBackButton(){
 		return getElementByClass("screenshot-nav-left");
 	}
