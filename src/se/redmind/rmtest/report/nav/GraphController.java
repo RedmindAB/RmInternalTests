@@ -44,6 +44,13 @@ public class GraphController extends BaseController{
 		return list.get(index);
 	}
 	
+	public WebElement getProjectName(int index){
+		By projectname = By.id("choose_project");
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(projectname));
+		List <WebElement> list = driver.findElements(projectname);
+		return list.get(index);		
+}
+	
 	public void clickLegend(String type){
 		int indexSelector = 0;
 		switch (type) {

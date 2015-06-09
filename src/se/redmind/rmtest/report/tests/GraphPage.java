@@ -116,6 +116,14 @@ public class GraphPage {
 	    	int expected = 2;
 	    	int actual = nav.graph.getLegendList().size();
 	    	assertEquals(expected, actual);
+	    	nav.option.changeBreakPoint("None");
+	    	nav.option.reloadGraph();
+	    	String expected2 = nav.graph.getProjectName(0).getText();
+	    	String actual2 = nav.graph.getLegendListItem(0).getText();
+	    	assertEquals(expected2, actual2);
+	    	int expected3 = 1;
+	    	int actual3 = nav.graph.getLegendList().size();
+	    	assertEquals(expected3, actual3);
 	    }
 	    
 	    @Test
@@ -516,5 +524,13 @@ public class GraphPage {
 	    	nav.graph.clickLegend("failed");
 	    	assertTrue(!nav.graph.isEnabled("failed"));
 
+	    }
+	    
+	    @Test
+	    public void test_AddChoisesToGraph(){
+	    	nav.option.addToGraph();
+	    	int expected = 2;
+	    	int actual = nav.graph.getLegendList().size();
+	    	assertEquals(expected, actual);
 	    }
 }
