@@ -119,10 +119,10 @@ public class VisualPage {
 			nav.openMethod("0");
 			nav.isThumbnailPresent("0");
 		}
-		
+		/*
 		@Test
 		public void isScreenShotPresent(){
-			nav.changeProject("MockedTestSuite");
+			nav.changeProject("LongerTestSuite");
 			nav.changeTimestamp("20150101080000");
 			nav.chooseClass("class-0");
 			nav.openMethod("0");
@@ -130,17 +130,18 @@ public class VisualPage {
 			nav.waitForSlideAnimation();
 			assertTrue(nav.isScreenshotPresent());
 		} 
-		
+		*/
+		/*
 		@Test
 		public void isScreenShotSwitched(){
-			nav.changeProject("MockedTestSuite");
+			nav.changeProject("LongerTestSuite");
 			nav.changeTimestamp("20150101080000");
 			nav.chooseClass("class-0");
 			nav.openMethod("0");
 			nav.openScreenshot("0");
 			assertTrue(nav.isScreenShotSwitched());
 		}
-		
+		*/
 }
 
 
