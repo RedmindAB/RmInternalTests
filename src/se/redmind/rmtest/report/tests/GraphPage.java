@@ -369,6 +369,9 @@ public class GraphPage {
         	assertEquals(expectedName, actualName);
         	assertEquals(expectedSize, actualSize);
         }
+        
+//		ID: REP-A.01.28
+//	    Edited: 2015-06-10  
         @Test
  	    public void test_SpecificationsPlatform_CheckAndroidIOS(){
          	nav.option.changeBreakPoint("Platform");
@@ -387,8 +390,9 @@ public class GraphPage {
         	assertEquals(expectedName2, actualName2);
         	assertEquals(expectedSize, actualSize);	
         }
-        
-	    
+
+//		ID: REP-A.01.29
+//	    Edited: 2015-06-10  	    
         @Test
         public void test_SpecificationsBrowser_CheckChrome(){
         	nav.option.changeBreakPoint("Browser");

@@ -34,7 +34,8 @@ public class GraphController extends BaseController{
 	
 	public void waitForLegendListSize(int expectedSize){
 		By by = By.className("highcharts-legend-item");
-		driverFluentWait(15).until(new WebElementListSize(by, expectedSize));
+		driverFluentWaitForCondition(new WebElementListSize(by, expectedSize),15);
+		
 	}
 	
 	public WebElement getLegendListItem(int index) {
