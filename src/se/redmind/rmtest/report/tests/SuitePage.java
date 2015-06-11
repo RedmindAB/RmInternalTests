@@ -84,13 +84,19 @@ public class SuitePage {
         	assertNotEquals(before, after);
         }
         
+        /* ID:REP-A.02.16
+	     * Edited: 2015-06-11
+	     */
         @Test
         public void test_GoToMethods(){
         	String className  = nav.suite.getNameFrom("class", "0");
         	nav.suite.clickOnBar("class", "0");
         	assertEquals(className, nav.suite.getCurrentPossition().getText());
         }
-
+        
+        /* ID:REP-A.02.15
+	     * Edited: 2015-06-11
+	     */
         @Test
         public void test_GoToCases(){
         	nav.suite.clickOnBar("class", "0");
@@ -115,6 +121,9 @@ public class SuitePage {
         	assertEquals(expectedSize, actualSize);
         }
         
+        /* ID:REP-A.02.14
+	     * Edited: 2015-06-11
+	     */
         @Test
         public void test_getErrorCase(){
         	nav.suite.clickOnBar("class", "0");
@@ -127,6 +136,9 @@ public class SuitePage {
         	assertEquals(expected, stackTrace);
         }
         
+        /* ID:REP-A.02.13
+	     * Edited: 2015-06-11
+	     */
         @Test
         public void test_ClickOnLastCase(){
         	nav.suite.clickOnBar("class", "0");
@@ -138,6 +150,9 @@ public class SuitePage {
         }
         
         @Ignore
+        /* ID:REP-A.02.07
+	     * Edited: 2015-04-21
+	     */
         @Test 
         public void test_CheckClass(){
         	nav.suite.checkBoxOn("class", "0");
@@ -151,13 +166,25 @@ public class SuitePage {
         }
         
         @Ignore
+        /* ID:REP-A.02.03
+	     * Edited: 2015-04-21
+	     */
         @Test 
         public void test_CheckMethod(){
         	nav.suite.clickOnBar("class", "0");
         	nav.suite.checkBoxOn("method", "0");
+        	String beforeReload = nav.graph.getLegendListItem(0).getText();
+        	int expectedSize = 1;
         	nav.option.reloadGraph();
+        	String afterReload = nav.graph.getLegendListItem(0).getText();
+        	int actualSize = nav.graph.getLegendList().size();
+        	assertNotEquals(beforeReload, afterReload);
+        	assertEquals(expectedSize, actualSize);
         }
         
+        /* ID:REP-A.02.10
+	     * Edited: 2015-06-11
+	     */
         @Test 
         public void test_ClickOnClassReload(){
         	nav.suite.clickOnBar("class", "0");
@@ -170,6 +197,9 @@ public class SuitePage {
         	assertEquals(expectedSize, actualSize);
         }
         
+        /* ID:REP-A.02.11
+	     * Edited: 2015-06-11
+	     */
         @Test
         public void test_FilterCleanUp(){
         	nav.suite.filterOn("random");
@@ -179,6 +209,9 @@ public class SuitePage {
         	assertEquals(expected, actual);
         }
         
+        /* ID:REP-A.02.12
+	     * Edited: 2015-06-11
+	     */
         @Test
         public void test_FilterOnChrome(){
         	nav.suite.clickOnBar("class", "0");
@@ -190,6 +223,9 @@ public class SuitePage {
         	assertEquals(expected, actual);
         }
         
+        /* ID:REP-A.02.08
+	     * Edited: 2015-06-11
+	     */
 	    @Test
 	    public void test_ClickOnClassLink(){
 	    	nav.suite.clickOnBar("class", "0");
@@ -198,6 +234,9 @@ public class SuitePage {
 	    	assertTrue(actual.endsWith("/#/reports/classes"));
 	    }
 	    
+	    /* ID:REP-A.02.09
+	     * Edited: 2015-06-11
+	     */
 	    @Test
 	    public void test_clickOnMethodLink(){
 	    	nav.suite.clickOnBar("class", "0");
@@ -206,6 +245,7 @@ public class SuitePage {
 	    	String actual = nav.graph.getUrl();
 	    	assertTrue(actual.endsWith("/#/reports/methods"));
 	    }
+	    
 	    /* ID:REP-A.02.05
 	     * Edited: 2015-06-11
 	     */
@@ -216,6 +256,9 @@ public class SuitePage {
 	    	assertEquals(expected, actual);
 	    }
 	    
+	    /* ID:REP-A.02.06
+	     * Edited: 2015-06-11
+	     */
 	    @Test
 	    public void test_getPassFailTextMethod(){
 	    	nav.suite.clickOnBar("class", "0");
