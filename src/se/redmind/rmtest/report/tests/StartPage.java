@@ -69,6 +69,9 @@ public class StartPage {
 	    	this.nav = new StartNav(this.tDriver);
 	    }
 	    
+	    /* ID: STA-A.01.01
+	     * Edited: 2015-06-11
+	     */
 	    @Test
 	    public void isRedmindLogoPresent(){
 	    	WebElement redmindlogo = this.nav.getRedmindLogo();
@@ -76,6 +79,9 @@ public class StartPage {
 	    	assertTrue(redmindlogo.isDisplayed());
 	    }
 	    
+	    /* ID: STA-A.01.02
+	     * Edited: 2015-06-11
+	     */
 	    @Ignore
 	    @Test
 	    public void isScreenshotPresent(){
@@ -84,6 +90,9 @@ public class StartPage {
 	    	assertTrue(screenshot.isDisplayed());
 	    }
 	    
+	    /* ID: STA-A.01.03
+	     * Edited: 2015-06-11
+	     */
 	    @Ignore
 	    @Test
 	    public void isGraphViewPresent(){
