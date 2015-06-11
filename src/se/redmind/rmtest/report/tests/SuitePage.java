@@ -73,6 +73,9 @@ public class SuitePage {
 	    	this.nav = new GraphNav(tDriver);
 	    }
 	    
+	    /* ID:REP-A.02.01
+	     * Edited: 2015-06-11
+	     */
         @Test
         public void test_OrderByFailPass () {
         	String before = nav.suite.getNameFrom("class", "0");
@@ -96,6 +99,9 @@ public class SuitePage {
         	assertEquals(methodName, nav.suite.getCurrentPossition().getText());
         }
         
+        /* ID:REP-A.02.04
+	     * Edited: 2015-06-11
+	     */
         @Test
         public void test_ClickOnThisTestOnly(){
         	nav.suite.clickOnBar("class", "0");
@@ -200,7 +206,9 @@ public class SuitePage {
 	    	String actual = nav.graph.getUrl();
 	    	assertTrue(actual.endsWith("/#/reports/methods"));
 	    }
-	    
+	    /* ID:REP-A.02.05
+	     * Edited: 2015-06-11
+	     */
 	    @Test
 	    public void test_getPassFailTextClass(){
 	    	String actual = nav.suite.getPassFail("class", "0");
