@@ -117,7 +117,7 @@ public class VisualPage {
 		@Test
 		public void isThumbnailPresent(){
 			nav.changeProject("MockedTestSuite");
-			nav.changeTimestamp("20150101080000");
+			nav.changeTimestamp("2015-01-01 08:00");
 			nav.chooseClass("class-0");
 			nav.openMethod("0");
 			assertTrue(nav.isThumbnailPresent("0"));
