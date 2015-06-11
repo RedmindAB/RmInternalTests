@@ -407,6 +407,9 @@ public class GraphPage {
         	assertEquals(expectedSize, actualSize);
         }
         
+        /* ID: REP-A.01.34
+         * Edited: 2015-06-11
+         */
         @Test
         public void test_ChooseTimeStampFromDropDrown() {
         	nav.chooseTimestampFromDropdown("20150210080040");
@@ -414,6 +417,9 @@ public class GraphPage {
         	assertEquals("20150210080040", currentTimeStamp.getText());
         }
         
+        /* ID: REP-A.01.30
+         * Edited: 2015-06-11
+         */
         @Test
         public void test_ClickOnSuiteLink(){
         	nav.suite.ClickOnSuiteLinkText();
@@ -421,8 +427,9 @@ public class GraphPage {
         	assertTrue(actual.endsWith("/#/home"));
         }
         
-
-	    
+        /* ID: REP-A.01.31
+         * Edited: 2015-06-11
+         */
 	    @Test
 	    public void test_ClearCheckBoxesBrowser(){
 	    	nav.option.changeBreakPoint("Browser");
@@ -435,6 +442,9 @@ public class GraphPage {
 	    	assertEquals(expected, actual);
 	    }
 	    
+	    /* ID: REP-A.01.32
+         * Edited: 2015-06-11
+         */
 	    @Test
 	    public void test_ClearCheckBoxesPlatform(){
 	    	nav.option.changeBreakPoint("Platform");
@@ -446,6 +456,7 @@ public class GraphPage {
 	    	int actual = nav.graph.getLegendList().size();
 	    	assertEquals(expected, actual);
 	    }
+	    
 	    
 	    @Test
 	    public void test_ClearCheckBoxesVersion(){
@@ -460,6 +471,9 @@ public class GraphPage {
 	    	assertEquals(expected, actual);
 	    }
 	    
+	    /* ID: REP-A.01.33
+         * Edited: 2015-06-11
+         */
 	    @Test
 	    public void test_ClearCheckBoxesDevice(){
 	    	nav.option.changeBreakPoint("Device");
@@ -558,6 +572,9 @@ public class GraphPage {
 	    	assertNotEquals(before, after);
 	    }
 	    
+	    /* ID: DASH-A.01.01
+         * Edited: 2015-06-11
+         */
 	    @Test
 	    public void test_filterOnGraph(){
 	    	nav.goToDashboard();
@@ -576,8 +593,11 @@ public class GraphPage {
 
 	    }
 	    
+	    /* ID: REP-A.01.35
+         * Edited: 2015-06-11
+         */
 	    @Test
-	    public void test_AddChoisesToGraph(){
+	    public void test_AddChoicesToGraph(){
 	    	nav.option.addToGraph();
 	    	int expected = 2;
 	    	int actual = nav.graph.getLegendList().size();
