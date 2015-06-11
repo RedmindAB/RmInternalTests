@@ -75,11 +75,12 @@ public class VisualPage {
 	    	assertTrue(nav.isSysosOpen());
 	    }	    
 
+	    /* ID: VIS-A.01.06
+		 * Edited: 2015-06-09 */
 		@Test
-		public void opencloseSyso(){
+		public void openCloseSyso(){
 			nav.openSysos("class-0");
 			nav.closeSysos();
-			nav.isSysosClosed();
 			assertTrue(nav.isSysosClosed());
 		}
 		
@@ -103,6 +104,8 @@ public class VisualPage {
 			assertTrue(nav.isTimestampSet("20150101080000"));	
 		}
 		
+	    /* ID: VIS-A.01.05
+		 * Edited: 2015-06-09 */
 	    @Test
 	    public void changeProject(){
 			nav.changeProject("MockedTestSuite");
@@ -117,7 +120,7 @@ public class VisualPage {
 			nav.changeTimestamp("20150101080000");
 			nav.chooseClass("class-0");
 			nav.openMethod("0");
-			nav.isThumbnailPresent("0");
+			assertTrue(nav.isThumbnailPresent("0"));
 		}
 		/*
 		@Test

@@ -73,8 +73,10 @@ public class GraphPage {
 	    	this.nav = new GraphNav(tDriver);
 	    }
 	    
+//		ID: REP-A.01.01
+//	    Edited 2015-06-09
 	    @Test
-	    public void test_ShowPassFaill() {
+	    public void test_ShowPassFail() {
 	    	String expected = "Percentage of passed tests";
 	    	WebElement chartTitle1 = nav.getChartTitle();
 	    	assertEquals(expected, chartTitle1.getText());
@@ -86,6 +88,8 @@ public class GraphPage {
 	    	assertEquals(expected, chartTitle3.getText());
 	    }
 	    
+//		ID: REP-A.01.02
+//	    Edited 2015-06-09
 	    @Test
 	    public void test_TotalPass(){
 	    	nav.option.changeDisplayType("Total Pass");
@@ -94,6 +98,8 @@ public class GraphPage {
 	    	assertEquals(expected, chartTitle1.getText());
 	    }
 	    
+//		ID: REP-A.01.03
+//	    Edited 2015-06-09
 	    @Test
 	    public void test_TotalFailed(){
 	    	nav.option.changeDisplayType("Total Fail");
@@ -102,6 +108,8 @@ public class GraphPage {
 	    	assertEquals(expected, chartTitle1.getText());
 	    }
 	    
+//		ID: REP-A.01.04
+//	    Last edited 2015-06-09
 	    @Test
 	    public void test_RunTime(){
 	    	nav.option.changeDisplayType("Run Time");
@@ -110,6 +118,8 @@ public class GraphPage {
 	    	assertEquals(expected, chartTitle1.getText());
 	    }
 	    
+//		ID: REP-A.01.05
+//	    Last edited 2015-06-09
 	    @Test
 	    public void test_CreateALine(){
 	    	String expected = "Aggregation";
@@ -125,6 +135,8 @@ public class GraphPage {
 	    	assertEquals(expected3, actual3);
 	    }
 	    
+//		ID: REP-A.01.06
+//	    Last edited 2015-06-09
 	    @Test
 	    public void test_BreakOnBrowser(){
 	    	nav.option.changeBreakPoint("Browser");
@@ -136,7 +148,9 @@ public class GraphPage {
 	    	int actual2 = nav.graph.getLegendList().size();
 	    	assertEquals(expected2, actual2);
     	}
-    	
+	    
+//		ID: REP-A.01.07
+//	    Last edited 2015-06-09
         @Test
 	    public void test_BreakOnVersion(){
 	    	nav.option.changeBreakPoint("Version");
@@ -148,7 +162,9 @@ public class GraphPage {
 	    	int actual2 = nav.graph.getLegendList().size();
 	    	assertEquals(expected2, actual2);
 	    }
-        
+	    
+//		ID: REP-A.01.08
+//	    Last edited 2015-06-09
         @Test
 	    public void test_BreakOnDevice(){
 	    	nav.option.changeBreakPoint("Device");
@@ -160,7 +176,9 @@ public class GraphPage {
 	    	int actual2 = nav.graph.getLegendList().size();
 	    	assertEquals(expected2, actual2);
 	    }
-        
+	    
+//		ID: REP-A.01.09
+//	    Last edited 2015-06-09
         @Test
 	    public void test_BreakOnPlatform(){
         	nav.option.changeBreakPoint("Platform");
@@ -173,6 +191,8 @@ public class GraphPage {
 	    	assertEquals(expected2, actual2);
 	    }
 	    
+//		ID: REP-A.01.10
+//	    Last edited 2015-06-09
         @Test
 	    public void test_RemoveALine(){
         	nav.option.changeBreakPoint("Platform");
@@ -192,7 +212,9 @@ public class GraphPage {
         	assertEquals(expSecond, secendObj);
         	
 	    }    
-    
+	    
+//		ID: REP-A.01.19
+//	    Last edited 2015-06-10
         @Test
 	    public void test_SpecificationsDevice_CheckDevice(){
         	nav.option.changeBreakPoint("Device");
@@ -207,7 +229,9 @@ public class GraphPage {
         	assertEquals(expectedName, actualName);
         	assertEquals(expectedSize, actualSize);
 	    }
-	    
+
+//		ID: REP-A.01.20
+//	    Last edited 2015-06-10
         @Test
 	    public void test_SpecificationsDevice_CheckVersion(){
         	nav.option.changeBreakPoint("Device");
@@ -222,9 +246,9 @@ public class GraphPage {
         	assertEquals(expectedName, actualName);
         	assertEquals(expectedSize, actualSize);
 	    }
-        	
-	    
-        
+
+//		ID: REP-A.01.21
+//	    Last edited 2015-06-10
         @Test
         public void test_SpecificationsDevice_CheckPlatform(){
         	nav.option.changeBreakPoint("Device");
@@ -243,7 +267,8 @@ public class GraphPage {
         	
         }
 
-	    
+//		ID: REP-A.01.22
+//	    Last edited 2015-06-10
         @Test
 	    public void test_Specifications_CheckDeviceGetVersion(){
         	nav.option.changeBreakPoint("Version");
@@ -258,7 +283,9 @@ public class GraphPage {
         	assertEquals(expectedName, actualName);
         	assertEquals(expectedSize, actualSize);
 	    }
-        
+
+//		ID: REP-A.01.23
+//	    Last edited 2015-06-10
         @Test
 	    public void test_Specifications_Version(){
         	nav.option.changeBreakPoint("Version");
@@ -273,7 +300,9 @@ public class GraphPage {
         	assertEquals(expectedName, actualName);
         	assertEquals(expectedSize, actualSize);
 	    }
-        
+
+//		ID: REP-A.01.24
+//	    Last edited 2015-06-10
         @Test
   	    public void test_Specifications_VersionPlatform(){
           	nav.option.changeBreakPoint("Version");
@@ -291,7 +320,8 @@ public class GraphPage {
         	assertEquals(expectedSize, actualSize);          	
   	    }
 
-        
+//		ID: REP-A.01.25
+//	    Last edited 2015-06-10        
         @Test
 	    public void test_Specifications_CheckDeviceGetPlatform(){
         	nav.option.changeBreakPoint("Platform");
@@ -306,7 +336,9 @@ public class GraphPage {
         	assertEquals(expectedName, actualName);
         	assertEquals(expectedSize, actualSize);
 	    }
-        
+
+//		ID: REP-A.01.26
+//	    Last edited 2015-06-10  
         @Test
 	    public void test_Specifications_Platform(){
         	nav.option.changeBreakPoint("Platform");
@@ -321,7 +353,8 @@ public class GraphPage {
         	assertEquals(expectedSize, actualSize);
 	    }
         
-        
+//		ID: REP-A.01.27
+//	    Last edited 2015-06-10  
         @Test
  	    public void test_Specifications_PlatformVersion(){
          	nav.option.changeBreakPoint("Platform");
@@ -336,6 +369,9 @@ public class GraphPage {
         	assertEquals(expectedName, actualName);
         	assertEquals(expectedSize, actualSize);
         }
+        
+//		ID: REP-A.01.28
+//	    Edited: 2015-06-10  
         @Test
  	    public void test_SpecificationsPlatform_CheckAndroidIOS(){
          	nav.option.changeBreakPoint("Platform");
@@ -354,8 +390,9 @@ public class GraphPage {
         	assertEquals(expectedName2, actualName2);
         	assertEquals(expectedSize, actualSize);	
         }
-        
-	    
+
+//		ID: REP-A.01.29
+//	    Edited: 2015-06-10  	    
         @Test
         public void test_SpecificationsBrowser_CheckChrome(){
         	nav.option.changeBreakPoint("Browser");
@@ -436,6 +473,8 @@ public class GraphPage {
 	    	assertEquals(expected, actual);
 	    }
 	    
+//		ID: REP-A.01.11
+//	    Last edited 2015-06-10
 	    @Test
 	    public void test_changeRunLimit_10(){
 	    	nav.option.changeChartSuiteRunLimit("10");
@@ -445,6 +484,8 @@ public class GraphPage {
 	    	assertEquals(expected, actual);
 	    }
 	    
+//		ID: REP-A.01.12
+//	    Last edited 2015-06-10
 	    @Test
 	    public void test_changeRunLimit_20(){
 	    	nav.option.changeChartSuiteRunLimit("20");
@@ -454,6 +495,8 @@ public class GraphPage {
 	    	assertEquals(expected, actual);
 	    }
 	    
+//		ID: REP-A.01.13
+//	    Last edited 2015-06-10
 	    @Test
 	    public void test_changeRunLimit_50(){
 	    	nav.option.changeChartSuiteRunLimit("50");
@@ -463,6 +506,8 @@ public class GraphPage {
 	    	assertEquals(expected, actual);
 	    }
 	    
+//		ID: REP-A.01.14
+//	    Last edited 2015-06-10
 	    @Test
 	    public void test_changeRunLimit_100(){
 	    	nav.option.changeChartSuiteRunLimit("100");
@@ -472,6 +517,8 @@ public class GraphPage {
 	    	assertEquals(expected, actual);
 	    }
 	    
+//		ID: REP-A.01.15
+//	    Last edited 2015-06-10
 	    @Test
 	    public void test_changeRunLimit_500(){
 	    	new RMReportScreenshot(urlContainer).takeScreenshot("BeforeSearch");
@@ -483,7 +530,9 @@ public class GraphPage {
 	    	new RMReportScreenshot(urlContainer).takeScreenshot("AfterSearch");
 	    	assertEquals(expected, actual);
 	    }
-	    
+
+//		ID: REP-A.01.16
+//	    Last edited 2015-06-10
 	    @Test
 	    public void test_clickLegendListDownButton(){
 	    	for (int i = 0; i < 19; i++) {
@@ -494,7 +543,9 @@ public class GraphPage {
 	    	String after = nav.graph.getListNumber();
 	    	assertNotEquals(before, after);
 	    }
-	    
+
+//		ID: REP-A.01.17
+//	    Last edited 2015-06-10
 	    @Test
 	    public void test_clickLegendListUpButton(){
 	    	for (int i = 0; i < 19; i++) {
