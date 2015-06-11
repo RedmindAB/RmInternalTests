@@ -407,14 +407,17 @@ public class GraphPage {
         	assertEquals(expectedSize, actualSize);
         }
         
+//      Ignored for time being because it does the same thing as ID: VIS-A.01.02, waiting for more fluctuent test data
+        
         /* ID: REP-A.01.34
          * Edited: 2015-06-11
          */
+		@Ignore
         @Test
         public void test_ChooseTimeStampFromDropDrown() {
-        	nav.chooseTimestampFromDropdown("20150210080040");
+        	nav.chooseTimestampFromDropdown("2015-02-10 08:00");
         	WebElement currentTimeStamp = nav.getElementByID("choose_timestamp");
-        	assertEquals("20150210080040", currentTimeStamp.getText());
+        	assertEquals("2015-02-10 08:00", currentTimeStamp.getText());
         }
         
         /* ID: REP-A.01.30
