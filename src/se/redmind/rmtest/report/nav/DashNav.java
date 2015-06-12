@@ -11,15 +11,24 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import se.redmind.rmtest.report.expectedconditions.ChartReloadFinished;
+import se.redmind.rmtest.report.expectedconditions.UrlChanged;
 
 public class DashNav extends BaseNav{
 	
+	public DashController dash;
+	
 	public DashNav(WebDriver pDriver) {
 		super(pDriver);
+		dash = new DashController(pDriver);
 	}
 
 	@Override
 	void navigate() {
+		String currentURL = driver.getCurrentUrl();
+		getFirstSuiteSection();
+		driverFluentWait(15).until(new UrlChanged(currentURL));
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("dash_view")));
+		getElementByID("dash_view").click();
 		/*getElementByID("section").click();
 		getElementByID("visual_view").click();*/
 	}

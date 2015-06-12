@@ -575,26 +575,26 @@ public class GraphPage {
 	    	assertNotEquals(before, after);
 	    }
 	    
-	    /* ID: DASH-A.01.01
-         * Edited: 2015-06-11
-         */
-	    @Test
-	    public void test_filterOnGraph(){
-	    	nav.goToDashboard();
-	    	
-	    	assertTrue(nav.graph.isEnabled("passed"));
-	    	nav.graph.clickLegend("passed");
-	    	assertTrue(!nav.graph.isEnabled("passed"));
-	    	
-	    	assertTrue(nav.graph.isEnabled("skipped"));
-	    	nav.graph.clickLegend("skipped");
-	    	assertTrue(!nav.graph.isEnabled("skipped"));
-	    	
-	    	assertTrue(nav.graph.isEnabled("failed"));
-	    	nav.graph.clickLegend("failed");
-	    	assertTrue(!nav.graph.isEnabled("failed"));
-
-	    }
+//	    /* ID: DASH-A.01.01
+//         * Edited: 2015-06-11
+//         */
+//	    @Test
+//	    public void test_filterOnGraph(){
+//	    	nav.goToDashboard();
+//	    	
+//	    	assertTrue(nav.graph.isEnabled("passed"));
+//	    	nav.graph.clickLegend("passed");
+//	    	assertTrue(!nav.graph.isEnabled("passed"));
+//	    	
+//	    	assertTrue(nav.graph.isEnabled("skipped"));
+//	    	nav.graph.clickLegend("skipped");
+//	    	assertTrue(!nav.graph.isEnabled("skipped"));
+//	    	
+//	    	assertTrue(nav.graph.isEnabled("failed"));
+//	    	nav.graph.clickLegend("failed");
+//	    	assertTrue(!nav.graph.isEnabled("failed"));
+//
+//	    }
 	    
 	    /* ID: REP-A.01.35
          * Edited: 2015-06-11
