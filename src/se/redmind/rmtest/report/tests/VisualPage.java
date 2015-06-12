@@ -100,8 +100,8 @@ public class VisualPage {
 		@Test
 		public void chooseTimestamp(){
 			nav.changeProject("MockedTestSuite");
-			nav.changeTimestamp("20150101080000");
-			assertTrue(nav.isTimestampSet("20150101080000"));	
+			nav.changeTimestamp("2015-01-01 08:00");
+			assertEquals("2015-01-01 08:00" ,nav.getCurrentTimestamp());	
 		}
 		
 	    /* ID: VIS-A.01.05
@@ -109,7 +109,7 @@ public class VisualPage {
 	    @Test
 	    public void changeProject(){
 			nav.changeProject("MockedTestSuite");
-			assertTrue(nav.isProjectSet("MockedTestSuite"));	
+			assertEquals("MockedTestSuite", nav.getCurrentProjectName());	
 	    }
 		
 	    /* ID: VIS-A.01.04
