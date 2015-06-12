@@ -187,7 +187,7 @@ public class GraphPage {
 	    	String actualName = nav.graph.getLegendListItem(0).getText();
 	    	int expectedSize = 987987;
 	    	int actualSize = nav.graph.getLegendList().size();
-	    	assertEquals("\n Expected text in legend list does not match the actual text \n", expectedName, actualName);
+	    	assertEquals("<br> Expected text in legend list does not match the actual text <br>", expectedName, actualName);
 	    	assertEquals("Expected amount of rows in legend list does not match the actual amount of rows", expectedSize, actualSize);
 	    }
 	    
