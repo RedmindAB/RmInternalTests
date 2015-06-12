@@ -5,6 +5,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.BeforeClass;
 
+import se.redmind.rmtest.report.tests.DashPage;
 import se.redmind.rmtest.report.tests.GraphPage;
 import se.redmind.rmtest.report.tests.GridPage;
 import se.redmind.rmtest.report.tests.NavbarPage;
@@ -18,7 +19,7 @@ import se.redmind.rmtest.selenium.grid.DriverProvider;
 
 
 @RunWith(Suite.class)
-@Suite.SuiteClasses( {GraphPage.class, SuitePage.class, VisualPage.class, NavbarPage.class, StartPage.class, GridPage.class})
+@Suite.SuiteClasses( {GraphPage.class, SuitePage.class, VisualPage.class, NavbarPage.class, StartPage.class, GridPage.class, DashPage.class})
 public class RMReportSuite {
     @BeforeClass
     public static void beforeAllTests(){
