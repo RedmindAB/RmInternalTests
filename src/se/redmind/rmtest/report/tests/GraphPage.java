@@ -183,12 +183,12 @@ public class GraphPage {
 	    public void test_BreakOnPlatform(){
         	nav.option.changeBreakPoint("Platform");
         	nav.option.reloadGraph();
-        	String expected = "Android";
-	    	String actual = nav.graph.getLegendListItem(0).getText();
-	    	assertEquals(expected, actual);
-	    	int expected2 = 3;
-	    	int actual2 = nav.graph.getLegendList().size();
-	    	assertEquals(expected2, actual2);
+        	String expectedName = "Android";
+	    	String actualName = nav.graph.getLegendListItem(0).getText();
+	    	int expectedSize = 987987;
+	    	int actualSize = nav.graph.getLegendList().size();
+	    	assertEquals("\n Expected text in legend list does not match the actual text \n", expectedName, actualName);
+	    	assertEquals("Expected amount of rows in legend list does not match the actual amount of rows", expectedSize, actualSize);
 	    }
 	    
 //		ID: REP-A.01.10
@@ -198,19 +198,15 @@ public class GraphPage {
         	nav.option.changeBreakPoint("Platform");
         	nav.option.reloadGraph();
         	nav.option.removeGraphLine("Android");
-        	
-        	String expFirst = "IOS";
-        	String firstObj = nav.graph.getLegendListItem(0).getText();
-
-        	String expSecond = "Ubuntu";
-        	String secendObj = nav.graph.getLegendListItem(1).getText();
-        	
-        	int listSize = nav.graph.getLegendList().size();
-        	int expSize = 2;
-        	assertEquals(expSize, listSize);
-        	assertEquals(expFirst, firstObj);
-        	assertEquals(expSecond, secendObj);
-        	
+        	String expectedName1 = "IOS";
+        	String actualName1 = nav.graph.getLegendListItem(0).getText();
+        	String expectedName2 = "Ubuntu";
+        	String actualName2 = nav.graph.getLegendListItem(1).getText();
+        	int actualSize = nav.graph.getLegendList().size();
+        	int expectedSize = 2;
+        	assertEquals("First expected text in legend list does not match the first actual text", expectedName1, actualName1);
+        	assertEquals("Second expected text in legend list does not match the second actual text", expectedName2, actualName2);
+        	assertEquals("Expected amount of rows in legend list does not match the actual amount of rows", expectedSize, actualSize);
 	    }    
 	    
 //		ID: REP-A.01.19
@@ -226,8 +222,8 @@ public class GraphPage {
         	int expectedSize = 1;
         	String actualName = nav.graph.getLegendListItem(0).getText();
         	int actualSize = nav.graph.getLegendList().size();
-        	assertEquals(expectedName, actualName);
-        	assertEquals(expectedSize, actualSize);
+        	assertEquals("Expected text in legend list does not match the actual text", expectedName, actualName);
+        	assertEquals("Expected amount of rows in legend list does not match the actual amount of rows", expectedSize, actualSize);
 	    }
 
 //		ID: REP-A.01.20
@@ -243,8 +239,8 @@ public class GraphPage {
         	int expectedSize = 1;
         	String actualName = nav.graph.getLegendListItem(0).getText();
         	int actualSize = nav.graph.getLegendList().size();
-        	assertEquals(expectedName, actualName);
-        	assertEquals(expectedSize, actualSize);
+        	assertEquals("Expected text in legend list does not match the actual text", expectedName, actualName);
+        	assertEquals("Expected amount of rows in legend list does not match the actual amount of rows", expectedSize, actualSize);
 	    }
 
 //		ID: REP-A.01.21
@@ -261,9 +257,9 @@ public class GraphPage {
         	String actualName1 = nav.graph.getLegendListItem(0).getText();
         	String actualName2 = nav.graph.getLegendListItem(1).getText();
         	int actualSize = nav.graph.getLegendList().size();
-        	assertEquals(expectedName1, actualName1);
-        	assertEquals(expectedName2, actualName2);
-        	assertEquals(expectedSize, actualSize);
+        	assertEquals("First expected text in legend list does not match the first actual text", expectedName1, actualName1);
+        	assertEquals("Second expected text in legend list does not match the second actual text", expectedName2, actualName2);
+        	assertEquals("Expected amount of rows in legend list does not match the actual amount of rows", expectedSize, actualSize);
         	
         }
 
@@ -280,8 +276,8 @@ public class GraphPage {
         	int expectedSize = 1;
         	String actualName = nav.graph.getLegendListItem(0).getText();
         	int actualSize = nav.graph.getLegendList().size();
-        	assertEquals(expectedName, actualName);
-        	assertEquals(expectedSize, actualSize);
+        	assertEquals("Expected text in legend list does not match the actual text", expectedName, actualName);
+        	assertEquals("Expected amount of rows in legend list does not match the actual amount of rows", expectedSize, actualSize);
 	    }
 
 //		ID: REP-A.01.23
@@ -297,8 +293,8 @@ public class GraphPage {
         	int expectedSize = 1;
         	String actualName = nav.graph.getLegendListItem(0).getText();
         	int actualSize = nav.graph.getLegendList().size();
-        	assertEquals(expectedName, actualName);
-        	assertEquals(expectedSize, actualSize);
+        	assertEquals("Expected text in legend list does not match the actual text", expectedName, actualName);
+        	assertEquals("Expected amount of rows in legend list does not match the actual amount of rows", expectedSize, actualSize);
 	    }
 
 //		ID: REP-A.01.24
@@ -315,9 +311,9 @@ public class GraphPage {
         	String actualName1 = nav.graph.getLegendListItem(0).getText();
         	String actualName2 = nav.graph.getLegendListItem(1).getText();
         	int actualSize = nav.graph.getLegendList().size();
-        	assertEquals(expectedName1, actualName1);
-        	assertEquals(expectedName2, actualName2);
-        	assertEquals(expectedSize, actualSize);          	
+        	assertEquals("First expected text in legend list does not match the first actual text", expectedName1, actualName1);
+        	assertEquals("Second expected text in legend list does not match the second actual text", expectedName2, actualName2);
+        	assertEquals("Expected amount of rows in legend list does not match the actual amount of rows", expectedSize, actualSize);          	
   	    }
 
 //		ID: REP-A.01.25
@@ -333,8 +329,8 @@ public class GraphPage {
         	int expectedSize = 1;
         	String actualName = nav.graph.getLegendListItem(0).getText();
         	int actualSize = nav.graph.getLegendList().size();
-        	assertEquals(expectedName, actualName);
-        	assertEquals(expectedSize, actualSize);
+        	assertEquals("Expected text in legend list does not match the actual text", expectedName, actualName);
+        	assertEquals("Expected amount of rows in legend list does not match the actual amount of rows", expectedSize, actualSize);
 	    }
 
 //		ID: REP-A.01.26
@@ -349,8 +345,8 @@ public class GraphPage {
         	int expectedSize = 1;
         	String actualName = nav.graph.getLegendListItem(0).getText();
         	int actualSize = nav.graph.getLegendList().size();
-        	assertEquals(expectedName, actualName);
-        	assertEquals(expectedSize, actualSize);
+        	assertEquals("Expected text in legend list does not match the actual text", expectedName, actualName);
+        	assertEquals("Expected amount of rows in legend list does not match the actual amount of rows", expectedSize, actualSize);
 	    }
         
 //		ID: REP-A.01.27
@@ -366,8 +362,8 @@ public class GraphPage {
         	int expectedSize = 1;
         	String actualName = nav.graph.getLegendListItem(0).getText();
         	int actualSize = nav.graph.getLegendList().size();
-        	assertEquals(expectedName, actualName);
-        	assertEquals(expectedSize, actualSize);
+        	assertEquals("Expected text in legend list does not match the actual text", expectedName, actualName);
+        	assertEquals("Expected amount of rows in legend list does not match the actual amount of rows", expectedSize, actualSize);
         }
         
 //		ID: REP-A.01.28
@@ -386,9 +382,9 @@ public class GraphPage {
         	String actualName1 = nav.graph.getLegendListItem(0).getText();
         	String actualName2 = nav.graph.getLegendListItem(1).getText();
         	int actualSize = nav.graph.getLegendList().size();
-        	assertEquals(expectedName1, actualName1);
-        	assertEquals(expectedName2, actualName2);
-        	assertEquals(expectedSize, actualSize);	
+        	assertEquals("First expected text in legend list does not match the first actual text", expectedName1, actualName1);
+        	assertEquals("Second expected text in legend list does not match the second actual text",expectedName2, actualName2);
+        	assertEquals("Expected amount of rows in legend list does not match the actual amount of rows",expectedSize, actualSize);	
         }
 
 //		ID: REP-A.01.29
@@ -403,8 +399,8 @@ public class GraphPage {
         	int expectedSize = 1;
         	String actualName = nav.graph.getLegendListItem(0).getText();
         	int actualSize = nav.graph.getLegendList().size();
-        	assertEquals(expectedName, actualName);
-        	assertEquals(expectedSize, actualSize);
+        	assertEquals("Test failed because expected text in legend list differs from actual text", expectedName, actualName);
+        	assertEquals("Test failed because expected amount of rows in legend list differs from actual amount of rows", expectedSize, actualSize);
         }
         
 //      Ignored for time being because it does the same thing as ID: VIS-A.01.02, waiting for more fluctuent test data
@@ -427,7 +423,7 @@ public class GraphPage {
         public void test_ClickOnSuiteLink(){
         	nav.suite.ClickOnSuiteLinkText();
         	String actual = nav.graph.getUrl();
-        	assertTrue(actual.endsWith("/#/home"));
+        	assertTrue("Was not redirected to the start/home page. Link broken or changed?", actual.endsWith("/#/home"));
         }
         
         /* ID: REP-A.01.31
@@ -442,7 +438,7 @@ public class GraphPage {
 	    	nav.option.reloadGraph();
 	    	int expected = 2;
 	    	int actual = nav.graph.getLegendList().size();
-	    	assertEquals(expected, actual);
+	    	assertEquals("Test failed because expected amount of rows in the legend list does not match the actual amount of rows;", expected, actual);
 	    }
 	    
 	    /* ID: REP-A.01.32
@@ -457,7 +453,7 @@ public class GraphPage {
 	    	nav.option.reloadGraph();
 	    	int expected = 3;
 	    	int actual = nav.graph.getLegendList().size();
-	    	assertEquals(expected, actual);
+	    	assertEquals("Test failed because expected amount of rows in the legend list does not match the actual amount of rows;", expected, actual);
 	    }
 	    
 	    
@@ -471,7 +467,7 @@ public class GraphPage {
 	    	nav.option.reloadGraph();
 	    	int expected = 4;
 	    	int actual = nav.graph.getLegendList().size();
-	    	assertEquals(expected, actual);
+	    	assertEquals("Test failed because expected amount of rows in the legend list does not match the actual amount of rows;", expected, actual);
 	    }
 	    
 	    /* ID: REP-A.01.33
@@ -487,7 +483,7 @@ public class GraphPage {
 	    	nav.option.reloadGraph();
 	    	int expected = 4;
 	    	int actual = nav.graph.getLegendList().size();
-	    	assertEquals(expected, actual);
+	    	assertEquals("Test failed because expected amount of rows in the legend list does not match the actual amount of rows;", expected, actual);
 	    }
 	    
 //		ID: REP-A.01.11
@@ -558,7 +554,7 @@ public class GraphPage {
 	    	String before = nav.graph.getListNumber();
 	    	nav.graph.clickDownArrow();
 	    	String after = nav.graph.getListNumber();
-	    	assertNotEquals(before, after);
+	    	assertNotEquals("Test failed because 1) Did not move DOWN in legend list or 2) The legend list number did not update after moving DOWN in the legend list. Legend list number;", before, after);
 	    }
 
 //		ID: REP-A.01.17
@@ -572,29 +568,8 @@ public class GraphPage {
 	    	String before = nav.graph.getListNumber();
 	    	nav.graph.clickUpArrow();
 	    	String after = nav.graph.getListNumber();
-	    	assertNotEquals(before, after);
+	    	assertNotEquals("Test failed because 1) Did not move UP in legend list or 2) The legend list number did not update after moving UP in the legend list. Legend list number;", before, after);
 	    }
-	    
-//	    /* ID: DASH-A.01.01
-//         * Edited: 2015-06-11
-//         */
-//	    @Test
-//	    public void test_filterOnGraph(){
-//	    	nav.goToDashboard();
-//	    	
-//	    	assertTrue(nav.graph.isEnabled("passed"));
-//	    	nav.graph.clickLegend("passed");
-//	    	assertTrue(!nav.graph.isEnabled("passed"));
-//	    	
-//	    	assertTrue(nav.graph.isEnabled("skipped"));
-//	    	nav.graph.clickLegend("skipped");
-//	    	assertTrue(!nav.graph.isEnabled("skipped"));
-//	    	
-//	    	assertTrue(nav.graph.isEnabled("failed"));
-//	    	nav.graph.clickLegend("failed");
-//	    	assertTrue(!nav.graph.isEnabled("failed"));
-//
-//	    }
 	    
 	    /* ID: REP-A.01.35
          * Edited: 2015-06-11
@@ -604,6 +579,6 @@ public class GraphPage {
 	    	nav.option.addToGraph();
 	    	int expected = 2;
 	    	int actual = nav.graph.getLegendList().size();
-	    	assertEquals(expected, actual);
+	    	assertEquals("Test failed because expected amount of rows in the legend list does not match the actual amount of rows;",expected, actual);
 	    }
 }
