@@ -21,6 +21,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import se.redmind.rmtest.report.nav.Chart;
 import se.redmind.rmtest.report.nav.GraphNav;
+import se.redmind.rmtest.report.utils.ErrorMsg;
 import se.redmind.rmtest.selenium.framework.RMReportScreenshot;
 import se.redmind.rmtest.selenium.grid.DriverNamingWrapper;
 import se.redmind.rmtest.selenium.grid.DriverProvider;
@@ -91,7 +92,7 @@ public class SuitePage {
         public void test_GoToMethods(){
         	String className  = nav.suite.getNameFrom("class", "0");
         	nav.suite.clickOnBar("class", "0");
-        	assertEquals(className, nav.suite.getCurrentPossition().getText());
+        	assertEquals(ErrorMsg.ClassNameIsDifferent + "1 \n", className, nav.suite.getCurrentPossition().getText());
         }
         
         /* ID:REP-A.02.15
@@ -102,7 +103,7 @@ public class SuitePage {
         	nav.suite.clickOnBar("class", "0");
         	String methodName = nav.suite.getNameFrom("method", "0");
         	nav.suite.clickOnBar("method", "0");
-        	assertEquals(methodName, nav.suite.getCurrentPossition().getText());
+        	assertEquals(ErrorMsg.MethodNameIsDifferent + "1 \n", methodName, nav.suite.getCurrentPossition().getText());
         }
         
         /* ID:REP-A.02.04
@@ -117,8 +118,8 @@ public class SuitePage {
         	int expectedSize = 1;
         	String actualName = nav.graph.getLegendListItem(0).getText();
         	int actualSize = nav.graph.getLegendList().size();
-        	assertEquals(expectedName, actualName);
-        	assertEquals(expectedSize, actualSize);
+        	assertEquals(ErrorMsg.LegendListTextIsDifferent + "1 \n",expectedName, actualName);
+        	assertEquals(ErrorMsg.LegendListSize, expectedSize, actualSize);
         }
         
         /* ID:REP-A.02.14
@@ -133,7 +134,7 @@ public class SuitePage {
         	int	colon = stackTrace.indexOf(":");
         	stackTrace = stackTrace.substring(0, colon);
         	String expected = "java.lang.AssertionError";
-        	assertEquals(expected, stackTrace);
+        	assertEquals(ErrorMsg.StackTraceIsDifferent, expected, stackTrace);
         }
         
         /* ID:REP-A.02.13
@@ -145,8 +146,8 @@ public class SuitePage {
         	nav.suite.clickOnBar("method", "0");
         	nav.suite.clickOnBar("case", "15");
         	String stackTrace = nav.suite.getStackTrace();
-        	String expected = "This test passed";
-        	assertEquals(expected, stackTrace);
+        	String expected = "This test passed1";
+        	assertEquals(ErrorMsg.StackTraceIsDifferent, expected, stackTrace);
         }
         
         @Ignore
@@ -161,8 +162,8 @@ public class SuitePage {
         	int expectedSize = 1;
         	String actualName = nav.graph.getLegendListItem(0).getText();
         	int actualSize = nav.graph.getLegendList().size();
-        	assertEquals(expectedName, actualName);
-        	assertEquals(expectedSize, actualSize);
+        	assertEquals(ErrorMsg.LegendListTextIsDifferent + "1 \n", expectedName, actualName);
+        	assertEquals(ErrorMsg.LegendListSize, expectedSize, actualSize);
         }
         
         @Ignore
@@ -178,8 +179,8 @@ public class SuitePage {
         	nav.option.reloadGraph();
         	String afterReload = nav.graph.getLegendListItem(0).getText();
         	int actualSize = nav.graph.getLegendList().size();
-        	assertNotEquals(beforeReload, afterReload);
-        	assertEquals(expectedSize, actualSize);
+        	assertNotEquals(ErrorMsg.LegendListTextIsSame + "1 \n",beforeReload, afterReload);
+        	assertEquals(ErrorMsg.LegendListSize, expectedSize, actualSize);
         }
         
         /* ID:REP-A.02.10
@@ -193,8 +194,8 @@ public class SuitePage {
         	int expectedSize = 1;
         	String actualName = nav.graph.getLegendListItem(0).getText();
         	int actualSize = nav.graph.getLegendList().size();
-        	assertEquals(expectedName, actualName);
-        	assertEquals(expectedSize, actualSize);
+        	assertEquals(ErrorMsg.LegendListTextIsDifferent + "1 \n", expectedName, actualName);
+        	assertEquals(ErrorMsg.LegendListSize, expectedSize, actualSize);
         }
         
         /* ID:REP-A.02.11
@@ -206,7 +207,7 @@ public class SuitePage {
         	nav.suite.clickOnBar("class", "0");
         	String expected = "";
         	String actual = nav.suite.getFilterFieldText();
-        	assertEquals(expected, actual);
+        	assertEquals(ErrorMsg.FilterFieldTextIsDifferent, expected, actual);
         }
         
         /* ID:REP-A.02.12
@@ -220,7 +221,7 @@ public class SuitePage {
         	int expected = 8;
         	int actual = nav.suite.getSizeOfCaseList();
         	nav.suite.waitForCaseListSize(expected);
-        	assertEquals(expected, actual);
+        	assertEquals(ErrorMsg.CaseListSizeIsDifferent, expected, actual);
         }
         
         /* ID:REP-A.02.08

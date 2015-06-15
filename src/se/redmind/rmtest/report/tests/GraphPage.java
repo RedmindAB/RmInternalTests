@@ -125,12 +125,12 @@ public class GraphPage {
 	    public void test_CreateALine(){
 	    	String expectedName1 = "Aggregation";
 	    	String actualName1 = nav.graph.getLegendListItem(0).getText();
-	    	assertEquals(ErrorMsg.LegendListText, expectedName1, actualName1);
+	    	assertEquals(ErrorMsg.LegendListTextIsDifferent + "1 \n", expectedName1, actualName1);
 	    	nav.option.changeBreakPoint("None");
 	    	nav.option.reloadGraph();
 	    	String expectedName2 = nav.graph.getProjectName(0).getText();
 	    	String actualName2 = nav.graph.getLegendListItem(0).getText();
-	    	assertEquals(ErrorMsg.LegendListText, expectedName2, actualName2);
+	    	assertEquals(ErrorMsg.LegendListTextIsDifferent + "2 \n", expectedName2, actualName2);
 	    	int expectedSize = 1;
 	    	int actualSize = nav.graph.getLegendList().size();
 	    	assertEquals(ErrorMsg.LegendListSize, expectedSize, actualSize);
@@ -146,7 +146,7 @@ public class GraphPage {
 	    	String actualName = nav.graph.getLegendListItem(0).getText();
 	    	int expectedSize = 2;
 	    	int actualSize = nav.graph.getLegendList().size();
-	    	assertEquals(ErrorMsg.LegendListText, expectedName, actualName);
+	    	assertEquals(ErrorMsg.LegendListTextIsDifferent + "1 \n", expectedName, actualName);
 	    	assertEquals(ErrorMsg.LegendListSize, expectedSize, actualSize);
     	}
 	    
@@ -160,7 +160,7 @@ public class GraphPage {
 	    	String actualName = nav.graph.getLegendListItem(0).getText();
 	    	int expectedSize = 4;
 	    	int actualSize = nav.graph.getLegendList().size();
-	    	assertEquals(ErrorMsg.LegendListText, expectedName, actualName);
+	    	assertEquals(ErrorMsg.LegendListTextIsDifferent + "1 \n", expectedName, actualName);
 	    	assertEquals(ErrorMsg.LegendListSize, expectedSize, actualSize);
 	    }
 	    
@@ -174,7 +174,7 @@ public class GraphPage {
 	    	String actualName = nav.graph.getLegendListItem(0).getText();
 	    	int expectedSize = 4;
 	    	int actualSize = nav.graph.getLegendList().size();
-	    	assertEquals(ErrorMsg.LegendListText, expectedName, actualName);
+	    	assertEquals(ErrorMsg.LegendListTextIsDifferent + "1 \n", expectedName, actualName);
 	    	assertEquals(ErrorMsg.LegendListSize, expectedSize, actualSize);
 	    }
 	    
@@ -188,7 +188,7 @@ public class GraphPage {
 	    	String actualName = nav.graph.getLegendListItem(0).getText();
 	    	int expectedSize = 3;
 	    	int actualSize = nav.graph.getLegendList().size();
-	    	assertEquals(ErrorMsg.LegendListText, expectedName, actualName);
+	    	assertEquals(ErrorMsg.LegendListTextIsDifferent + "1 \n", expectedName, actualName);
 	    	assertEquals(ErrorMsg.LegendListSize, expectedSize, actualSize);
 	    }
 	    
@@ -205,8 +205,8 @@ public class GraphPage {
         	String actualName2 = nav.graph.getLegendListItem(1).getText();
         	int actualSize = nav.graph.getLegendList().size();
         	int expectedSize = 2;
-        	assertEquals(ErrorMsg.LegendListTextFirst, expectedName1, actualName1);
-        	assertEquals(ErrorMsg.LegendListTextSecond,expectedName2, actualName2);
+        	assertEquals(ErrorMsg.LegendListTextIsDifferent + "1 \n", expectedName1, actualName1);
+        	assertEquals(ErrorMsg.LegendListTextIsDifferent + "1 \n",expectedName2, actualName2);
         	assertEquals(ErrorMsg.LegendListSize,expectedSize, actualSize);	
 	    }    
 	    
@@ -223,7 +223,7 @@ public class GraphPage {
         	int expectedSize = 1;
         	String actualName = nav.graph.getLegendListItem(0).getText();
         	int actualSize = nav.graph.getLegendList().size();
-        	assertEquals(ErrorMsg.LegendListText, expectedName, actualName);
+        	assertEquals(ErrorMsg.LegendListTextIsDifferent + "1 \n", expectedName, actualName);
 	    	assertEquals(ErrorMsg.LegendListSize, expectedSize, actualSize);
 	    }
 
@@ -240,7 +240,7 @@ public class GraphPage {
         	int expectedSize = 1;
         	String actualName = nav.graph.getLegendListItem(0).getText();
         	int actualSize = nav.graph.getLegendList().size();
-        	assertEquals(ErrorMsg.LegendListText, expectedName, actualName);
+        	assertEquals(ErrorMsg.LegendListTextIsDifferent + "1 \n", expectedName, actualName);
 	    	assertEquals(ErrorMsg.LegendListSize, expectedSize, actualSize);
 	    }
 
@@ -258,8 +258,8 @@ public class GraphPage {
         	String actualName1 = nav.graph.getLegendListItem(0).getText();
         	String actualName2 = nav.graph.getLegendListItem(1).getText();
         	int actualSize = nav.graph.getLegendList().size();
-        	assertEquals(ErrorMsg.LegendListTextFirst, expectedName1, actualName1);
-        	assertEquals(ErrorMsg.LegendListTextSecond,expectedName2, actualName2);
+        	assertEquals(ErrorMsg.LegendListTextIsDifferent + "1 \n", expectedName1, actualName1);
+        	assertEquals(ErrorMsg.LegendListTextIsDifferent + "1 \n",expectedName2, actualName2);
         	assertEquals(ErrorMsg.LegendListSize,expectedSize, actualSize);	
         	
         }
@@ -277,7 +277,7 @@ public class GraphPage {
         	int expectedSize = 1;
         	String actualName = nav.graph.getLegendListItem(0).getText();
         	int actualSize = nav.graph.getLegendList().size();
-        	assertEquals(ErrorMsg.LegendListText, expectedName, actualName);
+        	assertEquals(ErrorMsg.LegendListTextIsDifferent + "1 \n", expectedName, actualName);
 	    	assertEquals(ErrorMsg.LegendListSize, expectedSize, actualSize);
 	    }
 
@@ -294,7 +294,7 @@ public class GraphPage {
         	int expectedSize = 1;
         	String actualName = nav.graph.getLegendListItem(0).getText();
         	int actualSize = nav.graph.getLegendList().size();
-        	assertEquals(ErrorMsg.LegendListText, expectedName, actualName);
+        	assertEquals(ErrorMsg.LegendListTextIsDifferent  + "1 \n", expectedName, actualName);
 	    	assertEquals(ErrorMsg.LegendListSize, expectedSize, actualSize);
 	    }
 
@@ -312,8 +312,8 @@ public class GraphPage {
         	String actualName1 = nav.graph.getLegendListItem(0).getText();
         	String actualName2 = nav.graph.getLegendListItem(1).getText();
         	int actualSize = nav.graph.getLegendList().size();
-        	assertEquals(ErrorMsg.LegendListTextFirst, expectedName1, actualName1);
-        	assertEquals(ErrorMsg.LegendListTextSecond,expectedName2, actualName2);
+        	assertEquals(ErrorMsg.LegendListTextIsDifferent + "1 \n", expectedName1, actualName1);
+        	assertEquals(ErrorMsg.LegendListTextIsDifferent + "2 \n",expectedName2, actualName2);
         	assertEquals(ErrorMsg.LegendListSize,expectedSize, actualSize);	         	
   	    }
 
@@ -330,7 +330,7 @@ public class GraphPage {
         	int expectedSize = 1;
         	String actualName = nav.graph.getLegendListItem(0).getText();
         	int actualSize = nav.graph.getLegendList().size();
-        	assertEquals(ErrorMsg.LegendListText, expectedName, actualName);
+        	assertEquals(ErrorMsg.LegendListTextIsDifferent + "1 \n", expectedName, actualName);
 	    	assertEquals(ErrorMsg.LegendListSize, expectedSize, actualSize);
 	    }
 
@@ -346,7 +346,7 @@ public class GraphPage {
         	int expectedSize = 1;
         	String actualName = nav.graph.getLegendListItem(0).getText();
         	int actualSize = nav.graph.getLegendList().size();
-        	assertEquals(ErrorMsg.LegendListText, expectedName, actualName);
+        	assertEquals(ErrorMsg.LegendListTextIsDifferent + "1 \n", expectedName, actualName);
 	    	assertEquals(ErrorMsg.LegendListSize, expectedSize, actualSize);
 	    }
         
@@ -363,7 +363,7 @@ public class GraphPage {
         	int expectedSize = 1;
         	String actualName = nav.graph.getLegendListItem(0).getText();
         	int actualSize = nav.graph.getLegendList().size();
-        	assertEquals(ErrorMsg.LegendListText, expectedName, actualName);
+        	assertEquals(ErrorMsg.LegendListTextIsDifferent + "1 \n", expectedName, actualName);
 	    	assertEquals(ErrorMsg.LegendListSize, expectedSize, actualSize);
         }
         
@@ -383,8 +383,8 @@ public class GraphPage {
         	String actualName1 = nav.graph.getLegendListItem(0).getText();
         	String actualName2 = nav.graph.getLegendListItem(1).getText();
         	int actualSize = nav.graph.getLegendList().size();
-        	assertEquals(ErrorMsg.LegendListTextFirst, expectedName1, actualName1);
-        	assertEquals(ErrorMsg.LegendListTextSecond,expectedName2, actualName2);
+        	assertEquals(ErrorMsg.LegendListTextIsDifferent + "1 \n", expectedName1, actualName1);
+        	assertEquals(ErrorMsg.LegendListTextIsDifferent + "2 \n",expectedName2, actualName2);
         	assertEquals(ErrorMsg.LegendListSize,expectedSize, actualSize);	
         }
 
@@ -400,7 +400,7 @@ public class GraphPage {
         	int expectedSize = 1;
         	String actualName = nav.graph.getLegendListItem(0).getText();
         	int actualSize = nav.graph.getLegendList().size();
-        	assertEquals(ErrorMsg.LegendListText, expectedName, actualName);
+        	assertEquals(ErrorMsg.LegendListTextIsDifferent + "1 \n", expectedName, actualName);
 	    	assertEquals(ErrorMsg.LegendListSize, expectedSize, actualSize);
         }
         
