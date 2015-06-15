@@ -69,7 +69,6 @@ public class DashPage {
          */
 	    @Test
 	    public void test_filterOnGraph(){
-//	    	nav.goToDashboard();
 	    	
 	    	assertTrue(nav.dash.isEnabled("passed"));
 	    	nav.dash.clickLegend("passed");
