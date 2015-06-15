@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
 
 import org.junit.AfterClass;
@@ -582,4 +583,23 @@ public class GraphPage {
 	    	int actual = nav.graph.getLegendList().size();
 	    	assertEquals(ErrorMsg.LegendListSize,expected, actual);
 	    }
+
+//	    ID: REP-A.01.36
+//	    Edited: 2015-06-15
+	    @Test
+	    public void test_totalPassDifferentColors(){
+	    
+	    	nav.option.changeBreakPoint("Browser");
+	    	nav.option.addToGraph();
+	    	nav.option.changeDisplayType("Total Pass");
+	    	List<String> colors = nav.graph.getLegendListColors();
+	    	System.out.println(colors.toString());
+	    	int expectedsize = 3;
+	    	int actualsize = colors.size();
+	    	assertEquals(ErrorMsg.LegendListSize, expectedsize, actualsize);
+	    	HashSet<String> colorset = new HashSet<String>(colors);
+	    	assertEquals(ErrorMsg.HashSetSizeIsDifferent, expectedsize,colorset.size());
+	    	
+	    }
+	    
 }

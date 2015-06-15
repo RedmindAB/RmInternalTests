@@ -33,4 +33,6 @@ public class ErrorMsg {
 	
 	public static final String FilterFieldTextIsDifferent = "\n Expected text in the 'Filter' search bar does not match the actual text. \n Note: may be blank. \n";
 	public static final String CaseListSizeIsDifferent = "\n Expected amount of cases does not match actual amount of cases: \n";
+
+	public static final String HashSetSizeIsDifferent = "\n Expected size in the Hash set does not match the actual size. \n";
 }

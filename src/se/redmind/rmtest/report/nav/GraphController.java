@@ -1,7 +1,9 @@
 package se.redmind.rmtest.report.nav;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.bcel.generic.NEWARRAY;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -78,6 +80,17 @@ public class GraphController extends BaseController{
 		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(legenditems));
 		List <WebElement> list = driver.findElements(By.className("highcharts-legend-item"));
 		return list;
+	}
+	
+	public List <String> getLegendListColors(){
+		List<WebElement> legendList = getLegendList();
+		List <String> legendColors = new ArrayList<String>();
+		for (WebElement legendItem : legendList) {
+			WebElement rect = legendItem.findElement(By.tagName("rect"));
+			String attribute = rect.getAttribute("fill");
+			legendColors.add(attribute);
+		}
+		return legendColors;
 	}
 	
 	public void clickOnLegend(int index){
