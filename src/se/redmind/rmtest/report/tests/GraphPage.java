@@ -80,13 +80,13 @@ public class GraphPage {
 	    public void test_ShowPassFail() {
 	    	String expected = "Percentage of passed tests";
 	    	WebElement chartTitle1 = nav.getChartTitle();
-	    	assertEquals(ErrorMsg.ChartTitleFirst, expected, chartTitle1.getText());
+	    	assertEquals(ErrorMsg.ChartTitleIsDifferent + "1 \n", expected, chartTitle1.getText());
 	    	nav.option.changeDisplayType("Total Fail");
 	    	WebElement chartTitle2 = nav.getChartTitle();
-	    	assertNotEquals(expected, chartTitle2.getText());
+	    	assertNotEquals(ErrorMsg.ChartTitleIsSame+"2 \n", expected, chartTitle2.getText());
 	    	nav.option.changeDisplayType("Pass/Fail");
 	    	WebElement chartTitle3 = nav.getChartTitle();
-	    	assertEquals(ErrorMsg.ChartTitleThird, expected, chartTitle3.getText());
+	    	assertEquals(ErrorMsg.ChartTitleIsDifferent+"3 \n", expected, chartTitle3.getText());
 	    }
 	    
 //		ID: REP-A.01.02
@@ -96,7 +96,7 @@ public class GraphPage {
 	    	nav.option.changeDisplayType("Total Pass");
 	    	String expected = "Passed tests";
 	    	WebElement chartTitle1 = nav.getChartTitle();
-	    	assertEquals(expected, chartTitle1.getText());
+	    	assertEquals(ErrorMsg.ChartTitleIsDifferent + "1 \n", expected, chartTitle1.getText());
 	    }
 	    
 //		ID: REP-A.01.03
@@ -106,7 +106,7 @@ public class GraphPage {
 	    	nav.option.changeDisplayType("Total Fail");
 	    	String expected = "Failed tests";
 	    	WebElement chartTitle1 = nav.getChartTitle();
-	    	assertEquals(expected, chartTitle1.getText());
+	    	assertEquals(ErrorMsg.ChartTitleIsDifferent + "1 \n", expected, chartTitle1.getText());
 	    }
 	    
 //		ID: REP-A.01.04
@@ -116,24 +116,24 @@ public class GraphPage {
 	    	nav.option.changeDisplayType("Run Time");
 	    	String expected = "Time to run in seconds";
 	    	WebElement chartTitle1 = nav.getChartTitle();
-	    	assertEquals(expected, chartTitle1.getText());
+	    	assertEquals(ErrorMsg.ChartTitleIsDifferent + "1 \n", expected, chartTitle1.getText());
 	    }
 	    
 //		ID: REP-A.01.05
 //	    Last edited 2015-06-09
 	    @Test
 	    public void test_CreateALine(){
-	    	String expected = "Aggregation";
-	    	String actual = nav.graph.getLegendListItem(0).getText();
-	    	assertEquals(expected, actual);
+	    	String expectedName1 = "Aggregation";
+	    	String actualName1 = nav.graph.getLegendListItem(0).getText();
+	    	assertEquals(ErrorMsg.LegendListText, expectedName1, actualName1);
 	    	nav.option.changeBreakPoint("None");
 	    	nav.option.reloadGraph();
-	    	String expected2 = nav.graph.getProjectName(0).getText();
-	    	String actual2 = nav.graph.getLegendListItem(0).getText();
-	    	assertEquals(expected2, actual2);
-	    	int expected3 = 1;
-	    	int actual3 = nav.graph.getLegendList().size();
-	    	assertEquals(expected3, actual3);
+	    	String expectedName2 = nav.graph.getProjectName(0).getText();
+	    	String actualName2 = nav.graph.getLegendListItem(0).getText();
+	    	assertEquals(ErrorMsg.LegendListText, expectedName2, actualName2);
+	    	int expectedSize = 1;
+	    	int actualSize = nav.graph.getLegendList().size();
+	    	assertEquals(ErrorMsg.LegendListSize, expectedSize, actualSize);
 	    }
 	    
 //		ID: REP-A.01.06
@@ -424,7 +424,7 @@ public class GraphPage {
         public void test_ClickOnSuiteLink(){
         	nav.suite.ClickOnSuiteLinkText();
         	String actual = nav.graph.getUrl();
-        	assertTrue("Was not redirected to the start/home page. Link broken or changed?", actual.endsWith("/#/home"));
+        	assertTrue(ErrorMsg.PageRedirect, actual.endsWith("/#/home"));
         }
         
         /* ID: REP-A.01.31
@@ -495,7 +495,7 @@ public class GraphPage {
 	    	nav.option.reloadGraph();
 	    	String expected = "Showing 10 results";
 	    	String actual = nav.option.checkShowingNumberResults();
-	    	assertEquals(expected, actual);
+	    	assertEquals(ErrorMsg.HighchartsSubTitle, expected, actual);
 	    }
 	    
 //		ID: REP-A.01.12
@@ -506,7 +506,7 @@ public class GraphPage {
 	    	nav.option.reloadGraph();
 	    	String expected = "Showing 20 results";
 	    	String actual = nav.option.checkShowingNumberResults();
-	    	assertEquals(expected, actual);
+	    	assertEquals(ErrorMsg.HighchartsSubTitle, expected, actual);
 	    }
 	    
 //		ID: REP-A.01.13
@@ -517,7 +517,7 @@ public class GraphPage {
 	    	nav.option.reloadGraph();
 	    	String expected = "Showing 50 results";
 	    	String actual = nav.option.checkShowingNumberResults();
-	    	assertEquals(expected, actual);
+	    	assertEquals(ErrorMsg.HighchartsSubTitle, expected, actual);
 	    }
 	    
 //		ID: REP-A.01.14
@@ -528,7 +528,7 @@ public class GraphPage {
 	    	nav.option.reloadGraph();
 	    	String expected = "Showing 50 results";
 	    	String actual = nav.option.checkShowingNumberResults();
-	    	assertEquals(expected, actual);
+	    	assertEquals(ErrorMsg.HighchartsSubTitle, expected, actual);
 	    }
 	    
 //		ID: REP-A.01.15
@@ -542,7 +542,7 @@ public class GraphPage {
 	    	String expected = "Showing 50 results";
 	    	String actual = nav.option.checkShowingNumberResults();
 	    	new RMReportScreenshot(urlContainer).takeScreenshot("AfterSearch");
-	    	assertEquals(expected, actual);
+	    	assertEquals(ErrorMsg.HighchartsSubTitle, expected, actual);
 	    }
 
 //		ID: REP-A.01.16
@@ -555,7 +555,7 @@ public class GraphPage {
 	    	String before = nav.graph.getListNumber();
 	    	nav.graph.clickDownArrow();
 	    	String after = nav.graph.getListNumber();
-	    	assertNotEquals("Test failed because 1) Did not move DOWN in legend list or 2) The legend list number did not update after moving DOWN in the legend list. Legend list number;", before, after);
+	    	assertNotEquals(ErrorMsg.LegendListDown, before, after);
 	    }
 
 //		ID: REP-A.01.17
@@ -569,7 +569,7 @@ public class GraphPage {
 	    	String before = nav.graph.getListNumber();
 	    	nav.graph.clickUpArrow();
 	    	String after = nav.graph.getListNumber();
-	    	assertNotEquals("Test failed because 1) Did not move UP in legend list or 2) The legend list number did not update after moving UP in the legend list. Legend list number;", before, after);
+	    	assertNotEquals(ErrorMsg.LegendListUp, before, after);
 	    }
 	    
 	    /* ID: REP-A.01.35
