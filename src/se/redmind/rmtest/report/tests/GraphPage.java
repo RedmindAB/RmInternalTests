@@ -206,7 +206,7 @@ public class GraphPage {
         	int actualSize = nav.graph.getLegendList().size();
         	int expectedSize = 2;
         	assertEquals(ErrorMsg.LegendListTextIsDifferent + "1 \n", expectedName1, actualName1);
-        	assertEquals(ErrorMsg.LegendListTextIsDifferent + "1 \n",expectedName2, actualName2);
+        	assertEquals(ErrorMsg.LegendListTextIsDifferent + "2 \n",expectedName2, actualName2);
         	assertEquals(ErrorMsg.LegendListSize,expectedSize, actualSize);	
 	    }    
 	    

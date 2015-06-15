@@ -146,7 +146,7 @@ public class SuitePage {
         	nav.suite.clickOnBar("method", "0");
         	nav.suite.clickOnBar("case", "15");
         	String stackTrace = nav.suite.getStackTrace();
-        	String expected = "This test passed1";
+        	String expected = "This test passed";
         	assertEquals(ErrorMsg.StackTraceIsDifferent, expected, stackTrace);
         }
         
@@ -232,7 +232,7 @@ public class SuitePage {
 	    	nav.suite.clickOnBar("class", "0");
 	    	nav.suite.ClickOnSuiteLinkText();
 	    	String actual = nav.graph.getUrl();
-	    	assertTrue(actual.endsWith("/#/reports/classes"));
+	    	assertTrue(ErrorMsg.PageRedirect, actual.endsWith("/#/reports/classes"));
 	    }
 	    
 	    /* ID:REP-A.02.09
@@ -244,7 +244,7 @@ public class SuitePage {
 	    	nav.suite.clickOnBar("method", "0");
 	    	nav.suite.ClickOnSuiteLinkText();
 	    	String actual = nav.graph.getUrl();
-	    	assertTrue(actual.endsWith("/#/reports/methods"));
+	    	assertTrue(ErrorMsg.PageRedirect, actual.endsWith("/#/reports/methods"));
 	    }
 	    
 	    /* ID:REP-A.02.05
