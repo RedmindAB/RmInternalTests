@@ -601,5 +601,22 @@ public class GraphPage {
 	    	assertEquals(ErrorMsg.HashSetSizeIsDifferent, expectedsize,colorset.size());
 	    	
 	    }
+
+//	    ID: REP-A.01.37
+//	    Edited: 2015-06-15
+	    @Test
+	    public void test_totalFailDifferentColors(){
 	    
+	    	nav.option.changeBreakPoint("Browser");
+	    	nav.option.addToGraph();
+	    	nav.option.changeDisplayType("Total Fail");
+	    	List<String> colors = nav.graph.getLegendListColors();
+	    	System.out.println(colors.toString());
+	    	int expectedsize = 3;
+	    	int actualsize = colors.size();
+	    	assertEquals(ErrorMsg.LegendListSize, expectedsize, actualsize);
+	    	HashSet<String> colorset = new HashSet<String>(colors);
+	    	assertEquals(ErrorMsg.HashSetSizeIsDifferent, expectedsize,colorset.size());
+	    	
+	    }
 }
