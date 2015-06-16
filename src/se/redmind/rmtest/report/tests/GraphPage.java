@@ -134,7 +134,7 @@ public class GraphPage {
 	    	assertEquals(ErrorMsg.LegendListTextIsDifferent + "2 \n", expectedName2, actualName2);
 	    	int expectedSize = 1;
 	    	int actualSize = nav.graph.getLegendList().size();
-	    	assertEquals(ErrorMsg.LegendListSize, expectedSize, actualSize);
+	    	assertEquals(ErrorMsg.LegendListSize + "3 \n", expectedSize, actualSize);
 	    }
 	    
 //		ID: REP-A.01.06
@@ -148,7 +148,7 @@ public class GraphPage {
 	    	int expectedSize = 2;
 	    	int actualSize = nav.graph.getLegendList().size();
 	    	assertEquals(ErrorMsg.LegendListTextIsDifferent + "1 \n", expectedName, actualName);
-	    	assertEquals(ErrorMsg.LegendListSize, expectedSize, actualSize);
+	    	assertEquals(ErrorMsg.LegendListSize + "2 \n", expectedSize, actualSize);
     	}
 	    
 //		ID: REP-A.01.07
@@ -162,7 +162,7 @@ public class GraphPage {
 	    	int expectedSize = 4;
 	    	int actualSize = nav.graph.getLegendList().size();
 	    	assertEquals(ErrorMsg.LegendListTextIsDifferent + "1 \n", expectedName, actualName);
-	    	assertEquals(ErrorMsg.LegendListSize, expectedSize, actualSize);
+	    	assertEquals(ErrorMsg.LegendListSize + "2 \n", expectedSize, actualSize);
 	    }
 	    
 //		ID: REP-A.01.08
@@ -176,7 +176,7 @@ public class GraphPage {
 	    	int expectedSize = 4;
 	    	int actualSize = nav.graph.getLegendList().size();
 	    	assertEquals(ErrorMsg.LegendListTextIsDifferent + "1 \n", expectedName, actualName);
-	    	assertEquals(ErrorMsg.LegendListSize, expectedSize, actualSize);
+	    	assertEquals(ErrorMsg.LegendListSize + "2 \n", expectedSize, actualSize);
 	    }
 	    
 //		ID: REP-A.01.09
@@ -190,7 +190,7 @@ public class GraphPage {
 	    	int expectedSize = 3;
 	    	int actualSize = nav.graph.getLegendList().size();
 	    	assertEquals(ErrorMsg.LegendListTextIsDifferent + "1 \n", expectedName, actualName);
-	    	assertEquals(ErrorMsg.LegendListSize, expectedSize, actualSize);
+	    	assertEquals(ErrorMsg.LegendListSize + "2 \n", expectedSize, actualSize);
 	    }
 	    
 //		ID: REP-A.01.10
@@ -208,7 +208,7 @@ public class GraphPage {
         	int expectedSize = 2;
         	assertEquals(ErrorMsg.LegendListTextIsDifferent + "1 \n", expectedName1, actualName1);
         	assertEquals(ErrorMsg.LegendListTextIsDifferent + "2 \n",expectedName2, actualName2);
-        	assertEquals(ErrorMsg.LegendListSize,expectedSize, actualSize);	
+        	assertEquals(ErrorMsg.LegendListSize + "3 \n",expectedSize, actualSize);	
 	    }    
 	    
 //		ID: REP-A.01.19
@@ -225,7 +225,7 @@ public class GraphPage {
         	String actualName = nav.graph.getLegendListItem(0).getText();
         	int actualSize = nav.graph.getLegendList().size();
         	assertEquals(ErrorMsg.LegendListTextIsDifferent + "1 \n", expectedName, actualName);
-	    	assertEquals(ErrorMsg.LegendListSize, expectedSize, actualSize);
+	    	assertEquals(ErrorMsg.LegendListSize + "2 \n", expectedSize, actualSize);
 	    }
 
 //		ID: REP-A.01.20
@@ -242,7 +242,7 @@ public class GraphPage {
         	String actualName = nav.graph.getLegendListItem(0).getText();
         	int actualSize = nav.graph.getLegendList().size();
         	assertEquals(ErrorMsg.LegendListTextIsDifferent + "1 \n", expectedName, actualName);
-	    	assertEquals(ErrorMsg.LegendListSize, expectedSize, actualSize);
+	    	assertEquals(ErrorMsg.LegendListSize + "2 \n", expectedSize, actualSize);
 	    }
 
 //		ID: REP-A.01.21
@@ -260,8 +260,8 @@ public class GraphPage {
         	String actualName2 = nav.graph.getLegendListItem(1).getText();
         	int actualSize = nav.graph.getLegendList().size();
         	assertEquals(ErrorMsg.LegendListTextIsDifferent + "1 \n", expectedName1, actualName1);
-        	assertEquals(ErrorMsg.LegendListTextIsDifferent + "1 \n",expectedName2, actualName2);
-        	assertEquals(ErrorMsg.LegendListSize,expectedSize, actualSize);	
+        	assertEquals(ErrorMsg.LegendListTextIsDifferent + "2 \n",expectedName2, actualName2);
+        	assertEquals(ErrorMsg.LegendListSize + "3 \n",expectedSize, actualSize);	
         	
         }
 
@@ -279,7 +279,7 @@ public class GraphPage {
         	String actualName = nav.graph.getLegendListItem(0).getText();
         	int actualSize = nav.graph.getLegendList().size();
         	assertEquals(ErrorMsg.LegendListTextIsDifferent + "1 \n", expectedName, actualName);
-	    	assertEquals(ErrorMsg.LegendListSize, expectedSize, actualSize);
+	    	assertEquals(ErrorMsg.LegendListSize + "2 \n", expectedSize, actualSize);
 	    }
 
 //		ID: REP-A.01.23
@@ -296,7 +296,7 @@ public class GraphPage {
         	String actualName = nav.graph.getLegendListItem(0).getText();
         	int actualSize = nav.graph.getLegendList().size();
         	assertEquals(ErrorMsg.LegendListTextIsDifferent  + "1 \n", expectedName, actualName);
-	    	assertEquals(ErrorMsg.LegendListSize, expectedSize, actualSize);
+	    	assertEquals(ErrorMsg.LegendListSize + "2 \n", expectedSize, actualSize);
 	    }
 
 //		ID: REP-A.01.24
@@ -315,7 +315,7 @@ public class GraphPage {
         	int actualSize = nav.graph.getLegendList().size();
         	assertEquals(ErrorMsg.LegendListTextIsDifferent + "1 \n", expectedName1, actualName1);
         	assertEquals(ErrorMsg.LegendListTextIsDifferent + "2 \n",expectedName2, actualName2);
-        	assertEquals(ErrorMsg.LegendListSize,expectedSize, actualSize);	         	
+        	assertEquals(ErrorMsg.LegendListSize + "3 \n",expectedSize, actualSize);	         	
   	    }
 
 //		ID: REP-A.01.25
@@ -332,7 +332,7 @@ public class GraphPage {
         	String actualName = nav.graph.getLegendListItem(0).getText();
         	int actualSize = nav.graph.getLegendList().size();
         	assertEquals(ErrorMsg.LegendListTextIsDifferent + "1 \n", expectedName, actualName);
-	    	assertEquals(ErrorMsg.LegendListSize, expectedSize, actualSize);
+	    	assertEquals(ErrorMsg.LegendListSize + "2 \n", expectedSize, actualSize);
 	    }
 
 //		ID: REP-A.01.26
@@ -348,7 +348,7 @@ public class GraphPage {
         	String actualName = nav.graph.getLegendListItem(0).getText();
         	int actualSize = nav.graph.getLegendList().size();
         	assertEquals(ErrorMsg.LegendListTextIsDifferent + "1 \n", expectedName, actualName);
-	    	assertEquals(ErrorMsg.LegendListSize, expectedSize, actualSize);
+	    	assertEquals(ErrorMsg.LegendListSize + "2 \n", expectedSize, actualSize);
 	    }
         
 //		ID: REP-A.01.27
@@ -365,7 +365,7 @@ public class GraphPage {
         	String actualName = nav.graph.getLegendListItem(0).getText();
         	int actualSize = nav.graph.getLegendList().size();
         	assertEquals(ErrorMsg.LegendListTextIsDifferent + "1 \n", expectedName, actualName);
-	    	assertEquals(ErrorMsg.LegendListSize, expectedSize, actualSize);
+	    	assertEquals(ErrorMsg.LegendListSize + "2 \n", expectedSize, actualSize);
         }
         
 //		ID: REP-A.01.28
@@ -386,7 +386,7 @@ public class GraphPage {
         	int actualSize = nav.graph.getLegendList().size();
         	assertEquals(ErrorMsg.LegendListTextIsDifferent + "1 \n", expectedName1, actualName1);
         	assertEquals(ErrorMsg.LegendListTextIsDifferent + "2 \n",expectedName2, actualName2);
-        	assertEquals(ErrorMsg.LegendListSize,expectedSize, actualSize);	
+        	assertEquals(ErrorMsg.LegendListSize + "3 \n",expectedSize, actualSize);	
         }
 
 //		ID: REP-A.01.29
@@ -402,7 +402,7 @@ public class GraphPage {
         	String actualName = nav.graph.getLegendListItem(0).getText();
         	int actualSize = nav.graph.getLegendList().size();
         	assertEquals(ErrorMsg.LegendListTextIsDifferent + "1 \n", expectedName, actualName);
-	    	assertEquals(ErrorMsg.LegendListSize, expectedSize, actualSize);
+	    	assertEquals(ErrorMsg.LegendListSize + "2 \n", expectedSize, actualSize);
         }
         
 //      Ignored for time being because it does the same thing as ID: VIS-A.01.02, waiting for more fluctuent test data
@@ -425,7 +425,7 @@ public class GraphPage {
         public void test_ClickOnSuiteLink(){
         	nav.suite.ClickOnSuiteLinkText();
         	String actual = nav.graph.getUrl();
-        	assertTrue(ErrorMsg.PageRedirect, actual.endsWith("/#/home"));
+        	assertTrue(ErrorMsg.PageRedirect + "1 \n", actual.endsWith("/#/home"));
         }
         
         /* ID: REP-A.01.31
@@ -440,7 +440,7 @@ public class GraphPage {
 	    	nav.option.reloadGraph();
 	    	int expected = 2;
 	    	int actual = nav.graph.getLegendList().size();
-	    	assertEquals(ErrorMsg.LegendListSize, expected, actual);
+	    	assertEquals(ErrorMsg.LegendListSize + "1 \n", expected, actual);
 	    }
 	    
 	    /* ID: REP-A.01.32
@@ -455,7 +455,7 @@ public class GraphPage {
 	    	nav.option.reloadGraph();
 	    	int expected = 3;
 	    	int actual = nav.graph.getLegendList().size();
-	    	assertEquals(ErrorMsg.LegendListSize, expected, actual);
+	    	assertEquals(ErrorMsg.LegendListSize + "1 \n", expected, actual);
 	    }
 	    
 	    
@@ -469,7 +469,7 @@ public class GraphPage {
 	    	nav.option.reloadGraph();
 	    	int expected = 4;
 	    	int actual = nav.graph.getLegendList().size();
-	    	assertEquals(ErrorMsg.LegendListSize, expected, actual);
+	    	assertEquals(ErrorMsg.LegendListSize + "1 \n", expected, actual);
 	    }
 	    
 	    /* ID: REP-A.01.33
@@ -485,7 +485,7 @@ public class GraphPage {
 	    	nav.option.reloadGraph();
 	    	int expected = 4;
 	    	int actual = nav.graph.getLegendList().size();
-	    	assertEquals(ErrorMsg.LegendListSize,expected, actual);
+	    	assertEquals(ErrorMsg.LegendListSize + "1 \n",expected, actual);
 	    }
 	    
 //		ID: REP-A.01.11
@@ -496,7 +496,7 @@ public class GraphPage {
 	    	nav.option.reloadGraph();
 	    	String expected = "Showing 10 results";
 	    	String actual = nav.option.checkShowingNumberResults();
-	    	assertEquals(ErrorMsg.HighchartsSubTitle, expected, actual);
+	    	assertEquals(ErrorMsg.HighchartsSubTitle + "1 \n", expected, actual);
 	    }
 	    
 //		ID: REP-A.01.12
@@ -507,7 +507,7 @@ public class GraphPage {
 	    	nav.option.reloadGraph();
 	    	String expected = "Showing 20 results";
 	    	String actual = nav.option.checkShowingNumberResults();
-	    	assertEquals(ErrorMsg.HighchartsSubTitle, expected, actual);
+	    	assertEquals(ErrorMsg.HighchartsSubTitle + "1 \n", expected, actual);
 	    }
 	    
 //		ID: REP-A.01.13
@@ -518,7 +518,7 @@ public class GraphPage {
 	    	nav.option.reloadGraph();
 	    	String expected = "Showing 50 results";
 	    	String actual = nav.option.checkShowingNumberResults();
-	    	assertEquals(ErrorMsg.HighchartsSubTitle, expected, actual);
+	    	assertEquals(ErrorMsg.HighchartsSubTitle + "1 \n", expected, actual);
 	    }
 	    
 //		ID: REP-A.01.14
@@ -529,7 +529,7 @@ public class GraphPage {
 	    	nav.option.reloadGraph();
 	    	String expected = "Showing 50 results";
 	    	String actual = nav.option.checkShowingNumberResults();
-	    	assertEquals(ErrorMsg.HighchartsSubTitle, expected, actual);
+	    	assertEquals(ErrorMsg.HighchartsSubTitle + "1 \n", expected, actual);
 	    }
 	    
 //		ID: REP-A.01.15
@@ -543,7 +543,7 @@ public class GraphPage {
 	    	String expected = "Showing 50 results";
 	    	String actual = nav.option.checkShowingNumberResults();
 	    	new RMReportScreenshot(urlContainer).takeScreenshot("AfterSearch");
-	    	assertEquals(ErrorMsg.HighchartsSubTitle, expected, actual);
+	    	assertEquals(ErrorMsg.HighchartsSubTitle + "1 \n", expected, actual);
 	    }
 
 //		ID: REP-A.01.16
@@ -556,7 +556,7 @@ public class GraphPage {
 	    	String before = nav.graph.getListNumber();
 	    	nav.graph.clickDownArrow();
 	    	String after = nav.graph.getListNumber();
-	    	assertNotEquals(ErrorMsg.LegendListDown, before, after);
+	    	assertNotEquals(ErrorMsg.LegendListDown + "1 \n", before, after);
 	    }
 
 //		ID: REP-A.01.17
@@ -570,7 +570,7 @@ public class GraphPage {
 	    	String before = nav.graph.getListNumber();
 	    	nav.graph.clickUpArrow();
 	    	String after = nav.graph.getListNumber();
-	    	assertNotEquals(ErrorMsg.LegendListUp, before, after);
+	    	assertNotEquals(ErrorMsg.LegendListUp + "1 \n", before, after);
 	    }
 	    
 	    /* ID: REP-A.01.35
@@ -581,7 +581,7 @@ public class GraphPage {
 	    	nav.option.addToGraph();
 	    	int expected = 2;
 	    	int actual = nav.graph.getLegendList().size();
-	    	assertEquals(ErrorMsg.LegendListSize,expected, actual);
+	    	assertEquals(ErrorMsg.LegendListSize + "1 \n",expected, actual);
 	    }
 
 //	    ID: REP-A.01.36
@@ -596,9 +596,9 @@ public class GraphPage {
 	    	System.out.println(colors.toString());
 	    	int expectedsize = 3;
 	    	int actualsize = colors.size();
-	    	assertEquals(ErrorMsg.LegendListSize, expectedsize, actualsize);
+	    	assertEquals(ErrorMsg.LegendListSize + "1 \n", expectedsize, actualsize);
 	    	HashSet<String> colorset = new HashSet<String>(colors);
-	    	assertEquals(ErrorMsg.HashSetSizeIsDifferent, expectedsize,colorset.size());
+	    	assertEquals(ErrorMsg.HashSetSizeIsDifferent + "2 \n", expectedsize,colorset.size());
 	    	
 	    }
 
@@ -614,9 +614,9 @@ public class GraphPage {
 	    	System.out.println(colors.toString());
 	    	int expectedsize = 4;
 	    	int actualsize = colors.size();
-	    	assertEquals(ErrorMsg.LegendListSize, expectedsize, actualsize);
+	    	assertEquals(ErrorMsg.LegendListSize + "1 \n", expectedsize, actualsize);
 	    	HashSet<String> colorset = new HashSet<String>(colors);
-	    	assertEquals(ErrorMsg.HashSetSizeIsDifferent, expectedsize,colorset.size());
+	    	assertEquals(ErrorMsg.HashSetSizeIsDifferent + "2 \n", expectedsize,colorset.size());
 	    	
 	    }
 }
