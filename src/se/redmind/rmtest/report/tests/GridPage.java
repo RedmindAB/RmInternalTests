@@ -21,6 +21,7 @@ import se.redmind.rmtest.report.nav.GridNav;
 import se.redmind.rmtest.report.nav.NavbarNav;
 import se.redmind.rmtest.report.nav.StartNav;
 import se.redmind.rmtest.report.nav.VisualNav;
+import se.redmind.rmtest.report.utils.ErrorMsg;
 import se.redmind.rmtest.selenium.framework.RMReportScreenshot;
 import se.redmind.rmtest.selenium.grid.DriverNamingWrapper;
 import se.redmind.rmtest.selenium.grid.DriverProvider;
@@ -79,7 +80,7 @@ public class GridPage {
 	    	nav.clickOnLogo();
 	    	String actual = nav.getJsonHeader();
 	    	String expected = "Grid Registration info";
-	    	assertEquals(expected, actual);
+	    	assertEquals(ErrorMsg.JsonModalTextIsDifferent + "1 \n", expected, actual);
 	    }
 	    
 }

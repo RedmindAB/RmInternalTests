@@ -41,5 +41,21 @@ public class ErrorMsg {
 
 	public static final String HashSetSizeIsDifferent = 		"\n Expected size in the Hash set does not match the actual size." + SeeThisAssert;
 	
+	public static final String JsonModalTextIsDifferent = 		"\n Expected text in the Json modal does not match the actual text." + SeeThisAssert;
 	
+	public static final String ShouldNotBeEnabled = 			"\n This function IS enabled, it shouldn't be." + SeeThisAssert;
+	public static final String ShouldBeEnabled = 				"\n This function is NOT enabled, it should be." + SeeThisAssert;
+	
+	public static final String SysoDidNotOpen =					"\n The system out print modal did not open." + SeeThisAssert;
+	public static final String SysoDidNotClose =				"\n The system out print modal did not close." + SeeThisAssert;
+	
+	public static final String ScopeUnableToChange = 			"\n Was not able to change to another 'scope'. \n ('Scope' = 'Home/Classes/Methods', top left." + SeeThisAssert;
+	
+	public static final String ProjectNameIsDifferent = 		"\n The expected project name differs from the actual name." + SeeThisAssert;
+	
+	public static final String TimestampIsDifferent = 			"\n The expected timestamp differs from the actual timestamp." + SeeThisAssert;
+	
+	public static final String ScreenshotThumbnailNotPresent =	"\n Screenshot thumbnail is not present." + SeeThisAssert;
+	
+	public static final String LogoNotDisplayed = 				"\n The Redmind logo is not displayed." + SeeThisAssert;
 }

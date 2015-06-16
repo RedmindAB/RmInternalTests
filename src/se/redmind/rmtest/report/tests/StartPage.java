@@ -16,6 +16,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import se.redmind.rmtest.report.nav.StartNav;
+import se.redmind.rmtest.report.utils.ErrorMsg;
 import se.redmind.rmtest.selenium.framework.RMReportScreenshot;
 import se.redmind.rmtest.selenium.grid.DriverNamingWrapper;
 import se.redmind.rmtest.selenium.grid.DriverProvider;
@@ -76,7 +77,7 @@ public class StartPage {
 	    public void isRedmindLogoPresent(){
 	    	WebElement redmindlogo = this.nav.getRedmindLogo();
 	    	new RMReportScreenshot(urlContainer).takeScreenshot("logo");
-	    	assertTrue(redmindlogo.isDisplayed());
+	    	assertTrue(ErrorMsg.LogoNotDisplayed + "1 \n", redmindlogo.isDisplayed());
 	    }
 	    
 	    /* ID: STA-A.01.02

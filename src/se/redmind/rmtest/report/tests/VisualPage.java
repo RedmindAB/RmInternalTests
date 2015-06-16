@@ -17,6 +17,7 @@ import org.openqa.selenium.WebElement;
 
 import se.redmind.rmtest.report.nav.StartNav;
 import se.redmind.rmtest.report.nav.VisualNav;
+import se.redmind.rmtest.report.utils.ErrorMsg;
 import se.redmind.rmtest.selenium.framework.RMReportScreenshot;
 import se.redmind.rmtest.selenium.grid.DriverNamingWrapper;
 import se.redmind.rmtest.selenium.grid.DriverProvider;
@@ -72,7 +73,7 @@ public class VisualPage {
 	    @Test
 	    public void openSysos(){
 	    	nav.openSysos("class-0");
-	    	assertTrue(nav.isSysosOpen());
+	    	assertTrue(ErrorMsg.SysoDidNotOpen + "1 \n", nav.isSysosOpen());
 	    }	    
 
 	    /* ID: VIS-A.01.06
@@ -81,18 +82,18 @@ public class VisualPage {
 		public void openCloseSyso(){
 			nav.openSysos("class-0");
 			nav.closeSysos();
-			assertTrue(nav.isSysosClosed());
+			assertTrue(ErrorMsg.SysoDidNotClose + "1 \n",nav.isSysosClosed());
 		}
 		
 		/* ID: VIS-A.01.01
 		 * Edited: 2015-06-09 */
 		@Test
-		public void chooseAnotherClass(){
+		public void chooseAnotherScope(){
 			nav.chooseClass("class-0");
 			String methods = nav.getTitle();
 			nav.goToScopeByID("1");
 			String classes = nav.getTitle();
-			assertNotEquals(methods, classes);
+			assertNotEquals(ErrorMsg.ScopeUnableToChange + "1 \n", methods, classes);
 		}
 		
 		/* ID: VIS-A.01.02
@@ -101,7 +102,7 @@ public class VisualPage {
 		public void chooseTimestamp(){
 			nav.changeProject("MockedTestSuite");
 			nav.changeTimestamp("2015-01-01 08:00");
-			assertEquals("2015-01-01 08:00" ,nav.getCurrentTimestamp());	
+			assertEquals(ErrorMsg.TimestampIsDifferent + "1 \n", "2015-01-01 08:00" ,nav.getCurrentTimestamp());	
 		}
 		
 	    /* ID: VIS-A.01.05
@@ -109,7 +110,7 @@ public class VisualPage {
 	    @Test
 	    public void changeProject(){
 			nav.changeProject("MockedTestSuite");
-			assertEquals("MockedTestSuite", nav.getCurrentProjectName());	
+			assertEquals(ErrorMsg.ProjectNameIsDifferent + "1 \n", "MockedTestSuite", nav.getCurrentProjectName());	
 	    }
 		
 	    /* ID: VIS-A.01.04
@@ -120,7 +121,7 @@ public class VisualPage {
 			nav.changeTimestamp("2015-01-01 08:00");
 			nav.chooseClass("class-0");
 			nav.openMethod("0");
-			assertTrue(nav.isThumbnailPresent("0"));
+			assertTrue(ErrorMsg.ScreenshotThumbnailNotPresent + "1 \n", nav.isThumbnailPresent("0"));
 		}
 		/*
 		@Test

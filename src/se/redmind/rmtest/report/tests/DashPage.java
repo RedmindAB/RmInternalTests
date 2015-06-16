@@ -13,6 +13,7 @@ import org.junit.runners.Parameterized;
 import org.openqa.selenium.WebDriver;
 
 import se.redmind.rmtest.report.nav.DashNav;
+import se.redmind.rmtest.report.utils.ErrorMsg;
 import se.redmind.rmtest.selenium.framework.RMReportScreenshot;
 import se.redmind.rmtest.selenium.grid.DriverNamingWrapper;
 import se.redmind.rmtest.selenium.grid.DriverProvider;
@@ -70,17 +71,17 @@ public class DashPage {
 	    @Test
 	    public void test_filterOnGraph(){
 	    	
-	    	assertTrue(nav.dash.isEnabled("passed"));
+	    	assertTrue(ErrorMsg.ShouldBeEnabled + "1 \n", nav.dash.isEnabled("passed"));
 	    	nav.dash.clickLegend("passed");
-	    	assertTrue(!nav.dash.isEnabled("passed"));
+	    	assertTrue(ErrorMsg.ShouldNotBeEnabled + "w \n", !nav.dash.isEnabled("passed"));
 	    	
-	    	assertTrue(nav.dash.isEnabled("skipped"));
+	    	assertTrue(ErrorMsg.ShouldBeEnabled + "3 \n", nav.dash.isEnabled("skipped"));
 	    	nav.dash.clickLegend("skipped");
-	    	assertTrue(!nav.dash.isEnabled("skipped"));
+	    	assertTrue(ErrorMsg.ShouldNotBeEnabled + "4 \n", !nav.dash.isEnabled("skipped"));
 	    	
-	    	assertTrue(nav.dash.isEnabled("failed"));
+	    	assertTrue(ErrorMsg.ShouldBeEnabled + "5 \n", nav.dash.isEnabled("failed"));
 	    	nav.dash.clickLegend("failed");
-	    	assertTrue(!nav.dash.isEnabled("failed"));
+	    	assertTrue(ErrorMsg.ShouldNotBeEnabled + "6 \n", !nav.dash.isEnabled("failed"));
 	    }
 	    
 }
