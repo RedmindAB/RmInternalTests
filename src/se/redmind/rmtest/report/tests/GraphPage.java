@@ -607,7 +607,7 @@ public class GraphPage {
 	    @Test
 	    public void test_totalFailDifferentColors(){
 	    
-	    	nav.option.changeBreakPoint("Browser");
+	    	nav.option.changeBreakPoint("Platform");
 	    	nav.option.addToGraph();
 	    	nav.option.changeDisplayType("Total Fail");
 	    	List<String> colors = nav.graph.getLegendListColors();
