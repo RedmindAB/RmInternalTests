@@ -612,7 +612,7 @@ public class GraphPage {
 	    	nav.option.changeDisplayType("Total Fail");
 	    	List<String> colors = nav.graph.getLegendListColors();
 	    	System.out.println(colors.toString());
-	    	int expectedsize = 3;
+	    	int expectedsize = 4;
 	    	int actualsize = colors.size();
 	    	assertEquals(ErrorMsg.LegendListSize, expectedsize, actualsize);
 	    	HashSet<String> colorset = new HashSet<String>(colors);
