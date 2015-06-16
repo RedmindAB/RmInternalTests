@@ -82,7 +82,7 @@ public class SuitePage {
         	String before = nav.suite.getNameFrom("class", "0");
         	nav.suite.clickFailPass();
         	String after = nav.suite.getNameFrom("class", "0");
-        	assertNotEquals(before, after);
+        	assertNotEquals(ErrorMsg.ClassBarTextIsSame + "1 \n", before, after);
         }
         
         /* ID:REP-A.02.16
@@ -119,7 +119,7 @@ public class SuitePage {
         	String actualName = nav.graph.getLegendListItem(0).getText();
         	int actualSize = nav.graph.getLegendList().size();
         	assertEquals(ErrorMsg.LegendListTextIsDifferent + "1 \n",expectedName, actualName);
-        	assertEquals(ErrorMsg.LegendListSize, expectedSize, actualSize);
+        	assertEquals(ErrorMsg.LegendListSize + "2 \n", expectedSize, actualSize);
         }
         
         /* ID:REP-A.02.14
@@ -134,7 +134,7 @@ public class SuitePage {
         	int	colon = stackTrace.indexOf(":");
         	stackTrace = stackTrace.substring(0, colon);
         	String expected = "java.lang.AssertionError";
-        	assertEquals(ErrorMsg.StackTraceIsDifferent, expected, stackTrace);
+        	assertEquals(ErrorMsg.StackTraceIsDifferent + "1 \n", expected, stackTrace);
         }
         
         /* ID:REP-A.02.13
@@ -147,7 +147,7 @@ public class SuitePage {
         	nav.suite.clickOnBar("case", "15");
         	String stackTrace = nav.suite.getStackTrace();
         	String expected = "This test passed";
-        	assertEquals(ErrorMsg.StackTraceIsDifferent, expected, stackTrace);
+        	assertEquals(ErrorMsg.StackTraceIsDifferent + "1 \n", expected, stackTrace);
         }
         
         @Ignore
@@ -163,7 +163,7 @@ public class SuitePage {
         	String actualName = nav.graph.getLegendListItem(0).getText();
         	int actualSize = nav.graph.getLegendList().size();
         	assertEquals(ErrorMsg.LegendListTextIsDifferent + "1 \n", expectedName, actualName);
-        	assertEquals(ErrorMsg.LegendListSize, expectedSize, actualSize);
+        	assertEquals(ErrorMsg.LegendListSize + "2 \n", expectedSize, actualSize);
         }
         
         @Ignore
@@ -180,7 +180,7 @@ public class SuitePage {
         	String afterReload = nav.graph.getLegendListItem(0).getText();
         	int actualSize = nav.graph.getLegendList().size();
         	assertNotEquals(ErrorMsg.LegendListTextIsSame + "1 \n",beforeReload, afterReload);
-        	assertEquals(ErrorMsg.LegendListSize, expectedSize, actualSize);
+        	assertEquals(ErrorMsg.LegendListSize + "2 \n", expectedSize, actualSize);
         }
         
         /* ID:REP-A.02.10
@@ -195,7 +195,7 @@ public class SuitePage {
         	String actualName = nav.graph.getLegendListItem(0).getText();
         	int actualSize = nav.graph.getLegendList().size();
         	assertEquals(ErrorMsg.LegendListTextIsDifferent + "1 \n", expectedName, actualName);
-        	assertEquals(ErrorMsg.LegendListSize, expectedSize, actualSize);
+        	assertEquals(ErrorMsg.LegendListSize + "2 \n", expectedSize, actualSize);
         }
         
         /* ID:REP-A.02.11
@@ -207,7 +207,7 @@ public class SuitePage {
         	nav.suite.clickOnBar("class", "0");
         	String expected = "";
         	String actual = nav.suite.getFilterFieldText();
-        	assertEquals(ErrorMsg.FilterFieldTextIsDifferent, expected, actual);
+        	assertEquals(ErrorMsg.FilterFieldTextIsDifferent + "1 \n", expected, actual);
         }
         
         /* ID:REP-A.02.12
@@ -221,7 +221,7 @@ public class SuitePage {
         	int expected = 8;
         	int actual = nav.suite.getSizeOfCaseList();
         	nav.suite.waitForCaseListSize(expected);
-        	assertEquals(ErrorMsg.CaseListSizeIsDifferent, expected, actual);
+        	assertEquals(ErrorMsg.CaseListSizeIsDifferent + "1 \n", expected, actual);
         }
         
         /* ID:REP-A.02.08
@@ -232,7 +232,7 @@ public class SuitePage {
 	    	nav.suite.clickOnBar("class", "0");
 	    	nav.suite.ClickOnSuiteLinkText();
 	    	String actual = nav.graph.getUrl();
-	    	assertTrue(ErrorMsg.PageRedirect, actual.endsWith("/#/reports/classes"));
+	    	assertTrue(ErrorMsg.PageRedirect + "1 \n", actual.endsWith("/#/reports/classes"));
 	    }
 	    
 	    /* ID:REP-A.02.09
@@ -244,7 +244,7 @@ public class SuitePage {
 	    	nav.suite.clickOnBar("method", "0");
 	    	nav.suite.ClickOnSuiteLinkText();
 	    	String actual = nav.graph.getUrl();
-	    	assertTrue(ErrorMsg.PageRedirect, actual.endsWith("/#/reports/methods"));
+	    	assertTrue(ErrorMsg.PageRedirect + "1 \n", actual.endsWith("/#/reports/methods"));
 	    }
 	    
 	    /* ID:REP-A.02.05
@@ -254,7 +254,7 @@ public class SuitePage {
 	    public void test_getPassFailTextClass(){
 	    	String actual = nav.suite.getPassFail("class", "0");
 	    	String expected = "Skipped: 0 Failed: 28";
-	    	assertEquals(expected, actual);
+	    	assertEquals(ErrorMsg.ClassBarTextIsDifferent + "1 \n", expected, actual);
 	    }
 	    
 	    /* ID:REP-A.02.06
@@ -265,7 +265,7 @@ public class SuitePage {
 	    	nav.suite.clickOnBar("class", "0");
 	    	String actual = nav.suite.getPassFail("method", "0");
 	    	String expected = "Skipped: 0 Failed: 12";
-	    	assertEquals(expected, actual);
+	    	assertEquals(ErrorMsg.MethodBarTextIsDifferent + "1 \n", expected, actual);
 	    }
 
 	    
