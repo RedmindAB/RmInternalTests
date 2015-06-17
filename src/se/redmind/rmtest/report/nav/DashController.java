@@ -56,5 +56,21 @@ public class DashController extends BaseController{
 		else
 			return true;
 	}
+	
+	public String getProjectName(){
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.className("highcharts-title")));
+		WebElement getProjectTitle = driver.findElement(By.className("highcharts-title"));
+		String projectName = getProjectTitle.getText();
+		return projectName;
+	}
+	
+	public String getProjectNameInReports(){
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("navigation-classes")));
+		WebElement getProjectTitle = driver.findElement(By.id("navigation-classes"));
+		String projectName = getProjectTitle.getText();
+		return projectName;
+	}
+	
+
 
 }

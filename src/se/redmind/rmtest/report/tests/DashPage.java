@@ -1,11 +1,12 @@
 package se.redmind.rmtest.report.tests;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 import java.util.Collection;
 
 import org.junit.AfterClass;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -73,7 +74,7 @@ public class DashPage {
 	    	
 	    	assertTrue(ErrorMsg.ShouldBeEnabled + "1 \n", nav.dash.isEnabled("passed"));
 	    	nav.dash.clickLegend("passed");
-	    	assertTrue(ErrorMsg.ShouldNotBeEnabled + "w \n", !nav.dash.isEnabled("passed"));
+	    	assertTrue(ErrorMsg.ShouldNotBeEnabled + "2 \n", !nav.dash.isEnabled("passed"));
 	    	
 	    	assertTrue(ErrorMsg.ShouldBeEnabled + "3 \n", nav.dash.isEnabled("skipped"));
 	    	nav.dash.clickLegend("skipped");
@@ -82,6 +83,27 @@ public class DashPage {
 	    	assertTrue(ErrorMsg.ShouldBeEnabled + "5 \n", nav.dash.isEnabled("failed"));
 	    	nav.dash.clickLegend("failed");
 	    	assertTrue(ErrorMsg.ShouldNotBeEnabled + "6 \n", !nav.dash.isEnabled("failed"));
+	    }
+	    
+	    @Test
+	    public void test_loadAnotherProject(){
+	    	String nameBefore = nav.dash.getProjectName();
+	    	nav.chooseProject(2);
+	    	String nameAfter = nav.dash.getProjectName();
+	    	assertNotEquals(ErrorMsg.ChartTitleIsSame + "1 \n",nameBefore, nameAfter);
+	    	assertTrue(ErrorMsg.PageRedirect + "2 \n", nav.dash.getUrl().endsWith("/#/dashboard"));
+	    }
+	    
+	    @Test
+	    public void test_clickOnGraphStaple(){
+	    	String nameBefore = nav.dash.getProjectName();
+//	    	System.out.println(nav.dash.getProjectName());
+	    	nav.getFirstSuiteSection();
+	    	String nameAfter = nav.dash.getProjectNameInReports();
+//	    	System.out.println(nav.dash.getProjectNameInReports());
+	    	assertEquals(ErrorMsg.ProjectNameIsDifferent + "1 \n",nameBefore + " ", nameAfter);
+//	    	project name in reports page has a white space after it, thus: + " ".
+	    	assertTrue(ErrorMsg.PageRedirect + "2 \n",nav.dash.getUrl().endsWith("/#/reports/classes"));
 	    }
 	    
 }

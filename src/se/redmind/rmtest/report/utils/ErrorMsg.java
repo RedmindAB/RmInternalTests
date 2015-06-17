@@ -21,7 +21,11 @@ public class ErrorMsg {
 	public static final String ChartTitleIsDifferent = 			"\n Expected chart title differs from actual chart title." + SeeThisAssert;
 	public static final String ChartTitleIsSame = 				"\n Expected chart title does NOT differ from actual chart title." + SeeThisAssert;
 	
-	public static final String HighchartsTitle = 				"Expected text in the highcharts title differs from the actual text." + SeeThisAssert;
+	public static final String ProjectTitleIsDifferent = 		"\n Expected project title differs from actual project title." + SeeThisAssert;
+	public static final String ProjectTitleIsSame = 			"\n Expected project title does NOT differ from actual project title." + SeeThisAssert;
+	
+	public static final String HighchartsTitleIsDifferent =		"\n Expected text in the highcharts title differs from the actual text." + SeeThisAssert;
+	public static final String HighchartsTitleIsSame = 			"\n Expected text in the highcharts title does NOT differ from actual text." + SeeThisAssert;
 	public static final String HighchartsSubTitle = 			"\n Expected text in the highcharts (sub)title differs from the actual text." + SeeThisAssert;
 	
 	public static final String PageRedirect = 					"\n Was not redirected to expected page." + SeeThisAssert;
