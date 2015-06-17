@@ -250,4 +250,18 @@ abstract class BaseNav extends HTMLPage{
 		driverFluentWait(15).until(new UrlChanged(before));
 	}
 	
+	public void goToLiveTests(){
+		String id = "live-tests_view";
+		if (isNavButtonVisible()) {
+			clickNavButton();
+			id = "live-tests_view";
+		}
+		driverFluentWait(15).until(ExpectedConditions.elementToBeClickable(By.id(id)));
+		String before = getCurrentUrl();
+		WebElement livetestsButton = driver.findElement(By.id(id));
+		livetestsButton.click();
+		driverFluentWait(15).until(new UrlChanged(before));
+		
+	}
+	
 }
