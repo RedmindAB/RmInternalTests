@@ -82,7 +82,7 @@ public class SuitePage {
         	String before = nav.suite.getNameFrom("class", "0");
         	nav.suite.clickFailPass();
         	String after = nav.suite.getNameFrom("class", "0");
-        	assertNotEquals(ErrorMsg.ClassBarTextIsSame + "1 \n", before, after);
+        	assertNotEquals(ErrorMsg.ClassBarTextIsSame + "1 \n" + "Before:\n" + before + "\n" + "After:\n" + after + "\n", before, after);
         }
         
         /* ID:REP-A.02.16
@@ -113,6 +113,7 @@ public class SuitePage {
         public void test_ClickOnThisTestOnly(){
         	nav.suite.clickOnBar("class", "0");
         	nav.suite.clickOnBar("method", "0");
+        	//System.out.println(nav.suite.getNameFrom("case", "0"));
         	nav.suite.clickThisTestOnly("0");
         	String expectedName = "Ubuntu-14.04-UNKNOWN-chrome-42";
         	int expectedSize = 1;
@@ -254,7 +255,7 @@ public class SuitePage {
 	    public void test_getPassFailTextClass(){
 	    	String actual = nav.suite.getPassFail("class", "0");
 	    	String expected = "Skipped: 0 Failed: 28";
-	    	assertEquals(ErrorMsg.ClassBarTextIsDifferent + "1 \n", expected, actual);
+	    	assertEquals(ErrorMsg.ClassBarTextIsDifferent + "1 \n" + "Expected:" + expected + "\n" + "Actual:" + actual, expected, actual);
 	    }
 	    
 	    /* ID:REP-A.02.06
@@ -265,7 +266,7 @@ public class SuitePage {
 	    	nav.suite.clickOnBar("class", "0");
 	    	String actual = nav.suite.getPassFail("method", "0");
 	    	String expected = "Skipped: 0 Failed: 12";
-	    	assertEquals(ErrorMsg.MethodBarTextIsDifferent + "1 \n", expected, actual);
+	    	assertEquals(ErrorMsg.MethodBarTextIsDifferent + "1 \n" + "Expected:" + expected + "\n" + "Actual:" + actual, expected, actual);
 	    }
 
 	    
