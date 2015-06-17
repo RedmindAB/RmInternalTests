@@ -8,6 +8,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.junit.AfterClass;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -123,7 +124,7 @@ public class VisualPage {
 			nav.openMethod("0");
 			assertTrue(ErrorMsg.ScreenshotThumbnailNotPresent + "1 \n", nav.isThumbnailPresent("0"));
 		}
-		/*
+		@Ignore
 		@Test
 		public void isScreenShotPresent(){
 			nav.changeProject("LongerTestSuite");
@@ -134,8 +135,8 @@ public class VisualPage {
 			nav.waitForSlideAnimation();
 			assertTrue(nav.isScreenshotPresent());
 		} 
-		*/
-		/*
+		
+		@Ignore
 		@Test
 		public void isScreenShotSwitched(){
 			nav.changeProject("LongerTestSuite");
@@ -145,7 +146,7 @@ public class VisualPage {
 			nav.openScreenshot("0");
 			assertTrue(nav.isScreenShotSwitched());
 		}
-		*/
+		
 }
 
 

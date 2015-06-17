@@ -80,9 +80,11 @@ public class SuitePage {
         @Test
         public void test_OrderByFailPass () {
         	String before = nav.suite.getNameFrom("class", "0");
+        	System.out.println(nav.suite.getNameFrom("class", "0"));
         	nav.suite.clickFailPass();
         	String after = nav.suite.getNameFrom("class", "0");
-        	assertNotEquals(ErrorMsg.ClassBarTextIsSame + "1 \n" + "Before:\n" + before + "\n" + "After:\n" + after + "\n", before, after);
+        	System.out.println(nav.suite.getNameFrom("class", "0"));
+        	assertNotEquals(ErrorMsg.ClassBarTextIsSame + "1 \n", before, after);
         }
         
         /* ID:REP-A.02.16
@@ -253,9 +255,12 @@ public class SuitePage {
 	     */
 	    @Test
 	    public void test_getPassFailTextClass(){
-	    	String actual = nav.suite.getPassFail("class", "0");
-	    	String expected = "Skipped: 0 Failed: 28";
-	    	assertEquals(ErrorMsg.ClassBarTextIsDifferent + "1 \n" + "Expected:" + expected + "\n" + "Actual:" + actual, expected, actual);
+	    	String expectedPassed = "36";
+	    	String expectedSkipped = "0";
+	    	String expectedFailed = "28";
+	    	String expectedAll = expectedPassed + expectedSkipped + expectedFailed;
+	    	String actualAll = nav.suite.getPassedSkippedFailed("class", "0");
+	    	assertEquals(ErrorMsg.ClassBarTextIsDifferent + "1 \n", expectedAll, actualAll);
 	    }
 	    
 	    /* ID:REP-A.02.06
@@ -264,9 +269,12 @@ public class SuitePage {
 	    @Test
 	    public void test_getPassFailTextMethod(){
 	    	nav.suite.clickOnBar("class", "0");
-	    	String actual = nav.suite.getPassFail("method", "0");
-	    	String expected = "Skipped: 0 Failed: 12";
-	    	assertEquals(ErrorMsg.MethodBarTextIsDifferent + "1 \n" + "Expected:" + expected + "\n" + "Actual:" + actual, expected, actual);
+	    	String expectedPassed = "4";
+	    	String expectedSkipped = "0";
+	    	String expectedFailed = "12";
+	    	String expectedAll = expectedPassed + expectedSkipped + expectedFailed;
+	    	String actualAll = nav.suite.getPassedSkippedFailed("method", "0");
+	    	assertEquals(ErrorMsg.MethodBarTextIsDifferent + "1 \n", expectedAll, actualAll);
 	    }
 
 	    

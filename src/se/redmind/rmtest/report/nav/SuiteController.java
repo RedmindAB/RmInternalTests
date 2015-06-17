@@ -92,6 +92,32 @@ public class SuiteController extends BaseController {
 		return getClassText.getText();
 	}
 	
+	public List<WebElement> listPassedSkippedFailed(String type, String index){
+		driverFluentWait(15).until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.id(type+"-passfail-"+index)));
+		List <WebElement> listPassedSkippedFailed = driver.findElements(By.id(type+"-passfail-"+index));
+		return listPassedSkippedFailed;
+	}
+	
+	public String getPassed(String type,String index){
+		String passed = listPassedSkippedFailed(type, index).get(0).getText();
+		return passed;
+	}
+	
+	public String getSkipped(String type,String index){
+		String skipped = listPassedSkippedFailed(type, index).get(1).getText();
+		return skipped;
+	}
+	
+	public String getFailed(String type,String index){
+		String failed = listPassedSkippedFailed(type, index).get(2).getText();
+		return failed;
+	}
+	
+	public String getPassedSkippedFailed(String type, String index){
+		String passedSkippedFailed = getPassed(type, index) + getSkipped(type, index) + getFailed(type, index);
+		return passedSkippedFailed;
+	}
+	
 	public void ClickOnSuiteLinkText(){
 		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("suite-position")));
 		String current = getUrl();
