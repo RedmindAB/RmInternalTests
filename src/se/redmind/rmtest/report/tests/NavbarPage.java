@@ -15,6 +15,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.server.handler.GetCurrentUrl;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import se.redmind.rmtest.report.nav.NavbarNav;
@@ -150,4 +151,15 @@ public class NavbarPage {
 	    	nav.chooseTimeStamp(expected);
 	    	assertEquals(expected, actual);
 	    }
+	    
+//	    ID: GRID-A.01.09
+//	    Edited: 2015-06-17
+	    @Test
+	    public void test_goToLiveTests(){
+	    	nav.goToLiveTests();
+	    	String expected = "#/live-tests";
+	    	assertTrue(nav.getCurrentUrl().endsWith(expected));
+	    	
+	    }
+	    
 }
