@@ -28,6 +28,11 @@ public abstract class BaseController extends HTMLPage{
 		return this.driver.findElement(By.xpath(css));
 	}
 	
+	protected WebElement getElementByName(String name){
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.name(name)));
+		return this.driver.findElement(By.name(name));
+	}
+	
 	public String getUrl(){
 		return driver.getCurrentUrl();
 	}

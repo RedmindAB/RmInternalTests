@@ -76,15 +76,51 @@ public class SuitePage {
 	    
 	    /* ID:REP-A.02.01
 	     * Edited: 2015-06-11
+	     * See the following tests, which have replace this one:
+	     * test_OrderMethodsByPass
+	     * test_OrderMethodsBySkipped
+	     * test_OrderMethodsByFailed
 	     */
+//	    @Ignore
+//        @Test
+//        public void test_OrderByFailPass () {
+//        	String before = nav.suite.getNameFrom("class", "0");
+//        	System.out.println(nav.suite.getNameFrom("class", "0"));
+//        	nav.suite.clickFailPass();
+//        	//Klickar på "name" nu då pass/fail är borta - gör ett nytt test av detta - typ orderByName
+//        	String after = nav.suite.getNameFrom("class", "0");
+//        	System.out.println(nav.suite.getNameFrom("class", "0"));
+//        	assertNotEquals(ErrorMsg.ClassBarTextIsSame + "1 \n", before, after);
+//        }
+        
         @Test
-        public void test_OrderByFailPass () {
-        	String before = nav.suite.getNameFrom("class", "0");
-        	System.out.println(nav.suite.getNameFrom("class", "0"));
-        	nav.suite.clickFailPass();
-        	String after = nav.suite.getNameFrom("class", "0");
-        	System.out.println(nav.suite.getNameFrom("class", "0"));
-        	assertNotEquals(ErrorMsg.ClassBarTextIsSame + "1 \n", before, after);
+        public void test_OrderByMethodName(){
+        	nav.suite.clickOnBar("class", "0");
+        	String before = nav.suite.getNameFrom("method", "0");
+        	System.out.println(nav.suite.getNameFrom("method", "0"));
+        	nav.suite.clickOnOrderByNameForBars();
+        	String after = nav.suite.getNameFrom("method", "0");
+        	System.out.println(nav.suite.getNameFrom("method", "0"));
+        	assertNotEquals(ErrorMsg.MethodBarTextIsSame + "1 \n", before, after);
+        }
+        
+        @Test
+        public void test_OrderMethodsByPass(){
+        	nav.suite.clickOnBar("class", "0");
+        	String[] expectedBefore1 = {"4","8","12","12"};
+        	String[] actualBefore1 = nav.suite.getAllBarStats("method", 0);
+        	assertArrayEquals(ErrorMsg.MethodBarTextIsDifferent + "1 \n" ,expectedBefore1, actualBefore1);
+        	
+        	nav.suite.clickOnOrderByPassedForBars();
+        	String[] after1 = nav.suite.getAllBarStats("method", 0);
+        	assertNotEquals(ErrorMsg.MethodBarTextIsSame + "2 \n", actualBefore1, after1);
+        	
+        	nav.suite.clickOnOrderByPassedForBars();
+        	String[] after2 = nav.suite.getAllBarStats("method", 0);
+        	assertNotEquals(ErrorMsg.MethodBarTextIsSame + "3 \n", after1, after2);
+        	
+        	String[] expected2 = {"4","8","12","12"};
+        	assertArrayEquals(ErrorMsg.MethodBarTextIsDifferent + "4 \n" ,expected2, after2);
         }
         
         /* ID:REP-A.02.16

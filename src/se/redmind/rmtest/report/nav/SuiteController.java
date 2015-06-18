@@ -1,11 +1,15 @@
 package se.redmind.rmtest.report.nav;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.By.ByName;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+
+import com.google.gson.annotations.Until;
 
 import se.redmind.rmtest.report.expectedconditions.ChartReloadFinished;
 import se.redmind.rmtest.report.expectedconditions.SizeOfWebelement;
@@ -32,9 +36,14 @@ public class SuiteController extends BaseController {
 		getElementByID("order_by_runtime").click();
 	}
 	
-	public void clickFailPass(){
-		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("order_by_fail_pass")));
-		getElementByID("order_by_fail_pass").click();
+	public void clickOnOrderByNameForBars(){
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.name("name")));
+		getElementByName("name").click();
+	}
+	
+	public void clickOnOrderByPassedForBars(){
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.name("passed")));
+		getElementByName("passed").click();;
 	}
 	
 	public void clickOnBar(String type, String index){
@@ -90,6 +99,26 @@ public class SuiteController extends BaseController {
 		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id(type+"-passfail-"+index)));
 		WebElement getClassText = getElementByID(type+"-passfail-"+index);
 		return getClassText.getText();
+	}
+	
+	public WebElement methodTable(){
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("method-name")));
+		return getElementByID("method-name");
+	}
+	
+	public List <WebElement> getAllBars(){
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.className("suite-partial-name-container")));
+		List<WebElement> allBars = methodTable().findElements(By.className("suite-partial-name-container"));
+		return allBars;
+	}
+	
+	public String[] getAllBarStats(String type, int index){
+		List <WebElement> allBars = getAllBars();
+		String[] passed = new String[allBars.size()];
+		for (int i = 0; i < allBars.size(); i++) {
+			passed[i] = (listPassedSkippedFailed(type,""+i).get(index).getText());
+		}
+		return passed;
 	}
 	
 	public List<WebElement> listPassedSkippedFailed(String type, String index){
