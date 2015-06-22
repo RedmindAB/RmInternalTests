@@ -91,9 +91,9 @@ public class VisualPage {
 		@Test
 		public void chooseAnotherScope(){
 			nav.chooseClass("class-0");
-			String methods = nav.getTitle();
+			String methods = nav.getMethodTitle();
 			nav.goToScopeByID("1");
-			String classes = nav.getTitle();
+			String classes = nav.getClassTitle();
 			assertNotEquals(ErrorMsg.ScopeUnableToChange + "1 \n", methods, classes);
 		}
 		
