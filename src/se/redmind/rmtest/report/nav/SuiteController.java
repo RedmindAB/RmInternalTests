@@ -39,19 +39,19 @@ public class SuiteController extends BaseController {
 	public void clickBarsOrderByName(){
 		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.name("name")));
 		getElementByName("name").click();
-		System.out.println("Name of bar" + getElementByName("name").getText());
+//		System.out.println(getElementByName("name").getText());
 	}
 	
 	public void clickBarsOrderByPassed(){
 		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.name("passed")));
 		getElementByName("passed").click();
-		System.out.println(getElementByName("passed").getText());
+//		System.out.println(getElementByName("passed").getText());
 	}
 	
 	public void clickBarsOrderByFailed(){
 		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.name("failed")));
 		getElementByName("failed").click();
-		System.out.println(getElementByName("passed").getText());
+//		System.out.println(getElementByName("passed").getText());
 	}
 	
 	public void clickOnBar(String type, String index){
@@ -120,13 +120,32 @@ public class SuiteController extends BaseController {
 		return allBars;
 	}
 	
-	public String[] getAllBarStats(String type, int index){
+	public String getAllBarStats(String type, int index){
 		List <WebElement> allBars = getAllBars();
 		String[] statType = new String[allBars.size()];
 		for (int i = 0; i < allBars.size(); i++) {
 			statType[i] = (listPassedSkippedFailed(type,""+i).get(index).getText());
 		}
-		return statType;
+		StringBuilder builder = new StringBuilder();
+    	for (String methodStat : statType) {
+			builder.append(methodStat+",");
+		}
+    	String allStats = builder.toString();
+		return allStats;
+	}
+	
+	public String getAllBarNames(String type){
+		List <WebElement> allBars = getAllBars();
+		String[] statType = new String[allBars.size()];
+		for (int i = 0; i < allBars.size(); i++) {
+			statType[i] = (listBarNames(type,""+i).get(0).getText());
+		}
+		StringBuilder builder = new StringBuilder();
+    	for (String methodName : statType) {
+			builder.append(methodName+",");
+		}
+    	String allNames = builder.toString();
+		return allNames;
 	}
 	
 	public List <WebElement> listBarNames(String type, String index){

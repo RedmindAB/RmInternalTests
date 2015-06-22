@@ -35,6 +35,9 @@ public class ErrorMsg {
 	public static final String ClassBarTextIsSame = 			"\n Expected text in the class bar does NOT differ from actual text." + SeeThisAssert;
 	
 	public static final String MethodNameIsDifferent = 			"\n Expected method name differs from actual method name" + SeeThisAssert;
+	public static final String MethodNameIsSame = 				"\n Expected method name does NOT differ from actual name" + SeeThisAssert;
+	public static final String MethodBarNameIsDifferent = 		"\n Expected method bar name differs from actual method name" + SeeThisAssert;
+	public static final String MethodBarNameIsSame = 			"\n Expected method bar name does NOT differ from actual name" + SeeThisAssert;
 	public static final String MethodBarTextIsDifferent = 		"\n Expected text in the method bar does not match actual text." + SeeThisAssert;
 	public static final String MethodBarTextIsSame = 			"\n Expected text in the method bar does NOT differ from actual text." + SeeThisAssert;
 	

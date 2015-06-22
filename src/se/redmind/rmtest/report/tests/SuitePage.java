@@ -93,55 +93,75 @@ public class SuitePage {
 //        	assertNotEquals(ErrorMsg.ClassBarTextIsSame + "1 \n", before, after);
 //        }
         
-	    @Ignore
-	    //WIP
         @Test
-        public void test_OrderByMethodName(){
+        public void test_OrderMethodsByName(){
         	nav.suite.clickOnBar("class", "0");
-        	String before = nav.suite.getNameFrom("method", "0");
-        	System.out.println(nav.suite.getNameFrom("method", "0"));
+        	String expectedBefore1 = "random1,random3,random2,random4,";
+        	String actualBefore1 = nav.suite.getAllBarNames("method");
+        	System.out.println("All bar names before rearrange1: \n" + actualBefore1);
+        	assertEquals(ErrorMsg.MethodBarNameIsDifferent + "1 \n",expectedBefore1, actualBefore1);
+        	
         	nav.suite.clickBarsOrderByName();
-        	String after = nav.suite.getNameFrom("method", "0");
-        	System.out.println(nav.suite.getNameFrom("method", "0"));
-        	assertNotEquals(ErrorMsg.MethodBarTextIsSame + "1 \n", before, after);
+        	String after1 = nav.suite.getAllBarNames("method");
+        	System.out.println("All bar names after rearrange1: \n" + after1);
+        	assertNotEquals(ErrorMsg.MethodBarNameIsSame + "2 \n",actualBefore1, after1);
+        	
+        	nav.suite.clickBarsOrderByName();
+        	String after2 = nav.suite.getAllBarNames("method");
+        	System.out.println("All bar names after rearrange2: \n" + after2);
+        	assertNotEquals(ErrorMsg.MethodBarNameIsSame + "3 \n",after1, after2);
+        	
+        	String expected2 = "random4,random3,random2,random1,";
+        	assertEquals(ErrorMsg.MethodBarNameIsDifferent + "4 \n", expected2, after2);
+        	
+        	nav.suite.clickBarsOrderByName();
+        	String after3 = nav.suite.getAllBarNames("method");
+        	System.out.println("All bar names after rearrange3: \n" + after3);
+        	assertEquals(ErrorMsg.MethodBarNameIsDifferent + "5 \n",after1, after3);
         }
         
         @Test
-        public void test_OrderMethodsByPass(){
+        public void test_OrderMethodsByPassed(){
         	nav.suite.clickOnBar("class", "0");
-        	String[] expectedBefore1 = {"4","8","12","12"};
-        	String[] actualBefore1 = nav.suite.getAllBarStats("method", 0);
-        	assertArrayEquals(ErrorMsg.MethodBarTextIsDifferent + "1 \n" ,expectedBefore1, actualBefore1);
+        	String expectedBefore1 = "4,8,12,12,";
+        	String actualBefore1 = nav.suite.getAllBarStats("method", 0);
+        	System.out.println("Passed order before rearrange: \n" + actualBefore1);
+        	assertEquals(ErrorMsg.MethodBarTextIsDifferent + "1 \n" ,expectedBefore1, actualBefore1);
         	
         	nav.suite.clickBarsOrderByPassed();
-        	String[] after1 = nav.suite.getAllBarStats("method", 0);
+        	String after1 = nav.suite.getAllBarStats("method", 0);
+        	System.out.println("Passed order after rearrange: \n" + after1);
         	assertNotEquals(ErrorMsg.MethodBarTextIsSame + "2 \n", actualBefore1, after1);
         	
         	nav.suite.clickBarsOrderByPassed();
-        	String[] after2 = nav.suite.getAllBarStats("method", 0);
+        	String after2 = nav.suite.getAllBarStats("method", 0);
+        	System.out.println("Passed order after rearrange2: \n" + after2);
         	assertNotEquals(ErrorMsg.MethodBarTextIsSame + "3 \n", after1, after2);
         	
-        	String[] expected2 = {"4","8","12","12"};
-        	assertArrayEquals(ErrorMsg.MethodBarTextIsDifferent + "4 \n" ,expected2, after2);
+        	String expected2 = "4,8,12,12,";
+        	assertEquals(ErrorMsg.MethodBarTextIsDifferent + "4 \n" ,expected2, after2);
         }
         
         @Test
-        public void test_OrderMethodsByFail(){
+        public void test_OrderMethodsByFailed(){
         	nav.suite.clickOnBar("class", "0");
-        	String[] expectedBefore1 = {"12","8","4","4"};
-        	String[] actualBefore1 = nav.suite.getAllBarStats("method", 2);
-        	assertArrayEquals(ErrorMsg.MethodBarTextIsDifferent + "1 \n" ,expectedBefore1, actualBefore1);
+        	String expectedBefore1 = "12,8,4,4,";
+        	String actualBefore1 = nav.suite.getAllBarStats("method", 2);
+        	System.out.println("Failed order before rearrange: \n" + actualBefore1);
+        	assertEquals(ErrorMsg.MethodBarTextIsDifferent + "1 \n" ,expectedBefore1, actualBefore1);
         	
         	nav.suite.clickBarsOrderByFailed();
-        	String[] after1 = nav.suite.getAllBarStats("method", 2);
+        	String after1 = nav.suite.getAllBarStats("method", 2);
+        	System.out.println("Failed order after rearrange1: \n" + after1);
         	assertNotEquals(ErrorMsg.MethodBarTextIsSame + "2 \n", actualBefore1, after1);
         	
         	nav.suite.clickBarsOrderByFailed();
-        	String[] after2 = nav.suite.getAllBarStats("method", 2);
+        	String after2 = nav.suite.getAllBarStats("method", 2);
+        	System.out.println("Failed order after rearrange2: \n" + after2);
         	assertNotEquals(ErrorMsg.MethodBarTextIsSame + "3 \n", after1, after2);
         	
-        	String[] expected2 = {"12","8","4","4"};
-        	assertArrayEquals(ErrorMsg.MethodBarTextIsDifferent + "4 \n" ,expected2, after2);
+        	String expected2 = "12,8,4,4,";
+        	assertEquals(ErrorMsg.MethodBarTextIsDifferent + "4 \n" ,expected2, after2);
         }
         
         /* ID:REP-A.02.16
