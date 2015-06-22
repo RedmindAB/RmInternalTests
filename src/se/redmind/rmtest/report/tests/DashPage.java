@@ -85,6 +85,8 @@ public class DashPage {
 	    	assertTrue(ErrorMsg.ShouldNotBeEnabled + "6 \n", !nav.dash.isEnabled("failed"));
 	    }
 	    
+//	    ID: DASH-A-01-02
+//	    Edited 2015-06-22
 	    @Test
 	    public void test_loadAnotherProject(){
 	    	String nameBefore = nav.dash.getProjectName();
@@ -94,6 +96,8 @@ public class DashPage {
 	    	assertTrue(ErrorMsg.PageRedirect + "2 \n", nav.dash.getUrl().endsWith("/#/dashboard"));
 	    }
 	    
+//	    ID: DASH-A-01-03
+//	    Edited 2015-06-22
 	    @Test
 	    public void test_clickOnGraphStaple(){
 	    	String nameBefore = nav.dash.getProjectName();
