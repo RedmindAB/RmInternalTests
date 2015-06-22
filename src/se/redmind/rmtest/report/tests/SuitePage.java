@@ -93,12 +93,14 @@ public class SuitePage {
 //        	assertNotEquals(ErrorMsg.ClassBarTextIsSame + "1 \n", before, after);
 //        }
         
+	    @Ignore
+	    //WIP
         @Test
         public void test_OrderByMethodName(){
         	nav.suite.clickOnBar("class", "0");
         	String before = nav.suite.getNameFrom("method", "0");
         	System.out.println(nav.suite.getNameFrom("method", "0"));
-        	nav.suite.clickOnOrderByNameForBars();
+        	nav.suite.clickBarsOrderByName();
         	String after = nav.suite.getNameFrom("method", "0");
         	System.out.println(nav.suite.getNameFrom("method", "0"));
         	assertNotEquals(ErrorMsg.MethodBarTextIsSame + "1 \n", before, after);
@@ -111,15 +113,34 @@ public class SuitePage {
         	String[] actualBefore1 = nav.suite.getAllBarStats("method", 0);
         	assertArrayEquals(ErrorMsg.MethodBarTextIsDifferent + "1 \n" ,expectedBefore1, actualBefore1);
         	
-        	nav.suite.clickOnOrderByPassedForBars();
+        	nav.suite.clickBarsOrderByPassed();
         	String[] after1 = nav.suite.getAllBarStats("method", 0);
         	assertNotEquals(ErrorMsg.MethodBarTextIsSame + "2 \n", actualBefore1, after1);
         	
-        	nav.suite.clickOnOrderByPassedForBars();
+        	nav.suite.clickBarsOrderByPassed();
         	String[] after2 = nav.suite.getAllBarStats("method", 0);
         	assertNotEquals(ErrorMsg.MethodBarTextIsSame + "3 \n", after1, after2);
         	
         	String[] expected2 = {"4","8","12","12"};
+        	assertArrayEquals(ErrorMsg.MethodBarTextIsDifferent + "4 \n" ,expected2, after2);
+        }
+        
+        @Test
+        public void test_OrderMethodsByFail(){
+        	nav.suite.clickOnBar("class", "0");
+        	String[] expectedBefore1 = {"12","8","4","4"};
+        	String[] actualBefore1 = nav.suite.getAllBarStats("method", 2);
+        	assertArrayEquals(ErrorMsg.MethodBarTextIsDifferent + "1 \n" ,expectedBefore1, actualBefore1);
+        	
+        	nav.suite.clickBarsOrderByFailed();
+        	String[] after1 = nav.suite.getAllBarStats("method", 2);
+        	assertNotEquals(ErrorMsg.MethodBarTextIsSame + "2 \n", actualBefore1, after1);
+        	
+        	nav.suite.clickBarsOrderByFailed();
+        	String[] after2 = nav.suite.getAllBarStats("method", 2);
+        	assertNotEquals(ErrorMsg.MethodBarTextIsSame + "3 \n", after1, after2);
+        	
+        	String[] expected2 = {"12","8","4","4"};
         	assertArrayEquals(ErrorMsg.MethodBarTextIsDifferent + "4 \n" ,expected2, after2);
         }
         
