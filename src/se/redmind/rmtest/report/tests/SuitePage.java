@@ -151,7 +151,7 @@ public class SuitePage {
         public void test_GoToMethods(){
         	String className  = nav.suite.getNameFrom("class", "0");
         	nav.suite.clickOnBar("class", "0");
-        	assertEquals(ErrorMsg.ClassNameIsDifferent + "1 \n", className, nav.suite.getCurrentPossition().getText());
+        	assertTrue(ErrorMsg.ClassNameIsDifferent + "1 \n", className.endsWith(nav.suite.getCurrentPossition().getText()));
         }
         
         /* ID:REP-A.02.15

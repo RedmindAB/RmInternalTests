@@ -176,7 +176,12 @@ public class VisualNav extends BaseNav{
 			return false;
 	}
 	
-	public String getTitle(){
+	public String getMethodTitle(){
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.className("screenshot-center-center")));
+		return driver.findElement(By.className("screenshot-center-center")).getText();
+	}
+	
+	public String getClassTitle(){
 		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.className("screenshot-nav")));
 		return driver.findElement(By.className("screenshot-nav")).getText();
 	}
