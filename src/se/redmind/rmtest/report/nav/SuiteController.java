@@ -36,14 +36,22 @@ public class SuiteController extends BaseController {
 		getElementByID("order_by_runtime").click();
 	}
 	
-	public void clickOnOrderByNameForBars(){
+	public void clickBarsOrderByName(){
 		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.name("name")));
 		getElementByName("name").click();
+		System.out.println("Name of bar" + getElementByName("name").getText());
 	}
 	
-	public void clickOnOrderByPassedForBars(){
+	public void clickBarsOrderByPassed(){
 		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.name("passed")));
-		getElementByName("passed").click();;
+		getElementByName("passed").click();
+		System.out.println(getElementByName("passed").getText());
+	}
+	
+	public void clickBarsOrderByFailed(){
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.name("failed")));
+		getElementByName("failed").click();
+		System.out.println(getElementByName("passed").getText());
 	}
 	
 	public void clickOnBar(String type, String index){
@@ -114,14 +122,20 @@ public class SuiteController extends BaseController {
 	
 	public String[] getAllBarStats(String type, int index){
 		List <WebElement> allBars = getAllBars();
-		String[] passed = new String[allBars.size()];
+		String[] statType = new String[allBars.size()];
 		for (int i = 0; i < allBars.size(); i++) {
-			passed[i] = (listPassedSkippedFailed(type,""+i).get(index).getText());
+			statType[i] = (listPassedSkippedFailed(type,""+i).get(index).getText());
 		}
-		return passed;
+		return statType;
 	}
 	
-	public List<WebElement> listPassedSkippedFailed(String type, String index){
+	public List <WebElement> listBarNames(String type, String index){
+		driverFluentWait(15).until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.id(type+"-name-"+index)));
+		List <WebElement> listBarNames = driver.findElements(By.id(type+"-name-"+index));
+		return listBarNames;
+	}
+	
+	public List <WebElement> listPassedSkippedFailed(String type, String index){
 		driverFluentWait(15).until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.id(type+"-passfail-"+index)));
 		List <WebElement> listPassedSkippedFailed = driver.findElements(By.id(type+"-passfail-"+index));
 		return listPassedSkippedFailed;
