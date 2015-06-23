@@ -194,7 +194,7 @@ public class SuitePage {
         	nav.suite.clickOnBar("method", "0");
         	//System.out.println(nav.suite.getNameFrom("case", "0"));
         	nav.suite.clickThisTestOnly("0");
-        	String expectedName = "Ubuntu-14.04-UNKNOWN-chrome-42";
+        	String expectedName = "Ubuntu-14.04-UNKNOWN-chrome";
         	int expectedSize = 1;
         	String actualName = nav.graph.getLegendListItem(0).getText();
         	int actualSize = nav.graph.getLegendList().size();
