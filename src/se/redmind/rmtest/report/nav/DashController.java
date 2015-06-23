@@ -65,8 +65,8 @@ public class DashController extends BaseController{
 	}
 	
 	public String getProjectNameInReports(){
-		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("navigation-classes")));
-		WebElement getProjectTitle = driver.findElement(By.id("navigation-classes"));
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("choose_project")));
+		WebElement getProjectTitle = driver.findElement(By.id("choose_project"));
 		String projectName = getProjectTitle.getText();
 		return projectName;
 	}
