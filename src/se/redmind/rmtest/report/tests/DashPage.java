@@ -99,13 +99,13 @@ public class DashPage {
 //	    ID: DASH-A-01-03
 //	    Edited 2015-06-22
 	    @Test
-	    public void test_clickOnGraphStaple(){
+	    public void test_clickOnGraphColumn(){
 	    	String nameBefore = nav.dash.getProjectName();
 //	    	System.out.println(nav.dash.getProjectName());
 	    	nav.getFirstSuiteSection();
 	    	String nameAfter = nav.dash.getProjectNameInReports();
 //	    	System.out.println(nav.dash.getProjectNameInReports());
-	    	assertEquals(ErrorMsg.ProjectNameIsDifferent + "1 \n",nameBefore + " ", nameAfter);
+	    	assertEquals(ErrorMsg.ProjectNameIsDifferent + "1 \n",nameBefore, nameAfter);
 //	    	project name in reports page has a white space after it, thus: + " ".
 	    	assertTrue(ErrorMsg.PageRedirect + "2 \n",nav.dash.getUrl().endsWith("/#/reports/classes"));
 	    }
