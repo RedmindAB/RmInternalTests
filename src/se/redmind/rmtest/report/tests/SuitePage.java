@@ -74,25 +74,9 @@ public class SuitePage {
 	    	this.nav = new GraphNav(tDriver);
 	    }
 	    
-	    /* ID:REP-A.02.01
-	     * Edited: 2015-06-11
-	     * See the following tests, which have replace this one:
-	     * test_OrderMethodsByPass
-	     * test_OrderMethodsBySkipped
-	     * test_OrderMethodsByFailed
+	    /* ID: REP-A.02.17
+	     * Edited: 2015-06-25
 	     */
-//	    @Ignore
-//        @Test
-//        public void test_OrderByFailPass () {
-//        	String before = nav.suite.getNameFrom("class", "0");
-//        	System.out.println(nav.suite.getNameFrom("class", "0"));
-//        	nav.suite.clickFailPass();
-//        	//Klickar på "name" nu då pass/fail är borta - gör ett nytt test av detta - typ orderByName
-//        	String after = nav.suite.getNameFrom("class", "0");
-//        	System.out.println(nav.suite.getNameFrom("class", "0"));
-//        	assertNotEquals(ErrorMsg.ClassBarTextIsSame + "1 \n", before, after);
-//        }
-        
         @Test
         public void test_OrderMethodsByName(){
         	nav.suite.clickOnBar("class", "0");
@@ -120,6 +104,9 @@ public class SuitePage {
         	assertEquals(ErrorMsg.MethodBarNameIsDifferent + "5 \n",after1, after3);
         }
         
+        /* ID: REP-A.02.18
+	     * Edited: 2015-06-25
+	     */
         @Test
         public void test_OrderMethodsByPassed(){
         	nav.suite.clickOnBar("class", "0");
@@ -142,6 +129,9 @@ public class SuitePage {
         	assertEquals(ErrorMsg.MethodBarTextIsDifferent + "4 \n" ,expected2, after2);
         }
         
+        /* ID: REP-A.02.19
+	     * Edited: 2015-06-25
+	     */
         @Test
         public void test_OrderMethodsByFailed(){
         	nav.suite.clickOnBar("class", "0");
@@ -194,7 +184,7 @@ public class SuitePage {
         	nav.suite.clickOnBar("method", "0");
         	//System.out.println(nav.suite.getNameFrom("case", "0"));
         	nav.suite.clickThisTestOnly("0");
-        	String expectedName = "Ubuntu-14.04-UNKNOWN-chrome-42";
+        	String expectedName = "Ubuntu-14.04-UNKNOWN-chrome";
         	int expectedSize = 1;
         	String actualName = nav.graph.getLegendListItem(0).getText();
         	int actualSize = nav.graph.getLegendList().size();
@@ -353,7 +343,6 @@ public class SuitePage {
 	    	String actualAll = nav.suite.getPassedSkippedFailed("method", "0");
 	    	assertEquals(ErrorMsg.MethodBarTextIsDifferent + "1 \n", expectedAll, actualAll);
 	    }
-
 	    
 	    @Ignore
 	    @Test
