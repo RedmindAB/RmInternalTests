@@ -313,6 +313,7 @@ public class SuitePage {
 	    
 	    /* ID: REP-A.02.17
 	     * Edited: 2015-06-25
+	     * Takes screenshots
 	     */
         @Test
         public void test_OrderMethodsByName(){
@@ -321,11 +322,13 @@ public class SuitePage {
         	String actualBefore1 = nav.suite.getAllBarNames("method");
 //        	System.out.println("All bar names before rearrange1: \n" + actualBefore1);
         	assertEquals(ErrorMsg.MethodBarNameIsDifferent + "1 \n",expectedBefore1, actualBefore1);
+        	new RMReportScreenshot(urlContainer).takeScreenshot("Before");
         	
         	nav.suite.clickBarsOrderByName();
         	String after1 = nav.suite.getAllBarNames("method");
 //        	System.out.println("All bar names after rearrange1: \n" + after1);
         	assertNotEquals(ErrorMsg.MethodBarNameIsSame + "2 \n",actualBefore1, after1);
+        	new RMReportScreenshot(urlContainer).takeScreenshot("After1");
         	
         	nav.suite.clickBarsOrderByName();
         	String after2 = nav.suite.getAllBarNames("method");
