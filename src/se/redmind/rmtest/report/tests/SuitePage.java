@@ -254,13 +254,61 @@ public class SuitePage {
 	    	String after2 = nav.suite.getAllCaseRuntimes();
 	    	assertNotEquals(ErrorMsg.RuntimeIsSame + "3\n", after1, after2);
 	    	
-	    	System.out.println(nav.suite.getAllCaseRuntimes());
+//	    	System.out.println(nav.suite.getAllCaseRuntimes());
 	    	String expected2 = "1.0,1.0,1.0,1.0,2.0,2.0,2.0,2.0,2.5,2.5,2.5,2.5,3.0,3.0,3.0,3.0,";
 	    	assertEquals(ErrorMsg.RuntimeIsSame + "4\n", expected2, after2);
 	    	
 	    	nav.suite.clickBarsOrderByRuntime();
 	    	String after3 = nav.suite.getAllCaseRuntimes();
 	    	assertEquals(ErrorMsg.RuntimeIsDifferent + "5\n", after1, after3);
+	    }
+	    
+	    @Test
+	    public void test_OrderCasesByPassFail(){
+	    	nav.suite.clickOnBar("class", "0");
+	    	nav.suite.clickOnBar("method", "0");
+	    	String expectedBefore = "Ubuntu - 14.04 - UNKNOWN - chrome - error,"
+	    			+ "Ubuntu - 14.04 - UNKNOWN - chrome - error,"
+	    			+ "Ubuntu - 14.04 - UNKNOWN - firefox - error,"
+	    			+ "Ubuntu - 14.04 - UNKNOWN - firefox - error,"
+	    			+ "Android - 4.4.4 - HTC ONE - chrome - failure,"
+	    			+ "Android - 4.4.4 - HTC ONE - chrome - failure,"
+	    			+ "Android - 4.4.4 - HTC ONE - firefox - failure,"
+	    			+ "Android - 4.4.4 - HTC ONE - firefox - failure,"
+	    			+ "IOS - 8.1 - iPhone 6 - chrome - failure,"
+	    			+ "IOS - 8.1 - iPhone 6 - chrome - failure,"
+	    			+ "IOS - 8.1 - iPhone 6 - firefox - failure,"
+	    			+ "IOS - 8.1 - iPhone 6 - firefox - failure,"
+	    			+ "Android - 5.1 - Nexus 6 - chrome - passed,"
+	    			+ "Android - 5.1 - Nexus 6 - chrome - passed,"
+	    			+ "Android - 5.1 - Nexus 6 - firefox - passed,"
+	    			+ "Android - 5.1 - Nexus 6 - firefox - passed,";
+	    	String actualBefore = nav.suite.getAllCaseNames();
+	    	assertEquals(ErrorMsg.CaseBarNameIsDifferent + "1\n", expectedBefore, actualBefore);
+	    	
+	    	nav.suite.clickBarsOrderByPassFail();
+	    	String actualAfter = nav.suite.getAllCaseNames();
+	    	String expectedAfter = "Android - 5.1 - Nexus 6 - firefox - passed,"
+	    			+ "Android - 5.1 - Nexus 6 - firefox - passed,"
+	    			+ "Android - 5.1 - Nexus 6 - chrome - passed,"
+	    			+ "Android - 5.1 - Nexus 6 - chrome - passed,"
+	    			+ "IOS - 8.1 - iPhone 6 - firefox - failure,"
+	    			+ "IOS - 8.1 - iPhone 6 - firefox - failure,"
+	    			+ "IOS - 8.1 - iPhone 6 - chrome - failure,"
+	    			+ "IOS - 8.1 - iPhone 6 - chrome - failure,"
+	    			+ "Android - 4.4.4 - HTC ONE - firefox - failure,"
+	    			+ "Android - 4.4.4 - HTC ONE - firefox - failure,"
+	    			+ "Android - 4.4.4 - HTC ONE - chrome - failure,"
+	    			+ "Android - 4.4.4 - HTC ONE - chrome - failure,"
+	    			+ "Ubuntu - 14.04 - UNKNOWN - firefox - error,"
+	    			+ "Ubuntu - 14.04 - UNKNOWN - firefox - error,"
+	    			+ "Ubuntu - 14.04 - UNKNOWN - chrome - error,"
+	    			+ "Ubuntu - 14.04 - UNKNOWN - chrome - error,";
+	    	assertEquals(ErrorMsg.CaseBarNameIsDifferent + "2\n", actualAfter, expectedAfter);
+	    	
+	    	nav.suite.clickBarsOrderByPassFail();
+	    	String actualAfter2 = nav.suite.getAllCaseNames();
+	    	assertEquals(ErrorMsg.CaseBarNameIsDifferent + "3\n", actualBefore, actualAfter2);
 	    }
 	    
 	    /* ID: REP-A.02.17

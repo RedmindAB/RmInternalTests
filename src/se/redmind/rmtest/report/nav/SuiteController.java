@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import org.apache.xalan.trace.EndSelectionEvent;
 import org.openqa.selenium.By;
 import org.openqa.selenium.By.ByName;
 import org.openqa.selenium.WebDriver;
