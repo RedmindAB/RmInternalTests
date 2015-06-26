@@ -44,6 +44,9 @@ public class ErrorMsg {
 	public static final String CaseBarNameIsDifferent = 		"\n Expected case bar name differs from actual case name" + SeeThisAssert;
 	public static final String CaseBarNameIsSame =		 		"\n Expected case bar name does NOT differ from actual case name" + SeeThisAssert;
 	
+	public static final String RuntimeIsDifferent = 			"\n Expected runtime differs from actual runtime" + SeeThisAssert;
+	public static final String RuntimeIsSame = 					"\n Expected runtime does NOT differ from actual runtime" + SeeThisAssert;
+	
 	public static final String StackTraceIsDifferent = 			"\n Expected stack trace differs from actual stack trace." + SeeThisAssert;
 	
 	public static final String FilterFieldTextIsDifferent = 	"\n Expected text in the 'Filter' search bar does not match the actual text. \n Note: may be blank." + SeeThisAssert;

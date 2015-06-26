@@ -134,6 +134,12 @@ public class SuiteController extends BaseController {
 		return listCaseNames;
 	}
 	
+	public List <WebElement> listCaseRuntimes(int index){
+		driverFluentWait(15).until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.id("case-runtime-"+index)));
+		List <WebElement> listCaseRuntimes = driver.findElements(By.id("case-runtime-"+index));
+		return listCaseRuntimes;
+	}
+	
 	public String getPassFail(String type, String index){
 		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id(type+"-passfail-"+index)));
 		WebElement getClassText = getElementByID(type+"-passfail-"+index);
@@ -186,11 +192,25 @@ public class SuiteController extends BaseController {
 			statType[i] = (listCaseNames(+i).get(0).getText());
 		}
 		StringBuilder builder = new StringBuilder();
-    	for (String methodName : statType) {
-			builder.append(methodName+",");
+    	for (String caseName : statType) {
+			builder.append(caseName+",");
 		}
     	String allNames = builder.toString();
 		return allNames;
+	}
+	
+	public String getAllCaseRuntimes(){
+		List <WebElement> allBars = getCaseList();
+		String[] statType = new String[allBars.size()];
+		for (int i = 0; i < allBars.size(); i++) {
+			statType[i] = (listCaseRuntimes(+i).get(0).getText());
+		}
+		StringBuilder builder = new StringBuilder();
+    	for (String caseRuntime : statType) {
+			builder.append(caseRuntime+",");
+		}
+    	String allRuntimes = builder.toString();
+		return allRuntimes;
 	}
 	
 	public List <WebElement> listBarNames(String type, String index){
