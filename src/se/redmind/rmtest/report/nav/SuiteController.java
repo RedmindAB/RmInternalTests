@@ -55,6 +55,31 @@ public class SuiteController extends BaseController {
 //		System.out.println(getElementByName("passed").getText());
 	}
 	
+	public void clickBarsOrderByPassFail(){
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.name("pass-fail")));
+		getElementByName("pass-fail").click();
+	}
+	
+	public void clickBarsOrderByPlatform(){
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.name("platform")));
+		getElementByName("platform").click();
+	}
+	
+	public void clickBarsOrderByDevice(){
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.name("device")));
+		getElementByName("device").click();
+	}
+	
+	public void clickBarsOrderByBrowser(){
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.name("browser")));
+		getElementByName("browser").click();
+	}
+	
+	public void clickBarsOrderByRuntime(){
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.name("runtime")));
+		getElementByName("runtime").click();
+	}
+	
 	public void clickOnBar(String type, String index){
 		String currentUrl = driver.getCurrentUrl();
 		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id(type+"-"+index)));
@@ -96,13 +121,18 @@ public class SuiteController extends BaseController {
 		return stackTrace.getText();
 	}
 	
-	public int getSizeOfCaseList(){
-		WebElement group= driver.findElement(By.id("case-group"));
+	public List <WebElement> getCaseList(){
+		WebElement group = driver.findElement(By.id("case-group"));
 		WebElement panelGroup = group.findElement(By.className("panel-group"));
 		List <WebElement> caseList = panelGroup.findElements(By.className("panel-heading"));
-		return caseList.size();
+		return caseList;
 	}
 	
+	public List <WebElement> listCaseNames(int index){
+		driverFluentWait(15).until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.id("case-name-"+index)));
+		List <WebElement> listCaseNames = driver.findElements(By.id("case-name-"+index));
+		return listCaseNames;
+	}
 	
 	public String getPassFail(String type, String index){
 		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id(type+"-passfail-"+index)));
@@ -149,6 +179,20 @@ public class SuiteController extends BaseController {
 		return allNames;
 	}
 	
+	public String getAllCaseNames(){
+		List <WebElement> allBars = getCaseList();
+		String[] statType = new String[allBars.size()];
+		for (int i = 0; i < allBars.size(); i++) {
+			statType[i] = (listCaseNames(+i).get(0).getText());
+		}
+		StringBuilder builder = new StringBuilder();
+    	for (String methodName : statType) {
+			builder.append(methodName+",");
+		}
+    	String allNames = builder.toString();
+		return allNames;
+	}
+	
 	public List <WebElement> listBarNames(String type, String index){
 		driverFluentWait(15).until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.id(type+"-name-"+index)));
 		List <WebElement> listBarNames = driver.findElements(By.id(type+"-name-"+index));
@@ -159,6 +203,12 @@ public class SuiteController extends BaseController {
 		driverFluentWait(15).until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.id(type+"-passfail-"+index)));
 		List <WebElement> listPassedSkippedFailed = driver.findElements(By.id(type+"-passfail-"+index));
 		return listPassedSkippedFailed;
+	}
+	
+	public List <WebElement> listRuntime(String type, String index){
+		driverFluentWait(15).until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.id("case-runtime-" + index)));
+		List <WebElement> listRuntime = driver.findElements(By.id(type+"-runtime-"+index));
+		return listRuntime;
 	}
 	
 	public String getPassed(String type,String index){

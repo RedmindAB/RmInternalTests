@@ -41,6 +41,9 @@ public class ErrorMsg {
 	public static final String MethodBarTextIsDifferent = 		"\n Expected text in the method bar does not match actual text." + SeeThisAssert;
 	public static final String MethodBarTextIsSame = 			"\n Expected text in the method bar does NOT differ from actual text." + SeeThisAssert;
 	
+	public static final String CaseBarNameIsDifferent = 		"\n Expected case bar name differs from actual case name" + SeeThisAssert;
+	public static final String CaseBarNameIsSame =		 		"\n Expected case bar name does NOT differ from actual case name" + SeeThisAssert;
+	
 	public static final String StackTraceIsDifferent = 			"\n Expected stack trace differs from actual stack trace." + SeeThisAssert;
 	
 	public static final String FilterFieldTextIsDifferent = 	"\n Expected text in the 'Filter' search bar does not match the actual text. \n Note: may be blank." + SeeThisAssert;

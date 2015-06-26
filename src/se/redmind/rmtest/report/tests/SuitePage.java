@@ -74,6 +74,115 @@ public class SuitePage {
 	    	this.nav = new GraphNav(tDriver);
 	    }
 	    
+	    @Test
+	    public void test_OrderCasesByPlatform(){
+	    	nav.suite.clickOnBar("class", "0");
+	    	nav.suite.clickOnBar("method", "0");
+	    	String expectedBefore = "Ubuntu - 14.04 - UNKNOWN - chrome - error,"
+	    			+ "Ubuntu - 14.04 - UNKNOWN - chrome - error,"
+	    			+ "Ubuntu - 14.04 - UNKNOWN - firefox - error,"
+	    			+ "Ubuntu - 14.04 - UNKNOWN - firefox - error,"
+	    			+ "Android - 4.4.4 - HTC ONE - chrome - failure,"
+	    			+ "Android - 4.4.4 - HTC ONE - chrome - failure,"
+	    			+ "Android - 4.4.4 - HTC ONE - firefox - failure,"
+	    			+ "Android - 4.4.4 - HTC ONE - firefox - failure,"
+	    			+ "IOS - 8.1 - iPhone 6 - chrome - failure,"
+	    			+ "IOS - 8.1 - iPhone 6 - chrome - failure,"
+	    			+ "IOS - 8.1 - iPhone 6 - firefox - failure,"
+	    			+ "IOS - 8.1 - iPhone 6 - firefox - failure,"
+	    			+ "Android - 5.1 - Nexus 6 - chrome - passed,"
+	    			+ "Android - 5.1 - Nexus 6 - chrome - passed,"
+	    			+ "Android - 5.1 - Nexus 6 - firefox - passed,"
+	    			+ "Android - 5.1 - Nexus 6 - firefox - passed,";
+	    	String actualBefore = nav.suite.getAllCaseNames();
+	    	assertEquals(ErrorMsg.CaseBarNameIsDifferent + "1\n", expectedBefore, actualBefore);
+	    	
+	    	nav.suite.clickBarsOrderByPlatform();
+	    	String after1 = nav.suite.getAllCaseNames();
+	    	assertNotEquals(ErrorMsg.CaseBarNameIsSame + "2\n", actualBefore, after1);
+	    	
+	    	nav.suite.clickBarsOrderByPlatform();
+	    	String after2 = nav.suite.getAllCaseNames();
+	    	assertNotEquals(ErrorMsg.CaseBarNameIsSame + "3\n",after1, after2);
+	    	
+	    	String expected2 = "Android - 4.4.4 - HTC ONE - chrome - failure,"
+	    			+ "Android - 4.4.4 - HTC ONE - chrome - failure,"
+	    			+ "Android - 4.4.4 - HTC ONE - firefox - failure,"
+	    			+ "Android - 4.4.4 - HTC ONE - firefox - failure,"
+	    			+ "Android - 5.1 - Nexus 6 - chrome - passed,"
+	    			+ "Android - 5.1 - Nexus 6 - chrome - passed,"
+	    			+ "Android - 5.1 - Nexus 6 - firefox - passed,"
+	    			+ "Android - 5.1 - Nexus 6 - firefox - passed,"
+	    			+ "IOS - 8.1 - iPhone 6 - chrome - failure,"
+	    			+ "IOS - 8.1 - iPhone 6 - chrome - failure,"
+	    			+ "IOS - 8.1 - iPhone 6 - firefox - failure,"
+	    			+ "IOS - 8.1 - iPhone 6 - firefox - failure,"
+	    			+ "Ubuntu - 14.04 - UNKNOWN - chrome - error,"
+	    			+ "Ubuntu - 14.04 - UNKNOWN - chrome - error,"
+	    			+ "Ubuntu - 14.04 - UNKNOWN - firefox - error,"
+	    			+ "Ubuntu - 14.04 - UNKNOWN - firefox - error,";
+	    	assertEquals(ErrorMsg.CaseBarNameIsDifferent + "4\n",expected2, after2);
+	    	
+	    	nav.suite.clickBarsOrderByPlatform();
+	    	String after3 = nav.suite.getAllCaseNames() + "";
+	    	assertEquals(ErrorMsg.CaseBarNameIsDifferent + "5\n",after1, after3);
+	    }
+	    
+	    @Test
+	    public void test_OrderCasesByDevice(){
+	    	nav.suite.clickOnBar("class", "0");
+	    	nav.suite.clickOnBar("method", "0");
+	    	String expectedBefore = "Ubuntu - 14.04 - UNKNOWN - chrome - error,"
+	    			+ "Ubuntu - 14.04 - UNKNOWN - chrome - error,"
+	    			+ "Ubuntu - 14.04 - UNKNOWN - firefox - error,"
+	    			+ "Ubuntu - 14.04 - UNKNOWN - firefox - error,"
+	    			+ "Android - 4.4.4 - HTC ONE - chrome - failure,"
+	    			+ "Android - 4.4.4 - HTC ONE - chrome - failure,"
+	    			+ "Android - 4.4.4 - HTC ONE - firefox - failure,"
+	    			+ "Android - 4.4.4 - HTC ONE - firefox - failure,"
+	    			+ "IOS - 8.1 - iPhone 6 - chrome - failure,"
+	    			+ "IOS - 8.1 - iPhone 6 - chrome - failure,"
+	    			+ "IOS - 8.1 - iPhone 6 - firefox - failure,"
+	    			+ "IOS - 8.1 - iPhone 6 - firefox - failure,"
+	    			+ "Android - 5.1 - Nexus 6 - chrome - passed,"
+	    			+ "Android - 5.1 - Nexus 6 - chrome - passed,"
+	    			+ "Android - 5.1 - Nexus 6 - firefox - passed,"
+	    			+ "Android - 5.1 - Nexus 6 - firefox - passed,";
+	    	String actualBefore = nav.suite.getAllCaseNames();
+	    	assertEquals(ErrorMsg.CaseBarNameIsDifferent + "1\n", expectedBefore, actualBefore);
+	    	
+	    	nav.suite.clickBarsOrderByDevice();
+	    	String after1 = nav.suite.getAllCaseNames();
+	    	assertNotEquals(ErrorMsg.CaseBarNameIsSame + "2\n", actualBefore, after1);
+	    	
+	    	nav.suite.clickBarsOrderByDevice();
+	    	String after2 = nav.suite.getAllCaseNames();
+	    	assertNotEquals(ErrorMsg.CaseBarNameIsSame + "3\n", after1, after2);
+	    	
+//	    	System.out.println(nav.suite.getAllCaseNames());
+	    	String expected2 = "Android - 4.4.4 - HTC ONE - chrome - failure,"
+	    			+ "Android - 4.4.4 - HTC ONE - chrome - failure,"
+	    			+ "Android - 4.4.4 - HTC ONE - firefox - failure,"
+	    			+ "Android - 4.4.4 - HTC ONE - firefox - failure,"
+	    			+ "IOS - 8.1 - iPhone 6 - chrome - failure,"
+	    			+ "IOS - 8.1 - iPhone 6 - chrome - failure,"
+	    			+ "IOS - 8.1 - iPhone 6 - firefox - failure,"
+	    			+ "IOS - 8.1 - iPhone 6 - firefox - failure,"
+	    			+ "Android - 5.1 - Nexus 6 - chrome - passed,"
+	    			+ "Android - 5.1 - Nexus 6 - chrome - passed,"
+	    			+ "Android - 5.1 - Nexus 6 - firefox - passed,"
+	    			+ "Android - 5.1 - Nexus 6 - firefox - passed,"
+	    			+ "Ubuntu - 14.04 - UNKNOWN - chrome - error,"
+	    			+ "Ubuntu - 14.04 - UNKNOWN - chrome - error,"
+	    			+ "Ubuntu - 14.04 - UNKNOWN - firefox - error,"
+	    			+ "Ubuntu - 14.04 - UNKNOWN - firefox - error,";
+	    	assertEquals(ErrorMsg.CaseBarNameIsDifferent + "4\n", expected2, after2);
+	    	
+	    	nav.suite.clickBarsOrderByDevice();
+	    	String after3 = nav.suite.getAllCaseNames();
+	    	assertEquals(ErrorMsg.CaseBarNameIsDifferent + "5\n", after1, after3);
+	    }
+	    
 	    /* ID: REP-A.02.17
 	     * Edited: 2015-06-25
 	     */
@@ -82,17 +191,17 @@ public class SuitePage {
         	nav.suite.clickOnBar("class", "0");
         	String expectedBefore1 = "random1,random3,random2,random4,";
         	String actualBefore1 = nav.suite.getAllBarNames("method");
-        	System.out.println("All bar names before rearrange1: \n" + actualBefore1);
+//        	System.out.println("All bar names before rearrange1: \n" + actualBefore1);
         	assertEquals(ErrorMsg.MethodBarNameIsDifferent + "1 \n",expectedBefore1, actualBefore1);
         	
         	nav.suite.clickBarsOrderByName();
         	String after1 = nav.suite.getAllBarNames("method");
-        	System.out.println("All bar names after rearrange1: \n" + after1);
+//        	System.out.println("All bar names after rearrange1: \n" + after1);
         	assertNotEquals(ErrorMsg.MethodBarNameIsSame + "2 \n",actualBefore1, after1);
         	
         	nav.suite.clickBarsOrderByName();
         	String after2 = nav.suite.getAllBarNames("method");
-        	System.out.println("All bar names after rearrange2: \n" + after2);
+//        	System.out.println("All bar names after rearrange2: \n" + after2);
         	assertNotEquals(ErrorMsg.MethodBarNameIsSame + "3 \n",after1, after2);
         	
         	String expected2 = "random4,random3,random2,random1,";
@@ -100,7 +209,7 @@ public class SuitePage {
         	
         	nav.suite.clickBarsOrderByName();
         	String after3 = nav.suite.getAllBarNames("method");
-        	System.out.println("All bar names after rearrange3: \n" + after3);
+//        	System.out.println("All bar names after rearrange3: \n" + after3);
         	assertEquals(ErrorMsg.MethodBarNameIsDifferent + "5 \n",after1, after3);
         }
         
@@ -173,6 +282,7 @@ public class SuitePage {
         	String methodName = nav.suite.getNameFrom("method", "0");
         	nav.suite.clickOnBar("method", "0");
         	assertEquals(ErrorMsg.MethodNameIsDifferent + "1 \n", methodName, nav.suite.getCurrentPossition().getText());
+        	nav.suite.getAllCaseNames();
         }
         
         /* ID:REP-A.02.04
@@ -289,7 +399,7 @@ public class SuitePage {
         	nav.suite.clickOnBar("method", "0");
         	nav.suite.filterOn("chrome");
         	int expected = 8;
-        	int actual = nav.suite.getSizeOfCaseList();
+        	int actual = nav.suite.getCaseList().size();
         	nav.suite.waitForCaseListSize(expected);
         	assertEquals(ErrorMsg.CaseListSizeIsDifferent + "1 \n", expected, actual);
         }
