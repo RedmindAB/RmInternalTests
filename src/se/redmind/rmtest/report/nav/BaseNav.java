@@ -33,11 +33,11 @@ abstract class BaseNav extends HTMLPage{
 	}
 	
 	public WebElement getGraphView(){
-		return this.driver.findElement(By.id("graph_view"));
+		return this.driver.findElement(By.id("reports"));
 	}
 	
 	public WebElement getScreenshot(){
-		return this.driver.findElement(By.id("screenshot_view"));
+		return this.driver.findElement(By.id("visual"));
 	}
 
 	public void click(WebElement element){

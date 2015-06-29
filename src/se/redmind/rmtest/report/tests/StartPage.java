@@ -83,7 +83,7 @@ public class StartPage {
 	    /* ID: STA-A.01.02
 	     * Edited: 2015-06-11
 	     */
-	    @Ignore
+	    
 	    @Test
 	    public void isScreenshotPresent(){
 	    	WebElement screenshot = this.nav.getScreenshot();
@@ -94,7 +94,7 @@ public class StartPage {
 	    /* ID: STA-A.01.03
 	     * Edited: 2015-06-11
 	     */
-	    @Ignore
+	    
 	    @Test
 	    public void isGraphViewPresent(){
 	    	WebElement graphView = this.nav.getGraphView();

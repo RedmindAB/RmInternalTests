@@ -476,15 +476,14 @@ public class SuitePage {
         	assertEquals(ErrorMsg.StackTraceIsDifferent + "1 \n", expected, stackTrace);
         }
         
-        @Ignore
-        /* ID:REP-A.02.07
+         /* ID:REP-A.02.07
 	     * Edited: 2015-04-21
 	     */
         @Test 
         public void test_CheckClass(){
         	nav.suite.checkBoxOn("class", "0");
         	nav.option.reloadGraph();
-        	String expectedName = "Android";
+        	String expectedName = "LongerTestSuite";
         	int expectedSize = 1;
         	String actualName = nav.graph.getLegendListItem(0).getText();
         	int actualSize = nav.graph.getLegendList().size();
