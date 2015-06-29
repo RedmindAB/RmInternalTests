@@ -74,6 +74,9 @@ public class SuitePage {
 	    	this.nav = new GraphNav(tDriver);
 	    }
 	    
+	    /* ID: REP-A.02.20
+	     * Edited: 2015-06-26
+	     */
 	    @Test
 	    public void test_OrderCasesByPlatform(){
 	    	nav.suite.clickOnBar("class", "0");
@@ -128,6 +131,9 @@ public class SuitePage {
 	    	assertEquals(ErrorMsg.CaseBarNameIsDifferent + "5\n",after1, after3);
 	    }
 	    
+	    /* ID: REP-A.02.21
+	     * Edited: 2015-06-26
+	     */
 	    @Test
 	    public void test_OrderCasesByDevice(){
 	    	nav.suite.clickOnBar("class", "0");
@@ -183,6 +189,9 @@ public class SuitePage {
 	    	assertEquals(ErrorMsg.CaseBarNameIsDifferent + "5\n", after1, after3);
 	    }
 	    
+	    /* ID: REP-A.02.22
+	     * Edited: 2015-06-26
+	     */
 	    @Test
 	    public void test_OrderCasesByBrowser(){
 	    	nav.suite.clickOnBar("class", "0");
@@ -238,6 +247,9 @@ public class SuitePage {
 	    	assertEquals(ErrorMsg.CaseBarNameIsDifferent + "5\n", after1, after3);
 	    }
 	    
+	    /* ID: REP-A.02.02
+	     * Edited: 2015-06-26
+	     */
 	    @Test
 	    public void test_OrderCasesByRuntime(){
 	    	nav.suite.clickOnBar("class", "0");
@@ -263,6 +275,9 @@ public class SuitePage {
 	    	assertEquals(ErrorMsg.RuntimeIsDifferent + "5\n", after1, after3);
 	    }
 	    
+	    /* ID: REP-A.02.23
+	     * Edited: 2015-06-26
+	     */
 	    @Test
 	    public void test_OrderCasesByPassFail(){
 	    	nav.suite.clickOnBar("class", "0");
