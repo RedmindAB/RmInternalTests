@@ -476,8 +476,7 @@ public class SuitePage {
         	assertEquals(ErrorMsg.StackTraceIsDifferent + "1 \n", expected, stackTrace);
         }
         
-        @Ignore
-        /* ID:REP-A.02.07
+         /* ID:REP-A.02.07
 	     * Edited: 2015-04-21
 	     */
         @Test 
