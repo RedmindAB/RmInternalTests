@@ -483,7 +483,7 @@ public class SuitePage {
         public void test_CheckClass(){
         	nav.suite.checkBoxOn("class", "0");
         	nav.option.reloadGraph();
-        	String expectedName = "Android";
+        	String expectedName = "LongerTestSuite";
         	int expectedSize = 1;
         	String actualName = nav.graph.getLegendListItem(0).getText();
         	int actualSize = nav.graph.getLegendList().size();
