@@ -101,7 +101,9 @@ public class SuiteController extends BaseController {
 	
 	public void checkBoxOn(String type, String index){
 		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id(type+"-name-"+index)));
-		getElementByID("checkbox"+index).click();
+		WebElement element =getElementByID("checkbox"+index);
+		WebElement box = element.findElement(By.tagName("span"));
+		box.click();
 	}
 	
 	public void clickThisTestOnly(String index){
