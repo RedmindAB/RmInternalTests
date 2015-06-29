@@ -491,8 +491,7 @@ public class SuitePage {
         	assertEquals(ErrorMsg.LegendListSize + "2 \n", expectedSize, actualSize);
         }
         
-        @Ignore
-        /* ID:REP-A.02.03
+         /* ID:REP-A.02.03
 	     * Edited: 2015-04-21
 	     */
         @Test 
