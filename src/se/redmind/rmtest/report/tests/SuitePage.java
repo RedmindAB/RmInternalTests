@@ -600,6 +600,18 @@ public class SuitePage {
 	    	assertEquals(ErrorMsg.MethodBarTextIsDifferent + "1 \n", expectedAll, actualAll);
 	    }
 	    
+	    /**
+         * ID: REP-A.01.24
+         * Edited: 2015-06-11
+         * Purpose: Makes sure that the projects name in the suite part redirects back to the start/home page
+         */
+        @Test
+        public void test_ClickOnSuiteLink(){
+        	nav.suite.ClickOnSuiteLinkText();
+        	String actual = nav.graph.getUrl();
+        	assertTrue(ErrorMsg.PageRedirect + "1 \n", actual.endsWith("/#/home"));
+        }
+	    
 	    @Ignore
 	    @Test
 	    public void test_BreakOnBrowserDispTime(){
