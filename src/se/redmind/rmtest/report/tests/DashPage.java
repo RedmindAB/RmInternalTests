@@ -66,8 +66,10 @@ public class DashPage {
 	    	this.nav = new DashNav(tDriver);
 	    }
 	    
-	    /* ID: DASH-A.01.01
+	    /**
+	     * ID: DASH-A.01.01
          * Edited: 2015-06-11
+         * Purpose: Makes sure that only the selected tests defined by passed/skipped/failed are displayed in the graph
          */
 	    @Test
 	    public void test_filterOnGraph(){
@@ -85,8 +87,11 @@ public class DashPage {
 	    	assertTrue(ErrorMsg.ShouldNotBeEnabled + "6 \n", !nav.dash.isEnabled("failed"));
 	    }
 	    
-//	    ID: DASH-A-01-02
-//	    Edited 2015-06-22
+	    /**
+	     * ID: DASH-A-01-02
+	     * Edited 2015-06-22
+	     * Purpose: Makes sure that if you load another project the new project is displayed on the Dashboard page and that you are not redirected
+	     */
 	    @Test
 	    public void test_loadAnotherProject(){
 	    	String nameBefore = nav.dash.getProjectName();
@@ -96,8 +101,11 @@ public class DashPage {
 	    	assertTrue(ErrorMsg.PageRedirect + "2 \n", nav.dash.getUrl().endsWith("/#/dashboard"));
 	    }
 	    
-//	    ID: DASH-A-01-03
-//	    Edited 2015-06-22
+	    /**
+	     * ID: DASH-A-01-03
+	     * Edited 2015-06-22
+	     * Purpose: Makes sure that you are redirected to reports when you click on a column in the graph
+	     */
 	    @Test
 	    public void test_clickOnGraphColumn(){
 	    	String nameBefore = nav.dash.getProjectName();
