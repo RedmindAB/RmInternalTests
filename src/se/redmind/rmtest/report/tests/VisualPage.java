@@ -71,8 +71,8 @@ public class VisualPage {
 	    
 	    /**
 	     * ID: VIS-A.01.03
-	     * Edited: 2015-06-09 
-	     * Purpose: Makes sure that you can open the "Console prints" modal
+	     * <br> Edited: 2015-06-09 
+	     * <br> Purpose: Makes sure that you can open the "Console prints" modal
 	     */
 	    @Test
 	    public void openSysos(){
@@ -82,8 +82,8 @@ public class VisualPage {
 
 	    /**
 	     * ID: VIS-A.01.06
-		 * Edited: 2015-06-09
-		 * Purpose: Makes sure that you can close the "Console prints" modal
+		 * <br> Edited: 2015-06-09
+		 * <br> Purpose: Makes sure that you can close the "Console prints" modal
 		 */
 		@Test
 		public void openCloseSyso(){
@@ -94,8 +94,8 @@ public class VisualPage {
 		
 		/**
 		 * ID: VIS-A.01.01
-		 * Edited: 2015-06-09
-		 * Purpose: Makes sure that "Classes" text/button (in "Home/Classes/Methods") redirects you to classes in visualizer
+		 * <br> Edited: 2015-06-09
+		 * <br> Purpose: Makes sure that "Classes" text/button (in "Home/Classes/Methods") redirects you to classes in visualizer
 		 */
 		@Test
 		public void chooseAnotherScope(){
@@ -108,8 +108,8 @@ public class VisualPage {
 		
 		/**
 		 * ID: VIS-A.01.02
-		 * Edited: 2015-06-09
-		 * Purpose: Makes sure that you are able to change timestamp
+		 * <br> Edited: 2015-06-09
+		 * <br> Purpose: Makes sure that you are able to change timestamp
 		 */
 		@Test
 		public void chooseTimestamp(){
@@ -120,8 +120,8 @@ public class VisualPage {
 		
 	    /**
 	     * ID: VIS-A.01.05
-		 * Edited: 2015-06-09
-		 * Purpose: Makes sure you are able to change project
+		 * <br> Edited: 2015-06-09
+		 * <br> Purpose: Makes sure you are able to change project
 		 */
 	    @Test
 	    public void changeProject(){
@@ -131,8 +131,8 @@ public class VisualPage {
 		
 	    /**
 	     * ID: VIS-A.01.04
-		 * Edited: 2015-06-09
-		 * Purpose: Makes sure that there is a thumbnail of a screenshot
+		 * <br> Edited: 2015-06-09
+		 * <br> Purpose: Makes sure that there is a thumbnail of a screenshot
 		 */
 		@Test
 		public void isThumbnailPresent(){

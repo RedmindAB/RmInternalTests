@@ -74,8 +74,8 @@ public class NavbarPage {
 	    
 	    /**
 	     * ID: GRID-A.01.01
-		 * Edited: 2015-06-09
-		 * Purpose: Makes sure you are redirected to the grid page when you click on the Grid button in the navbar
+		 * <br> Edited: 2015-06-09
+		 * <br> Purpose: Makes sure you are redirected to the grid page when you click on the Grid button in the navbar
 		 */
 	    @Test
 	    public void test_goToGrid(){
@@ -86,8 +86,8 @@ public class NavbarPage {
 	    
 	    /**
 	     * ID: GRID-A.01.02
-		 * Edited: 2015-06-09
-		 * Purpose: Makes sure you are redirected to the admin page when you click on the Admin button in the navbar
+		 * <br> Edited: 2015-06-09
+		 * <br> Purpose: Makes sure you are redirected to the admin page when you click on the Admin button in the navbar
 		 */
 	    @Test
 	    public void test_goToAdmin(){
@@ -98,8 +98,8 @@ public class NavbarPage {
 	    
 	    /**
 	     * ID: GRID-A.01.03
-		 * Edited: 2015-06-09
-		 * Purpose: Makes sure you are redirected to the dashboard page when you click on the Dashboard button in the navbar
+		 * <br> Edited: 2015-06-09
+		 * <br> Purpose: Makes sure you are redirected to the dashboard page when you click on the Dashboard button in the navbar
 		 */
 	    @Test
 	    public void test_goToDashboard(){
@@ -111,8 +111,8 @@ public class NavbarPage {
 	    
 	    /**
 	     * ID: GRID-A.01.07
-		 * Edited: 2015-06-09
-		 * Purpose: Makes sure that the project is changed when you change project in the navbar
+		 * <br> Edited: 2015-06-09
+		 * <br> Purpose: Makes sure that the project is changed when you change project in the navbar
 		 */
 	    @Test
 	    public void test_changeProject(){
@@ -124,8 +124,8 @@ public class NavbarPage {
 	    
 	    /**
 	     * ID: GRID-A.01.04
-		 * Edited: 2015-06-09
-		 * Purpose: Makes sure you are redirected to the home/start page when you click on the Redmind logo in the navbar
+		 * <br> Edited: 2015-06-09
+		 * <br> Purpose: Makes sure you are redirected to the home/start page when you click on the Redmind logo in the navbar
 		 */
 	    @Test
 	    public void test_clickLogo(){
@@ -137,8 +137,8 @@ public class NavbarPage {
 	    
 	    /**
 	     * ID: GRID-A.01.05
-		 * Edited: 2015-06-09
-		 * Purpose: Makes sure you are redirected to the reports page when you click on the Reports button in the navbar
+		 * <br> Edited: 2015-06-09
+		 * <br> Purpose: Makes sure you are redirected to the reports page when you click on the Reports button in the navbar
 		 */
 	    @Test
 	    public void test_goToReports(){
@@ -150,8 +150,8 @@ public class NavbarPage {
 	    
 	    /**
 	     * ID: GRID-A.01.06
-		 * Edited: 2015-06-09
-		 * Purpose: Makes sure you are redirected to the visualizer page when you click on the Visualizer button in the navbar
+		 * <br> Edited: 2015-06-09
+		 * <br> Purpose: Makes sure you are redirected to the visualizer page when you click on the Visualizer button in the navbar
 		 */
 	    @Test
 	    public void test_goToVisualizer(){
@@ -163,8 +163,8 @@ public class NavbarPage {
 	    
 	    /**
 	     * ID: GRID-A.01.08
-		 * Edited: 2015-06-09
-		 * Purpose: Makes sure that the timestamp has been changed when you change timestamp
+		 * <br> Edited: 2015-06-09
+		 * <br> Purpose: Makes sure that the timestamp has been changed when you change timestamp
 		 */
 	    @Test
 	    public void test_changeTimestamp(){
@@ -178,8 +178,8 @@ public class NavbarPage {
 	    
 	    /**
 	     * ID: GRID-A.01.09
-		 * Edited: 2015-06-09
-		 * Purpose: Makes sure you are redirected to the live tests page when you click on the Live Tests button in the navbar
+		 * <br> Edited: 2015-06-09
+		 * <br> Purpose: Makes sure you are redirected to the live tests page when you click on the Live Tests button in the navbar
 		 */
 	    @Test
 	    public void test_goToLiveTests(){

@@ -75,8 +75,8 @@ public class GridPage {
 	    
 	    /**
 	     * ID: GRID-A.01.01
-	     * Edited: 2015-06-09
-	     * Purpose: Makes sure that you are able to open the json modal/grid registration info modal
+	     * <br> Edited: 2015-06-09
+	     * <br> Purpose: Makes sure that you are able to open the json modal/grid registration info modal
 	     */
 	    @Test
 	    public void test_gridGetJson(){

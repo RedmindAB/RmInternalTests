@@ -68,8 +68,8 @@ public class DashPage {
 	    
 	    /**
 	     * ID: DASH-A.01.01
-         * Edited: 2015-06-11
-         * Purpose: Makes sure that only the selected tests defined by passed/skipped/failed are displayed in the graph
+         * <br> Edited: 2015-06-11
+         * <br> Purpose: Makes sure that only the selected tests defined by passed/skipped/failed are displayed in the graph
          */
 	    @Test
 	    public void test_filterOnGraph(){
@@ -89,8 +89,8 @@ public class DashPage {
 	    
 	    /**
 	     * ID: DASH-A-01-02
-	     * Edited 2015-06-22
-	     * Purpose: Makes sure that if you load another project the new project is displayed on the Dashboard page and that you are not redirected
+	     * <br> Edited: 2015-06-22
+	     * <br> Purpose: Makes sure that if you load another project the new project is displayed on the Dashboard page and that you are not redirected
 	     */
 	    @Test
 	    public void test_loadAnotherProject(){
@@ -103,8 +103,8 @@ public class DashPage {
 	    
 	    /**
 	     * ID: DASH-A-01-03
-	     * Edited 2015-06-22
-	     * Purpose: Makes sure that you are redirected to reports when you click on a column in the graph
+	     * <br> Edited: 2015-06-22
+	     * <br> Purpose: Makes sure that you are redirected to reports when you click on a column in the graph
 	     */
 	    @Test
 	    public void test_clickOnGraphColumn(){

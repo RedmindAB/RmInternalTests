@@ -95,7 +95,7 @@ public class GraphPage {
 	    
 	    /**
 	     * ID: REP-A.01.02
-	     * Edited 2015-06-09
+	     * <br> Edited: 2015-06-09
 	     * <br> Purpose: Makes sure that the "Choose data to display" function "Total Pass" displays the correct data and that the chart title is the same as the option
 	     */
 	    @Test
@@ -108,7 +108,7 @@ public class GraphPage {
 	    
 	    /**
 	     * ID: REP-A.01.03
-	     * Edited 2015-06-09
+	     * <br> Edited: 2015-06-09
 	     * <br> Purpose: Makes sure that the "Choose data to display" function "Total Failed" displays the correct data and that the chart title is the same as the option
 	     */
 	    @Test
@@ -121,7 +121,7 @@ public class GraphPage {
 	    
 	    /**
 	     * ID: REP-A.01.04
-	     * Edited 2015-06-09
+	     * <br> Edited: 2015-06-09
 	     * <br> Purpose: Makes sure that the "Choose data to display" function "Run time" displays the correct data and that the chart title is the same as the option
 	     */
 	    @Test
@@ -134,7 +134,7 @@ public class GraphPage {
 	    
 	    /**
 	     * ID: REP-A.01.05
-	     * Edited 2015-06-09
+	     * <br> Edited: 2015-06-09
 	     * <br> Purpose: Makes sure that the "Create a line for each" function displays a line when set to "None" with no other information 
 	     */
 	    @Test
@@ -154,7 +154,7 @@ public class GraphPage {
 	    
 	    /**
 	     * ID: REP-A.01.06
-	     * Edited 2015-06-09
+	     * <br> Edited: 2015-06-09
 	     * <br> Purpose: Makes sure that "Create a line for each" function displays a line for each browser
 	     */
 	    @Test
@@ -171,7 +171,7 @@ public class GraphPage {
 	    
 	    /**
 	     * ID: REP-A.01.07
-	     * Edited 2015-06-09
+	     * <br> Edited: 2015-06-09
 	     * <br> Purpose: Makes sure that "Create a line for each" function displays a line for each version
 	     */
         @Test
@@ -188,7 +188,7 @@ public class GraphPage {
 	    
         /**
 	     * ID: REP-A.01.08
-	     * Edited 2015-06-09
+	     * <br> Edited: 2015-06-09
 	     * <br> Purpose: Makes sure that "Create a line for each" function displays a line for each device
 	     */
         @Test
@@ -205,7 +205,7 @@ public class GraphPage {
 	    
         /**
 	     * ID: REP-A.01.09
-	     * Edited 2015-06-09
+	     * <br> Edited: 2015-06-09
 	     * <br> Purpose: Makes sure that "Create a line for each" function displays a line for each platform
 	     */
         @Test
@@ -222,7 +222,7 @@ public class GraphPage {
 	    
         /**
 	     * ID: REP-A.01.10
-	     * Edited 2015-06-09
+	     * <br> Edited: 2015-06-09
 	     * <br> Purpose: Makes sure that "Choose a line to remove" function removes a line in the graph
 	     */
         @Test
@@ -243,7 +243,7 @@ public class GraphPage {
 	    
         /**
 	     * ID: REP-A.01.19
-	     * Edited 2015-06-10
+	     * <br> Edited: 2015-06-10
 	     * <br> Purpose: Makes sure that a line per device is created for a selected device defined in specifications
 	     */
         @Test
@@ -263,7 +263,7 @@ public class GraphPage {
 
         /**
 	     * ID: REP-A.01.20
-	     * Edited 2015-06-10
+	     * <br> Edited: 2015-06-10
 	     * <br> Purpose: Makes sure that a line per device is created for a selected version defined in specifications
 	     */
         @Test
@@ -283,7 +283,7 @@ public class GraphPage {
 
         /**
 	     * ID: REP-A.01.21
-	     * Edited 2015-06-10
+	     * <br> Edited: 2015-06-10
 	     * <br> Purpose: Makes sure that a line per device is created for a selected platform defined in specifications
 	     */
         @Test
@@ -306,7 +306,7 @@ public class GraphPage {
 
         /**
 	     * ID: REP-A.01.22
-	     * Edited 2015-06-10
+	     * <br> Edited: 2015-06-10
 	     * <br> Purpose: Makes sure that a line is created per version defined by a device selected in specifications
 	     */
         @Test
@@ -326,7 +326,7 @@ public class GraphPage {
 
         /**
 	     * ID: REP-A.01.22
-	     * Edited 2015-06-10
+	     * <br> Edited: 2015-06-10
 	     * <br> Purpose: Makes sure that a line per version is created per version defined by a device selected in specifications
 	     */
         @Test
@@ -346,7 +346,7 @@ public class GraphPage {
 
         /**
 	     * ID: REP-A.01.24
-	     * Edited 2015-06-10
+	     * <br> Edited: 2015-06-10
 	     * <br> Purpose: Makes sure that a line per version is created per version defined by a platform selected in specifications
 	     */
         @Test
@@ -368,7 +368,7 @@ public class GraphPage {
 
         /**
 	     * ID: REP-A.01.25
-	     * Edited 2015-06-10
+	     * <br> Edited: 2015-06-10
 	     * <br> Purpose: Makes sure that a line per platform is created per device defined by a device selected in specifications
 	     */       
         @Test
@@ -388,7 +388,7 @@ public class GraphPage {
 
         /**
 	     * ID: REP-A.01.26
-	     * Edited 2015-06-10
+	     * <br> Edited: 2015-06-10
 	     * <br> Purpose: Makes sure that a line per platform is created per platform defined by a platform selected in specifications
 	     */  
         @Test
@@ -407,7 +407,7 @@ public class GraphPage {
         
         /**
 	     * ID: REP-A.01.27
-	     * Edited 2015-06-10
+	     * <br> Edited: 2015-06-10
 	     * <br> Purpose: Makes sure that a line per platform is created per platform defined by a version selected in specifications
 	     */ 
         @Test
@@ -427,7 +427,7 @@ public class GraphPage {
         
         /**
 	     * ID: REP-A.01.28
-	     * Edited 2015-06-10
+	     * <br> Edited: 2015-06-10
 	     * <br> Purpose: Makes sure that a line per platform is created per platform defined by multiple platforms selected in specifications
 	     */ 
         @Test
@@ -451,7 +451,7 @@ public class GraphPage {
         
         /**
 	     * ID: REP-A.01.29
-	     * Edited 2015-06-10
+	     * <br> Edited: 2015-06-10
 	     * <br> Purpose: Makes sure that a line per browser is created per browser defined by a browser selected in specifications
 	     */ 
         @Test

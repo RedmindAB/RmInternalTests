@@ -72,8 +72,8 @@ public class StartPage {
 	    
 	    /**
 	     * ID: STA-A.01.01
-	     * Edited: 2015-06-11
-	     * Purpose: Makes sure that the Redmind logo is present and takes a screenshot
+	     * <br> Edited: 2015-06-11
+	     * <br> Purpose: Makes sure that the Redmind logo is present and takes a screenshot
 	     */
 	    @Test
 	    public void isRedmindLogoPresent(){
@@ -84,8 +84,8 @@ public class StartPage {
 	    
 	    /**
 	     * ID: STA-A.01.02
-	     * Edited: 2015-06-11
-	     * Purpose: Makes sure that the Visualizer button is present and takes a screenshot
+	     * <br> Edited: 2015-06-11
+	     * <br> Purpose: Makes sure that the Visualizer button is present and takes a screenshot
 	     */
 	    
 	    @Test
@@ -97,8 +97,8 @@ public class StartPage {
 	    
 	    /**
 	     * ID: STA-A.01.03
-	     * Edited: 2015-06-11
-	     * Purpose: Makes sure that Reports button is present and takes a screenshot
+	     * <br> Edited: 2015-06-11
+	     * <br> Purpose: Makes sure that Reports button is present and takes a screenshot
 	     */
 	    
 	    @Test
