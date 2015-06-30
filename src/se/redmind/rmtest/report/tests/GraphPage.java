@@ -77,8 +77,8 @@ public class GraphPage {
 	    
 	    /**
 	     * ID: REP-A.01.01
-	     * Edited: 2015-06-09
-	     * Purpose: Makes sure that the "Choose data to display" function "Pass/Fail" displays the correct data and that the chart title is the same as the option
+	     * <br> Edited: 2015-06-09
+	     * <br> Purpose: Makes sure that the "Choose data to display" function "Pass/Fail" displays the correct data and that the chart title is the same as the option
 	     */
 	    @Test
 	    public void test_ShowPassFail() {
@@ -96,7 +96,7 @@ public class GraphPage {
 	    /**
 	     * ID: REP-A.01.02
 	     * Edited 2015-06-09
-	     * Purpose: Makes sure that the "Choose data to display" function "Total Pass" displays the correct data and that the chart title is the same as the option
+	     * <br> Purpose: Makes sure that the "Choose data to display" function "Total Pass" displays the correct data and that the chart title is the same as the option
 	     */
 	    @Test
 	    public void test_TotalPass(){
@@ -109,7 +109,7 @@ public class GraphPage {
 	    /**
 	     * ID: REP-A.01.03
 	     * Edited 2015-06-09
-	     * Purpose: Makes sure that the "Choose data to display" function "Total Failed" displays the correct data and that the chart title is the same as the option
+	     * <br> Purpose: Makes sure that the "Choose data to display" function "Total Failed" displays the correct data and that the chart title is the same as the option
 	     */
 	    @Test
 	    public void test_TotalFailed(){
@@ -122,7 +122,7 @@ public class GraphPage {
 	    /**
 	     * ID: REP-A.01.04
 	     * Edited 2015-06-09
-	     * Purpose: Makes sure that the "Choose data to display" function "Run time" displays the correct data and that the chart title is the same as the option
+	     * <br> Purpose: Makes sure that the "Choose data to display" function "Run time" displays the correct data and that the chart title is the same as the option
 	     */
 	    @Test
 	    public void test_RunTime(){
@@ -135,7 +135,7 @@ public class GraphPage {
 	    /**
 	     * ID: REP-A.01.05
 	     * Edited 2015-06-09
-	     * Purpose: Makes sure that the "Create a line for each" function displays a line when set to "None" with no other information 
+	     * <br> Purpose: Makes sure that the "Create a line for each" function displays a line when set to "None" with no other information 
 	     */
 	    @Test
 	    public void test_CreateALine(){
@@ -155,7 +155,7 @@ public class GraphPage {
 	    /**
 	     * ID: REP-A.01.06
 	     * Edited 2015-06-09
-	     * Purpose: Makes sure that "Create a line for each" function displays a line for each browser
+	     * <br> Purpose: Makes sure that "Create a line for each" function displays a line for each browser
 	     */
 	    @Test
 	    public void test_BreakOnBrowser(){
@@ -172,7 +172,7 @@ public class GraphPage {
 	    /**
 	     * ID: REP-A.01.07
 	     * Edited 2015-06-09
-	     * Purpose: Makes sure that "Create a line for each" function displays a line for each version
+	     * <br> Purpose: Makes sure that "Create a line for each" function displays a line for each version
 	     */
         @Test
 	    public void test_BreakOnVersion(){
@@ -189,7 +189,7 @@ public class GraphPage {
         /**
 	     * ID: REP-A.01.08
 	     * Edited 2015-06-09
-	     * Purpose: Makes sure that "Create a line for each" function displays a line for each device
+	     * <br> Purpose: Makes sure that "Create a line for each" function displays a line for each device
 	     */
         @Test
 	    public void test_BreakOnDevice(){
@@ -206,7 +206,7 @@ public class GraphPage {
         /**
 	     * ID: REP-A.01.09
 	     * Edited 2015-06-09
-	     * Purpose: Makes sure that "Create a line for each" function displays a line for each platform
+	     * <br> Purpose: Makes sure that "Create a line for each" function displays a line for each platform
 	     */
         @Test
 	    public void test_BreakOnPlatform(){
@@ -223,7 +223,7 @@ public class GraphPage {
         /**
 	     * ID: REP-A.01.10
 	     * Edited 2015-06-09
-	     * Purpose: Makes sure that "Choose a line to remove" function removes a line in the graph
+	     * <br> Purpose: Makes sure that "Choose a line to remove" function removes a line in the graph
 	     */
         @Test
 	    public void test_RemoveALine(){
@@ -244,7 +244,7 @@ public class GraphPage {
         /**
 	     * ID: REP-A.01.19
 	     * Edited 2015-06-10
-	     * Purpose: Makes sure that a line per device is created for a selected device defined in specifications
+	     * <br> Purpose: Makes sure that a line per device is created for a selected device defined in specifications
 	     */
         @Test
 	    public void test_SpecificationsDevice_CheckDevice(){
@@ -264,7 +264,7 @@ public class GraphPage {
         /**
 	     * ID: REP-A.01.20
 	     * Edited 2015-06-10
-	     * Purpose: Makes sure that a line per device is created for a selected version defined in specifications
+	     * <br> Purpose: Makes sure that a line per device is created for a selected version defined in specifications
 	     */
         @Test
 	    public void test_SpecificationsDevice_CheckVersion(){
@@ -284,7 +284,7 @@ public class GraphPage {
         /**
 	     * ID: REP-A.01.21
 	     * Edited 2015-06-10
-	     * Purpose: Makes sure that a line per device is created for a selected platform defined in specifications
+	     * <br> Purpose: Makes sure that a line per device is created for a selected platform defined in specifications
 	     */
         @Test
         public void test_SpecificationsDevice_CheckPlatform(){
@@ -307,7 +307,7 @@ public class GraphPage {
         /**
 	     * ID: REP-A.01.22
 	     * Edited 2015-06-10
-	     * Purpose: Makes sure that a line is created per version defined by a device selected in specifications
+	     * <br> Purpose: Makes sure that a line is created per version defined by a device selected in specifications
 	     */
         @Test
 	    public void test_Specifications_CheckDeviceGetVersion(){
@@ -327,7 +327,7 @@ public class GraphPage {
         /**
 	     * ID: REP-A.01.22
 	     * Edited 2015-06-10
-	     * Purpose: Makes sure that a line per version is created per version defined by a device selected in specifications
+	     * <br> Purpose: Makes sure that a line per version is created per version defined by a device selected in specifications
 	     */
         @Test
 	    public void test_Specifications_Version(){
@@ -347,7 +347,7 @@ public class GraphPage {
         /**
 	     * ID: REP-A.01.24
 	     * Edited 2015-06-10
-	     * Purpose: Makes sure that a line per version is created per version defined by a platform selected in specifications
+	     * <br> Purpose: Makes sure that a line per version is created per version defined by a platform selected in specifications
 	     */
         @Test
   	    public void test_Specifications_VersionPlatform(){
@@ -369,7 +369,7 @@ public class GraphPage {
         /**
 	     * ID: REP-A.01.25
 	     * Edited 2015-06-10
-	     * Purpose: Makes sure that a line per platform is created per device defined by a device selected in specifications
+	     * <br> Purpose: Makes sure that a line per platform is created per device defined by a device selected in specifications
 	     */       
         @Test
 	    public void test_Specifications_CheckDeviceGetPlatform(){
@@ -389,7 +389,7 @@ public class GraphPage {
         /**
 	     * ID: REP-A.01.26
 	     * Edited 2015-06-10
-	     * Purpose: Makes sure that a line per platform is created per platform defined by a platform selected in specifications
+	     * <br> Purpose: Makes sure that a line per platform is created per platform defined by a platform selected in specifications
 	     */  
         @Test
 	    public void test_Specifications_Platform(){
@@ -408,7 +408,7 @@ public class GraphPage {
         /**
 	     * ID: REP-A.01.27
 	     * Edited 2015-06-10
-	     * Purpose: Makes sure that a line per platform is created per platform defined by a version selected in specifications
+	     * <br> Purpose: Makes sure that a line per platform is created per platform defined by a version selected in specifications
 	     */ 
         @Test
  	    public void test_Specifications_PlatformVersion(){
@@ -428,7 +428,7 @@ public class GraphPage {
         /**
 	     * ID: REP-A.01.28
 	     * Edited 2015-06-10
-	     * Purpose: Makes sure that a line per platform is created per platform defined by multiple platforms selected in specifications
+	     * <br> Purpose: Makes sure that a line per platform is created per platform defined by multiple platforms selected in specifications
 	     */ 
         @Test
  	    public void test_SpecificationsPlatform_CheckAndroidIOS(){
@@ -452,7 +452,7 @@ public class GraphPage {
         /**
 	     * ID: REP-A.01.29
 	     * Edited 2015-06-10
-	     * Purpose: Makes sure that a line per browser is created per browser defined by a browser selected in specifications
+	     * <br> Purpose: Makes sure that a line per browser is created per browser defined by a browser selected in specifications
 	     */ 
         @Test
         public void test_SpecificationsBrowser_CheckChrome(){
@@ -470,8 +470,10 @@ public class GraphPage {
         
 //      Ignored for time being because it does the same thing as ID: VIS-A.01.02, waiting for more fluctuent test data
         
-        /* ID: REP-A.01.34
-         * Edited: 2015-06-11
+        /**
+         * ID: REP-A.01.34
+         * <br> Edited: 2015-06-11
+         * <br> Purpose: Makes sure you are able to change timestamp
          */
 		@Ignore
         @Test
@@ -483,8 +485,8 @@ public class GraphPage {
         
         /**
          * ID: REP-A.01.31
-         * Edited: 2015-06-11
-         * Purpose: Makes sure that the "Clear all checkboxes" button works as intended after a browser has been selected in the specifications menu
+         * <br> Edited: 2015-06-11
+         * <br> Purpose: Makes sure that the "Clear all checkboxes" button works as intended after a browser has been selected in the specifications menu
          */
 	    @Test
 	    public void test_ClearCheckBoxesBrowser(){
@@ -500,8 +502,8 @@ public class GraphPage {
 	    
 	    /**
 	     * ID: REP-A.01.32
-         * Edited: 2015-06-11
-         * Purpose: Makes sure that the "Clear all checkboxes" button works as intended after a platform has been selected in the specifications menu
+         * <br> Edited: 2015-06-11
+         * <br> Purpose: Makes sure that the "Clear all checkboxes" button works as intended after a platform has been selected in the specifications menu
          */
 	    @Test
 	    public void test_ClearCheckBoxesPlatform(){
@@ -517,8 +519,8 @@ public class GraphPage {
 	    
 	    /**
 	     * ID: REP-A.01.38
-         * Edited: 2015-06-11
-         * Purpose: Makes sure that the "Clear all checkboxes" button works as intended after a version has been selected in the specifications menu
+         * <br> Edited: 2015-06-11
+         * <br> Purpose: Makes sure that the "Clear all checkboxes" button works as intended after a version has been selected in the specifications menu
          */
 	    @Test
 	    public void test_ClearCheckBoxesVersion(){
@@ -535,8 +537,8 @@ public class GraphPage {
 	    
 	    /**
 	     * ID: REP-A.01.33
-         * Edited: 2015-06-11
-         * Purpose: Makes sure that the "Clear all checkboxes" button works as intended after a device has been selected in the specifications menu
+         * <br> Edited: 2015-06-11
+         * <br> Purpose: Makes sure that the "Clear all checkboxes" button works as intended after a device has been selected in the specifications menu
          */
 	    @Test
 	    public void test_ClearCheckBoxesDevice(){
@@ -553,8 +555,8 @@ public class GraphPage {
 	    
 	    /**
 	     * ID: REP-A.01.11
-         * Edited: 2015-06-10
-         * Purpose: Makes sure that the "Choose amount to load" option works as intended and that the chart sub title is changed
+         * <br> Edited: 2015-06-10
+         * <br> Purpose: Makes sure that the "Choose amount to load" option works as intended and that the chart sub title is changed
          */
 	    @Test
 	    public void test_changeRunLimit_10(){
@@ -567,8 +569,8 @@ public class GraphPage {
 	    
 	    /**
 	     * ID: REP-A.01.12
-         * Edited: 2015-06-10
-         * Purpose: Makes sure that the "Choose amount to load" option works as intended and that the chart sub title is changed
+         * <br> Edited: 2015-06-10
+         * <br> Purpose: Makes sure that the "Choose amount to load" option works as intended and that the chart sub title is changed
          */
 	    @Test
 	    public void test_changeRunLimit_20(){
@@ -581,8 +583,8 @@ public class GraphPage {
 	    
 	    /**
 	     * ID: REP-A.01.13
-         * Edited: 2015-06-10
-         * Purpose: Makes sure that the "Choose amount to load" option works as intended and that the chart sub title is changed
+         * <br> Edited: 2015-06-10
+         * <br> Purpose: Makes sure that the "Choose amount to load" option works as intended and that the chart sub title is changed
          */
 	    @Test
 	    public void test_changeRunLimit_50(){
@@ -595,8 +597,8 @@ public class GraphPage {
 	    
 	    /**
 	     * ID: REP-A.01.14
-         * Edited: 2015-06-10
-         * Purpose: Makes sure that the "Choose amount to load" option works as intended and that the chart sub title is changed
+         * <br> Edited: 2015-06-10
+         * <br> Purpose: Makes sure that the "Choose amount to load" option works as intended and that the chart sub title is changed
          */
 	    @Test
 	    public void test_changeRunLimit_100(){
@@ -609,8 +611,8 @@ public class GraphPage {
 	    
 	    /**
 	     * ID: REP-A.01.15
-         * Edited: 2015-06-10
-         * Purpose: Makes sure that the "Choose amount to load" option works as intended and that the chart sub title is changed
+         * <br> Edited: 2015-06-10
+         * <br> Purpose: Makes sure that the "Choose amount to load" option works as intended and that the chart sub title is changed
          */
 	    @Test
 	    public void test_changeRunLimit_500(){
@@ -626,8 +628,8 @@ public class GraphPage {
 
 	    /**
 	     * ID: REP-A.01.16
-         * Edited: 2015-06-10
-         * Purpose: Makes sure that the down button in the legend list works as intended when the amount of entries does not fit in the list
+         * <br> Edited: 2015-06-10
+         * <br> Purpose: Makes sure that the down button in the legend list works as intended when the amount of entries does not fit in the list
          */
 	    @Test
 	    public void test_clickLegendListDownButton(){
@@ -642,8 +644,8 @@ public class GraphPage {
 
 	    /**
 	     * ID: REP-A.01.17
-         * Edited: 2015-06-10
-         * Purpose: Makes sure that the up button in the legend list works as intended when the amount of entries does not fit in the list
+         * <br> Edited: 2015-06-10
+         * <br> Purpose: Makes sure that the up button in the legend list works as intended when the amount of entries does not fit in the list
          */
 	    @Test
 	    public void test_clickLegendListUpButton(){
@@ -659,8 +661,8 @@ public class GraphPage {
 	    
 	    /**
 	     * ID: REP-A.01.35
-         * Edited: 2015-06-11
-         * Purpose: Makes sure that the "Add choices to graph" button works as intended
+         * <br> Edited: 2015-06-11
+         * <br> Purpose: Makes sure that the "Add choices to graph" button works as intended
          */
 	    @Test
 	    public void test_AddChoicesToGraph(){
@@ -672,8 +674,8 @@ public class GraphPage {
 
 	    /**
 	     * ID: REP-A.01.36
-         * Edited: 2015-06-15
-         * Purpose: Makes sure that each column has a different color in the graph when "Choose data to display" is set to "Total Pass"
+         * <br> Edited: 2015-06-15
+         * <br> Purpose: Makes sure that each column has a different color in the graph when "Choose data to display" is set to "Total Pass"
          */
 	    @Test
 	    public void test_totalPassDifferentColors(){
@@ -691,8 +693,8 @@ public class GraphPage {
 
 	    /**
 	     * ID: REP-A.01.37
-         * Edited: 2015-06-15
-         * Purpose: Makes sure that each column has a different color in the graph when "Choose data to display" is set to "Total Fail"
+         * <br> Edited: 2015-06-15
+         * <br> Purpose: Makes sure that each column has a different color in the graph when "Choose data to display" is set to "Total Fail"
          */
 	    @Test
 	    public void test_totalFailDifferentColors(){

@@ -371,6 +371,7 @@ public class SuitePage {
         	assertEquals(ErrorMsg.MethodBarTextIsDifferent + "1 \n" ,expectedBefore1, actualBefore1);
         	
         	nav.suite.clickBarsOrderByPassed();
+        	nav.suite.clickBarsOrderByPassed();
         	String after1 = nav.suite.getAllBarStats("method", 0);
         	System.out.println("Passed order after rearrange: \n" + after1);
         	assertNotEquals(ErrorMsg.MethodBarTextIsSame + "2 \n", actualBefore1, after1);
@@ -595,6 +596,7 @@ public class SuitePage {
 	    	String expectedFailed = "12";
 	    	String expectedAll = expectedPassed + expectedSkipped + expectedFailed;
 	    	String actualAll = nav.suite.getPassedSkippedFailed("method", "0");
+	    	System.out.println(actualAll);
 	    	assertEquals(ErrorMsg.MethodBarTextIsDifferent + "1 \n", expectedAll, actualAll);
 	    }
 	    
