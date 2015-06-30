@@ -33,11 +33,11 @@ abstract class BaseNav extends HTMLPage{
 	}
 	
 	public WebElement getGraphView(){
-		return this.driver.findElement(By.id("graph_view"));
+		return this.driver.findElement(By.id("reports"));
 	}
 	
 	public WebElement getScreenshot(){
-		return this.driver.findElement(By.id("screenshot_view"));
+		return this.driver.findElement(By.id("visual"));
 	}
 
 	public void click(WebElement element){
@@ -248,6 +248,20 @@ abstract class BaseNav extends HTMLPage{
 		WebElement visualizerButton = driver.findElement(By.id(id));
 		visualizerButton.click();
 		driverFluentWait(15).until(new UrlChanged(before));
+	}
+	
+	public void goToLiveTests(){
+		String id = "live-tests_view";
+		if (isNavButtonVisible()) {
+			clickNavButton();
+			id = "live-tests_view";
+		}
+		driverFluentWait(15).until(ExpectedConditions.elementToBeClickable(By.id(id)));
+		String before = getCurrentUrl();
+		WebElement livetestsButton = driver.findElement(By.id(id));
+		livetestsButton.click();
+		driverFluentWait(15).until(new UrlChanged(before));
+		
 	}
 	
 }

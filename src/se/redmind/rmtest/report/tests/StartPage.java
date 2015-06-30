@@ -16,6 +16,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import se.redmind.rmtest.report.nav.StartNav;
+import se.redmind.rmtest.report.utils.ErrorMsg;
 import se.redmind.rmtest.selenium.framework.RMReportScreenshot;
 import se.redmind.rmtest.selenium.grid.DriverNamingWrapper;
 import se.redmind.rmtest.selenium.grid.DriverProvider;
@@ -69,20 +70,24 @@ public class StartPage {
 	    	this.nav = new StartNav(this.tDriver);
 	    }
 	    
-	    /* ID: STA-A.01.01
-	     * Edited: 2015-06-11
+	    /**
+	     * ID: STA-A.01.01
+	     * <br> Edited: 2015-06-11
+	     * <br> Purpose: Makes sure that the Redmind logo is present and takes a screenshot
 	     */
 	    @Test
 	    public void isRedmindLogoPresent(){
 	    	WebElement redmindlogo = this.nav.getRedmindLogo();
 	    	new RMReportScreenshot(urlContainer).takeScreenshot("logo");
-	    	assertTrue(redmindlogo.isDisplayed());
+	    	assertTrue(ErrorMsg.LogoNotDisplayed + "1 \n", redmindlogo.isDisplayed());
 	    }
 	    
-	    /* ID: STA-A.01.02
-	     * Edited: 2015-06-11
+	    /**
+	     * ID: STA-A.01.02
+	     * <br> Edited: 2015-06-11
+	     * <br> Purpose: Makes sure that the Visualizer button is present and takes a screenshot
 	     */
-	    @Ignore
+	    
 	    @Test
 	    public void isScreenshotPresent(){
 	    	WebElement screenshot = this.nav.getScreenshot();
@@ -90,10 +95,12 @@ public class StartPage {
 	    	assertTrue(screenshot.isDisplayed());
 	    }
 	    
-	    /* ID: STA-A.01.03
-	     * Edited: 2015-06-11
+	    /**
+	     * ID: STA-A.01.03
+	     * <br> Edited: 2015-06-11
+	     * <br> Purpose: Makes sure that Reports button is present and takes a screenshot
 	     */
-	    @Ignore
+	    
 	    @Test
 	    public void isGraphViewPresent(){
 	    	WebElement graphView = this.nav.getGraphView();

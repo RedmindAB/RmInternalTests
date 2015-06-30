@@ -15,6 +15,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.server.handler.GetCurrentUrl;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import se.redmind.rmtest.report.nav.NavbarNav;
@@ -71,8 +72,11 @@ public class NavbarPage {
 	    	this.nav = new NavbarNav(this.tDriver);
 	    }
 	    
-	    /* ID: GRID-A.01.01
-		 * Edited: 2015-06-09 */
+	    /**
+	     * ID: GRID-A.01.01
+		 * <br> Edited: 2015-06-09
+		 * <br> Purpose: Makes sure you are redirected to the grid page when you click on the Grid button in the navbar
+		 */
 	    @Test
 	    public void test_goToGrid(){
 	    	nav.goToGrid();
@@ -80,8 +84,11 @@ public class NavbarPage {
 	    	assertTrue(nav.getCurrentUrl().endsWith(expected));
 	    }
 	    
-	    /* ID: GRID-A.01.02
-		 * Edited: 2015-06-09 */
+	    /**
+	     * ID: GRID-A.01.02
+		 * <br> Edited: 2015-06-09
+		 * <br> Purpose: Makes sure you are redirected to the admin page when you click on the Admin button in the navbar
+		 */
 	    @Test
 	    public void test_goToAdmin(){
 	    	nav.goToAdmin();
@@ -89,8 +96,11 @@ public class NavbarPage {
 	    	assertTrue(nav.getCurrentUrl().endsWith(expected));
 	    }
 	    
-	    /* ID: GRID-A.01.03
-		 * Edited: 2015-06-09 */
+	    /**
+	     * ID: GRID-A.01.03
+		 * <br> Edited: 2015-06-09
+		 * <br> Purpose: Makes sure you are redirected to the dashboard page when you click on the Dashboard button in the navbar
+		 */
 	    @Test
 	    public void test_goToDashboard(){
 	    	nav.goToAdmin();
@@ -99,8 +109,11 @@ public class NavbarPage {
 	    	assertTrue(nav.getCurrentUrl().endsWith(expected));
 	    }
 	    
-	    /* ID: GRID-A.01.07
-		 * Edited: 2015-06-09 */
+	    /**
+	     * ID: GRID-A.01.07
+		 * <br> Edited: 2015-06-09
+		 * <br> Purpose: Makes sure that the project is changed when you change project in the navbar
+		 */
 	    @Test
 	    public void test_changeProject(){
 	    	nav.chooseProject(0);
@@ -109,8 +122,11 @@ public class NavbarPage {
 	    	assertEquals(expected, actual);	    	
 	    }
 	    
-	    /* ID: GRID-A.01.04
-		 * Edited: 2015-06-09 */
+	    /**
+	     * ID: GRID-A.01.04
+		 * <br> Edited: 2015-06-09
+		 * <br> Purpose: Makes sure you are redirected to the home/start page when you click on the Redmind logo in the navbar
+		 */
 	    @Test
 	    public void test_clickLogo(){
 	    	nav.goToAdmin();
@@ -119,8 +135,11 @@ public class NavbarPage {
 	    	assertTrue(nav.getCurrentUrl().endsWith(expected));
 	    }
 	    
-	    /* ID: GRID-A.01.05
-		 * Edited: 2015-06-09 */
+	    /**
+	     * ID: GRID-A.01.05
+		 * <br> Edited: 2015-06-09
+		 * <br> Purpose: Makes sure you are redirected to the reports page when you click on the Reports button in the navbar
+		 */
 	    @Test
 	    public void test_goToReports(){
 	    	nav.chooseProject(0);
@@ -129,8 +148,11 @@ public class NavbarPage {
 	    	assertTrue(nav.getCurrentUrl().endsWith(expected));
 	    }
 	    
-	    /* ID: GRID-A.01.06
-		 * Edited: 2015-06-09 */
+	    /**
+	     * ID: GRID-A.01.06
+		 * <br> Edited: 2015-06-09
+		 * <br> Purpose: Makes sure you are redirected to the visualizer page when you click on the Visualizer button in the navbar
+		 */
 	    @Test
 	    public void test_goToVisualizer(){
 	    	nav.chooseProject(0);
@@ -139,8 +161,11 @@ public class NavbarPage {
 	    	assertTrue(nav.getCurrentUrl().endsWith(expected));
 	    }
 	    
-	    /* ID: GRID-A.01.08
-		 * Edited: 2015-06-09 */
+	    /**
+	     * ID: GRID-A.01.08
+		 * <br> Edited: 2015-06-09
+		 * <br> Purpose: Makes sure that the timestamp has been changed when you change timestamp
+		 */
 	    @Test
 	    public void test_changeTimestamp(){
 	    	nav.chooseProject(0);
@@ -150,4 +175,18 @@ public class NavbarPage {
 	    	nav.chooseTimeStamp(expected);
 	    	assertEquals(expected, actual);
 	    }
+	    
+	    /**
+	     * ID: GRID-A.01.09
+		 * <br> Edited: 2015-06-09
+		 * <br> Purpose: Makes sure you are redirected to the live tests page when you click on the Live Tests button in the navbar
+		 */
+	    @Test
+	    public void test_goToLiveTests(){
+	    	nav.goToLiveTests();
+	    	String expected = "#/live-tests";
+	    	assertTrue(nav.getCurrentUrl().endsWith(expected));
+	    	
+	    }
+	    
 }

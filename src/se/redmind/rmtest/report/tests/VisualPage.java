@@ -8,6 +8,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.junit.AfterClass;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -17,6 +18,7 @@ import org.openqa.selenium.WebElement;
 
 import se.redmind.rmtest.report.nav.StartNav;
 import se.redmind.rmtest.report.nav.VisualNav;
+import se.redmind.rmtest.report.utils.ErrorMsg;
 import se.redmind.rmtest.selenium.framework.RMReportScreenshot;
 import se.redmind.rmtest.selenium.grid.DriverNamingWrapper;
 import se.redmind.rmtest.selenium.grid.DriverProvider;
@@ -67,62 +69,81 @@ public class VisualPage {
 	    	this.nav = new VisualNav(this.tDriver);
 	    }
 	    
-	    /* ID: VIS-A.01.03
-	     * Edited: 2015-06-09 */
+	    /**
+	     * ID: VIS-A.01.03
+	     * <br> Edited: 2015-06-09 
+	     * <br> Purpose: Makes sure that you can open the "Console prints" modal
+	     */
 	    @Test
 	    public void openSysos(){
 	    	nav.openSysos("class-0");
-	    	assertTrue(nav.isSysosOpen());
+	    	assertTrue(ErrorMsg.SysoDidNotOpen + "1 \n", nav.isSysosOpen());
 	    }	    
 
-	    /* ID: VIS-A.01.06
-		 * Edited: 2015-06-09 */
+	    /**
+	     * ID: VIS-A.01.06
+		 * <br> Edited: 2015-06-09
+		 * <br> Purpose: Makes sure that you can close the "Console prints" modal
+		 */
 		@Test
 		public void openCloseSyso(){
 			nav.openSysos("class-0");
 			nav.closeSysos();
-			assertTrue(nav.isSysosClosed());
+			assertTrue(ErrorMsg.SysoDidNotClose + "1 \n",nav.isSysosClosed());
 		}
 		
-		/* ID: VIS-A.01.01
-		 * Edited: 2015-06-09 */
+		/**
+		 * ID: VIS-A.01.01
+		 * <br> Edited: 2015-06-09
+		 * <br> Purpose: Makes sure that "Classes" text/button (in "Home/Classes/Methods") redirects you to classes in visualizer
+		 */
 		@Test
-		public void chooseAnotherClass(){
+		public void chooseAnotherScope(){
 			nav.chooseClass("class-0");
-			String methods = nav.getTitle();
+			String methods = nav.getMethodTitle();
 			nav.goToScopeByID("1");
-			String classes = nav.getTitle();
-			assertNotEquals(methods, classes);
+			String classes = nav.getClassTitle();
+			assertNotEquals(ErrorMsg.ScopeUnableToChange + "1 \n", methods, classes);
 		}
 		
-		/* ID: VIS-A.01.02
-		 * Edited: 2015-06-09 */
+		/**
+		 * ID: VIS-A.01.02
+		 * <br> Edited: 2015-06-09
+		 * <br> Purpose: Makes sure that you are able to change timestamp
+		 */
 		@Test
 		public void chooseTimestamp(){
 			nav.changeProject("MockedTestSuite");
 			nav.changeTimestamp("2015-01-01 08:00");
-			assertEquals("2015-01-01 08:00" ,nav.getCurrentTimestamp());	
+			assertEquals(ErrorMsg.TimestampIsDifferent + "1 \n", "2015-01-01 08:00" ,nav.getCurrentTimestamp());	
 		}
 		
-	    /* ID: VIS-A.01.05
-		 * Edited: 2015-06-09 */
+	    /**
+	     * ID: VIS-A.01.05
+		 * <br> Edited: 2015-06-09
+		 * <br> Purpose: Makes sure you are able to change project
+		 */
 	    @Test
 	    public void changeProject(){
 			nav.changeProject("MockedTestSuite");
-			assertEquals("MockedTestSuite", nav.getCurrentProjectName());	
+			assertEquals(ErrorMsg.ProjectNameIsDifferent + "1 \n", "MockedTestSuite", nav.getCurrentProjectName());	
 	    }
 		
-	    /* ID: VIS-A.01.04
-		 * Edited: 2015-06-09 */
+	    /**
+	     * ID: VIS-A.01.04
+		 * <br> Edited: 2015-06-09
+		 * <br> Purpose: Makes sure that there is a thumbnail of a screenshot
+		 */
 		@Test
 		public void isThumbnailPresent(){
 			nav.changeProject("MockedTestSuite");
 			nav.changeTimestamp("2015-01-01 08:00");
 			nav.chooseClass("class-0");
 			nav.openMethod("0");
-			assertTrue(nav.isThumbnailPresent("0"));
+			assertTrue(ErrorMsg.ScreenshotThumbnailNotPresent + "1 \n", nav.isThumbnailPresent("0"));
 		}
-		/*
+		
+		@Ignore
 		@Test
 		public void isScreenShotPresent(){
 			nav.changeProject("LongerTestSuite");
@@ -133,8 +154,8 @@ public class VisualPage {
 			nav.waitForSlideAnimation();
 			assertTrue(nav.isScreenshotPresent());
 		} 
-		*/
-		/*
+		
+		@Ignore
 		@Test
 		public void isScreenShotSwitched(){
 			nav.changeProject("LongerTestSuite");
@@ -144,7 +165,7 @@ public class VisualPage {
 			nav.openScreenshot("0");
 			assertTrue(nav.isScreenShotSwitched());
 		}
-		*/
+		
 }
 
 
