@@ -70,8 +70,10 @@ public class StartPage {
 	    	this.nav = new StartNav(this.tDriver);
 	    }
 	    
-	    /* ID: STA-A.01.01
+	    /**
+	     * ID: STA-A.01.01
 	     * Edited: 2015-06-11
+	     * Purpose: Makes sure that the Redmind logo is present and takes a screenshot
 	     */
 	    @Test
 	    public void isRedmindLogoPresent(){
@@ -80,8 +82,10 @@ public class StartPage {
 	    	assertTrue(ErrorMsg.LogoNotDisplayed + "1 \n", redmindlogo.isDisplayed());
 	    }
 	    
-	    /* ID: STA-A.01.02
+	    /**
+	     * ID: STA-A.01.02
 	     * Edited: 2015-06-11
+	     * Purpose: Makes sure that the Visualizer button is present and takes a screenshot
 	     */
 	    
 	    @Test
@@ -91,8 +95,10 @@ public class StartPage {
 	    	assertTrue(screenshot.isDisplayed());
 	    }
 	    
-	    /* ID: STA-A.01.03
+	    /**
+	     * ID: STA-A.01.03
 	     * Edited: 2015-06-11
+	     * Purpose: Makes sure that Reports button is present and takes a screenshot
 	     */
 	    
 	    @Test

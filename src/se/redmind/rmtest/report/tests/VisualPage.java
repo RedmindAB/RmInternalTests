@@ -69,16 +69,22 @@ public class VisualPage {
 	    	this.nav = new VisualNav(this.tDriver);
 	    }
 	    
-	    /* ID: VIS-A.01.03
-	     * Edited: 2015-06-09 */
+	    /**
+	     * ID: VIS-A.01.03
+	     * Edited: 2015-06-09 
+	     * Purpose: Makes sure that you can open the "Console prints" modal
+	     */
 	    @Test
 	    public void openSysos(){
 	    	nav.openSysos("class-0");
 	    	assertTrue(ErrorMsg.SysoDidNotOpen + "1 \n", nav.isSysosOpen());
 	    }	    
 
-	    /* ID: VIS-A.01.06
-		 * Edited: 2015-06-09 */
+	    /**
+	     * ID: VIS-A.01.06
+		 * Edited: 2015-06-09
+		 * Purpose: Makes sure that you can close the "Console prints" modal
+		 */
 		@Test
 		public void openCloseSyso(){
 			nav.openSysos("class-0");
@@ -86,8 +92,11 @@ public class VisualPage {
 			assertTrue(ErrorMsg.SysoDidNotClose + "1 \n",nav.isSysosClosed());
 		}
 		
-		/* ID: VIS-A.01.01
-		 * Edited: 2015-06-09 */
+		/**
+		 * ID: VIS-A.01.01
+		 * Edited: 2015-06-09
+		 * Purpose: Makes sure that "Classes" text/button (in "Home/Classes/Methods") redirects you to classes in visualizer
+		 */
 		@Test
 		public void chooseAnotherScope(){
 			nav.chooseClass("class-0");
@@ -97,8 +106,11 @@ public class VisualPage {
 			assertNotEquals(ErrorMsg.ScopeUnableToChange + "1 \n", methods, classes);
 		}
 		
-		/* ID: VIS-A.01.02
-		 * Edited: 2015-06-09 */
+		/**
+		 * ID: VIS-A.01.02
+		 * Edited: 2015-06-09
+		 * Purpose: Makes sure that you are able to change timestamp
+		 */
 		@Test
 		public void chooseTimestamp(){
 			nav.changeProject("MockedTestSuite");
@@ -106,16 +118,22 @@ public class VisualPage {
 			assertEquals(ErrorMsg.TimestampIsDifferent + "1 \n", "2015-01-01 08:00" ,nav.getCurrentTimestamp());	
 		}
 		
-	    /* ID: VIS-A.01.05
-		 * Edited: 2015-06-09 */
+	    /**
+	     * ID: VIS-A.01.05
+		 * Edited: 2015-06-09
+		 * Purpose: Makes sure you are able to change project
+		 */
 	    @Test
 	    public void changeProject(){
 			nav.changeProject("MockedTestSuite");
 			assertEquals(ErrorMsg.ProjectNameIsDifferent + "1 \n", "MockedTestSuite", nav.getCurrentProjectName());	
 	    }
 		
-	    /* ID: VIS-A.01.04
-		 * Edited: 2015-06-09 */
+	    /**
+	     * ID: VIS-A.01.04
+		 * Edited: 2015-06-09
+		 * Purpose: Makes sure that there is a thumbnail of a screenshot
+		 */
 		@Test
 		public void isThumbnailPresent(){
 			nav.changeProject("MockedTestSuite");
@@ -124,6 +142,7 @@ public class VisualPage {
 			nav.openMethod("0");
 			assertTrue(ErrorMsg.ScreenshotThumbnailNotPresent + "1 \n", nav.isThumbnailPresent("0"));
 		}
+		
 		@Ignore
 		@Test
 		public void isScreenShotPresent(){
