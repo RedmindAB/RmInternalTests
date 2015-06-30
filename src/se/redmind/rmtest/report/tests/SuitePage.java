@@ -74,7 +74,8 @@ public class SuitePage {
 	    	this.nav = new GraphNav(tDriver);
 	    }
 	    
-	    /* ID: REP-A.02.20
+	    /** ID: REP-A.02.20
+	     * Purpose: To verify function for order test cases by what platform they are run on.
 	     * Edited: 2015-06-26
 	     */
 	    @Test
@@ -131,7 +132,8 @@ public class SuitePage {
 	    	assertEquals(ErrorMsg.CaseBarNameIsDifferent + "5\n",after1, after3);
 	    }
 	    
-	    /* ID: REP-A.02.21
+	    /** ID: REP-A.02.21
+	     * Purpose: To verify function for order test cases by what device they are run on.
 	     * Edited: 2015-06-26
 	     */
 	    @Test
@@ -189,7 +191,8 @@ public class SuitePage {
 	    	assertEquals(ErrorMsg.CaseBarNameIsDifferent + "5\n", after1, after3);
 	    }
 	    
-	    /* ID: REP-A.02.22
+	    /** ID: REP-A.02.22
+	     * Purpose: To verify function for order test cases by what browser they are run on.
 	     * Edited: 2015-06-26
 	     */
 	    @Test
@@ -247,7 +250,8 @@ public class SuitePage {
 	    	assertEquals(ErrorMsg.CaseBarNameIsDifferent + "5\n", after1, after3);
 	    }
 	    
-	    /* ID: REP-A.02.02
+	    /** ID: REP-A.02.02
+	     * Purpose: To verify function for order test cases by what runtime they had.
 	     * Edited: 2015-06-26
 	     */
 	    @Test
@@ -275,7 +279,8 @@ public class SuitePage {
 	    	assertEquals(ErrorMsg.RuntimeIsDifferent + "5\n", after1, after3);
 	    }
 	    
-	    /* ID: REP-A.02.23
+	    /** ID: REP-A.02.23
+	     * Purpose: To verify function for order test cases by what status they received after test run.
 	     * Edited: 2015-06-26
 	     */
 	    @Test
@@ -326,8 +331,9 @@ public class SuitePage {
 	    	assertEquals(ErrorMsg.CaseBarNameIsDifferent + "3\n", actualBefore, actualAfter2);
 	    }
 	    
-	    /* ID: REP-A.02.17
+	    /** ID: REP-A.02.17
 	     * Edited: 2015-06-25
+	     * Purpose: To verify function for order test methods by their name.
 	     * Takes screenshots
 	     */
         @Test
@@ -359,7 +365,8 @@ public class SuitePage {
         	assertEquals(ErrorMsg.MethodBarNameIsDifferent + "5 \n",after1, after3);
         }
         
-        /* ID: REP-A.02.18
+        /** ID: REP-A.02.18
+	     * Purpose: To verify function for ordering test methods by passed ones
 	     * Edited: 2015-06-25
 	     */
         @Test
@@ -384,7 +391,8 @@ public class SuitePage {
         	assertEquals(ErrorMsg.MethodBarTextIsDifferent + "4 \n" ,expected2, after2);
         }
         
-        /* ID: REP-A.02.19
+        /** ID: REP-A.02.19
+	     * Purpose: To verify function for ordering test methods by failed ones
 	     * Edited: 2015-06-25
 	     */
         @Test
@@ -409,7 +417,8 @@ public class SuitePage {
         	assertEquals(ErrorMsg.MethodBarTextIsDifferent + "4 \n" ,expected2, after2);
         }
         
-        /* ID:REP-A.02.16
+        /** ID:REP-A.02.16
+	     * Purpose: To verify function for navigating to test methods
 	     * Edited: 2015-06-11
 	     */
         @Test
@@ -420,6 +429,8 @@ public class SuitePage {
         }
         
         /* ID:REP-A.02.15
+   	     * Purpose: To verify function for navigating to test cases.
+
 	     * Edited: 2015-06-11
 	     */
         @Test
@@ -431,8 +442,10 @@ public class SuitePage {
         	nav.suite.getAllCaseNames();
         }
         
-        /* ID:REP-A.02.04
+        /** ID:REP-A.02.0
+	     * Purpose: To verify function for clicking on a specific test.
 	     * Edited: 2015-06-11
+	     * 
 	     */
         @Test
         public void test_ClickOnThisTestOnly(){
@@ -448,8 +461,10 @@ public class SuitePage {
         	assertEquals(ErrorMsg.LegendListSize + "2 \n", expectedSize, actualSize);
         }
         
-        /* ID:REP-A.02.14
+        /** ID:REP-A.02.14
+	     * Purpose: To verify function for fetching error stack trace.
 	     * Edited: 2015-06-11
+	     * 	     
 	     */
         @Test
         public void test_getErrorCase(){
@@ -463,8 +478,10 @@ public class SuitePage {
         	assertEquals(ErrorMsg.StackTraceIsDifferent + "1 \n", expected, stackTrace);
         }
         
-        /* ID:REP-A.02.13
+        /** ID:REP-A.02.13
+         * Purpose: To verify function for clicking on last stack trace.
 	     * Edited: 2015-06-11
+	     * 
 	     */
         @Test
         public void test_ClickOnLastCase(){
@@ -476,8 +493,9 @@ public class SuitePage {
         	assertEquals(ErrorMsg.StackTraceIsDifferent + "1 \n", expected, stackTrace);
         }
         
-         /* ID:REP-A.02.07
+         /** ID:REP-A.02.07
 	     * Edited: 2015-04-21
+	     * Purpose: To verify function for checking a class.
 	     */
         @Test 
         public void test_CheckClass(){
@@ -491,8 +509,9 @@ public class SuitePage {
         	assertEquals(ErrorMsg.LegendListSize + "2 \n", expectedSize, actualSize);
         }
         
-         /* ID:REP-A.02.03
+         /** ID:REP-A.02.03
 	     * Edited: 2015-04-21
+	     * Purpose: To verify function for checking a method..
 	     */
         @Test 
         public void test_CheckMethod(){
@@ -507,8 +526,9 @@ public class SuitePage {
         	assertEquals(ErrorMsg.LegendListSize + "2 \n", expectedSize, actualSize);
         }
         
-        /* ID:REP-A.02.10
+        /** ID:REP-A.02.10
 	     * Edited: 2015-06-11
+	     * Purpose: To verify function for reloading a class.
 	     */
         @Test 
         public void test_ClickOnClassReload(){
@@ -522,8 +542,9 @@ public class SuitePage {
         	assertEquals(ErrorMsg.LegendListSize + "2 \n", expectedSize, actualSize);
         }
         
-        /* ID:REP-A.02.11
+        /** ID:REP-A.02.11
 	     * Edited: 2015-06-11
+	     * Purpose: To verify function for cleaning up search filters.
 	     */
         @Test
         public void test_FilterCleanUp(){
@@ -534,8 +555,9 @@ public class SuitePage {
         	assertEquals(ErrorMsg.FilterFieldTextIsDifferent + "1 \n", expected, actual);
         }
         
-        /* ID:REP-A.02.12
+        /** ID:REP-A.02.12
 	     * Edited: 2015-06-11
+	     * Purpose: To verify function for filtering on Chrome.
 	     */
         @Test
         public void test_FilterOnChrome(){
@@ -548,8 +570,9 @@ public class SuitePage {
         	assertEquals(ErrorMsg.CaseListSizeIsDifferent + "1 \n", expected, actual);
         }
         
-        /* ID:REP-A.02.08
+        /** ID:REP-A.02.08
 	     * Edited: 2015-06-11
+	     * Purpose: To verify function for clicking on class linktext.
 	     */
 	    @Test
 	    public void test_ClickOnClassLink(){
@@ -559,8 +582,9 @@ public class SuitePage {
 	    	assertTrue(ErrorMsg.PageRedirect + "1 \n", actual.endsWith("/#/reports/classes"));
 	    }
 	    
-	    /* ID:REP-A.02.09
+	    /** ID:REP-A.02.09
 	     * Edited: 2015-06-11
+	     * Purpose: To verify function for clicking on method link text.
 	     */
 	    @Test
 	    public void test_clickOnMethodLink(){
@@ -571,8 +595,9 @@ public class SuitePage {
 	    	assertTrue(ErrorMsg.PageRedirect + "1 \n", actual.endsWith("/#/reports/methods"));
 	    }
 	    
-	    /* ID:REP-A.02.05
+	    /** ID:REP-A.02.05
 	     * Edited: 2015-06-11
+	     * Purpose: To verify function for getting passed, failed and skipped classes.
 	     */
 	    @Test
 	    public void test_getPassFailTextClass(){
@@ -584,8 +609,9 @@ public class SuitePage {
 	    	assertEquals(ErrorMsg.ClassBarTextIsDifferent + "1 \n", expectedAll, actualAll);
 	    }
 	    
-	    /* ID:REP-A.02.06
+	    /** ID:REP-A.02.06
 	     * Edited: 2015-06-11
+	     * Purpose: To verify function for getting passed, failed and skipped methods.
 	     */
 	    @Test
 	    public void test_getPassFailTextMethod(){
