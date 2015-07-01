@@ -80,7 +80,6 @@
 						<include>${runSuite}</include>
 					</includes>
 					<reportNameSuffix>${timestamp}</reportNameSuffix>
-					<redirectTestOutputToFile>true</redirectTestOutputToFile>
 				</configuration>
 			</plugin>
 		</plugins>
