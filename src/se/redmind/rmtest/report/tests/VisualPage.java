@@ -143,25 +143,23 @@ public class VisualPage {
 			assertTrue(ErrorMsg.ScreenshotThumbnailNotPresent + "1 \n", nav.isThumbnailPresent("0"));
 		}
 		
-		@Ignore
 		@Test
 		public void isScreenShotPresent(){
-			nav.changeProject("LongerTestSuite");
-			nav.changeTimestamp("20150101080000");
+			nav.changeProject("RMReportSuite");
+			nav.changeTimestamp2(1);
 			nav.chooseClass("class-0");
-			nav.openMethod("0");
+			nav.openMethod2();
 			nav.openScreenshot("0");
 			nav.waitForSlideAnimation();
 			assertTrue(nav.isScreenshotPresent());
 		} 
 		
-		@Ignore
 		@Test
 		public void isScreenShotSwitched(){
-			nav.changeProject("LongerTestSuite");
-			nav.changeTimestamp("20150101080000");
+			nav.changeProject("RMReportSuite");
+			nav.changeTimestamp2(1);
 			nav.chooseClass("class-0");
-			nav.openMethod("0");
+			nav.openMethod2();
 			nav.openScreenshot("0");
 			assertTrue(nav.isScreenShotSwitched());
 		}

@@ -83,6 +83,19 @@ public class VisualNav extends BaseNav{
 			}
 		}
 	}
+		
+		public void changeTimestamp2(int index){
+			getTimestamp().click();
+			driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("dropdown-timestamp")));
+			WebElement dropDown = getElementByID("dropdown-timestamp");
+			List<WebElement> findElements = dropDown.findElements(By.tagName("ul"));
+			for (WebElement listItem : findElements) {
+				if (listItem.getTagName().equals(index)) {
+					listItem.click();
+					return;
+				}
+			}
+	}
 	
 	public boolean checkAmountOfClasses(int amount){
 		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("class_container")));
@@ -191,6 +204,11 @@ public class VisualNav extends BaseNav{
 		getElementByID("method-" + method).click();
 	}
 	
+	public void openMethod2(){
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.className("panel-group")));
+		getElementByClass("panel-default").click();
+	}
+	
 	public boolean isThumbnailPresent(String method){
 		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("screenshot-header-" + method)));
 		if(getElementByID("screenshot-header-" + method).isDisplayed()){
@@ -206,8 +224,8 @@ public class VisualNav extends BaseNav{
 	}
 	
 	public void openScreenshot(String num){
-		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("screenshot" + num)));
-		getElementByID("screenshot" + num).click();
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("screenshot" + num + "-0")));
+		getElementByID("screenshot" + num + "-0").click();
 	}
 	
 	public boolean isScreenshotPresent(){
