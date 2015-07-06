@@ -76,7 +76,10 @@ public class VisualPage {
 	     */
 	    @Test
 	    public void openSysos(){
-	    	nav.openSysos("class-0");
+	    	nav.changeProject("RMReportSuite");
+			nav.chooseClass("se.redmind.rmtest.report.tests.GraphPage");
+			nav.openMethod("12");
+	    	nav.openSysos();
 	    	assertTrue(ErrorMsg.SysoDidNotOpen + "1 \n", nav.isSysosOpen());
 	    }	    
 
@@ -87,7 +90,9 @@ public class VisualPage {
 		 */
 		@Test
 		public void openCloseSyso(){
-			nav.openSysos("class-0");
+			nav.changeProject("RMReportSuite");
+			nav.chooseClass("se.redmind.rmtest.report.tests.GraphPage");
+			nav.openSysos();
 			nav.closeSysos();
 			assertTrue(ErrorMsg.SysoDidNotClose + "1 \n",nav.isSysosClosed());
 		}
@@ -99,7 +104,8 @@ public class VisualPage {
 		 */
 		@Test
 		public void chooseAnotherScope(){
-			nav.chooseClass("class-0");
+			nav.changeProject("RMReportSuite");
+			nav.chooseClass("se.redmind.rmtest.report.tests.GraphPage");
 			String methods = nav.getMethodTitle();
 			nav.goToScopeByID("1");
 			String classes = nav.getClassTitle();
@@ -125,8 +131,8 @@ public class VisualPage {
 		 */
 	    @Test
 	    public void changeProject(){
-			nav.changeProject("MockedTestSuite");
-			assertEquals(ErrorMsg.ProjectNameIsDifferent + "1 \n", "MockedTestSuite", nav.getCurrentProjectName());	
+			nav.changeProject("RMReportSuite");
+			assertEquals(ErrorMsg.ProjectNameIsDifferent + "1 \n", "RMReportSuite", nav.getCurrentProjectName());	
 	    }
 		
 	    /**
@@ -136,19 +142,17 @@ public class VisualPage {
 		 */
 		@Test
 		public void isThumbnailPresent(){
-			nav.changeProject("MockedTestSuite");
-			nav.changeTimestamp("2015-01-01 08:00");
-			nav.chooseClass("class-0");
-			nav.openMethod("0");
+			nav.changeProject("RMReportSuite");
+			nav.chooseClass("se.redmind.rmtest.report.tests.GraphPage");
+			nav.openMethod("12");
 			assertTrue(ErrorMsg.ScreenshotThumbnailNotPresent + "1 \n", nav.isThumbnailPresent("0"));
 		}
 		
 		@Test
 		public void isScreenShotPresent(){
 			nav.changeProject("RMReportSuite");
-			nav.changeTimestamp2(1);
-			nav.chooseClass("class-0");
-			nav.openMethod2();
+			nav.chooseClass("se.redmind.rmtest.report.tests.GraphPage");
+			nav.openMethod("12");
 			nav.openScreenshot("0");
 			nav.waitForSlideAnimation();
 			assertTrue(nav.isScreenshotPresent());
@@ -157,9 +161,8 @@ public class VisualPage {
 		@Test
 		public void isScreenShotSwitched(){
 			nav.changeProject("RMReportSuite");
-			nav.changeTimestamp2(1);
-			nav.chooseClass("class-0");
-			nav.openMethod2();
+			nav.chooseClass("se.redmind.rmtest.report.tests.GraphPage");
+			nav.openMethod("12");
 			nav.openScreenshot("0");
 			assertTrue(nav.isScreenShotSwitched());
 		}

@@ -7,6 +7,7 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.server.handler.FindElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -33,8 +34,15 @@ public class VisualNav extends BaseNav{
 	}
 	
 	public void chooseClass(String id){
-		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id(id)));
-		getElementByID(id).click();
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.className("suite-info-partial-table")));
+		WebElement suites = getElementByClass("suite-info-partial-table");
+		List<WebElement> findElements = suites.findElements(By.tagName("p"));
+		for (WebElement listItem : findElements) {
+			if (listItem.getText().equals(id)) {
+				listItem.click();
+				return;
+			}
+	}
 	}
 	
 	public WebElement getNav(String NavID){
@@ -108,9 +116,7 @@ public class VisualNav extends BaseNav{
 			return false;
 	}
 	
-	public void openSysos(String id){
-		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id(id)));
-		chooseClass(id);
+	public void openSysos(){
 		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("syso-header")));
 		getElementByID("syso-header").click();
 	}
