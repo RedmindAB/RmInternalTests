@@ -16,7 +16,7 @@ public class OptionsController extends BaseController{
 	}
 
 	public WebElement getNumberOfSuiteRunsButton(){
-		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("suite_runs")));
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("amount-results")));
 		return getElementByID("suite_runs");
 	}
 	
@@ -32,13 +32,13 @@ public class OptionsController extends BaseController{
 	
 
 	public WebElement getChooseGraphView(){
-		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("choose_graph_view")));
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("choose-data-type")));
 		return getElementByID("choose_graph_view");
 	}
 	
 	public WebElement getChooseBreakPoint(){
-		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("choose_break_point")));
-		return getElementByID("choose_break_point");
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("set-criteria")));
+		return getElementByID("set-criteria");
 	}
 	
 	public WebElement getRemoveLineButton(){
