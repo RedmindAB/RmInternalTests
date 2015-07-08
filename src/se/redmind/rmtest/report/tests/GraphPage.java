@@ -139,7 +139,7 @@ public class GraphPage {
 	     */
 	    @Test
 	    public void test_CreateALine(){
-	    	String expectedName1 = "Aggregation";
+	    	String expectedName1 = "LongerTestSuite";
 	    	String actualName1 = nav.graph.getLegendListItem(0).getText();
 	    	assertEquals(ErrorMsg.LegendListTextIsDifferent + "1 \n", expectedName1, actualName1);
 	    	nav.option.changeBreakPoint("None");

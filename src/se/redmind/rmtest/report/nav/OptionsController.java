@@ -42,7 +42,7 @@ public class OptionsController extends BaseController{
 	}
 	
 	public WebElement getRemoveLineButton(){
-		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("button_break")));
+		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("remove-series")));
 		return getElementByID("button_break");
 	}
 	
@@ -74,7 +74,7 @@ public class OptionsController extends BaseController{
 	
 	public void changeChartSuiteRunLimit(String limit){
 		getNumberOfSuiteRunsButton().click();
-		driverFluentWait(15).until(ExpectedConditions.visibilityOf(getElementByID("suite_runs_drop")));
+		driverFluentWait(15).until(ExpectedConditions.visibilityOf(getElementByID("amount-results")));
 		getElementByID("run-amount-"+limit).click();
 	}
 	
@@ -93,7 +93,7 @@ public class OptionsController extends BaseController{
 	
 	public void changeBreakPoint(String breakPoint){
 		getChooseBreakPoint().click();
-		driverFluentWait(15).until(ExpectedConditions.visibilityOf(getElementByID("breakpoint-dropdown")));
+		driverFluentWait(15).until(ExpectedConditions.visibilityOf(getElementByID("set-criteria")));
 		getElementByID("breakpoint-"+breakPoint).click();
 	}
 	
