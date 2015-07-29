@@ -234,23 +234,29 @@ public class SuiteController extends BaseController {
 		return listRuntime;
 	}
 	
+	public String getTotal(String type,String index){
+		String total =listPassedSkippedFailed(type, index).get(0).getText();
+		return total;
+		
+	}
+	
 	public String getPassed(String type,String index){
-		String passed = listPassedSkippedFailed(type, index).get(0).getText();
+		String passed = listPassedSkippedFailed(type, index).get(1).getText();
 		return passed;
 	}
 	
 	public String getSkipped(String type,String index){
-		String skipped = listPassedSkippedFailed(type, index).get(1).getText();
+		String skipped = listPassedSkippedFailed(type, index).get(2).getText();
 		return skipped;
 	}
 	
 	public String getFailed(String type,String index){
-		String failed = listPassedSkippedFailed(type, index).get(2).getText();
+		String failed = listPassedSkippedFailed(type, index).get(3).getText();
 		return failed;
 	}
 	
 	public String getPassedSkippedFailed(String type, String index){
-		String passedSkippedFailed = getPassed(type, index) + getSkipped(type, index) + getFailed(type, index);
+		String passedSkippedFailed = getTotal(type,index) + getPassed(type, index) + getSkipped(type, index) + getFailed(type, index);
 		return passedSkippedFailed;
 	}
 	

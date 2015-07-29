@@ -135,14 +135,14 @@ public class GraphPage {
 	    /**
 	     * ID: REP-A.01.05
 	     * <br> Edited: 2015-06-09
-	     * <br> Purpose: Makes sure that the "Create a line for each" function displays a line when set to "None" with no other information 
+	     * <br> Purpose: Makes sure that the graph displays a line when "Series criteria" function is set to "None"
 	     */
 	    @Test
-	    public void test_CreateALine(){
-	    	String expectedName1 = "LongerTestSuite";
-	    	String actualName1 = nav.graph.getLegendListItem(0).getText();
-	    	assertEquals(ErrorMsg.LegendListTextIsDifferent + "1 \n", expectedName1, actualName1);
+	    public void test_SeriesCriteria(){
 	    	nav.option.changeBreakPoint("None");
+	    	String actualName1 = nav.graph.getLegendListItem(0).getText();
+	    	String expectedName1 = "LongerTestSuite";
+	    	assertEquals(ErrorMsg.LegendListTextIsDifferent + "1 \n", expectedName1, actualName1);
 	    	nav.option.reloadGraph();
 	    	String expectedName2 = nav.graph.getProjectName(0).getText();
 	    	String actualName2 = nav.graph.getLegendListItem(0).getText();
@@ -679,6 +679,7 @@ public class GraphPage {
          */
 	    @Test
 	    public void test_totalPassDifferentColors(){
+	    	nav.option.changeGraphType("Column");
 	    	nav.option.changeBreakPoint("Browser");
 	    	nav.option.addToGraph();
 	    	nav.option.changeDisplayType("Total Pass");
@@ -698,7 +699,7 @@ public class GraphPage {
          */
 	    @Test
 	    public void test_totalFailDifferentColors(){
-	    
+	    	nav.option.changeGraphType("Column");
 	    	nav.option.changeBreakPoint("Platform");
 	    	nav.option.addToGraph();
 	    	nav.option.changeDisplayType("Total Fail");
