@@ -475,10 +475,10 @@ public class GraphPage {
          * <br> Edited: 2015-06-11
          * <br> Purpose: Makes sure you are able to change timestamp
          */
-		@Ignore
+		
         @Test
         public void test_ChooseTimeStampFromDropDrown() {
-        	nav.chooseTimestampFromDropdown("2015-02-10 08:00");
+        	nav.chooseTimestampFromDropdown("20150210080040");
         	WebElement currentTimeStamp = nav.getElementByID("choose_timestamp");
         	assertEquals("2015-02-10 08:00", currentTimeStamp.getText());
         }

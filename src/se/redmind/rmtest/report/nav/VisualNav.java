@@ -226,11 +226,11 @@ public class VisualNav extends BaseNav{
 	}
 	
 	public void waitForSlideAnimation(){
-		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.className("slide-animation")));
+		driverFluentWait(15).until(ExpectedConditions.elementToBeClickable(By.className("slide-animation")));
 	}
 	
 	public void openScreenshot(String num){
-		driverFluentWait(150).until(ExpectedConditions.presenceOfElementLocated(By.id("screenshot" + num + "-0")));
+		driverFluentWait(1500).until(ExpectedConditions.elementToBeClickable(By.id("screenshot" + num + "-0")));
 		getElementByID("screenshot" + num + "-0").click();
 	}
 	
