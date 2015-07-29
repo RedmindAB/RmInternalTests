@@ -152,7 +152,7 @@ public class VisualPage {
 		public void isScreenShotPresent(){
 			nav.changeProject("RMReportSuite");
 			nav.chooseClass("se.redmind.rmtest.report.tests.GraphPage");
-			nav.openMethod("4");
+			nav.openMethod("13");
 			nav.openScreenshot("0");
 			nav.waitForSlideAnimation();
 			assertTrue(nav.isScreenshotPresent());
@@ -162,7 +162,7 @@ public class VisualPage {
 		public void isScreenShotSwitched(){
 			nav.changeProject("RMReportSuite");
 			nav.chooseClass("se.redmind.rmtest.report.tests.GraphPage");
-			nav.openMethod("4");
+			nav.openMethod("13");
 			nav.openScreenshot("0");
 			assertTrue(nav.isScreenShotSwitched());
 		}

@@ -658,14 +658,5 @@ public class SuitePage {
         	String actual = nav.graph.getUrl();
         	assertTrue(ErrorMsg.PageRedirect + "1 \n", actual.endsWith("/#/home"));
         }
-	    
-	    @Ignore
-	    @Test
-//	    Should be moved to GraphPage.
-	    public void test_BreakOnBrowserDispTime(){
-	    	nav.option.changeDisplayType("Run Time");
-	    	nav.option.changeBreakPoint("Browser");
-	    	nav.option.reloadGraph();
-	    }
-
+	     
 }

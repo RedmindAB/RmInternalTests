@@ -168,7 +168,7 @@ public class GraphPage {
 	    	assertEquals(ErrorMsg.LegendListTextIsDifferent + "1 \n", expectedName, actualName);
 	    	assertEquals(ErrorMsg.LegendListSize + "2 \n", expectedSize, actualSize);
     	}
-	    
+	 	    
 	    /**
 	     * ID: REP-A.01.07
 	     * <br> Edited: 2015-06-09

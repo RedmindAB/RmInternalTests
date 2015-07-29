@@ -43,7 +43,7 @@ public class GraphController extends BaseController{
 	public WebElement getLegendListItem(int index) {
 		By legenditems = By.className("highcharts-legend");
 		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(legenditems));
-		List <WebElement> list = driver.findElements(legenditems);
+		List <WebElement> list = driver.findElements(By.className("highcharts-legend-item"));
 		return list.get(index);
 	}
 	
