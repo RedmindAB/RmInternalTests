@@ -78,7 +78,7 @@ public class VisualPage {
 	    public void openSysos(){
 	    	nav.changeProject("RMReportSuite");
 			nav.chooseClass("se.redmind.rmtest.report.tests.GraphPage");
-			nav.openMethod("13");
+			nav.openMethod();
 	    	nav.openSysos();
 	    	assertTrue(ErrorMsg.SysoDidNotOpen + "1 \n", nav.isSysosOpen());
 	    }	    
@@ -144,7 +144,7 @@ public class VisualPage {
 		public void isThumbnailPresent(){
 			nav.changeProject("RMReportSuite");
 			nav.chooseClass("se.redmind.rmtest.report.tests.GraphPage");
-			nav.openMethod("13");
+			nav.openMethod();
 			assertTrue(ErrorMsg.ScreenshotThumbnailNotPresent + "1 \n", nav.isThumbnailPresent("0"));
 		}
 		
@@ -152,7 +152,7 @@ public class VisualPage {
 		public void isScreenShotPresent(){
 			nav.changeProject("RMReportSuite");
 			nav.chooseClass("se.redmind.rmtest.report.tests.GraphPage");
-			nav.openMethod("13");
+			nav.openMethod();
 			nav.openScreenshot("0");
 			nav.waitForSlideAnimation();
 			assertTrue(nav.isScreenshotPresent());
@@ -162,7 +162,7 @@ public class VisualPage {
 		public void isScreenShotSwitched(){
 			nav.changeProject("RMReportSuite");
 			nav.chooseClass("se.redmind.rmtest.report.tests.GraphPage");
-			nav.openMethod("13");
+			nav.openMethod();
 			nav.openScreenshot("0");
 			assertTrue(nav.isScreenShotSwitched());
 		}

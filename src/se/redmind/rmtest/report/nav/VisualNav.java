@@ -205,9 +205,9 @@ public class VisualNav extends BaseNav{
 		return driver.findElement(By.className("screenshot-nav")).getText();
 	}
 		
-	public void openMethod(String method){
-		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("method-" + method)));
-		getElementByID("method-" + method).click();
+	public void openMethod(){
+		driverFluentWait(150).until(ExpectedConditions.presenceOfElementLocated(By.className("accordion-name-container")));
+		getElementByClass("accordion-name-container").click();
 	}
 	
 	public void openMethod2(){
@@ -230,7 +230,7 @@ public class VisualNav extends BaseNav{
 	}
 	
 	public void openScreenshot(String num){
-		driverFluentWait(15).until(ExpectedConditions.presenceOfElementLocated(By.id("screenshot" + num + "-0")));
+		driverFluentWait(150).until(ExpectedConditions.presenceOfElementLocated(By.id("screenshot" + num + "-0")));
 		getElementByID("screenshot" + num + "-0").click();
 	}
 	
